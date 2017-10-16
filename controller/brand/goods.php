@@ -69,6 +69,7 @@ class Controller_Brand_Goods extends Controller_Base {
             $params['genre'] = $genre;
             return $this->display('detail',$params);
         }
+        
         foreach ($sizes as &$size) {
             $size['kummerbund_status'] = 0;
             if($genre['kummerbund_status'] != 0) {
