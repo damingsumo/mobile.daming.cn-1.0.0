@@ -8,4 +8,3 @@
 define('DOMAIN', 'bestdaming.cn');
 
 define('HOME_URL', 'http://dev.mobile.'.DOMAIN.'/');//访问地址
-// define('HOME_URL', 'http://116.62.113.142');
