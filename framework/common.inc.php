@@ -4,9 +4,9 @@ require_once(FW_PATH."/conf/global.config.php");
 // 注册自动加载
 spl_autoload_register('__loadclass');
 $enviroment = isset($_SERVER['RUNTIME_ENVIROMENT']) ? $_SERVER['RUNTIME_ENVIROMENT'] : '';
-if($enviroment == '') {
-    return Response::output('500','环境变量未配置');
-}
+// if($enviroment == '') {
+//     return Response::output('500','环境变量未配置');
+// }
 //配置文件地址
 define('CONFIG_ROOT', FW_PATH.'/conf/'.$enviroment.'/');
 //网站配置文件路径
