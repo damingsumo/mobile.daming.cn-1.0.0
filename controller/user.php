@@ -36,6 +36,8 @@ class Controller_User extends Controller_Base {
             return $this->error('请选择罩杯');
         }
         $params = array();
+        $faces = WebApi_Image_Face::instance()->getFacesByParams(array(), $page=1, $pageSzie=-1);
+        print_r($faces);exit;
         $uid = WebApi_User::instance()->add($params);
         if(!$uid) {
             return $this->error('新增用户失败');
