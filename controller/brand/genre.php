@@ -4,7 +4,7 @@ class Controller_Brand_Genre extends Controller_Base {
      * 首页
      */
     public function actionList() {
-        $brandId = isset($_GET['brand_id']) ? $_GET['brand_id'] : 0;
+        $brandId = isset($_POST['brand_id']) ? $_POST['brand_id'] : 5;
         $params = array();
         $params['brand_id'] = $brandId;
         $Relevances = array();

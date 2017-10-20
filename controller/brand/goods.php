@@ -5,8 +5,8 @@ class Controller_Brand_Goods extends Controller_Base {
      */
     public function actionList() {
         
-        $brandId = isset($_GET['brand_id']) ? $_GET['brand_id'] : 0;
-        $genreId = isset($_GET['genre_id']) ? $_GET['genre_id'] : 0;
+        $brandId = isset($_POST['brand_id']) ? $_POST['brand_id'] : 5;
+        $genreId = isset($_POST['genre_id']) ? $_POST['genre_id'] : 0;
         $params = array();
         $params['brand_id'] = $brandId;
         if($genreId > 0 ) {
@@ -48,32 +48,11 @@ class Controller_Brand_Goods extends Controller_Base {
             return $this->error('未找到用户身材数据');
         }
         $body = current($body);
-        
-        
-        $userHw = WebApi_User_Hw::instance()->getHwsByParams(array('uid'=>$uid));
-        if(empty($userHw)) {
-            return $this->error('未找到用户身高体重数据');
-        }
-        $userHw = current($userHw);
-        $brandsize = WebApi_Brand_Size::instance()->getSizesByParams(array('height'=>$userHw['height'], 'weight'=>$userHw['weight']));
-        $params = array();
-        if(!empty($brandsize)) {
-            $brandsize = current($brandsize);
-            $params['suit_brand_size'] = $brandsize;
-        }
         $sizes = WebApi_Brand_Goods_Size::instance()->getSizesByParams(array('gid'=>$gid));
-        $modelSize = WebApi_Model_Size::instance()->getSizesByParams(array('gid'=>$gid));
-        if(empty($modelSize)) {
-            $params['body'] = $body;
-            $params['good'] = $good;
-            $params['genre'] = $genre;
-            return $this->display('detail',$params);
-        }
-        $modelSize = current($modelSize);
         foreach ($sizes as &$size) {
             $size['kummerbund_status'] = 0;
             if($genre['kummerbund_status'] != 0) {
-                $kummerbund = $size['kummerbund'] - $modelSize['kummerbund'];
+                $kummerbund = $size['kummerbund'] - $body['kummerbund'];
                 if($kummerbund <= 0.5 && $kummerbund >= -0.5) {
                     $size['kummerbund_status'] = 3;
                 } elseif($kummerbund > 0.5 && $kummerbund <= 1.5) {
@@ -89,7 +68,7 @@ class Controller_Brand_Goods extends Controller_Base {
             
             $size['hipline_status'] = 0;
             if($genre['hipline_status'] != 0) {
-                $hipline = $size['hipline'] - $modelSize['hipline'];
+                $hipline = $size['hipline'] - $body['hipline'];
                 if($hipline <= 0.5 && $hipline >= -0.5) {
                     $size['hipline_status'] = 3;
                 } elseif($hipline > 0.5 && $hipline <= 1.5) {
@@ -104,7 +83,7 @@ class Controller_Brand_Goods extends Controller_Base {
             }
             $size['long_legs_status'] = 0;
             if($genre['outseam_status'] != 0) {
-                $longLegs = $size['outseam'] - $modelSize['long_legs'];
+                $longLegs = $size['outseam'] - $body['long_legs'];
                 if($longLegs <= 0.5 && $longLegs >= -0.5) {
                     $size['long_legs_status'] = 3;
                 } elseif($longLegs > 0.5 && $longLegs <= 1.5) {
@@ -119,7 +98,7 @@ class Controller_Brand_Goods extends Controller_Base {
             }
             $size['thigh_girth_status'] = 0;
             if($genre['thigh_girth_status'] != 0) {
-                $thighGirth = $size['thigh_girth'] - $modelSize['thigh_girth'];
+                $thighGirth = $size['thigh_girth'] - $body['thigh_girth'];
                 if($thighGirth <= 0.5 && $thighGirth >= -0.5) {
                     $size['thigh_girth_status'] = 3;
                 } elseif($thighGirth > 0.5 && $thighGirth <= 1.5) {
@@ -134,7 +113,7 @@ class Controller_Brand_Goods extends Controller_Base {
             }
             $size['upper_chest_circumference_status'] = 0;
             if($genre['bust_status'] != 0) {
-                $bust = $size['bust'] - $modelSize['upper_chest_circumference'];
+                $bust = $size['bust'] - $body['upper_chest_circumference'];
                 if($bust <= 0.5 && $kummerbund >= -0.5) {
                     $size['upper_chest_circumference_status'] = 3;
                 } elseif($bust > 0.5 && $kummerbund <= 1.5) {
@@ -149,7 +128,7 @@ class Controller_Brand_Goods extends Controller_Base {
             }
             $size['body_length_status'] = 0;
             if($genre['length_status'] != 0) {
-                $kummerbund = $size['length'] - $modelSize['body_length'];
+                $kummerbund = $size['length'] - $body['body_length'];
                 if($kummerbund <= 0.5 && $kummerbund >= -0.5) {
                     $size['body_length_status'] = 3;
                 } elseif($kummerbund > 0.5 && $kummerbund <= 1.5) {
@@ -164,7 +143,7 @@ class Controller_Brand_Goods extends Controller_Base {
             }
             $size['s_width_status'] = 0;
             if($genre['s_width_status'] != 0) {
-                $kummerbund = $size['s_width'] - $modelSize['s_width'];
+                $kummerbund = $size['s_width'] - $body['s_width'];
                 if($kummerbund <= 0.5 && $kummerbund >= -0.5) {
                     $size['s_width_status'] = 3;
                 } elseif($kummerbund > 0.5 && $kummerbund <= 1.5) {

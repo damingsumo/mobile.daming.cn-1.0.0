@@ -6,6 +6,7 @@ html{
     box-sizing: border-box;
 }
 body{
+	font-size:10px;
 	padding: 0;
 	margin: 0;
 	background-color: #f6f6f6;
@@ -21,7 +22,12 @@ ul{
 	margin: 0;
 	padding: 0;
 }
-li{
+#imgBox img{
+    width:50px;
+    height:50px;
+    left: 50px;
+}
+li{  
 	list-style: none;
 }
 .header{
@@ -233,7 +239,7 @@ li{
 .content_center ul{
 	width: 100%;
 	margin: 0;
-	padding: 1rem;
+	padding: 0 1rem 0 1rem;
 	list-style: none;
 	background: #ffffff;
 	display: table;
@@ -259,7 +265,7 @@ li{
 	display: block;
 	color: #1b1b1b;
 	margin-bottom: 0.5rem;
-	margin-top: 0.5rem;
+	margin-top:1rem;
 }
 .content_center ul li:nth-child(1) a:nth-child(3){
 	text-decoration: none;
@@ -267,13 +273,17 @@ li{
 	opacity: 0.8;
 }
 .content_center ul li:nth-child(2) span{
-	margin-top: 0.5rem;
+	margin-top: 1rem;
+	margin-bottom: 0.5rem;
 	display: block;
 	color: #1b1b1b;
 	opacity: 0.8;
 }
+.content_center ul li:nth-child(2) span:last-child{
+	margin-top:0;
+}
 .content_center ul li:nth-child(3){
-	padding: 1rem 1rem 0 0;
+	padding: 0rem 1rem 0 0;
 }
 .content_center ul li:nth-child(3)>div{
 	background: #e6e2ff;
@@ -298,15 +308,14 @@ li{
 	text-decoration: none;
 	border-radius: 0.4rem;
 	background: #f9f8ff;
+	padding: 0.3rem 0.5rem;
 }
 .content_center ul li:nth-child(3)>div>img{ 
 	width: 5rem;
 	height: 4rem; 
 	display: inline-block;
 }
-.content_center ul li:nth-child(4){
-	padding: 1rem 0 0 1rem;
-}
+ 
 .content_center ul li:nth-child(4)>div{
 	background: #e6e2ff;
 	height: 6rem;
@@ -329,6 +338,7 @@ li{
 	text-decoration: none;
 	border-radius: 0.4rem;
 	background: #f9f8ff;
+	padding: 0.3rem 0.5rem;
 }
 .content_center ul li:nth-child(4)>div>img{ 
 	width: 5rem;
@@ -383,6 +393,7 @@ li{
 	bottom: 0;
 	background: #ffffff;
 	padding: 0.5rem 0;
+	z-index: 50;
 }
 .footer ul{
 	display: flex;
@@ -687,6 +698,9 @@ li{
 	border: 1px solid #bfbfbf;
 	font-size: 1.4rem;
 	color: #1b1b1b;
+}
+.jacket_border{
+	margin-top: 60px;
 }
 .jacket{
 	width: 100%;
@@ -1159,6 +1173,7 @@ align-items: center;
 	padding: 0 3%;
 	float: left; 
 	margin-top: 1rem;
+	margin-bottom: 10rem;
 }
 .clothes_list>div{
     width:50%;
@@ -1192,7 +1207,7 @@ align-items: center;
 .clothes_list li:nth-child(5),.clothes_list li:nth-child(7),
 .clothes_list li:nth-child(9){
 	margin-right: 2%;
-	margin-top: -11.7rem;
+	margin-top: -12rem;
 } 
 .clothes_list li>a>img:first-child{
 	width: 100%;
@@ -1445,9 +1460,9 @@ align-items: center;
 	padding: 0;
 	list-style: none;
 	display: flex;
-	width: 85%;
+	width: 90%;
 	opacity: 0.5;
-	margin: 0 0 0 7%;
+	margin: 0 0 0 5%;
 }
 .right5 ul:nth-child(5) li{
 	flex:1;
@@ -1574,6 +1589,7 @@ align-items: center;
 }
 .content6_bottom ul:nth-child(1) li div select{
 	width: 60%;
+	margin-top: 0.2rem;
 	-moz-appearance: none;
 	-webkit-appearance:none;
 	border: 0;
@@ -2753,7 +2769,13 @@ align-items: center;
 	background-color: #bd0000;
 	border: 1px solid #bd0000;
 }
-@media screen and (min-width: 320px) and (max-width: 413px){
+/*.content_center ul li:nth-child(1), .content_center ul li:nth-child(2){
+	 	font-size: 1.2rem;
+	 }
+	 .content_center ul li:nth-child(1) span:nth-child(2),.content_center ul li:nth-child(2) span{
+	 	margin-top: 1.2rem;
+	 }*/
+/*@media screen and (min-width: 320px) and (max-width: 413px){
 	.last_style div:nth-child(2),.last_style div:nth-child(4),
     .last_style div:nth-child(6),.last_style div:nth-child(8){
    		 left:80%;
@@ -2839,6 +2861,22 @@ align-items: center;
 		margin: 0 22rem;
 		width: 43%;
 	}
+	.content_center ul li:nth-child(1) img{
+		width: 7rem;
+		height: 7rem;
+	}
+	 .content_center ul li:nth-child(1), .content_center ul li:nth-child(2){
+	 	font-size: 1.5rem;
+	 }
+	 .content_center ul li:nth-child(1) span:nth-child(2),.content_center ul li:nth-child(2) span{
+	 	margin-top: 1.5rem;
+	 }
+	.content_center ul li{
+		height: 9rem;
+	}
+	.content_center ul li:nth-child(3) > div,.content_center ul li:nth-child(4) > div{
+		height: 8rem;
+	} 
 }
 @media screen and (min-width: 1023px){
 	.last_style div:nth-child(2),.last_style div:nth-child(4),
@@ -2924,5 +2962,5 @@ align-items: center;
 	.revise_content span{
 		padding: 11.11% 0;
 	}
-} 
+} */
  

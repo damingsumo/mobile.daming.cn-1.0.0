@@ -81,7 +81,7 @@ class WebApi_Bodycomputing extends WebApi{
         //腿长
         $data['long_legs'] = round(86+($height-self::$height)*(20/37)+($weight-self::$weight)*(2/55)+($waist-self::$waist)*(-1/5)+($belly-self::$belly)*(1/5)+($sternType-self::$sternType)*(-1/5)+($hipType-self::$hipType)*(1/5)+($shoulder-self::$shoulder)*(-1/5)+($arm-self::$arm)*(1/5)+($armCircumference-self::$armCircumference)*(1/5)+($hip-self::$hip)*(-1/5)+($thigh-self::$thigh)*(1/5)+($leg-self::$leg)*(-1/5)+($bodyThick-self::$bodyThick)*(1/5)+($bodyLength-self::$bodyLength)*1);
         //身长
-        $data['body_length'] = round($height*0.282);
+        $data['body_length'] = round($height*0.382);
         return $data;
     }
     

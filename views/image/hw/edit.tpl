@@ -173,11 +173,11 @@
 			</ul>
 			<div>
 				<span>-胸罩尺码-</span>
-				<div {if $hw.chest_circumference_type == 2} class="height_color1" {else} class="height_color" {/if}>
+				<div class="height_color1">
 					 <input type="hidden" value="{$hw.chest_circumference_type}" class="eur" name="chest_circumference_type">
 					<div>
- 						<span {if $hw.chest_circumference_type == 2} class="none"{/if}>标准</span>
-						<span {if $hw.chest_circumference_type == 1} class="none"{/if}>欧码</span>
+ 						<span {if $hw.chest_circumference_type == 2}class="none"{/if}>标准</span>
+						<span {if $hw.chest_circumference_type == 1}class="none"{/if}>欧码</span>
 					</div>
 				</div>
 			</div>
@@ -185,7 +185,7 @@
 				<li>
 					<div>
 						<span>下胸围</span>
-						<select {if $hw.chest_circumference_type == 2} class="chest none"{else} class="chest" {/if} name="chest_circumference_type">
+						<select class="chest" name="chest_circumference_type">
 							<option {if $hw.chest_circumference == 1} selected {/if} value="1">60</option>
 							<option {if $hw.chest_circumference == 2} selected {/if} value="2">65</option>
 							<option {if $hw.chest_circumference == 3} selected {/if} value="3">70</option>
@@ -196,7 +196,7 @@
 							<option {if $hw.chest_circumference == 8} selected {/if} value="8">95</option>
 							<option {if $hw.chest_circumference == 9} selected {/if} value="9">100及以上</option>
 						</select>
-						<select {if $hw.chest_circumference_type == 1} class="chest none"{else} class="chest" {/if}name="europe_chest_circumference">
+						<select class="chest1 none" name="europe_chest_circumference">
 							<option {if $hw.europe_chest_circumference == 1} selected {/if} value="1">28</option>
 							<option {if $hw.europe_chest_circumference == 2} selected {/if} value="2">30</option>
 							<option {if $hw.europe_chest_circumference == 3} selected {/if} value="3">32</option>

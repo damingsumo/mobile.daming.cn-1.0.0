@@ -1,5 +1,4 @@
-$(function(){ 
- 
+$(function(){
 	$(".left").on("touchstart", function(e) {
 	 e.preventDefault();
 	 startX = e.originalEvent.changedTouches[0].pageX;
@@ -69,21 +68,21 @@ $(function(){
 		 $(".proper").addClass("none");
 	}); 
 	$(".first").change(function() {
-		if($(".first option:selected").text() !="65cm"){
+		if($(".first option:selected").text() !="79cm"){
 			$(".first").addClass("active");
 		} else{
 			$(".first").removeClass("active");
 		}
 	});
 	$(".second").change(function() {
-		if($(".second option:selected").text() !="30cm"){
+		if($(".second option:selected").text() !="38cm"){
 			$(".second").addClass("active");
 		} else{
 			$(".second").removeClass("active");
 		}
 	});
 	$(".third").change(function() {
-		if($(".third option:selected").text() !="52cm"){
+		if($(".third option:selected").text() !="69cm"){
 			$(".third").addClass("active");
 		} else{
 			$(".third").removeClass("active");
@@ -97,14 +96,14 @@ $(function(){
 		}
 	});
 	$(".fifth").change(function() {
-		if($(".fifth option:selected").text() !="44cm"){
+		if($(".fifth option:selected").text() !="65cm"){
 			$(".fifth").addClass("active");
 		} else{
 			$(".fifth").removeClass("active");
 		}
 	});
 	$(".sixth").change(function() {
-		if($(".sixth option:selected").text() !="39cm"){
+		if($(".sixth option:selected").text() !="50cm"){
 			$(".sixth").addClass("active");
 		} else{
 			$(".sixth").removeClass("active");
@@ -118,21 +117,21 @@ $(function(){
 		}
 	});
 	$(".eighth").change(function() {
-		if($(".eighth option:selected").text() !="40cm"){
+		if($(".eighth option:selected").text() !="50cm"){
 			$(".eighth").addClass("active");
 		} else{
 			$(".eighth").removeClass("active");
 		}
 	});
 	$(".ninth").change(function() {
-		if($(".ninth option:selected").text() !="61cm"){
+		if($(".ninth option:selected").text() !="83cm"){
 			$(".ninth").addClass("active");
 		} else{
 			$(".first").removeClass("active");
 		}
 	});
 	$(".tenth").change(function() {
-		if($(".tenth option:selected").text() !="26cm"){
+		if($(".tenth option:selected").text() !="39cm"){
 			$(".tenth").addClass("active");
 		} else{
 			$(".tenth").removeClass("active");
@@ -266,14 +265,6 @@ $(function(){
 		$(".content5_top ul").animate({"margin-left":'-100%'}, "slow");
 	 	$(".round52").addClass("color5").siblings().removeClass("color5");
 	 });
-	 $('.content5_bottom ul li input[type=checkbox]').click(function() {
-		   $(".content5_bottom ul li input").attr('disabled', true);
-		  		 if ($(".content5_bottom ul li input:checked").length >= 3) {
-		   			 $(".content5_bottom ul li input:checked").attr('disabled', false);
-		   } else {
-		   			 $(".content5_bottom ul li input").attr('disabled', false);
-		   }
-    });
    // 身高体重
 	$(".content6_top").on("touchstart", function(e) {
 	 e.preventDefault();
@@ -311,10 +302,8 @@ $(function(){
 	// 			$(".content6_bottom>div>div>div").addClass("margin-left6");
 	// 		}
 	// 	});
-
-		$(".content6_bottom>div>div").click(function(){ 
-			var aaa=$(".eur").val();
-			if( aaa == 2){
+		$(".content6_bottom>div>div").on("touchstart",function(e){
+			if($(".content6_bottom>div>div").hasClass("height_color")){
 				$(".content6_bottom>div>div").removeClass("height_color");
 				$(".content6_bottom>div>div").addClass("height_color1");
 				$(".chest").show();
@@ -322,30 +311,31 @@ $(function(){
 				$(".eur").val(1);
 				$(".content6_bottom>div>div span:first-child").removeClass("none");
 				$(".content6_bottom>div>div span:last-child").addClass("none");
-				 var _selected = $(".chest1").val(); 
-				 if(_selected == 0){
-				 	 $(".chest option[value='0']").attr("selected","selected");
-				 }else if(_selected == 1){
-				 	$(".chest option[value='1']").attr("selected","selected");
-                 }else if(_selected == 2){
-				 	$(".chest option[value='2']").attr("selected","selected");
-                 }else if(_selected == 3){
-				 	$(".chest option[value='3']").attr("selected","selected");
-                 }else if(_selected == 4){
-				 	$(".chest option[value='4']").attr("selected","selected");
-                 }else if(_selected == 5){
-				 	$(".chest option[value='5']").attr("selected","selected");
-                 }else if(_selected == 6){
-				 	$(".chest option[value='6']").attr("selected","selected");
-                 }else if(_selected == 7){
-				 	$(".chest option[value='7']").attr("selected","selected");
-                 }else if(_selected == 8){
-				 	$(".chest option[value='8']").attr("selected","selected");
-                 }else if(_selected == 9){
-				    $(".chest option[value='9']").attr("selected","selected");
+				 var _selected = $(".chest1").val();
+				 console.log(_selected)
+				 if(_selected == 27){
+				 	 $(".chest option[value='59']").attr("selected","selected");
+				 }else if(_selected == 28){
+				 	$(".chest option[value='60']").attr("selected","selected");
+                 }else if(_selected == 30){
+				 	$(".chest option[value='65']").attr("selected","selected");
+                 }else if(_selected == 32){
+				 	$(".chest option[value='70']").attr("selected","selected");
+                 }else if(_selected == 34){
+				 	$(".chest option[value='75']").attr("selected","selected");
+                 }else if(_selected == 36){
+				 	$(".chest option[value='80']").attr("selected","selected");
+                 }else if(_selected == 38){
+				 	$(".chest option[value='85']").attr("selected","selected");
+                 }else if(_selected == 40){
+				 	$(".chest option[value='90']").attr("selected","selected");
+                 }else if(_selected == 42){
+				 	$(".chest option[value='95']").attr("selected","selected");
+                 }else if(_selected == 44){
+				 	$(".chest option[value='100']").attr("selected","selected");
                  } 
                  
-			} else {
+			} else{
 				$(".content6_bottom>div>div").addClass("height_color");
 				$(".content6_bottom>div>div").removeClass("height_color1"); 
 				$(".chest1").show();
@@ -353,27 +343,28 @@ $(function(){
 				$(".eur").val(2);
 				$(".content6_bottom>div>div span:last-child").removeClass("none");
 				$(".content6_bottom>div>div span:first-child").addClass("none");
-				var _selected = $(".chest").val(); 
-				 if(_selected == 0){
-				 	 $(".chest1 option[value='0']").attr("selected","selected");
-				 }else if(_selected == 1){
-				 	$(".chest1 option[value='1']").attr("selected","selected");
-                 }else if(_selected == 2){
-				 	$(".chest1 option[value='2']").attr("selected","selected");
-                 }else if(_selected == 3){
-				 	$(".chest1 option[value='3']").attr("selected","selected");
-                 }else if(_selected == 4){
-				 	$(".chest1 option[value='4']").attr("selected","selected");
-                 }else if(_selected == 5){
-				 	$(".chest1 option[value='5']").attr("selected","selected");
-                 }else if(_selected == 6){
-				 	$(".chest1 option[value='6']").attr("selected","selected");
-                 }else if(_selected == 7){
-				 	$(".chest1 option[value='7']").attr("selected","selected");
-                 }else if(_selected == 8){
-				 	$(".chest1 option[value='8']").attr("selected","selected");
-                 }else if(_selected == 9){
-				 	$(".chest1 option[value='9']").attr("selected","selected");
+				var _selected = $(".chest").val();
+				 console.log(_selected)
+				 if(_selected == 59){
+				 	 $(".chest1 option[value='27']").attr("selected","selected");
+				 }else if(_selected == 60){
+				 	$(".chest1 option[value='28']").attr("selected","selected");
+                 }else if(_selected == 65){
+				 	$(".chest1 option[value='30']").attr("selected","selected");
+                 }else if(_selected == 70){
+				 	$(".chest1 option[value='32']").attr("selected","selected");
+                 }else if(_selected == 75){
+				 	$(".chest1 option[value='34']").attr("selected","selected");
+                 }else if(_selected == 80){
+				 	$(".chest1 option[value='36']").attr("selected","selected");
+                 }else if(_selected == 85){
+				 	$(".chest1 option[value='38']").attr("selected","selected");
+                 }else if(_selected == 90){
+				 	$(".chest1 option[value='40']").attr("selected","selected");
+                 }else if(_selected == 95){
+				 	$(".chest1 option[value='42']").attr("selected","selected");
+                 }else if(_selected == 100){
+				 	$(".chest1 option[value='44']").attr("selected","selected");
                  } 
 			};
 		}); 
@@ -799,312 +790,5 @@ $(function(){
 	$(".footer ul li").on("touchstart", function(e) {
 		$(this).addClass("opacity").siblings().removeClass("opacity"); 
 	});
-   //发行发色修改  发型合成
-   //马尾辫
-     var data5=['images/chaochangzhi.png','images/bozi.png','images/edanlian.png','images/chaochangzhi1.png']; 
-    $(".hairstyle li:nth-child(1)").click(function(){
-    	base64=[]
-        draw(function(){
-        document.getElementById('imgBox').innerHTML='<img src="'+base64[0]+'">';
-        }) 
-    function draw(fn){
-        var c=document.createElement('canvas'),
-        ctx=c.getContext('2d'),
-        len=data5.length;
-        c.width=200;
-        c.height=250;
-        ctx.rect(0,0,c.width,c.height);
-        ctx.fillStyle='#f8f8f8';
-        ctx.fill();
-        function drawing(n){
-            if(n<len){
-                var img=new Image;
-                img.crossOrigin = 'Anonymous'; //解决跨域
 
-                img.src=data5[n]; 
-                img.onload=function(){
-                    if(n==0){
-                    	 ctx.drawImage(img,68,25,100,160);//长直
-                         drawing(n+1);//递归
-                        
-                    }
-                     else if(n==1){
-                     	 ctx.drawImage(img,63,100,100,40);//脖子
-                         drawing(n+1);//递归
-                    } 
-                    else if(n==2){
-                    	ctx.drawImage(img,73,30,75,90);//脸
-                         drawing(n+1);//递归
-                    } 
-                    else {
-                     	 ctx.drawImage(img,56,25,100,180);//内衬
-                         drawing(n+1);//递归
-                    }  
-                }
-            }else{
-            //保存生成作品图片
-                base64.push(c.toDataURL("images/png",0.8));
-                //alert(JSON.stringify(base64));
-                fn();
-            }
-        }
-        drawing(0);
-    }
-    });
-  //   var data1=['images/mawei.png','images/bozi.png','images/edanlian.png','images/neichen.png'];
- 	// $(".hairstyle li:nth-child(1)").click(function(){
- 	// 	base64=[];
-  //       draw(function(){
-  //       document.getElementById('imgBox').innerHTML='<img src="'+base64[0]+'">';
-  //       }) 
-  //   function draw(fn){
-  //       var c=document.createElement('canvas'),
-  //       ctx=c.getContext('2d'),
-  //       len=data1.length;
-  //       c.width=200;
-  //       c.height=230;
-  //       ctx.rect(0,0,c.width,c.height);
-  //       ctx.fillStyle='#f8f8f8';
-  //       ctx.fill();
-  //       function drawing(n){
-  //           if(n<len){
-  //               var img=new Image;
-  //               img.crossOrigin = 'Anonymous'; //解决跨域
-
-  //               img.src=data1[n];
-  //               console.log( img.src)
-  //               img.onload=function(){
-  //                    if(n==0){
-  //                    	  ctx.drawImage(img,73,25,75,130);//马尾
-  //                        drawing(n+1);//递归
-  //                  }
-  //                    else if(n==1){
-  //                          ctx.drawImage(img,63,100,100,40);//脖子
-  //                        drawing(n+1);//递归
-  //                   } 
-  //                   else if(n==2){
-  //                   	 ctx.drawImage(img,73,30,75,90);//脸
-  //                        drawing(n+1);//递归
-                        
-  //                   } 
-  //                    else {
-  //                   	 ctx.drawImage(img,70,25,80,79);//内衬1
-  //                        drawing(n+1);//递归
-  //                   }  
-  //               }
-  //           }else{
-  //           //保存生成作品图片 
-  //            base64.push(c.toDataURL("image/png",0.8));
-  //               fn();
-  //           }
-  //       }
-  //       drawing(0);
-  //   }
-  //   });
- //丸子头
-  var data2=['images/bozi.png','images/edanlian.png','images/wanzi.png'];
- 	$(".hairstyle li:nth-child(2)").click(function(){
- 		base64=[];
-        draw(function(){
-        document.getElementById('imgBox').innerHTML='<img src="'+base64[0]+'">';
-        }) 
-    function draw(fn){
-        var c=document.createElement('canvas'),
-        ctx=c.getContext('2d'),
-        len=data2.length;
-        c.width=200;
-        c.height=250;
-        ctx.rect(0,0,c.width,c.height);
-        ctx.fillStyle='#f8f8f8';
-        ctx.fill();
-        function drawing(n){
-            if(n<len){
-                var img=new Image;
-                img.crossOrigin = 'Anonymous'; //解决跨域
-
-                img.src=data2[n];
-                console.log( img.src)
-                img.onload=function(){
-                     if(n==0){
-                      ctx.drawImage(img,63,100,100,40);//脖子
-                         drawing(n+1);//递归
-                     	 
-                   }
-                     else if(n==1){
-                     		ctx.drawImage(img,73,30,75,90);//脸
-                         drawing(n+1);//递归
-                          
-                    } 
-                    else{
-                    	  ctx.drawImage(img,70,0,80,120);//丸子
-                         drawing(n+1);//递归
-                        
-                    } 
-                    //  else {
-                    // 	 ctx.drawImage(img,67,0,75,79);//内衬1
-                    //      drawing(n+1);//递归
-                    // }  
-                }
-            }else{
-            //保存生成作品图片 
-             base64.push(c.toDataURL("image/png",0.8));
-                fn();
-            }
-        }
-        drawing(0);
-    }
-    });
-    //波波头
-    var data3=['images/bobo.png','images/bozi.png','images/edanlian.png','images/199.png']; 
-    $(".hairstyle li:nth-child(3)").click(function(){
-    	base64=[]
-        draw(function(){
-        document.getElementById('imgBox').innerHTML='<img src="'+base64[0]+'">';
-        }) 
-    function draw(fn){
-        var c=document.createElement('canvas'),
-        ctx=c.getContext('2d'),
-        len=data3.length;
-        c.width=200;
-        c.height=250;
-        ctx.rect(0,0,c.width,c.height);
-        ctx.fillStyle='#f8f8f8';
-        ctx.fill();
-        function drawing(n){
-            if(n<len){
-                var img=new Image;
-                img.crossOrigin = 'Anonymous'; //解决跨域
-
-                img.src=data3[n];
-                 console.log( img.src)
-                img.onload=function(){
-                    if(n==0){
-                         ctx.drawImage(img,70,24,80,110);//波波头
-                         drawing(n+1);//递归
-                    }
-                     else if(n==1){
-                         ctx.drawImage(img,63,100,100,40);//脖子
-                         drawing(n+1);//递归
-                    } 
-                    else if(n==2){
-                         ctx.drawImage(img,73,30,75,90);//脸
-                         drawing(n+1);//递归
-                    } 
-                     else {
-                      	ctx.drawImage(img,70,24,82,110);//头发
-                         drawing(n+1);//递归
-                    } 
-                }
-            }else{
-            //保存生成作品图片
-                base64.push(c.toDataURL("images/png",0.8));
-                //alert(JSON.stringify(base64));
-                fn();
-            }
-        }
-        drawing(0);
-    }
-    });
-    //长直发
-     var data4=['images/changzhi1.png','images/bozi.png','images/edanlian.png','images/changzhi.png']; 
-    $(".hairstyle li:nth-child(4)").click(function(){
-    	base64=[]
-        draw(function(){
-        document.getElementById('imgBox').innerHTML='<img src="'+base64[0]+'">';
-        }) 
-    function draw(fn){
-        var c=document.createElement('canvas'),
-        ctx=c.getContext('2d'),
-        len=data4.length;
-        c.width=200;
-        c.height=250;
-        ctx.rect(0,0,c.width,c.height);
-        ctx.fillStyle='#f8f8f8';
-        ctx.fill();
-        function drawing(n){
-            if(n<len){
-                var img=new Image;
-                img.crossOrigin = 'Anonymous'; //解决跨域
-
-                img.src=data4[n]; 
-                img.onload=function(){
-                    if(n==0){
-                    	 ctx.drawImage(img,63,25,90,160);//长直
-                         drawing(n+1);//递归
-                        
-                    }
-                     else if(n==1){
-                     	 ctx.drawImage(img,63,100,100,40);//脖子
-                         drawing(n+1);//递归
-                    } 
-                    else if(n==2){
-                    	ctx.drawImage(img,73,30,75,90);//脸
-                         drawing(n+1);//递归
-                    } 
-                    else {
-                     	 ctx.drawImage(img,56,25,115,160);//内衬
-                         drawing(n+1);//递归
-                    }  
-                }
-            }else{
-            //保存生成作品图片
-                base64.push(c.toDataURL("images/png",0.8));
-                //alert(JSON.stringify(base64));
-                fn();
-            }
-        }
-        drawing(0);
-    }
-    });
-	//超长直发
-    //  var data5=['images/chaochangzhi.png','images/bozi.png','images/edanlian.png','images/chaochangzhi1.png']; 
-    // $(".hairstyle li:nth-child(5)").click(function(){
-    // 	base64=[]
-    //     draw(function(){
-    //     document.getElementById('imgBox').innerHTML='<img src="'+base64[0]+'">';
-    //     }) 
-    // function draw(fn){
-    //     var c=document.createElement('canvas'),
-    //     ctx=c.getContext('2d'),
-    //     len=data5.length;
-    //     c.width=200;
-    //     c.height=250;
-    //     ctx.rect(0,0,c.width,c.height);
-    //     ctx.fillStyle='#f8f8f8';
-    //     ctx.fill();
-    //     function drawing(n){
-    //         if(n<len){
-    //             var img=new Image;
-    //             img.crossOrigin = 'Anonymous'; //解决跨域
-
-    //             img.src=data5[n]; 
-    //             img.onload=function(){
-    //                 if(n==0){
-    //                 	 ctx.drawImage(img,63,25,80,100);//长直
-    //                      drawing(n+1);//递归
-                        
-    //                 }
-    //                  else if(n==1){
-    //                  	 ctx.drawImage(img,63,100,100,40);//脖子
-    //                      drawing(n+1);//递归
-    //                 } 
-    //                 else if(n==2){
-    //                 	ctx.drawImage(img,73,30,75,90);//脸
-    //                      drawing(n+1);//递归
-    //                 } 
-    //                 else {
-    //                  	 ctx.drawImage(img,56,200,115,160);//内衬
-    //                      drawing(n+1);//递归
-    //                 }  
-    //             }
-    //         }else{
-    //         //保存生成作品图片
-    //             base64.push(c.toDataURL("images/png",0.8));
-    //             //alert(JSON.stringify(base64));
-    //             fn();
-    //         }
-    //     }
-    //     drawing(0);
-    // }
-    // });
 });

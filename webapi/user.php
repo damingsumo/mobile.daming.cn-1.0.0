@@ -37,7 +37,6 @@ class WebApi_User extends WebApi{
         $params['address'] = isset($data['address']) ? $data['address'] : '';
         $params['create_time'] = date('Y-m-d H:i:s');
         $params['update_time'] = date('Y-m-d H:i:s');
-        print_r($params);
         return CoreApi_User::instance()->insert($params);
     }
 }

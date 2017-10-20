@@ -93,12 +93,4 @@ class Controller_User_Face extends Controller_Base {
     }
     
     
-    public function changeFace() {
-        $faceId = isset($_POST['face_id']) ? $_POST['face_id'] : 0;
-        $face = WebApi_Image_Face::instance()->row('*', $faceId);
-        
-        
-        
-    }
-    
 }

@@ -5,6 +5,6 @@
  */
 
 //主域名
-define('DOMAIN', 'bestdaming.cn');
+define('DOMAIN', 'daming.com.cn');
 
 define('HOME_URL', 'http://dev.mobile.'.DOMAIN.'/');//访问地址

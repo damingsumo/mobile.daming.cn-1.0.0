@@ -7,7 +7,7 @@ define('INTERNAL_IP', '127.0.0.1');
 //本服务器内网端口
 define('INTERNAL_PORT', '80');
 //本服务外网ip
-define('EXTERNAL_IP', '116.62.113.142');
+define('EXTERNAL_IP', '210.14.145.213');
 //本服务外网端口
 define('EXTERNAL_PORT', '80');
 /****自行配置end*******/

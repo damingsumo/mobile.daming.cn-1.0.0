@@ -15,7 +15,7 @@ class CoreApi {//implements idata {
 	protected $_module;
 	protected $_fields;
 	
-	static public function &Model_Size (){
+	static public function &instance (){
 		$class = get_called_class();
 		if (!isset($class::$instance__) || empty($class::$instance__)) {
 			$class::$instance__ = new $class;

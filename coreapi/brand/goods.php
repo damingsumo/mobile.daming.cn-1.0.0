@@ -39,7 +39,7 @@ class CoreApi_Brand_Goods extends CoreApi {
 		$sql = 'select * from ' . $this->_tableName . ' where 1 ';
 		$binds = array();
 		if(isset($params['genre_id'])) {
-		    $sql .= ' and genre_id= '. $params['genre_id'];
+		    $sql .= ' and genre_id= '. $params['keyword'];
 		    unset($params['genre_id']);
 		}
 		if(!empty($params)) {
@@ -64,7 +64,7 @@ class CoreApi_Brand_Goods extends CoreApi {
 	    $sql = 'select count(*) as total from ' . $this->_tableName . ' where 1 ';
 	    $binds = array();
 	    if(isset($params['genre_id'])) {
-	        $sql .= ' and genre_id= '. $params['genre_id'];
+	        $sql .= ' and genre_id= '. $params['keyword'];
 	        unset($params['genre_id']);
 	    }
 	    foreach($params as $k => $v) {

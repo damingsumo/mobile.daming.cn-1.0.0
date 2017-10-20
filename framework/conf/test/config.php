@@ -20,7 +20,9 @@ define('FILE_SERVER', 'pic.bestdo.com');
 /********************变量start*************************/
 //数据库配置
 $dbServerArray = array(
-    'yd_res' => 'mysql:host=116.62.113.142;port=3306;dbname=myg|root|root',
+    'Default' => 'mysql:host=rm-bp1sytr570613fyy0.mysql.rds.aliyuncs.com;port=3306;dbname=test_match|test_iyd|Changdong123',
+    'yd_finance2' => 'mysql:host=rm-bp1sytr570613fyy0.mysql.rds.aliyuncs.com;port=3306;dbname=test_finance2|test_iyd|Changdong123',
+    'yd_res' => 'mysql:host=rm-bp1sytr570613fyy0.mysql.rds.aliyuncs.com;port=3306;dbname=test_yd_res|test_iyd|Changdong123',
 );
 
 //Sphinx的配置文件.场馆,教练,文档三个索引.
