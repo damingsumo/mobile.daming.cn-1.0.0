@@ -1,40 +1,60 @@
-<?php
+﻿<?php
 /**
- * 首页
- * @author zss
+ * 首页操作类 
+ * @author zq
  * @version 1.0.0 
  * 
  */
 class Controller_Index extends Controller_Base {
 	/**
-	 * 首页
+	 * @note 登录
+	 * @author
 	 */
-    public function Index() {
-//         $params = array();
-//         $total = WebApi_Brand::instance()->getBrandsCountByParams($params);
-//         $brands = array();
-//         if($total > 0 ) {
-//             $brands = WebApi_Brand::instance()->getBrandsByParams($params);
-//         }
-//         $params['brands'] = $brands;
-//         foreach ($brands as &$brand) {
-//             $brand['picture_url'] = MGR_DOMIAN.$brand['picture_url'];
-//         }
-//         $params['total'] = $total;
-//         return $this->display('index', $params);
-        return $this->display('user/add');
-    }
-    
-    
-    public function goCollection() {
-        return $this->display('collection');
-    }
-    
-    public function goAboutUs() {
-        return $this->display('aboutus');
-    }
-    
-    
+	public function login() {
+		if(Account::checkLogin()) {
+			http::go('/index/index');
+		}
+		return $this->display('login');
+	}
+	
+	/**
+	 * @note 首页index
+	 */
+	public function actionIndex() {
+	    $uid = Account::getUid();
+	    $hw = WebApi_User_Hw::instance()->getHwsCountByParams(array('uid'=>$uid));
+	    if($hw != 1) {
+	        return http::go('/user/goadd');
+	    }
+		return $this->display('index/index');
+	}
+	
+	/**
+	 * 跳转注册页面
+	 */
+	public function goRegister() {
+	    return $this->display('index/register');
+	}
+	
+	/**
+	 * 注册
+	 */
+	public function register() {
+	    $username = isset($_POST['username']) ? $_POST['username'] : '';
+	    $password = isset($_POST['password']) ? $_POST['password'] : '';
+	    $total = WebApi_User::instance()->getUsersCountByParams(array('username'=>$username));
+	    if($total != 0) {
+	        return $this->ajaxError('该用户名已被注册');
+	    }
+	    $uid = WebApi_User::instance()->add(array('username'=>$username,'password'=>$password));
+	     
+	    $account = WebApi_User::instance()->login($username, $password);
+	    if($account == false) {
+	        return $this->ajaxError('登录失败,请重新登录');
+	    }
+	    return $this->ajaxSuccess('注册成功');
+	     
+	}
+	
 }
-
 ?>

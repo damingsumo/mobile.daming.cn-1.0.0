@@ -1,284 +1,354 @@
 <?php
 /**
- * SDK通信HTTP类
- * 2014-12-17 新增加CURL通信
- * 远程通信必须引入此类
- * @author liu 2014-03-05
- * socket 通信采用了workerman的功能.http://www.workerman.net/workerman-jsonrpc
- * @version 1.0.1 2014-09-18 更新的时候务必更改Remote类的version !
+ * 通信类
+ * @author wqy
  *
  */
 class Remote {
+	//http请求超时时间
+	const TIME_OUT = 30;
+	//请求方式是来还是去
+	public $service_type = '';
+	//请求服务servic_id
+	public $service_id = '';
+	//请求服务地址
+	public $service_url = '';
+	//请求服务加密key
+	public $service_key = '';
+	//各服务之间的关系
+	public static $service_keys = array ();
+	//各服务的信息
+	public static $service_infos = array ();
+	//本服务控制层
+	public static $service_controller = '';
+	//本服务serviceId
+	public static $local_service_id = '';
+	//本服务版本
+	public static $local_service_version = '';
+	//本服务服务类型
+	public static $local_service_type = '';
+	//本服务keys缓存的键名
+	public static $local_redis_key = '';
+	//本服务infos缓存的键名
+	public static $local_redis_info = '';
+	//本服务与基础配置服务通信key
+	public static $base_service_key = '';
+	//日志目录
+	public static $log_dir = '/logs/remote/';
 	
-	private  $version = '1.0.1';
-	
-	//发送数据和接收数据的超时时间  单位S
-	const TIME_OUT = 10;
-	
-	//基础服务方式
-	const REMOTE_MODE = 'CURL';//CURL或者SOCKET只限于两种
-	
-	//curl模式下域名地址
-	const REMOTE_CURL_DOMAIN = 'http://base.service.bestdo.com/';
-	
-	//socket模式下的地址
-	const REMOTE_SOCKET_ADDRESS = 'tcp://192.168.18.189:2014';
-	/**
-	 * 服务端地址数据, 支持多个服务端
-	 * @var array
-	 */
-	protected static $addressArray = array(
-		0	=>	self::REMOTE_SOCKET_ADDRESS
-	);
-
-	/**
-	 * 异步调用实例
-	 * @var string
-	 */
-	protected static $asyncInstances = array();
-
-	/**
-	 * 同步调用实例
-	 * @var string
-	 */
-	protected static $instances = NULL;
-
-	/**
-	 * 到服务端的socket连接
-	 * @var resource
-	 */
-	protected  $connection = NULL;
-
-	/**
-	 * 实例的服务名
-	 * @var string
-	 */
-	protected $serviceName = 'BASE-SERVICE';
-
-	/**
-	 * 获取一个实例
-	 *
-	 * @param string $service_name
-	 * @return object
-	 */
-	public static function instance() {
-		if(self::$instances == NULL) {
-			self::$instances = new self();
+	public function __construct($serviceId, $type = 'goal') {
+		if (empty ( $serviceId )) {
+			die ( 'serviceId不能为空！' );
 		}
-		return self::$instances;
-	}
-
-	/**
-	 * 构造函数
-	 *
-	 * @param string $service_name
-	 */
-	protected function __construct() {
-		
-	}
-
-	/**
-	 * 调用,目前仅支付同步操作
-	 *
-	 * @param string $domian
-	 * @param string $uri
-	 * @param array $arguments
-	 * @param string $type GET|POST
-	 * @return mixed
-	 * @throws Exception
-	 */
-	public function call($domian, $uri, $arguments, $type = 'GET') {
-		if(self::REMOTE_MODE == 'SOCKET') {
-			$this->sendSocketData($uri, $arguments, $type, $this->version);
-			return $this->recvSocketData();
-		} elseif (self::REMOTE_MODE == 'CURL') {//curl
-			return $this->sendCurlRequest($domian, $uri, $arguments, $type, $this->version);
+		$adapterRequest = config ( "domainArray", $_SERVER ['HTTP_HOST'] );
+		$controller = strtoupper ( $adapterRequest ['controller'] );
+		if (! defined ( $controller . '_LOCAL_SERVICE_ID' )) {
+			die ( '本服务serviceId未定义' );
 		}
-		return array('status' => 500, 'data' => null);
+		if (! defined ( $controller . '_LOCAL_SERVICE_VERSION' )) {
+			die ( '本服务serviceVersion未定义' );
+		}
+		if (! defined ( $controller . '_LOCAL_SERVICE_TYPE' )) {
+			die ( '本服务serviceType未定义' );
+		}
+		if (! defined ( $controller . '_SERVICE_KEY_CACHE_KEY' )) {
+			die ( '未定义redis存储key的键名' );
+		}
+		if (! defined ( $controller . '_BASIC_SERVICE_KEY' )) {
+			die ( '与基础服务通信key未定义' );
+		}
+		if (! defined ( $controller . '_SERVICE_INFO_CACHE_KEY' )) {
+			die ( '未定义redis存储info的键名' );
+		}
+		self::$service_controller = $controller;
+		self::$local_service_id = constant ( $controller . '_LOCAL_SERVICE_ID' );
+		self::$local_service_version = constant ( $controller . '_LOCAL_SERVICE_VERSION' );
+		self::$local_service_type = constant ( $controller . '_LOCAL_SERVICE_TYPE' );
+		self::$local_redis_key = constant ( $controller . '_SERVICE_KEY_CACHE_KEY' );
+		self::$local_redis_info = constant ( $controller . '_SERVICE_INFO_CACHE_KEY' );
+		self::$base_service_key = constant ( $controller . '_BASIC_SERVICE_KEY' );
+		$this->service_type = $type;
+		$this->service_id = $serviceId;
+		$this->getServiceKey ();
 	}
-
-	/**
-	 * GET方式调用
-	 *
-	 * @param string $domian
-	 * @param string $uri
-	 * @param array $arguments
-	 * @return array
-	 */
-	public function get($domian, $uri, $arguments) {
-		return $this->call($domian, $uri, $arguments, 'GET');
-	}
-
+	
 	/**
 	 * POST方式调用
 	 *
-	 * @param string $domian
 	 * @param string $uri
 	 * @param array $arguments
 	 * @return array
 	 */
-	public function post($domian, $uri, $arguments) {
-		return $this->call($domian, $uri, $arguments, 'POST');
-	}
-
-	/**
-	 * 发送数据给服务端
-	 *
-	 * @param string $uri
-	 * @param array $arguments
-	 * @param string $type GET|POST
-	 * @return bool
-	 */
-	public function sendSocketData($uri, $arguments, $type, $version) {
-		$this->openConnection();
-		$bin_data = JsonProtocol::encode(array(
-				'type' => $type,
-				'uri' => $uri,
-				'version' => $version,
-				'param_array' => $arguments
-		));
-		return fwrite($this->connection, $bin_data) == strlen($bin_data);
-	}
-
-	/**
-	 * 从服务端接收数据
-	 *
-	 * @throws Exception
-	 */
-	public function recvSocketData() {
-		$ret = fgets($this->connection);
-		$this->closeConnection();
-		if(!$ret) {
-			throw new Exception("recvData empty");
+	public function post($uri, $arguments = array(), $anthor = array()) {
+		$this->getServiceInfo ();
+		$keys = self::$service_keys;
+		if (! empty ( $keys )) {
+			foreach ( $keys as $value ) {
+				if (isset ( $value ['goalServiceId'] ) && $value ['goalServiceId'] == $this->service_id) {
+					$this->service_key = $value ['sercertKey'];
+					break;
+				}
+			}
 		}
-
-		return JsonProtocol::decode($ret);
-	}
-
-	//通过CURL访问的处理请求
-	public function sendCurlRequest($domain, $uri, $arguments, $type, $version) {
-		$enviroment = isset($_SERVER['RUNTIME_ENVIROMENT']) ? $_SERVER['RUNTIME_ENVIROMENT'] : '';
-		$url = $enviroment == 'online' ? 'http://'.$domain : 'http://test.'.$domain;
-		$post = array();
-		$url .= '/'.$uri.'?version='.$version.'&action=curl&';
-		if($type == 'GET') {
-			$url .= http_build_query($arguments);
-		} else {
-			$post = $arguments;
-		} 
-		$result = self::curl($url, $post);
-		 
-		return JsonProtocol::decode($result);
+		$infos = self::$service_infos;
+		if (! empty ( $infos )) {
+			foreach ( $infos as $value ) {
+				if (isset ( $value ['serviceId'] ) && $value ['serviceId'] == $this->service_id) {
+					//0java 1php
+					$this->service_url = isset ( $value ['lang'] ) && $value ['lang'] == '1' ? ADAPTER_SERVICE_URL . '/api/' . $value ['serviceName'] . '/' . $value ['serviceVersion'] . '/' : trim ( $value ['serviceUrl'], '/' ) . '/';
+					break;
+				}
+			}
+		}
+		if ($this->service_key == '') {
+			return Response::output ( '', 1053, '本服务' . self::$local_service_id . '与服务' . $this->service_id . '通信key为空，请去基础配置服务配置' );
+		}
+		if ($this->service_url == '') {
+			return Response::output ( '', 1053, '服务' . $this->service_id . '的地址为空，请去基础配置服务配置' );
+		}
+		return $this->sendCurlRequest ( $uri, $arguments, $anthor );
 	}
 	
 	/**
-	 * 打开到服务端的连接
-	 *
-	 * @throws Exception
+	 * 获取请求来源服务器的key
 	 */
-	protected function openConnection() {
-		$address = self::$addressArray[array_rand(self::$addressArray)];
-		$this->connection = stream_socket_client($address, $err_no, $err_msg);
-		if(!$this->connection)
-		{
-			throw new Exception("can not connect to $address , $err_no:$err_msg");
+	public function getFromKey() {
+		$keys = self::$service_keys;
+		if (! empty ( $keys )) {
+			foreach ( $keys as $value ) {
+				if (isset ( $value ['fromServiceId'] ) && $value ['fromServiceId'] == $this->service_id) {
+					$this->service_key = $value ['sercertKey'];
+					$this->service_url = trim ( $value ['goalServiceUrl'], '/' ) . '/';
+					break;
+				}
+			}
 		}
-		stream_set_timeout($this->connection, self::TIME_OUT);
-	}
-
-	/**
-	 * 关闭到服务端的连接
-	 *
-	 * @return void
-	 */
-	protected function closeConnection() {
-		fclose($this->connection);
-		$this->connection = null;
-	}
-
-	public function setDebug() {
-		$this->debug = true;
-	}
-
-	public function cancelDebug() {
-		$this->debug = false;
+		if ($this->service_key == '') {
+			return Response::output ( '', 1053, '本服务' . self::$local_service_id . '与服务' . $this->service_id . '通信key为空，请去基础配置服务配置' );
+		}
+		if ($this->service_url == '') {
+			return Response::output ( '', 1053, '服务' . $this->service_id . '的地址为空，请去基础配置服务配置' );
+		}
+		
+		return $this->service_key;
 	}
 	
-	//CURL	通信 2014-12-17
-	public static function curl($url, $post = array()) {
-	
-		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_URL, $url);
-		//		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0); // 对认证证书来源的检查
-		//    	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 1); // 从证书中检查SSL加密算法是否存在
-		curl_setopt($ch, CURLOPT_POST, 1);
-		curl_setopt($ch, CURLOPT_HEADER, 0);
-		curl_setopt($ch, CURLOPT_HTTPHEADER, array("content-type: application/x-www-form-urlencoded; charset=utf-8" ));
-		curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($post));
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($ch, CURLOPT_TIMEOUT, self::TIME_OUT);
-		$strReturn = curl_exec($ch);
-		if (curl_errno($ch)) {
-			echo 'Errno'.curl_error($ch);
+	/**
+	 * 获取请求来源服务器的key
+	 */
+	public function getGoalKey() {
+		$keys = self::$service_keys;
+		if (! empty ( $keys )) {
+			foreach ( $keys as $value ) {
+				if (isset ( $value ['goalServiceId'] ) && $value ['goalServiceId'] == $this->service_id) {
+					$this->service_key = $value ['sercertKey'];
+					$this->service_url = trim ( $value ['goalServiceUrl'], '/' ) . '/';
+					break;
+				}
+			}
 		}
-		curl_close ($ch);
-		return trim($strReturn);
+		if ($this->service_key == '') {
+			return Response::output ( '', 1053, '本服务' . self::$local_service_id . '与服务' . $this->service_id . '通信key为空，请去基础配置服务配置' );
+		}
+		if ($this->service_url == '') {
+			return Response::output ( '', 1053, '服务' . $this->service_id . '的地址为空，请去基础配置服务配置' );
+		}
+		
+		return array ('key' => $this->service_key, 'service_url' => $this->service_url );
 	}
 	
-}
-
-/**
- * RPC 协议解析 相关
- * 协议格式为 [json字符串\n]
- * */
-class JsonProtocol {
 	/**
-	 * 从socket缓冲区中预读长度
-	 * @var integer
+	 * 获取被请求服务器的域名
 	 */
-	const PRREAD_LENGTH = 87380;
-
-	/**
-	 * 判断数据包是否接收完整
-	 *
-	 * @param string $bin_data
-	 * @return integer 0代表接收完毕，大于0代表还要接收数据
-	 */
-	public static function dealInput($bin_data) {
-		$bin_data_length = strlen($bin_data);
-		// 判断最后一个字符是否为\n，\n代表一个数据包的结束
-		if($bin_data[$bin_data_length-1] !="\n")
-		{
-			// 再读
-			return self::PRREAD_LENGTH;
+	public function getGoalServiceDomain() {
+		$keys = self::$service_keys;
+		if (! empty ( $keys )) {
+			foreach ( $keys as $value ) {
+				if (isset ( $value ['goalServiceId'] ) && $value ['goalServiceId'] == $this->service_id) {
+					$this->service_url = $value ['goalServiceUrl'];
+					break;
+				}
+			}
 		}
-		return 0;
+		if ($this->service_url == '') {
+			die ( '本服务' . self::$local_service_id . '与服务ID' . $this->service_id . '不存在关系，请去基础服务配置' );
+		}
+		return $this->service_url;
 	}
-
 	/**
-	 * 将数据打包成Rpc协议数据
-	 *
-	 * @param mixed $data
-	 * @return string
+	 * 获取通信密钥
 	 */
-	public static function encode($data) {
-		return json_encode($data)."\n";
+	final function getServiceKey() {
+		global $redisConfig;
+		$redis = new Cache ( $redisConfig );
+		$keys = $redis->get ( self::$local_redis_key );
+		$isExist = false;
+		if (! empty ( $keys )) {
+			foreach ( $keys as $value ) {
+				if (($this->service_type == 'goal' && isset ( $value ['goalServiceId'] ) && $value ['goalServiceId'] == $this->service_id) || ($this->service_type == 'from' && isset ( $value ['fromServiceId'] ) && $value ['fromServiceId'] == $this->service_id)) {
+					$isExist = true;
+					break;
+				}
+			}
+		}
+		//缓存中不存在配置,去配置服务器请求
+		if (! $isExist) {
+			$this->service_key = self::$base_service_key;
+			$this->service_url = BASIC_SERVICE_URL;
+			//内网IP （必填）
+			$arguments ['internalIp'] = INTERNAL_IP;
+			//内网端口（必填）
+			$arguments ['internalPort'] = INTERNAL_PORT;
+			//外方访问IP或者域名（必填）
+			$arguments ['externalIp'] = EXTERNAL_IP;
+			//外网访问端口（必填）
+			$arguments ['externalPort'] = EXTERNAL_PORT;
+			//服务节点的出口ip
+			$arguments ['accessIp'] = '';
+			$serviceConfig = $this->sendCurlRequest ( BASIC_SERVICE_KEY_FUNC, $arguments, '' );
+			if ($serviceConfig ['code'] != 200) {
+				//@todo 日志、报错
+				return Response::output ( array (), 400, '基础配置服务返回信息：' . $serviceConfig ['msg'] );
+			}
+			if (empty ( $serviceConfig ['data'] )) {
+				return Response::output ( array (), 400, '本服务未在基础服务注册' );
+			}
+			//存入cache
+			$keys = isset ( $serviceConfig ['data'] ['list'] ) ? $serviceConfig ['data'] ['list'] : array ();
+			
+			$redis->set ( self::$local_redis_key, $keys );
+		}
+		self::$service_keys = $keys;
+		$this->service_key = '';
+		$this->service_url = '';
 	}
-
+	
 	/**
-	 * 解析Rpc协议数据
-	 *
-	 * @param string $bin_data
-	 * @return mixed
+	 * 获取服务信息
 	 */
-	public static function decode($bin_data) {
-		$result = json_decode(trim($bin_data), true);
-		if(json_last_error() == 0) {
+	final function getServiceInfo() {
+		global $redisConfig;
+		$redis = new Cache ( $redisConfig );
+		$infos = $redis->get ( self::$local_redis_info );
+		$isExist = false;
+		//判断缓存内是否存在
+		if (! empty ( $infos )) {
+			foreach ( $infos as $value ) {
+				if (isset ( $value ['serviceId'] ) && $value ['serviceId'] == $this->service_id) {
+					$isExist = true;
+					break;
+				}
+			}
+		}
+		//缓存中不存在配置,去配置服务器请求
+		if (! $isExist) {
+			$arguments ['goalServiceIds'] = '';
+			if (! empty ( self::$service_keys )) {
+				foreach ( self::$service_keys as $value ) {
+					if (isset ( $value ['goalServiceId'] ) && ! empty ( $value ['goalServiceId'] )) {
+						$arguments ['goalServiceIds'] .= $value ['goalServiceId'] . ',';
+					}
+				}
+			}
+			if (! empty ( $arguments ['goalServiceIds'] )) {
+				
+				$this->service_key = self::$base_service_key;
+				$this->service_url = BASIC_SERVICE_URL;
+				
+				$serviceConfig = $this->sendCurlRequest ( BASIC_SERVICE_INFO_FUNC, $arguments, '' );
+				if ($serviceConfig ['code'] != 200) {
+					//@todo 日志、报错
+					return Response::output ( array (), 400, '基础配置服务返回信息：' . $serviceConfig ['msg'] );
+				}
+				if (empty ( $serviceConfig ['data'] )) {
+					return Response::output ( array (), 400, '本服务未在基础服务注册' );
+				}
+				//存入cache
+				$infos = isset ( $serviceConfig ['data'] ['list'] ) ? $serviceConfig ['data'] ['list'] : array ();
+				$redis->set ( self::$local_redis_info, $infos );
+			}
+		}
+		self::$service_infos = $infos;
+		$this->service_key = '';
+		$this->service_url = '';
+	}
+	/**
+	 * 获取服务返回地址
+	 */
+	final function getServiceBackUrl() {
+		$this->getServiceInfo ();
+		$serviceNotifyUrl = '';
+		$infos = self::$service_infos;
+		if (! empty ( $infos )) {
+			foreach ( $infos as $value ) {
+				if (isset ( $value ['serviceId'] ) && $value ['serviceId'] == $this->service_id && isset ( $value ['notifyUrl'] )) {
+					$serviceNotifyUrl = $value ['notifyUrl'];
+					break;
+				}
+			}
+		}
+		
+		return $serviceNotifyUrl;
+	}
+	
+	/**
+	 * 通过CURL访问的处理请求
+	 * @param $uri api方法
+	 * @param $arguments 业务请求参数
+	 * @param $anthor 其他参数
+	 */
+	public function sendCurlRequest($uri, $arguments, $anthor = array()) {
+		//请求地址
+		$url = $this->service_url . $uri . '?';
+		$serviceId = self::$local_service_id;
+		$serviceVersion = self::$local_service_version;
+		$serviceType = self::$local_service_type;
+		//业务线ID 来源基础服务 必须
+		$params ['serviceId'] = $serviceId;
+		//业务线版本 统一版本管理 必须
+		$params ['serviceVersion'] = $serviceVersion;
+		//业务线类型 0 Web端,1 移动端， 2 Wap端 必须
+		$params ['serviceType'] = $serviceType;
+		//回溯信息
+		$params ['state'] = isset ( $anthor ['state'] ) ? $anthor ['state'] : '';
+		//默认当前版本号（对方服务版本）
+		$params ['version'] = isset ( $anthor ['version'] ) ? $anthor ['version'] : '';
+		//
+		$params ['proxy'] = isset ( $anthor ['proxy'] ) ? $anthor ['proxy'] : '';
+		//设备信息
+		$params ['device'] = isset ( $anthor ['device'] ) ? $anthor ['device'] : '';
+		//业务数据 3des加密        
+		$encrypt = new Encrypt ( $this->service_key );
+		$params ['data'] = $encrypt->encrypt ( $arguments );
+		$start = microtime ( true );
+		$result = self::curl ( $url, $params );
+		$time = microtime ( true ) - $start;
+		Logs::api ( '服务id' . $serviceId . '请求地址' . $url . '请求参数：', $arguments );
+		Logs::api ( '服务id' . $serviceId . '请求地址' . $url . '请求结果' . $result );
+		Logs::perf ( '请求地址' . $url . '，耗时' . $time );
+		if (is_array ( $result )) {
 			return $result;
 		}
-		return array('status'=>500, 'data'=>null);
+		return JsonProtocol::decode ( $result );
+	}
+	//curl通信
+	public static function curl($url, $post) {
+		$ch = curl_init ();
+		curl_setopt ( $ch, CURLOPT_URL, $url );
+		curl_setopt ( $ch, CURLOPT_POST, 1 );
+		curl_setopt ( $ch, CURLOPT_HEADER, 0 );
+		curl_setopt ( $ch, CURLOPT_HTTPHEADER, array ('content-type: application/x-www-form-urlencoded; charest=UTF-8' ) );
+		curl_setopt ( $ch, CURLOPT_POSTFIELDS, http_build_query ( $post ) );
+		curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, true );
+		curl_setopt ( $ch, CURLOPT_TIMEOUT, self::TIME_OUT );
+		$strReturn = curl_exec ( $ch );
+		if (curl_errno ( $ch )) {
+			$msg = '服务id' . $post ['serviceId'] . '  CURL请求' . $url . '超时,错误信息：' . curl_error ( $ch );
+			Logs::api ( $msg );
+			curl_close ( $ch );
+			return Response::output ( array (), 10010, $msg );
+		}
+		curl_close ( $ch );
+		return trim ( $strReturn, "\xEF\xBB\xBF" );
 	}
 }
-
-
-?>

@@ -10,18 +10,18 @@
  * url Class
  *
  */
-class url{
+class url {
 	
-	static  function image($image) {
-		return STATIC_URL.'images/'.$image;
+	static function image($image) {
+		return STATIC_URL . 'images/' . $image;
 	}
 	
-	static  function js($js) {
-		return STATIC_URL.'js/'.$js;
+	static function js($js) {
+		return STATIC_URL . 'js/' . $js;
 	}
 	
-	static  function css($css) {
-		return STATIC_URL.'css/'.$css;
+	static function css($css) {
+		return STATIC_URL . 'css/' . $css;
 	}
 	
 	/**
@@ -34,21 +34,23 @@ class url{
 	 */
 	public static function make($entity, $params = array(), $prefix = '', $domain = '') {
 		$url = '';
+		
 		if($domain == '' && $prefix == '') {
 			$url = HOME_URL.$entity;
 		} else {
 			if($domain == '') {
 				$domain = DOMAIN;
 			}
-			if($prefix == '') {
-				$prefix = 'www';
-			}
+			
 			if(defined('BD_TEXT') && BD_TEXT==true) {
 				$url = 'http://test.'.$prefix.'.'.$domain.'/'.$entity;
 			} else {
-				$url = 'http://'.$prefix.'.'.$domain.'/'.$entity;
+				if($prefix == '') {
+					$url = 'http://'.$domain.$entity;
+				} else {
+					$url = 'http://'.$prefix.'.'.$domain.'/'.$entity;
+				}
 			}
-			
 		}
 		
 		if(is_array($params) && !empty($params)) {
@@ -60,7 +62,7 @@ class url{
 		}
 		return $url;
 	}
- 
+	
 	/**
 	 * 框架后台统一URL生成路径
 	 *
@@ -69,7 +71,7 @@ class url{
 	 * @return string url
 	 */
 	public static function makemgr($entity, $params = array()) {
-		return self::make($entity, $params);
+		return self::make ( $entity, $params );
 	}
 }
 ?>

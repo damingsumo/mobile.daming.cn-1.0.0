@@ -9,9 +9,6 @@ class Account {
 		return http::SESSION('uid');
 	}
 	
-	public static function getBrandId() {
-		return http::SESSION('brand_id');
-	}
 	public static function makeKey($accountId) {
 		$clientIP = http::getClientIP ();
 		return md5(SYSTEM_ACCESS_KEY . $accountId . $clientIP);
@@ -20,17 +17,17 @@ class Account {
 	//设置成登录状态 	
 	static function setLogin($account, $remember = 1) {
 		http::setSession('uid', $account ['uid']);
-		http::setSession('brand_id', $account ['brand_id']);
+		http::setSession('username', $account ['username']);
 		
 		$key = self::makeKey($account ['uid']);
 		$expire = time () + COOKIE_EXPIRE_TIME; //默认1小时
 		http::setCookie('uid', $account ['uid'], $expire);
-		http::setCookie('brand_id', $account ['brand_id'], $expire);
-		http::setCookie('user_account_access_key', $key, $expire);
+		http::setCookie('username', $account ['username'], $expire);
+		http::setCookie('user_key', $key, $expire);
 		if ($remember) {
-			http::setCookie('user_account_remember', $remember, $expire);
+			http::setCookie('user_remember', $remember, $expire);
 		} else {
-			http::delCookie('user_account_remember');
+			http::delCookie('user_remember');
 		}
 		return true;
 	}
@@ -39,15 +36,15 @@ class Account {
 	 * 全站通用获得当前场馆管理ID的方法
 	 * @todo 多个场馆的支持
 	 */
-	static function getManageUid() {
-		$uid = http::SESSION('uid');
-		if (! $uid) {
+	static function getManageStadiumId() {
+		$stadiumAccountId = http::SESSION('stadium_account_id');
+		if (! $stadiumAccountId) {
 			return false;
 		}
-		$accountStadiumId = http::SESSION('brand_id'); //一直存在COOKIE中
+		$accountStadiumId = http::SESSION('stadium_id'); //一直存在COOKIE中
 		if (! $accountStadiumId) {
 			//重新去数据库中查询, 目前只做一个场馆,@todo
-			$accountStadium = CoreApi_Stadium_Account_Mapping::instance ()->search(array ('stadium_id'), array ('uid' => $stadiumAccountId, 'status' => 1), 1, 1);
+			$accountStadium = CoreApi_Stadium_Account_Mapping::instance ()->search(array ('stadium_id'), array ('stadium_account_id' => $stadiumAccountId, 'status' => 1), 1, 1);
 			
 			if (! empty($accountStadium)) {
 				$accountStadium = current($accountStadium);
@@ -68,16 +65,16 @@ class Account {
 		if (http::SESSION('uid') != '') {
 			return true;
 		}
-		$remember = http::COOKIE('user_account_remember');
+		$remember = http::COOKIE('user_remember');
 		if (! $remember) {
 			return false;
 		}
 		
 		$account ['uid'] = http::COOKIE('uid');
-		$key = http::COOKIE('user_account_access_key');
-		$account ['brand_id'] = http::COOKIE('brand_id');
+		$key = http::COOKIE('user_access_key');
+		$account ['username'] = http::COOKIE('username');
 		
-		if ($account ['uid'] == '' || $account ['brand_id'] == '') {
+		if ($account ['uid'] == '' || $account ['username'] == '') {
 			return false;
 		}
 		
@@ -93,11 +90,15 @@ class Account {
 	 * 
 	 */
 	static function setLogout() {
-		http::delSession('uid');
-		http::delSession('brand_id');
+		http::delSession('stadium_account_id');
+		http::delSession('stadium_id');
+		http::delSession('is_admin');
+		http::delSession('stadium_account_name');
+		http::delSession('stadium_account_username');
 		
-		http::delCookie('uid');
-		http::delCookie('brand_id');
+		http::delCookie('stadium_account_id');
+		http::delCookie('is_admin');
+		http::delCookie('stadium_account_name');
 		http::delCookie('stadium_account_username');
 	}
 	

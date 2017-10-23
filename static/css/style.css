@@ -5,8 +5,7 @@ html{
 *{
     box-sizing: border-box;
 }
-body{
-	font-size:10px;
+body{ 
 	padding: 0;
 	margin: 0;
 	background-color: #f6f6f6;
@@ -22,11 +21,11 @@ ul{
 	margin: 0;
 	padding: 0;
 }
-#imgBox img{
+/*#imgBox img{
     width:50px;
     height:50px;
     left: 50px;
-}
+}*/
 li{  
 	list-style: none;
 }
@@ -699,9 +698,6 @@ li{
 	font-size: 1.4rem;
 	color: #1b1b1b;
 }
-.jacket_border{
-	margin-top: 60px;
-}
 .jacket{
 	width: 100%;
 	margin-bottom: 15px;
@@ -981,7 +977,7 @@ li{
 }
 .content3{
 	width: 100%;
-	margin-top: 11.5rem;
+	margin-top: 5.5rem;
 	padding-top: 4rem;
 	background: #f8f8f8;
 }
@@ -1001,16 +997,15 @@ li{
     width: 30rem;
 }
 .center3>div>ul li{
-	float: left;
-	width: 30rem;
-	display: none;
-	height: 318.75px;
+	float: left; 
+	height: 380px;
 	width:100%;
 }
 .center3>div>ul li img{
 	width: 90%;
-	height: 100%;
+	height: 30rem;
 	display: inline-block;
+	margin-top: 8rem;
 }
 .center3>div>ul.none{
 	display: none;
@@ -1283,7 +1278,7 @@ align-items: center;
 	float: left;
 }
 .content5_top ul li img:nth-child(1){
-	width: 18rem;
+	width:18rem;
 	height: 48rem;
 }
 .content5_top ul li:nth-child(2) img{
@@ -1514,27 +1509,33 @@ align-items: center;
 	overflow: hidden;
 }
 .content6_top ul{
-	width: 200%;
+	width: 100%;
 	margin: 0;
 	padding: 0;
 	list-style: none;
 	display: table;
-	margin-bottom: 4rem;
+	margin-bottom: 1rem;
+	height: 42rem;
 }
 .content6_top ul li{
-	width: 50%;
+	width: 100%;
 	display: flex;
 	justify-content:center;
 	float: left;
+	position: relative;
+	height: 43rem;
 }
 .content6_top ul li img:nth-child(1){
-	width: 14rem;
-	height: 42rem;
+	width: 16rem;
+	height: 37rem;
+	position: absolute;
+	bottom: 0;
+	 
 }
-.content6_top ul li:nth-child(2) img{
+/*.content6_top ul li:nth-child(2) img{
 	width: 7rem;
 	height: 42rem;
-}
+}*/
 .content6_top>div{
 	position: absolute;
 	bottom: -2rem;
@@ -2769,13 +2770,77 @@ align-items: center;
 	background-color: #bd0000;
 	border: 1px solid #bd0000;
 }
-/*.content_center ul li:nth-child(1), .content_center ul li:nth-child(2){
+.content_center ul li:nth-child(1), .content_center ul li:nth-child(2){
 	 	font-size: 1.2rem;
-	 }
-	 .content_center ul li:nth-child(1) span:nth-child(2),.content_center ul li:nth-child(2) span{
+}
+.content_center ul li:nth-child(1) span:nth-child(2),.content_center ul li:nth-child(2) span{
 	 	margin-top: 1.2rem;
-	 }*/
-/*@media screen and (min-width: 320px) and (max-width: 413px){
+}
+.login{
+	width: 100%;
+	padding: 0 2rem;
+	text-align: center;
+}	
+.login img{
+	width: 90%;
+	margin-top: 3rem;
+}
+.password {
+	padding: 0 1rem;
+}
+.password ul li{
+	display: flex;
+	margin-bottom: 2rem;
+	margin-top: 0.5rem;
+	padding: 1rem 0 ; 
+	line-height: 3rem;
+}
+.password ul li span{
+	font-size: 1.6rem;
+	flex:1;
+	text-align: left;
+}
+.password ul li input{
+	border: 1px solid #999;
+	padding-left: 1rem;
+}
+ .password ul li input::-webkit-input-placeholder{
+ 	color: #999;
+ 	font-size: 1.4rem;
+ }
+.password ul li input{
+	flex:4;
+}
+ 
+.password_login a:first-child{ 
+	float: left;
+	display: inline-block; 
+	font-size: 1.4rem;
+	color:#039dff; 
+}
+.password_login a:last-child{ 
+	float: right;
+	font-size: 1.4rem;
+	color: #039dff;
+}
+.password_sub input{
+	width: 100%;
+	height: 3.5rem;
+	background-color: #039dff;
+	color: #fff;
+	border: 1px solid #039dff;
+	margin-bottom: 2rem;
+}
+.user_register span{
+    display: block;
+    font-size: 3.5rem;
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+}
+.register ul li input{
+    flex:2;
+}
+@media screen and (min-width: 320px) and (max-width: 413px){
 	.last_style div:nth-child(2),.last_style div:nth-child(4),
     .last_style div:nth-child(6),.last_style div:nth-child(8){
    		 left:80%;
@@ -2962,5 +3027,5 @@ align-items: center;
 	.revise_content span{
 		padding: 11.11% 0;
 	}
-} */
+} 
  

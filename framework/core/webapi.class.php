@@ -48,7 +48,7 @@ class WebApi {
      */
     public function row($fields = '*', $primaryKey, $returnType='Array') {
         if(!$primaryKey) {
-			return $returnType !== 'Array' ? new $returnType : array();
+			return false;
 		}
         $class = get_called_class();
         $class = str_replace('WebApi', 'CoreApi', $class);

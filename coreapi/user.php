@@ -7,7 +7,9 @@ class CoreApi_User extends CoreApi {
     protected $_primaryKey = 'user_id';
     protected $_fields = array(
         'uid' => 'int',
-        'user_name' => 'string',
+        'username' => 'string',
+        'password'=>'string',
+        'status'=>'int',
         'name' => 'string',
         'mobile' => 'string',
         'email' => 'string',
