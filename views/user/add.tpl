@@ -39,9 +39,6 @@
 			<ul>
 				<li><img src="{staticurl action='119.png' type='img'}"></li> 
 			</ul>
-			<div>
-				<span class="color6" id="round61"></span> 
-			</div>
 		</div>
 		<div class="content6_bottom">
 			<ul>

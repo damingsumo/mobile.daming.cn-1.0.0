@@ -4,20 +4,10 @@
       <div style="margin:0;">
         <ul class="center3_1">
           <li class="block"><img src="images/301.png"></li>
-          <li><img src="images/302.png"></li>
-          <li><img src="images/303.png"></li>
-          <li><img src="images/302.png"></li>
-        </ul>
-        <ul class="none"  class="center3_2">
-          <li class="block"><img src="images/301.png"></li>
-          <li><img src="images/311.png"></li>
-          <li><img src="images/312.png"></li>
-          <li><img src="images/311.png"></li>
         </ul>
       </div>
       <ul>
-        <li></li>
-        <li  class="border3"></li>
+        <li></li> 
       </ul>
     </div>
   </div>
