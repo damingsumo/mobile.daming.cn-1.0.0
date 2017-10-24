@@ -12,6 +12,11 @@ class Controller_Brand_Goods extends Controller_Base {
         if($genreId > 0 ) {
             $params['genre_id'] = $genreId;
         }
+        $brand = WebApi_Brand::instance()->row('*', $brandId);
+        if(empty($brand)) {
+            return $this->error('未找到品牌信息');
+        }
+        
         $total = WebApi_Brand_Goods::instance()->getGoodsCountByParams($params);
         $goods = array();
         if($total > 0 ) {
@@ -26,6 +31,7 @@ class Controller_Brand_Goods extends Controller_Base {
             
         $params['goods'] = $goods;
         $params['total'] = $total;
+        $params['brand'] = $brand;
         return $this->display('list', $params);
     }
     

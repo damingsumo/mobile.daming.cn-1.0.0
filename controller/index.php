@@ -23,10 +23,12 @@ class Controller_Index extends Controller_Base {
 	public function actionIndex() {
 	    $uid = Account::getUid();
 	    $total = WebApi_Image::instance()->getImagesCountByParams(array('uid'=>$uid));
-	    if($total != 1) {
+	    if($total == 0) {
 	        return http::go('/user/goadd');
 	    }
-		return $this->display('index/index');
+	    $brands = WebApi_Brand::instance()->getBrandsByParams(array());
+	    $params['brands'] = $brands;
+		return $this->display('index/index', $params);
 	}
 	
 	/**
