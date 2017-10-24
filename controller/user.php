@@ -36,11 +36,7 @@ class Controller_User extends Controller_Base {
             return $this->error('请选择罩杯');
         }
         $params = array();
-        $uid = WebApi_User::instance()->add($params);
-        if(!$uid) {
-            return $this->error('新增用户失败');
-        }
-        Account::setLogin(array('uid'=>$uid,'brand_id'=>0));
+        $uid = Account::getUid();
         $_POST['uid'] = $uid;
         $res = WebApi_User_Hw::instance()->add($_POST);
         if(!$res) {
@@ -67,7 +63,7 @@ class Controller_User extends Controller_Base {
             return $this->error('未找到脸型信息');
         }
         foreach ($faces as &$face) {
-            $face['picture_url'] = 'http://'.MGR_DOMIAN.$face['picture_url'];
+            $face['show_url'] = 'http://'.MGR_DOMIAN.$face['show_url'];
         }
         $complexions = WebApi_Image_Complexion::instance()->getComplexionsByParams(array(), $page=1, $pageSzie=-1);
         if(empty($complexions)) {

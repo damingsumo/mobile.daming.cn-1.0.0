@@ -1,5 +1,7 @@
 <?php
 class Controller_Brand extends Controller_Base {
+    
+    
     public function actionList() {
         $params = array();
         $total = WebApi_Brand::instance()->getBrandsCountByParams($params);

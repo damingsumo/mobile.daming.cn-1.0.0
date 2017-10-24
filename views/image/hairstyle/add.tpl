@@ -28,7 +28,7 @@
   <div class="bottom3">
     <ul class="bottom3_1">
     {foreach $hairStyles as $hairStyle}
-      <li value="{$hairStyle.hair_style_id}"><img src="{$hairStyle.picture_url}"><span>{$hairStyle.name}</span></li>
+      <li value="{$hairStyle.hair_style_id}"><img src="{$hairStyle.show_url}"><span>{$hairStyle.name}</span></li>
       {/foreach}
     </ul>
     <ul class="none bottom3_2">

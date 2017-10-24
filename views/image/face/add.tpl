@@ -32,7 +32,7 @@
   <div class="bottom3">
     <ul class="bottom3_1">
     {foreach $faces as $face}
-      <li value="{$face.face_id}"><img src="{$face.picture_url}"><span>{$face.name}</span></li>
+      <li value="{$face.face_id}"><img src="{$face.show_url}"><span>{$face.name}</span></li>
      {/foreach}
     </ul>
     <ul class="none bottom3_2 ">

@@ -18,7 +18,7 @@ class Controller_User_Hairstyle extends Controller_Base {
         if(!$res) {
             return $this->error('添加失败');
         }
-        return $this->success('添加成功','brand/list');
+        return http::go('/index/index');
     }
     
     
