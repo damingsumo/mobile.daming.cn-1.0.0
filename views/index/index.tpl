@@ -28,26 +28,6 @@
 				<em>分类</em>
 			</a>
 			<div class="top_name">
-				<div class="top_namefl">
-					<img src="{staticurl action='yougouyi.png' type='img'}">
-				</div>
-				<div class="top_namecenter">
-					<span>优购衣虚拟试衣间体验店</span>
-					<img src="{staticurl action='qiye.png' type='img'}">
-					<em>企业店铺</em>
-					<div class="new_style">
-						<span>新开店铺</span>
-					</div>
-				</div>
-				<div class="top_namefr">
-				    <span>
-				    	1万</br>粉丝数
-				    </span>
-				    <div class="attention">
-				    	<img src="{staticurl action='guanzhu.png' type='img'}">
-				    	<span>关注</span>
-				    </div>
-			    </div>
 		    </div>
 		</div>
 	</div>
