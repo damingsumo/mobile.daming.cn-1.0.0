@@ -33,16 +33,14 @@
 	</div>
 	
    </div>
-   <form action="user/add" id="myform" method="post" onsubmit="return check()">
+   <form action="add" id="myform" method="post" onsubmit="return check()">
 	<div class="content6">
 		<div class="content6_top">
 			<ul>
-				<li><img src="{staticurl action='119.png' type='img'}"></li>
-				<li><img src="{staticurl action='104.png' type='img'}"></li>
+				<li><img src="{staticurl action='119.png' type='img'}"></li> 
 			</ul>
 			<div>
-				<span class="color6" id="round61"></span>
-				<span id="round62"></span>
+				<span class="color6" id="round61"></span> 
 			</div>
 		</div>
 		<div class="content6_bottom">
