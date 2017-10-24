@@ -32,7 +32,7 @@
   <div class="bottom3">
     <ul class="bottom3_1">
     {foreach $faces as $face}
-      <li value="{$face.face_id}" {if $face.face_id == $image.face_id} class="bg3" {/if}><img src="{$face.picture_url}"><span>{$face.name}</span></li>
+      <li value="{$face.face_id}" {if $face.face_id == $image.face_id} class="bg3" {/if} onlick="face({$face.face_id})"><img src="{$face.picture_url}"><span>{$face.name}</span></li>
       {/foreach}
     </ul>
     <ul class="none bottom3_2">
@@ -72,6 +72,30 @@
     $(this).addClass("bg3").siblings().removeClass("bg3");
     $(".center3_2 li").eq(index_31).addClass("block").siblings().removeClass("block");
   });
+
+	function face(face_id) {
+		$.ajax({
+			type: "POST",
+			url: 'user/face/ajaxGetFace',
+			data: {face_id:face_id},
+			datatype:'json',
+			success: function(data) {
+				var member = eval('('+data+')');
+				if(member.status == 200) {
+
+
+
+
+
+
+
+					window.location.reload();;
+				}
+			}
+		});
+	}
+
+  
 </script>
 </body>
 </html>

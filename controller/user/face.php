@@ -93,4 +93,30 @@ class Controller_User_Face extends Controller_Base {
     }
     
     
+    /***
+     * 获取脸型信息
+     */
+    public function ajaxGetFace() {
+        $faceId = isset($_POST['face_id']) ? $_POST['face_id'] : 0;
+        $uid = Account::getUid();
+        if($faceId <= 0 ) {
+            return $this->ajaxError('脸型ID错误');
+        }
+        $face = array();
+        $face = WebApi_Image_Face::instance()->row('*', $faceId);
+        if(empty($face)) {
+            return $this->ajaxError('未找到脸型数据');
+        }
+        $user = array();
+        $user = WebApi_Image::instance()->getImagesByParams(array('uid'=>$uid));
+        $hairstyle = array();
+        $hairstyle = WebApi_Image_HairStyle::instance()->row('*', $user['hair_style_id']);
+        if(empty($facestyle)) {
+            return $this->ajaxError('未找到发型数据');
+        }
+        $params = array();
+        $params['hairstyle'] = $hairstyle;
+        $params['face'] = $face;
+        return $this->ajaxSuccess($params);
+    }
 }
