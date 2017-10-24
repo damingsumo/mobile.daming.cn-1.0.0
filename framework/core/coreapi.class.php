@@ -326,7 +326,6 @@ class CoreApi {//implements idata {
 		if($order != '') {//检查字段存在情况
 			$sql .= ' order by '.$order.' '.$orderSequence;
 		}
-		 
 		$data = $this->db->page($sql, $binds, $page, $pagesize, $returnType);
 		return $data;
 	}

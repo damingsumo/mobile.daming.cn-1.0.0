@@ -47,7 +47,6 @@ class WebApi_User extends WebApi{
         if($username == '' || $password == '') {
             return false;
         }
-    
         $account = CoreApi_User::instance()->search('*', array('username' => $username, 'status' => 1), 1, 1);
         if(count($account) != 1) {
             return false;

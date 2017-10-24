@@ -15,14 +15,12 @@ class Controller_User_Account extends Controller_Base {
 	public function login() {
 		$username = isset($_POST['username']) ? $_POST['username'] : '';
 		$password = isset($_POST['password']) ? $_POST['password'] : '';
-		
 		if($username == '') {
 			return $this->display('user/error', array('msg' => '请输入商户名'));
 		}
 		if($password == '') {
 			return $this->display('user/error', array('msg' => '请输入密码'));
 		}
-		
 		$account = WebApi_User::instance()->login($username, $password);
 		if($account == false) {
 			return $this->display('user/error', array('msg' => '密码错误,请重新登录'));
