@@ -432,6 +432,7 @@ li{
 .top{
 	display: table;
 	width: 100%;
+	height: 15rem;
 }
 .bg { 
 	width: 100%;
@@ -702,7 +703,7 @@ li{
 	width: 100%;
 	margin-bottom: 15px;
 	background-color: #fff;
-}
+} 
 .jacket:last-child{
 	margin-bottom: 47px;
 }

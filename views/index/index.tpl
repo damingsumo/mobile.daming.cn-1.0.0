@@ -12,26 +12,20 @@
 	<div class="top">
 		<img src="{staticurl action='topbg.png' type='img'}" class="bg">
 		<div class="top_nav">
-			<a href="#">
+			<!-- <a href="#">
 				<img src="{staticurl action='fanhui.png' type='img'}">
 			</a>
 			 <input type="text" placeholder="牛仔裤">
 			 <button>
 			 	<img src="{staticurl action='sousuo.png' type='img'}">
-			 </button>
+			 </button> -->
 			
-			<a href="#">
-				<img src="{staticurl action='lianjie.png' type='img'}">
-			</a>
-			<a href="#">
-				<img src="{staticurl action='fenlei.png' type='img'}">
-				<em>分类</em>
-			</a>
+			
 			<div class="top_name">
 		    </div>
 		</div>
 	</div>
-	<div class="goods_nav">
+	<!-- <div class="goods_nav">
 		<ul>
 			<li class="nav_border">
 				<a href="#" class="link">
@@ -58,7 +52,7 @@
 				</a>
 			</li>
 		</ul>
-	</div>
+	</div> -->
 	<div class="goods_list">
 		<ul class="second_list">
 		{foreach $brands as $brand}
