@@ -17,7 +17,7 @@
   <div class="bottom3">
     <ul class="bottom3_1">
     {foreach $hairStyles as $hairStyle}
-      <li value="{$hairStyle.hair_style_id}" {if $hairStyle.hair_style_id == $image.hair_style_id} class="bg3" {/if}><img src="{$hairStyle.show_url}"><span>{$hairStyle.name}</span></li>
+      <a onclick="hairstyle({$hairStyle.hair_style_id})"><li value="{$hairStyle.hair_style_id}" {if $hairStyle.hair_style_id == $image.hair_style_id} class="bg3" {/if}><img src="{$hairStyle.show_url}"><span>{$hairStyle.name}</span></li></a>
       {/foreach}
     </ul>
     <ul class="none bottom3_2">
@@ -30,7 +30,8 @@
     <input type="submit" value="完成">
   </div>
   </form>
-  <script>
+	{literal}
+<script type="text/javascript">	
     $(".center3>ul li").on("touchstart",function(e){
     var index_3 = $(this).index();
     $(this).removeClass("border3").siblings().addClass("border3");
@@ -57,6 +58,28 @@
     $(this).addClass("bg3").siblings().removeClass("bg3");
     $(".center3_2 li").eq(index_31).addClass("block").siblings().removeClass("block");
   });
- </script>
+
+  function hairstyle(hair_style_id) {
+		$.ajax({
+			type: "POST",
+			url: 'ajaxGetHairstyle',
+			data: {hair_style_id:hair_style_id},
+			datatype:'json',
+			success: function(data) {
+				var member = eval('('+data+')');
+				if(member.status == 200) {
+					alert(member.data['hairstyle']['behide_abscissa']);
+  
+
+
+
+
+
+				}
+			}
+		});
+	}
+  </script>
+	{/literal}
 </body>
 </html>
