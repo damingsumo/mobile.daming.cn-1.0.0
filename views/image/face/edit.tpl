@@ -2,27 +2,12 @@
   <div class="content3 face">
     <div class="center3" style="text-align:center;">
       <div style="margin:0;">
-        <ul id="center3_1">
-          <li class="block"><img src="images/301.png"></li>
-          <li><img src="{staticurl action='302.png' type='img'}"></li>
-          <li><img src="{staticurl action='303.png' type='img'}"></li>
-          <li><img src="{staticurl action='302.png' type='img'}"></li>
+        <ul id="center3_1"> 
+          <li><img src="{staticurl action='302.png' type='img'}"></li> 
         </ul>
-        <ul class="none"  id="center3_2">
-          <li class="block"><img src="images/301.png"></li>
-          <li><img src="{staticurl action='311.png' type='img'}"></li>
-          <li><img src="{staticurl action='312.png' type='img'}"></li>
-          <li><img src="{staticurl action='311.png' type='img'}"></li>
-        </ul>
-      </div>
-      <div class="camera">
-         <a href="#">
-          <img src="{staticurl action='camera.gif' type='img'}">
-         </a>
       </div>
       <ul>
-        <li></li>
-        <li  class="border3"></li>
+        <li></li> 
       </ul>
     </div>
   </div>
