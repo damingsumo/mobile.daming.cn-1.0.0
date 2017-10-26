@@ -68,7 +68,7 @@
 			success: function(data) {
 				var member = eval('('+data+')');
 				if(member.status == 200) {
-					alert(member.data['hairstyle']['behide_abscissa']);
+					alert(member.data['hairstyle']['behide_synthesis_url']);
   
 
 
