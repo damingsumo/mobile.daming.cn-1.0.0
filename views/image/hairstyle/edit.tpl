@@ -3,21 +3,11 @@
     <div class="center3" style="text-align:center;">
       <div style="margin:0;">
         <ul class="center3_1">
-          <li class="block"><img src="{staticurl action='301.png' type='img'}"></li>
-          <li><img src="{staticurl action='301.png' type='img'}302.png"></li>
-          <li><img src="{staticurl action='301.png' type='img'}303.png"></li>
-          <li><img src="{staticurl action='301.png' type='img'}302.png"></li>
-        </ul>
-        <ul class="none"  class="center3_2">
-          <li class="block"><img src="{staticurl action='301.png' type='img'}"></li>
-          <li><img src="{staticurl action='311.png' type='img'}"></li>
-          <li><img src="{staticurl action='312.png' type='img'}"></li>
-          <li><img src="{staticurl action='311.png' type='img'}"></li>
-        </ul>
+          <li class="block"><img src="{staticurl action='301.png' type='img'}"></li> 
+        </ul> 
       </div>
       <ul>
-        <li></li>
-        <li  class="border3"></li>
+        <li></li> 
       </ul>
     </div>
   </div>
