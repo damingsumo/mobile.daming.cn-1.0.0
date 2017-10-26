@@ -54,7 +54,7 @@ class Controller_User_Face extends Controller_Base {
                 return $this->error('未找到脸型信息');
             }
             foreach ($faces as &$face) {
-                $face['picture_url'] = 'http://'.MGR_DOMIAN.$face['picture_url'];
+                $face['show_url'] = 'http://'.MGR_DOMIAN.$face['show_url'];
             }
             $complexions = WebApi_Image_Complexion::instance()->getComplexionsByParams(array(), $page=1, $pageSzie=-1);
             if(empty($complexions)) {

@@ -32,7 +32,7 @@
   <div class="bottom3">
     <ul class="bottom3_1">
     {foreach $faces as $face}
-      <li value="{$face.face_id}" {if $face.face_id == $image.face_id} class="bg3" {/if} onlick="face({$face.face_id})"><img src="{$face.picture_url}"><span>{$face.name}</span></li>
+      <li value="{$face.face_id}" {if $face.face_id == $image.face_id} class="bg3" {/if} onlick="face({$face.face_id})"><img src="{$face.show_url}"><span>{$face.name}</span></li>
       {/foreach}
     </ul>
     <ul class="none bottom3_2">
@@ -45,7 +45,8 @@
     <input type="submit" value="完成">
   </div>
   </form>
-  <script>
+	{literal}
+<script type="text/javascript">	
     $(".center3>ul li").on("touchstart",function(e){
     var index_3 = $(this).index();
     $(this).removeClass("border3").siblings().addClass("border3");
@@ -97,5 +98,6 @@
 
   
 </script>
+	{/literal}
 </body>
 </html>
