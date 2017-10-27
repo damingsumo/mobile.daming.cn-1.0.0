@@ -71,7 +71,7 @@ class Controller_User_Hairstyle extends Controller_Base {
         if(!$res) {
             return $this->error('编辑失败');
         }
-        return $this->success('修改成功', '/user/index');
+        http::go('/user/index');
     }
     
     public function ajaxGetHairstyle() {
