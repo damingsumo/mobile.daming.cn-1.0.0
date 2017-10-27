@@ -3,16 +3,13 @@
      <div class="topnav">
        <ul>
          <li>
-           <a href="#" class="font_color">综合</a>
+           <a href="list?key=0&brand_id={$brandId}" {if $key==0 }class="font_color" {/if}>综合</a>
          </li>
          <li>
-           <a href="#">新品</a>
+           <a href="list?key=1&brand_id={$brandId}" {if $key==1 }class="font_color" {/if}>新品</a>
          </li>
          <li>
-           <a href="#">销量</a>
-         </li>
-         <li>
-           <a href="#">价格</a>
+           <a href="list?key=2&brand_id={$brandId}" {if $key==2 }class="font_color" {/if}>价格</a>
          </li>
        </ul>
      </div>

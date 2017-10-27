@@ -4,21 +4,21 @@
 {/if}
         <ul>
           <li>
-            <a href="#">
+            <a onclick = "go_goods()">
               <img src="{staticurl action='16.png' type='img'}">
-              <span onclick = "go_goods()">全部单品</span>
+              <span>全部单品</span>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a onclick = "go_genre()">
               <img src="{staticurl action='17.png' type='img'}">
-              <span onclick = "go_genre()">分类</span>
+              <span>分类</span>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a onclick = "go_user()">
               <img src="{staticurl action='18.png' type='img'}">
-              <span onclick = "go_user()">我的</span>
+              <span>我的</span>
             </a>
           </li>
         </ul>

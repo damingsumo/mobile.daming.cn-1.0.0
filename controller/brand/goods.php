@@ -6,11 +6,19 @@ class Controller_Brand_Goods extends Controller_Base {
     public function actionList() {
         $brandId = isset($_GET['brand_id']) ? $_GET['brand_id'] : 0;
         $genreId = isset($_GET['genre_id']) ? $_GET['genre_id'] : 0;
+        $key = isset($_GET['key']) ? $_GET['key'] : 0;
+        $page = isset($_SERVER['page']) ? $_SERVER['page'] : 1;
+        $pageSize = isset($_SERVER['pageSize']) ? $_SERVER['pageSize'] : 20;
         Account::setBrandId($brandId);
         $params = array();
         $params['brand_id'] = $brandId;
         if($genreId > 0 ) {
             $params['genre_id'] = $genreId;
+        }
+        if($key == 1 || $key == 0) {
+            $order = 'create_time';
+        }elseif ($key == 2) {
+            $order = 'price';
         }
         $brand = WebApi_Brand::instance()->row('*', $brandId);
         if(empty($brand)) {
@@ -20,7 +28,7 @@ class Controller_Brand_Goods extends Controller_Base {
         $total = WebApi_Brand_Goods::instance()->getGoodsCountByParams($params);
         $goods = array();
         if($total > 0 ) {
-            $goods = WebApi_Brand_Goods::instance()->getGoodsByParams($params);
+            $goods = WebApi_Brand_Goods::instance()->getGoodsByParams($params,$page, $pageSize, $order);
         }
         
         foreach($goods as &$good) {
@@ -32,6 +40,7 @@ class Controller_Brand_Goods extends Controller_Base {
         $params['goods'] = $goods;
         $params['total'] = $total;
         $params['brand'] = $brand;
+        $params['key'] = $key;
         return $this->display('list', $params);
     }
     

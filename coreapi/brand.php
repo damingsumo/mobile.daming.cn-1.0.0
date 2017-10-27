@@ -26,7 +26,7 @@ class CoreApi_Brand extends CoreApi {
     * @param string $order
     * @param string $desc
     */
-    public function getbrandsByParams($params, $page, $pagesize, $returnFormat = 'Array', $order = "create_time", $desc = "desc") {
+    public function getbrandsByParams($params, $page, $pagesize, $order = "create_time", $returnFormat = 'Array',  $desc = "desc") {
 		$sql = 'select * from ' . $this->_tableName . ' where 1 ';
 		$binds = array();
 		if(!empty($params)) {
