@@ -3,7 +3,7 @@
     <div class="center3" style="text-align:center;">
       <div style="margin:0;">
         <ul class="center3_1">
-          <li class="block"><img src="{staticurl action='301.png' type='img'}"></li> 
+          <li  id="imgBox"><img src=""></li> 
         </ul> 
       </div>
       <ul>
@@ -15,7 +15,7 @@
   <input type="hidden" value="" id="face" name="hair_style_id">
   <input type="hidden" value="" id="sss" name="hair_color_id">
   <div class="bottom3">
-    <ul class="bottom3_1">
+    <ul class="bottom3_1 hairstyle">
     {foreach $hairStyles as $hairStyle}
       <a onclick="hairstyle({$hairStyle.hair_style_id})"><li value="{$hairStyle.hair_style_id}" {if $hairStyle.hair_style_id == $image.hair_style_id} class="bg3" {/if}><img src="{$hairStyle.show_url}"><span>{$hairStyle.name}</span></li></a>
       {/foreach}
@@ -51,7 +51,7 @@
     $(".center3_1 li").eq(index_31).addClass("block").siblings().removeClass("block");
     $("#face").val(str);
   });
-  $(".bottom3_2 li").on("touchstart",function(e){
+  $(".bottom3_2  li").on("touchstart",function(e){
     var index_31 = $(this).index();
     var str=$(this).val();
      $("#sss").val(str);
@@ -68,7 +68,83 @@
 			success: function(data) {
 				var member = eval('('+data+')');
 				if(member.status == 200) {
-					alert(member.data['hairstyle']['behide_synthesis_url']);
+					
+          var ass =member.data['hairstyle']['behide_synthesis_url'];
+          var add=member.data['hairstyle']['front_synthesis_url'];
+          var data1=[ass,'/static/images/bozi.png','/static/images/shenzi.png','/static/images/xiongzhao.png',
+          '/static/images/edanlian.png',add];
+    base64=[]; 
+        draw(function(){
+        document.getElementById('imgBox').innerHTML='<img src="'+base64[0]+'">';
+        }) 
+    function draw(fn){
+        var c=document.createElement('canvas'),
+        ctx=c.getContext('2d'),
+        len=data1.length;
+        c.width=200;
+        c.height=230;
+        ctx.rect(0,0,c.width,c.height);
+        ctx.fillStyle='#f8f8f8';
+        ctx.fill();  
+        var n = 0;
+        function drawing(n){
+          
+            if(n<len){
+                var img=new Image;
+                img.crossOrigin = 'Anonymous'; //解决跨域
+                 var beo =member.data['hairstyle']['behide_ordinate'];
+                 
+                 var bea = member.data['hairstyle']['behide_abscissa'];
+
+                 var bel = member.data['hairstyle']['behide_length'];
+
+                 var bew = member.data['hairstyle']['behide_width'];
+                 var fro = member.data['hairstyle']['front_ordinate'];
+                 var fra = member.data['hairstyle']['front_abscissa'];
+                 var frl = member.data['hairstyle']['front_length'];
+                 var frw = member.data['hairstyle']['front_width'];
+                img.src=data1[n]; 
+                img.onload=function(){
+                     if(n==0){
+                        ctx.drawImage(img,beo,bea,bel,bew);//马尾
+                         drawing(n+1);//递归
+                         
+                          
+                   }
+                     else if(n==1){
+                           ctx.drawImage(img,44,155,122,50);//脖子
+                         drawing(n+1);//递归
+                          
+          } 
+                    else if(n==2){
+                      alert(1);
+                       ctx.drawImage(img,2,204,207,450);//身子
+                         drawing(n+1);//递归
+                    } 
+                     else if(n==3){
+                       ctx.drawImage(img,42,194,130,200);//胸罩
+                         drawing(n+1);//递归
+                         
+                    } 
+                     else if(n==4){
+                        ctx.drawImage(img,63,73,75,100);//脸
+                         drawing(n+1);//递归
+
+                    } else {
+                       ctx.drawImage(img,fro,fra,frl,frw);//内衬1
+                         drawing(n+1);//递归 
+
+                    } 
+                }
+            }else{
+
+            //保存生成作品图片 
+             base64.push(c.toDataURL("image/png",0.8));
+                fn();
+            }
+        }
+        drawing(0);
+    }
   
 
 
