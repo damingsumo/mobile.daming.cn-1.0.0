@@ -94,7 +94,7 @@ class Controller_User_Face extends Controller_Base {
     
     
     /***
-     * 获取脸型信息
+     * 获取脸型信息 
      */
     public function ajaxGetFace() {
         $faceId = isset($_POST['face_id']) ? $_POST['face_id'] : 0;
@@ -113,13 +113,21 @@ class Controller_User_Face extends Controller_Base {
             $user = current($user);
         }
         $hairstyle = array();
-        $hairstyle = WebApi_Image_HairStyle::instance()->row('*', $user['hair_style_id']);
-        if(empty($hairstyle)) {
-            return $this->ajaxError('未找到发型数据');
+        if($user['hair_style_id']=="") {
+            $hairstyle = WebApi_Image_HairStyle::instance()->getHairStylesByParams(array());
+            $hairstyle = current($hairstyle);
+        }else{
+            $hairstyle = WebApi_Image_HairStyle::instance()->row('*', $user['hair_style_id']);
+            if(empty($hairstyle)) {
+                return $this->ajaxError('未找到发型数据');
+            }
         }
         $params = array();
         $params['hairstyle'] = $hairstyle;
         $params['face'] = $face;
         return $this->ajaxSuccess($params);
     }
+    
+    
+    
 }
