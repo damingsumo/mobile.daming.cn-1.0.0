@@ -14,6 +14,16 @@ class Account {
 		return md5(SYSTEM_ACCESS_KEY . $accountId . $clientIP);
 	}
 	
+	public static function getBrandId() {
+	    return http::SESSION('brand_id');
+	}
+	
+	
+	static function setBrandId($brandId, $remember = 1) {
+	    http::setSession('brand_id', $brandId);
+	}
+	
+	
 	//设置成登录状态 	
 	static function setLogin($account, $remember = 1) {
 		http::setSession('uid', $account ['uid']);

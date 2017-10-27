@@ -1,4 +1,7 @@
 <div class="footer" style="border-top:2px solid #d1d1d2;">
+{if isset($brandId)}
+<input type="hidden" value="{$brandId}" id="brand_id">
+{/if}
         <ul>
           <li>
             <a href="#">
@@ -23,10 +26,12 @@
       
       <script type="text/javascript">
 	function go_goods() {
-		window.location.href='/brand/goods/list';
+		var brandId = $('#brand_id').val();
+		window.location.href='/brand/goods/list?brand_id='+brandId;
 	}
 	function go_genre() {
-		window.location.href='/brand/genre/list';
+		var brandId = $('#brand_id').val();
+		window.location.href='/brand/genre/list?brand_id='+brandId;
 	}
 	function go_user() {
 		window.location.href='/user/index';

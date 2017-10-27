@@ -4,9 +4,9 @@ class Controller_Brand_Goods extends Controller_Base {
      * 首页
      */
     public function actionList() {
-        
-        $brandId = isset($_POST['brand_id']) ? $_POST['brand_id'] : 5;
-        $genreId = isset($_POST['genre_id']) ? $_POST['genre_id'] : 0;
+        $brandId = isset($_GET['brand_id']) ? $_GET['brand_id'] : 0;
+        $genreId = isset($_GET['genre_id']) ? $_GET['genre_id'] : 0;
+        Account::setBrandId($brandId);
         $params = array();
         $params['brand_id'] = $brandId;
         if($genreId > 0 ) {
@@ -28,7 +28,7 @@ class Controller_Brand_Goods extends Controller_Base {
             $good['genre'] = WebApi_Genre::instance()->row('*',$good['genre_id']);
             $good['genre']['picture_url'] = 'http://'.MGR_DOMIAN.$good['genre']['picture_url'];
         }
-            
+        $params['brandId'] = $brandId;
         $params['goods'] = $goods;
         $params['total'] = $total;
         $params['brand'] = $brand;
@@ -36,7 +36,7 @@ class Controller_Brand_Goods extends Controller_Base {
     }
     
     public function detail() {
-        $uid =44;
+        $uid = account::getUid();
         $gid = isset($_GET['gid']) ? $_GET['gid'] : 0;
         if($gid <= 0) {
             return $this->error('商品ID错误');

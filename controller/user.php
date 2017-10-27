@@ -4,7 +4,8 @@ class Controller_User extends Controller_Base {
      * 首页
      */
     public function index() {
-        return $this->display('index');
+        $params['brandId'] = Account::getBrandId();
+        return $this->display('index', $params);
     }
     
     public function goAdd() {
