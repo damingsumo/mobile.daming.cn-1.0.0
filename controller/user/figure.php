@@ -20,11 +20,7 @@ class Controller_User_Figure extends Controller_Base {
         if(!$res) {
             return $this->error('身材修改失败');
         }
-        return $this->success('修改成功','/user/index');
-        
-        
-        
-        
+        http::go('/user/index');
     }
     
     public function detail() {
@@ -73,9 +69,7 @@ class Controller_User_Figure extends Controller_Base {
         if(!$res) {
             return $this->error('身材修改失败');
         }
-        return $this->success('修改成功','/user/figure/edit');
-        
-        
+        http::go('/user/figure/edit');
     }
     
 }

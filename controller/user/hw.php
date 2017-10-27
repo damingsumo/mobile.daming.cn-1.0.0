@@ -21,7 +21,7 @@ class Controller_User_Hw extends Controller_Base {
         if(!$res) {
             return $this->error('身材修改失败');
         }
-        return $this->success('修改成功','/user/index');
+        http::go('/user/index');
     }
     
     
