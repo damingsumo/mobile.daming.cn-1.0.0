@@ -1,7 +1,7 @@
 <?php
 class Controller_User_Figure extends Controller_Base {
     
-    public function edit() {
+    public function actionEdit() {
         if(empty($_POST)) {
             $uid = account::getUid();
             $figure = WebApi_User_Figure::instance()->getFiguresByParams(array('uid'=>$uid));
@@ -23,7 +23,7 @@ class Controller_User_Figure extends Controller_Base {
         http::go('/user/index');
     }
     
-    public function detail() {
+    public function actionDetail() {
         if(empty($_POST)) {
             $uid = account::getUid();
             $body = WebApi_User_Body::instance()->getBodysByParams(array('uid'=>$uid));

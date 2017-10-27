@@ -3,7 +3,7 @@ class Controller_User_Hairstyle extends Controller_Base {
     
     
     
-    public function add() {
+    public function actionAdd() {
         $uid = account::getUid();
         $imageId = isset($_POST['image_id']) ? $_POST['image_id'] : 0;
         $hairColorId = isset($_POST['hair_color_id']) ? $_POST['hair_color_id'] : 0;
@@ -22,7 +22,7 @@ class Controller_User_Hairstyle extends Controller_Base {
     }
     
     
-    public function edit() {
+    public function actionEdit() {
         $uid = account::getUid();
         if(empty($_POST)) {
             $image = WebApi_Image::instance()->getImagesByParams(array('uid'=>$uid));

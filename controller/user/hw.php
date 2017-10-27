@@ -2,7 +2,7 @@
 class Controller_User_Hw extends Controller_Base {
     
     
-    public function edit() {
+    public function actionEdit() {
         if(empty($_POST)) {
             $uid = account::getUid();
             $hw = WebApi_User_Hw::instance()->getHwsByParams(array('uid'=>$uid));
