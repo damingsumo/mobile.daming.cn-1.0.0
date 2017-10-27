@@ -17,7 +17,7 @@
   <div class="bottom3">
     <ul class="bottom3_1">
     {foreach $faces as $face}
-      <a onclick="face({$face.face_id})"><li value="{$face.face_id}" {if $face.face_id == $image.face_id} class="bg3" {/if}><img src="{$face.show_url}"><span>{$face.name}</span></li></a>
+      <a onclick="face({$face.face_id})"><li value="{$face.face_id}" {if $face.face_id == $image.face_id}  {/if}><img src="{$face.show_url}"><span>{$face.name}</span></li></a>
       {/foreach}
     </ul>
     <ul class="none bottom3_2">
@@ -47,7 +47,7 @@
   $(".bottom3_1 li").on("touchstart",function(e){
     var index_31 = $(this).index();
     var str=$(this).val();
-    $(this).addClass("bg3").siblings().removeClass("bg3");
+    // $(this).addClass("bg3").siblings().removeClass("bg3");
     $(".center3_1 li").eq(index_31).addClass("block").siblings().removeClass("block");
     $("#face").val(str);
   });
@@ -55,10 +55,12 @@
     var index_31 = $(this).index();
     var str=$(this).val();
      $("#sss").val(str);
-    $(this).addClass("bg3").siblings().removeClass("bg3");
+    // $(this).addClass("bg3").siblings().removeClass("bg3");
     $(".center3_2 li").eq(index_31).addClass("block").siblings().removeClass("block");
   });
-
+ $(".bottom3_1 a").click(function(){
+        $(this).addClass("bg3").siblings().removeClass("bg3"); 
+    });
 	function face(face_id) {
 		$.ajax({
 			type: "POST",
@@ -102,28 +104,28 @@
                  var frw = member.data['hairstyle']['front_width'];
                 img.src=data1[n]; 
                 img.onload=function(){
-                     if(n==0){
+                      if(n==0){
                         ctx.drawImage(img,beo,bea,bel,bew);//马尾
                          drawing(n+1);//递归
                          
                           
                    }
                      else if(n==1){
-                           ctx.drawImage(img,44,155,122,50);//脖子
+                           ctx.drawImage(img,38,155,150,50);//脖子
                          drawing(n+1);//递归
                           
           } 
                     else if(n==2){
-                       ctx.drawImage(img,2,204,207,450);//身子
+                       ctx.drawImage(img,-10,204,250,500);//身子
                          drawing(n+1);//递归
                     } 
                      else if(n==3){
-                       ctx.drawImage(img,42,194,130,200);//胸罩
+                       ctx.drawImage(img,42,194,150,200);//胸罩
                          drawing(n+1);//递归
                          
                     } 
                      else if(n==4){
-                        ctx.drawImage(img,63,73,75,100);//脸
+                        ctx.drawImage(img,63,55,88,120);//脸
                          drawing(n+1);//递归
 
                     } else {
