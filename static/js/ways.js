@@ -796,7 +796,7 @@ $(function(){
 		$(".edit_number").removeClass("none");
 	});
 	// 底部
-	$(".footer ul li").on("touchstart", function(e) {
+	$(".footer ul li").click(function() {
 		$(this).addClass("opacity").siblings().removeClass("opacity"); 
 	});
    
@@ -806,14 +806,12 @@ $(function(){
 			var h = $(".height option:selected").attr("title");
 			var h0 = $(".content6_top ul li img").height();
 			var h1 = $(".content6_top ul li img").width();
-			console.log(h)
-			console.log(h0)
 			if(h>h0){
-				var h2 = h1-2;
+				var h2 = h1-(h-h0)/2;
 				$(".content6_top ul li img").height(h);
 				$(".content6_top ul li img").width(h2);
 			}else{
-				var h2 = h1+2;
+				var h2 = h1+(h0-h)/2;
 				$(".content6_top ul li img").height(h);
 				$(".content6_top ul li img").width(h2);
 			}
