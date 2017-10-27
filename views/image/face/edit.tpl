@@ -17,7 +17,7 @@
   <div class="bottom3">
     <ul class="bottom3_1">
     {foreach $faces as $face}
-      <li value="{$face.face_id}" {if $face.face_id == $image.face_id} class="bg3" {/if} onlick="face({$face.face_id})"><img src="{$face.show_url}"><span>{$face.name}</span></li>
+      <a onclick="face({$face.face_id})"><li value="{$face.face_id}" {if $face.face_id == $image.face_id} class="bg3" {/if}><img src="{$face.show_url}"><span>{$face.name}</span></li></a>
       {/foreach}
     </ul>
     <ul class="none bottom3_2">
@@ -62,7 +62,7 @@
 	function face(face_id) {
 		$.ajax({
 			type: "POST",
-			url: 'user/face/ajaxGetFace',
+			url: 'ajaxGetFace',
 			data: {face_id:face_id},
 			datatype:'json',
 			success: function(data) {

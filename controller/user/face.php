@@ -109,6 +109,9 @@ class Controller_User_Face extends Controller_Base {
         }
         $user = array();
         $user = WebApi_Image::instance()->getImagesByParams(array('uid'=>$uid));
+        if(!empty($user)) {
+            $user = current($user);
+        }
         $hairstyle = array();
         $hairstyle = WebApi_Image_HairStyle::instance()->row('*', $user['hair_style_id']);
         if(empty($facestyle)) {

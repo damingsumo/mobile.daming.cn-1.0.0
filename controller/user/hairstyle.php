@@ -78,12 +78,12 @@ class Controller_User_Hairstyle extends Controller_Base {
         $hairStyleId = isset($_POST['hair_style_id']) ? $_POST['hair_style_id'] : 0;
         $uid = Account::getUid();
         if($hairStyleId <= 0 ) {
-            return $this->ajaxError('脸型ID错误');
+            return $this->ajaxError('发型ID错误');
         }
         $hairStyle = array();
         $hairStyle = WebApi_Image_HairStyle::instance()->row('*', $hairStyleId);
         if(empty($hairStyle)) {
-            return $this->ajaxError('未找到脸型数据');
+            return $this->ajaxError('未找到发型数据');
         }
         $user = array();
         $user = WebApi_Image::instance()->getImagesByParams(array('uid'=>$uid));
@@ -93,7 +93,7 @@ class Controller_User_Hairstyle extends Controller_Base {
         $face = array();
         $face = WebApi_Image_Face::instance()->row('*', $user['face_id']);
         if(empty($face)) {
-            return $this->ajaxError('未找到发型数据');
+            return $this->ajaxError('未找到脸型数据');
         }
         $params = array();
         $params['hairstyle'] = $hairStyle;
