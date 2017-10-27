@@ -40,7 +40,7 @@ class Controller_User_Face extends Controller_Base {
         return $this->display('image/hairstyle/add', $params);
     }
     
-    public function edit() {
+    public function actionEdit() {
         $uid = account::getUid();
         if(empty($_POST)) {
             $image = WebApi_Image::instance()->getImagesByParams(array('uid'=>$uid));
@@ -114,7 +114,7 @@ class Controller_User_Face extends Controller_Base {
         }
         $hairstyle = array();
         $hairstyle = WebApi_Image_HairStyle::instance()->row('*', $user['hair_style_id']);
-        if(empty($facestyle)) {
+        if(empty($hairstyle)) {
             return $this->ajaxError('未找到发型数据');
         }
         $params = array();
