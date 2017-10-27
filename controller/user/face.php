@@ -113,7 +113,7 @@ class Controller_User_Face extends Controller_Base {
             $user = current($user);
         }
         $hairstyle = array();
-        if($user['hair_style_id']=="") {
+        if(empty($user) || $user['hair_style_id']=="") {
             $hairstyle = WebApi_Image_HairStyle::instance()->getHairStylesByParams(array());
             $hairstyle = current($hairstyle);
         }else{
