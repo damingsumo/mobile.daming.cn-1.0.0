@@ -89,7 +89,7 @@ class Controller_User_Face extends Controller_Base {
         if(!$res) {
             return $this->error('编辑失败');
         }
-        return $this->success('修改成功', '/user/index');
+        http::go('/user/index');
     }
     
     
