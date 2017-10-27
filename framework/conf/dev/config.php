@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 //本文件配置本项目环境变量
 /********************常量start****************************/
 /****自行配置start*******/
@@ -20,7 +20,7 @@ define('FILE_SERVER', 'pic.bestdo.com');
 /********************变量start*************************/
 //数据库配置
 $dbServerArray = array(
-    'yd_res' => 'mysql:host=192.168.2.22;port=3306;dbname=test_dress|root|root',
+    'yd_res' => 'mysql:host=localhost;port=3306;dbname=test_dress|root|',
 );
 
 //Sphinx的配置文件.场馆,教练,文档三个索引.

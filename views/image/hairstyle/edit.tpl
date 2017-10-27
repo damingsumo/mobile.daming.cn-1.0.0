@@ -51,7 +51,7 @@
     $(".center3_1 li").eq(index_31).addClass("block").siblings().removeClass("block");
     $("#face").val(str);
   });
-  $(".bottom3_2 li").on("touchstart",function(e){
+  $(".bottom3_2  li").on("touchstart",function(e){
     var index_31 = $(this).index();
     var str=$(this).val();
      $("#sss").val(str);
@@ -69,8 +69,6 @@
 				var member = eval('('+data+')');
 				if(member.status == 200) {
 					alert(member.data['hairstyle']['behide_synthesis_url']);
-  
-
 
 
 
