@@ -3,7 +3,7 @@
     <div class="center3" style="text-align:center;">
       <div style="margin:0;">
         <ul id="center3_1"> 
-          <li><img src="{staticurl action='302.png' type='img'}"></li> 
+          <li id="head"><img src=""></li> 
         </ul>
       </div>
       <ul>
@@ -68,14 +68,85 @@
 			success: function(data) {
 				var member = eval('('+data+')');
 				if(member.status == 200) {
+           var behidestyle =member.data['hairstyle']['behide_synthesis_url'];
+          var facestyle =member.data['face']['synthesis_url'];
+          var frontstyle=member.data['hairstyle']['front_synthesis_url'];
+          var data1=[behidestyle,'/static/images/bozi.png','/static/images/shenzi.png','/static/images/xiongzhao.png',
+          facestyle,frontstyle];
+    base64=[]; 
+        draw(function(){
+        document.getElementById('head').innerHTML='<img src="'+base64[0]+'">';
+        }) 
+    function draw(fn){
+        var c=document.createElement('canvas'),
+        ctx=c.getContext('2d'),
+        len=data1.length;
+        c.width=200;
+        c.height=230;
+        ctx.rect(0,0,c.width,c.height);
+        ctx.fillStyle='#f8f8f8';
+        ctx.fill();  
+        var n = 0;
+        function drawing(n){
+          
+            if(n<len){
+                var img=new Image;
+                img.crossOrigin = 'Anonymous'; //解决跨域
+                 var beo =member.data['hairstyle']['behide_ordinate'];
+                 var bea = member.data['hairstyle']['behide_abscissa'];
+                 var bel = member.data['hairstyle']['behide_length'];
+                var bew = member.data['hairstyle']['behide_width'];
+                 var fro = member.data['hairstyle']['front_ordinate'];
+                 var fra = member.data['hairstyle']['front_abscissa'];
+                 var frl = member.data['hairstyle']['front_length'];
+                 var frw = member.data['hairstyle']['front_width'];
+                img.src=data1[n]; 
+                img.onload=function(){
+                     if(n==0){
+                        ctx.drawImage(img,beo,bea,bel,bew);//马尾
+                         drawing(n+1);//递归
+                         
+                          
+                   }
+                     else if(n==1){
+                           ctx.drawImage(img,44,155,122,50);//脖子
+                         drawing(n+1);//递归
+                          
+          } 
+                    else if(n==2){
+                       ctx.drawImage(img,2,204,207,450);//身子
+                         drawing(n+1);//递归
+                    } 
+                     else if(n==3){
+                       ctx.drawImage(img,42,194,130,200);//胸罩
+                         drawing(n+1);//递归
+                         
+                    } 
+                     else if(n==4){
+                        ctx.drawImage(img,63,73,75,100);//脸
+                         drawing(n+1);//递归
+
+                    } else {
+                       ctx.drawImage(img,fro,fra,frl,frw);//内衬1
+                         drawing(n+1);//递归 
+
+                    } 
+                }
+            }else{
+
+            //保存生成作品图片 
+             base64.push(c.toDataURL("image/png",0.8));
+                fn();
+            }
+        }
+        drawing(0);
+    }
+  
 
 
 
 
-
-
-
-					window.location.reload();;
+					// window.location.reload();;
 				}
 			}
 		});
