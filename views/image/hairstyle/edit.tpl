@@ -93,12 +93,9 @@
                 var img=new Image;
                 img.crossOrigin = 'Anonymous'; //解决跨域
                  var beo =member.data['hairstyle']['behide_ordinate'];
-                 
                  var bea = member.data['hairstyle']['behide_abscissa'];
-
                  var bel = member.data['hairstyle']['behide_length'];
-
-                 var bew = member.data['hairstyle']['behide_width'];
+                var bew = member.data['hairstyle']['behide_width'];
                  var fro = member.data['hairstyle']['front_ordinate'];
                  var fra = member.data['hairstyle']['front_abscissa'];
                  var frl = member.data['hairstyle']['front_length'];
@@ -117,7 +114,6 @@
                           
           } 
                     else if(n==2){
-                      alert(1);
                        ctx.drawImage(img,2,204,207,450);//身子
                          drawing(n+1);//递归
                     } 
