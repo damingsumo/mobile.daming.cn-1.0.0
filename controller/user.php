@@ -73,6 +73,15 @@ class Controller_User extends Controller_Base {
         foreach ($complexions as &$complexion) {
             $complexion['picture_url'] = 'http://'.MGR_DOMIAN.$complexion['picture_url'];
         }
+        
+        $userHairStyle = array();
+        $userHairStyle = WebApi_Image_HairStyle::instance()->getHairStylesByParams(array());
+        $userHairStyle = current($userHairStyle);
+        $userFace = array();
+        $userFace = WebApi_Image_Face::instance()->getFacesByParams(array());
+        $userFace = current($userFace);
+        $params['userHairStyle'] = $userHairStyle;
+        $params['userFace'] = $userFace;
         $params['faces'] = $faces;
         $params['complexions'] = $complexions;
         return $this->display('image/face/add',$params);

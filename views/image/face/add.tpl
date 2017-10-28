@@ -29,17 +29,17 @@
   <div class="footer3">
     <input type="submit" value="完成">
   </div>
-  <input type="hidden" value="" id="face_synthesis_url">
-  <input type="hidden" value="" id="behide_synthesis_url">
-  <input type="hidden" value="" id="front_synthesis_url">
-  <input type="hidden" value="" id="behide_ordinate">
-  <input type="hidden" value="" id="behide_abscissa">
-  <input type="hidden" value="" id="behide_length">
-  <input type="hidden" value="" id="behide_width">
-  <input type="hidden" value="" id="front_ordinate">
-  <input type="hidden" value="" id="front_abscissa">
-  <input type="hidden" value="" id="front_length">
-  <input type="hidden" value="" id="front_width">
+<input type="hidden" value="{$userFace.face_synthesis_url}" id="face_synthesis_url">
+  <input type="hidden" value="{$userHairStyle.behide_synthesis_url}" id="behide_synthesis_url">
+  <input type="hidden" value="{$userHairStyle.front_synthesis_url}" id="front_synthesis_url">
+  <input type="hidden" value="{$userHairStyle.behide_ordinate}" id="behide_ordinate">
+  <input type="hidden" value="{$userHairStyle.behide_abscissa}" id="behide_abscissa">
+  <input type="hidden" value="{$userHairStyle.behide_length}" id="behide_length">
+  <input type="hidden" value="{$userHairStyle.behide_width}" id="behide_width">
+  <input type="hidden" value="{$userHairStyle.front_ordinate}" id="front_ordinate">
+  <input type="hidden" value="{$userHairStyle.front_abscissa}" id="front_abscissa">
+  <input type="hidden" value="{$userHairStyle.front_length}" id="front_length">
+  <input type="hidden" value="{$userHairStyle.front_width}" id="front_width">
   </form>
     {literal}
    <script>
