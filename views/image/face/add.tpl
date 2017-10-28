@@ -11,7 +11,7 @@
       </ul>
     </div>
   </div>
-  <form action="face/add" id="myform" method="post">
+  <form action="/user/face/add" id="myform" method="post">
   <input type="hidden" name="face_id" value="" id="face">
   <input type="hidden" name="complexion_id" value="" id="complexion">
   <div class="bottom3">
