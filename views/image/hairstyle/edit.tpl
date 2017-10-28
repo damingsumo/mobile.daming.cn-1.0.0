@@ -11,7 +11,7 @@
       </ul>
     </div>
   </div>
-  <form action="edit" id="myform" method="post">
+  <form action="/user/hairstyle/edit" id="myform" method="post">
   <input type="hidden" value="" id="face" name="hair_style_id">
   <input type="hidden" value="" id="sss" name="hair_color_id">
   <div class="bottom3">
