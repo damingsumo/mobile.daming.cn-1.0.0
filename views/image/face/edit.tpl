@@ -3,7 +3,7 @@
     <div class="center3" style="text-align:center;">
       <div style="margin:0;">
         <ul id="center3_1"> 
-          <li id="head"><img src=""></li> 
+          <li id="head"><img src=" "></li> 
         </ul>
       </div>
       <ul>
@@ -29,9 +29,96 @@
   <div class="footer3">
     <input type="submit" value="完成">
   </div>
+  <input type="hidden" value="" id="face_synthesis_url">
+  <input type="hidden" value="" id="behide_synthesis_url">
+  <input type="hidden" value="" id="front_synthesis_url">
+  <input type="hidden" value="" id="behide_ordinate">
+  <input type="hidden" value="" id="behide_abscissa">
+  <input type="hidden" value="" id="behide_length">
+  <input type="hidden" value="" id="behide_width">
+  <input type="hidden" value="" id="front_ordinate">
+  <input type="hidden" value="" id="front_abscissa">
+  <input type="hidden" value="" id="front_length">
+  <input type="hidden" value="" id="front_width">
   </form>
 	{literal}
-<script type="text/javascript">	
+<script type="text/javascript">
+$(document).ready(function(){
+      var facestyle = $("#face_synthesis_url").val();
+          var behidestyle = $("#behide_synthesis_url").val();
+          var frontstyle= $("#front_synthesis_url").val();
+          var data2=[behidestyle,'/static/images/bozi.png','/static/images/shenzi.png','/static/images/xiongzhao.png',
+          facestyle,frontstyle];
+    base64=[]; 
+        draw(function(){
+        document.getElementById('imgBox').innerHTML='<img src="'+base64[0]+'">';
+        }) 
+    function draw(fn){
+        var c=document.createElement('canvas'),
+        ctx=c.getContext('2d'),
+        len=data2.length;
+        c.width=200;
+        c.height=230;
+        ctx.rect(0,0,c.width,c.height);
+        ctx.fillStyle='#f8f8f8';
+        ctx.fill();  
+        var n = 0;
+        function drawing(n){
+          
+            if(n<len){
+                var img=new Image;
+                img.crossOrigin = 'Anonymous'; //解决跨域
+                 var beo =$("#behide_ordinate").val();
+                 var bea = $("#behide_abscissa").val();
+                 var bel = $("#behide_length").val();
+                var bew = $("#behide_width").val();
+                 var fro = $("#front_ordinate").val();
+                 var fra =  $("#front_abscissa").val();
+                 var frl = $("#front_length").val();
+                 var frw = $("#front_width").val();
+                img.src=data2[n]; 
+                img.onload=function(){
+                    if(n==0){
+                        ctx.drawImage(img,beo,bea,bel,bew);//马尾
+                         drawing(n+1);//递归
+                         
+                          
+                   }
+                     else if(n==1){
+                           ctx.drawImage(img,38,155,150,50);//脖子
+                         drawing(n+1);//递归
+                          
+          } 
+                    else if(n==2){
+                       ctx.drawImage(img,-10,204,250,500);//身子
+                         drawing(n+1);//递归
+                    } 
+                     else if(n==3){
+                       ctx.drawImage(img,42,194,150,200);//胸罩
+                         drawing(n+1);//递归
+                         
+                    } 
+                     else if(n==4){
+                        ctx.drawImage(img,63,55,88,120);//脸
+                         drawing(n+1);//递归
+
+                    } else {
+                       ctx.drawImage(img,fro,fra,frl,frw);//内衬1
+                         drawing(n+1);//递归 
+
+                    } 
+                }
+            }else{
+
+            //保存生成作品图片 
+             base64.push(c.toDataURL("image/png",0.8));
+                fn();
+            }
+        }
+        drawing(0);
+    }
+  
+   });
     $(".center3>ul li").on("touchstart",function(e){
     var index_3 = $(this).index();
     $(this).removeClass("border3").siblings().addClass("border3");
@@ -75,7 +162,7 @@
           var frontstyle=member.data['hairstyle']['front_synthesis_url'];
           var data1=[behidestyle,'/static/images/bozi.png','/static/images/shenzi.png','/static/images/xiongzhao.png',
           facestyle,frontstyle];
-    base64=[]; 
+        base64=[]; 
         draw(function(){
         document.getElementById('head').innerHTML='<img src="'+base64[0]+'">';
         }) 
