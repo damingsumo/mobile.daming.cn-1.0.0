@@ -45,6 +45,21 @@ class Controller_User_Hairstyle extends Controller_Base {
             foreach ($hairColors as &$hairColor) {
                 $hairColor['picture_url'] = 'http://'.MGR_DOMIAN.$hairColor['picture_url'];
             }
+            $userHairStyle = array();
+            $userHairStyle = WebApi_Image_HairStyle::instance()->row('*', $image['hair_style_id']);
+            if(empty($userHairStyle)) {
+                $userHairStyle = WebApi_Image_HairStyle::instance()->getHairStylesByParams(array());
+                $userHairStyle = current($userHairStyle);
+            }
+            $userFace = array();
+            $userFace = WebApi_Image_Face::instance()->row('*',  $image['face_id']);
+            if(empty($userFace)) {
+                $userFace = WebApi_Image_Face::instance()->getFacesByParams(array());
+                $userFace = current($userFace);
+            }
+            $params = array();
+            $params['userHairStyle'] = $userHairStyle;
+            $params['userFace'] = $userFace;
             $params['hairStyles'] = $hairStyles;
             $params['hairColors'] = $hairColors;
             $params['image'] = $image;

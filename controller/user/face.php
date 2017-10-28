@@ -11,9 +11,6 @@ class Controller_User_Face extends Controller_Base {
         if($faceId <= 0) {
             return $this->error('请选择脸型');
         }
-        if($complexion <= 0) {
-            return $this->error('请选择肤色');
-        }
         $imageId = WebApi_Image::instance()->add($_POST);
         if(!$imageId) {
             return $this->error('添加失败');
@@ -33,7 +30,18 @@ class Controller_User_Face extends Controller_Base {
         foreach ($hairColors as &$hairColor) {
             $hairColor['picture_url'] = 'http://'.MGR_DOMIAN.$hairColor['picture_url'];
         }
-        $parmas = array();
+        $userHairStyle = array();
+        $userHairStyle = WebApi_Image_HairStyle::instance()->getHairStylesByParams(array());
+        $userHairStyle = current($userHairStyle);
+        $userFace = array();
+        $userFace = WebApi_Image_Face::instance()->row('*',  $faceId);
+        if(empty($userFace)) {
+            $userFace = WebApi_Image_Face::instance()->getFacesByParams(array());
+            $userFace = current($userFace);
+        }
+        $params = array();
+        $params['userHairStyle'] = $userHairStyle;
+        $params['userFace'] = $userFace;
         $params['hairStyles'] = $hairStyles;
         $params['hairColors'] = $hairColors;
         $params['image_id'] = $imageId;
@@ -63,6 +71,21 @@ class Controller_User_Face extends Controller_Base {
             foreach ($complexions as &$complexion) {
                 $complexion['picture_url'] = 'http://'.MGR_DOMIAN.$complexion['picture_url'];
             }
+            $userHairStyle = array();
+            $userHairStyle = WebApi_Image_HairStyle::instance()->row('*', $image['hair_style_id']);
+            if(empty($userHairStyle)) {
+                $userHairStyle = WebApi_Image_HairStyle::instance()->getHairStylesByParams(array());
+                $userHairStyle = current($userHairStyle);
+            }
+            $userFace = array();
+            $userFace = WebApi_Image_Face::instance()->row('*',  $image['face_id']);
+            if(empty($userFace)) {
+                $userFace = WebApi_Image_Face::instance()->getFacesByParams(array());
+                $userFace = current($userFace);
+            }
+            $params = array();
+            $params['userHairStyle'] = $userHairStyle;
+            $params['userFace'] = $userFace;
             $params['faces'] = $faces;
             $params['complexions'] = $complexions;
             $params['image'] = $image;
