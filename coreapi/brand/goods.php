@@ -35,7 +35,7 @@ class CoreApi_Brand_Goods extends CoreApi {
     * @param string $order
     * @param string $desc
     */
-    public function getGoodsByParams($params, $page, $pagesize, $returnFormat = 'Array', $order = "create_time", $desc = "desc") {
+    public function getGoodsByParams($params, $page, $pagesize,  $order = "create_time", $returnFormat = 'Array', $desc = "desc") {
 		$sql = 'select * from ' . $this->_tableName . ' where 1 ';
 		$binds = array();
 		if(isset($params['genre_id'])) {
