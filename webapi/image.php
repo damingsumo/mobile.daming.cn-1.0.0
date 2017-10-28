@@ -40,7 +40,7 @@ class WebApi_Image extends WebApi{
     }
     
     
-    public function update($data, $imageId) {
+    public function update($params, $imageId) {
         $params = array();
         $params['update_time'] = date('Y-m-d H:i:s');
         return CoreApi_Image::instance()->update($params, $imageId);
