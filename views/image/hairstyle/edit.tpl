@@ -29,7 +29,7 @@
   <div class="footer3">
     <input type="submit" value="完成">
   </div>
-  <input type="hidden" value="{$userFace.face_synthesis_url}" id="face_synthesis_url">
+  <input type="hidden" value="{$userFace.synthesis_url}" id="face_synthesis_url">
   <input type="hidden" value="{$userHairStyle.behide_synthesis_url}" id="behide_synthesis_url">
   <input type="hidden" value="{$userHairStyle.front_synthesis_url}" id="front_synthesis_url">
   <input type="hidden" value="{$userHairStyle.behide_ordinate}" id="behide_ordinate">
