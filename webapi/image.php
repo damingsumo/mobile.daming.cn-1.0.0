@@ -42,8 +42,6 @@ class WebApi_Image extends WebApi{
     
     public function update($data, $imageId) {
         $params = array();
-        $params['hair_color_id'] = isset($data['hair_color_id']) ? $data['hair_color_id'] : 0;
-        $params['hair_style_id'] = isset($data['hair_style_id']) ? $data['hair_style_id'] : 0;
         $params['update_time'] = date('Y-m-d H:i:s');
         return CoreApi_Image::instance()->update($params, $imageId);
     }
