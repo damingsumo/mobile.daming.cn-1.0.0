@@ -12,11 +12,11 @@ class WebApi_Brand_Goods extends WebApi{
     }
     
     
-    public function getGoodsByParams($params, $page = 1, $pageSize = -1) {
+    public function getGoodsByParams($params, $page = 1, $pageSize = -1, $order) {
         if(!is_array($params)) {
             return array();
         }
-        return CoreApi_Brand_Goods::instance()->getGoodsByParams($params, $page, $pageSize);
+        return CoreApi_Brand_Goods::instance()->getGoodsByParams($params, $page, $pageSize, $order);
     }
     
     

@@ -12,11 +12,11 @@ class WebApi_Brand extends WebApi{
     }
     
     
-    public function getBrandsByParams($params, $page = 1, $pageSize = -1, $key) {
+    public function getBrandsByParams($params, $page = 1, $pageSize = -1) {
         if(!is_array($params)) {
             return array();
         }
-        return CoreApi_Brand::instance()->getbrandsByParams($params, $page, $pageSize, $key);
+        return CoreApi_Brand::instance()->getbrandsByParams($params, $page, $pageSize);
     }
     
     
