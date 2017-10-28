@@ -1138,7 +1138,7 @@ align-items: center;
 .bottom3_1 a.bg3{
 	background: url(../images/306.png) no-repeat;
 	background-position: 100% 0;
-	background-size: 1rem;
+	background-size: 1.5rem;
 	border: 1px solid #7361f0;
 }
 .topnav{
@@ -1504,9 +1504,8 @@ align-items: center;
 .content6_top{
 	width: 100%;
 	display: table;
-	padding-top: 2rem;
-	position: relative;
-	overflow: hidden;
+	/*padding-top: 2rem;*/
+	position: relative; 
 }
 .content6_top ul{
 	width: 100%;
@@ -1514,8 +1513,8 @@ align-items: center;
 	padding: 0;
 	list-style: none;
 	display: table;
-	margin-bottom: 1rem;
-	height: 42rem;
+	/*margin-bottom: 1rem;*/
+	height: 45rem;
 }
 .content6_top ul li{
 	width: 100%;
@@ -1523,12 +1522,12 @@ align-items: center;
 	justify-content:center;
 	float: left;
 	position: relative;
-	height: 43rem;
+	/*height: 43rem;*/
 }
 .content6_top ul li img:nth-child(1){
 	width: 16rem;
 	height: 37rem;
-	position: absolute;
+	/*position: absolute;*/
 	bottom: 0;
 	 
 }

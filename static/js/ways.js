@@ -808,12 +808,18 @@ $(function(){
 			var h1 = $(".content6_top ul li img").width();
 			if(h>h0){
 				var h2 = h1-(h-h0)/2;
+				var h3 = (h-h0)/4;
 				$(".content6_top ul li img").height(h);
 				$(".content6_top ul li img").width(h2);
+				$(".content6_top ul li img").css("margin-top",h3);
+				$(".content6_top ul li img").css("margin-bottom",h3);
 			}else{
 				var h2 = h1+(h0-h)/2;
+				var h4 = (h0-h)/4;
 				$(".content6_top ul li img").height(h);
 				$(".content6_top ul li img").width(h2);
+				$(".content6_top ul li img").css("margin-top",h4);
+				$(".content6_top ul li img").css("margin-bottom",h4);
 			}
 			
 			
