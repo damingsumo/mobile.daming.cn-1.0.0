@@ -14,6 +14,7 @@ class Controller_User_Hairstyle extends Controller_Base {
         if($hairColorId <= 0) {
             return $this->error('请选择发色');
         }
+        unset($_POST['image_id']);
         $res = WebApi_Image::instance()->update($_POST, $imageId);
         if(!$res) {
             return $this->error('添加失败');

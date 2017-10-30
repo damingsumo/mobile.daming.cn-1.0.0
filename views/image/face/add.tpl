@@ -29,7 +29,7 @@
   <div class="footer3">
     <input type="submit" value="完成">
   </div>
-<!-- <input type="hidden" value="{$userFace.synthesis_url}" id="face_synthesis_url">
+<input type="hidden" value="{$userFace.synthesis_url}" id="face_synthesis_url">
   <input type="hidden" value="{$userHairStyle.behide_synthesis_url}" id="behide_synthesis_url">
   <input type="hidden" value="{$userHairStyle.front_synthesis_url}" id="front_synthesis_url">
   <input type="hidden" value="{$userHairStyle.behide_ordinate}" id="behide_ordinate">
@@ -39,7 +39,7 @@
   <input type="hidden" value="{$userHairStyle.front_ordinate}" id="front_ordinate">
   <input type="hidden" value="{$userHairStyle.front_abscissa}" id="front_abscissa">
   <input type="hidden" value="{$userHairStyle.front_length}" id="front_length">
-  <input type="hidden" value="{$userHairStyle.front_width}" id="front_width"> -->
+  <input type="hidden" value="{$userHairStyle.front_width}" id="front_width">
   </form>
     {literal}
    <script>
@@ -51,7 +51,7 @@
           facestyle,frontstyle];
     base64=[]; 
         draw(function(){
-        document.getElementById('imgBox').innerHTML='<img src="'+base64[0]+'">';
+        document.getElementById('addface').innerHTML='<img src="'+base64[0]+'">';
         }) 
     function draw(fn){
         var c=document.createElement('canvas'),
