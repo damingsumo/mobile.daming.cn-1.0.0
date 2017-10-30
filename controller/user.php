@@ -87,4 +87,32 @@ class Controller_User extends Controller_Base {
         return $this->display('image/face/add',$params);
          
     }
+    
+    /***
+     * 转到意见反馈
+     */
+    public function actionGoFeedback() {
+        return $this->display('feedback');
+    }
+    
+    
+    public function actionFeedback() {
+        $params = array();
+        $params['uid'] = Account::getUid();
+        $params['note'] = isset($_POST['note']) ? $_POST['note'] : '';
+        $params['phone'] = isset($_POST['phone']) ? $_POST['phone'] : 0;
+        if($params['uid'] == 0) {
+            return $this->error('用户名错误');
+        }
+        if($params['note'] == '') {
+            return $this->error('请输入反馈内容');
+        }
+        
+        $feedbackId = WebApi_User_Feedback::instance()->add();
+        if(!$feedbackId) {
+            return $this->error('意见反馈提交失败');
+        }
+        return $this->success('反馈成功','/index');
+    }
+    
 }

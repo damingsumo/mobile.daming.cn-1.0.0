@@ -100,7 +100,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href="/user/goFeedback">
 				<img src="{staticurl action='14.png' type='img'}">
 				<em>意见反馈</em>
 				<div>
