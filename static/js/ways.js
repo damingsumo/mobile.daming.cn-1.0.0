@@ -419,85 +419,81 @@ $(function(){
 		});
 		$(".third73 li:nth-child(1)").on("touchstart",function(e){
 			$(".third71").removeClass("none").siblings().addClass("none");
-			$(".third72").addClass("none").siblings().removeClass("none");
-			$(".third73 li:nth-child(2)").addClass("border7_left").siblings().removeClass("border7_left");
-			$(".third73 li:nth-child(1)").css({"opacity":"1"});
-			$(".third73 li:nth-child(2)").css({"opacity":"0.5"});
 		});
-		$(".third73 li:nth-child(2)").on("touchstart",function(e){
-			$(".third72").removeClass("none").siblings().addClass("none");
-			$(".third71").addClass("none").siblings().removeClass("none");
-			$(".third73 li:nth-child(1)").addClass("border7_left").siblings().removeClass("border7_left");
-			$(".third73 li:nth-child(2)").css({"opacity":"1"});
-			$(".third73 li:nth-child(1)").css({"opacity":"0.5"});
-		});
-		$(".forth71 li").on("touchstart",function(e){
-			$(".forth71 li div").remove();
-			$(this).addClass("bg7").siblings().removeClass("bg7");
-			$(this).append("<div><span>选择颜色</span></div>");
-			$(".forth71>li>div").on("touchstart",function(){
-				$(".forth77").removeClass("none").siblings().addClass("none");
-				$(".forth77>div").on("touchstart",function(){
-					$(".forth71").removeClass("none").siblings().addClass("none");
-				});
-			})
-		});
-		$(".forth72 li").on("touchstart",function(e){
-			$(".forth72 li div").remove();
-			$(this).addClass("bg7").siblings().removeClass("bg7");
-			$(this).append("<div><span>选择颜色</span></div>");
-			$(".forth72>li>div").on("touchstart",function(){
-				$(".forth77").removeClass("none").siblings().addClass("none");
-				$(".forth77>div").on("touchstart",function(){
-					$(".forth72").removeClass("none").siblings().addClass("none");
-				});
-			})
-		});
-		$(".forth73 li").on("touchstart",function(e){
-			$(".forth73 li div").remove();
-			$(this).addClass("bg7").siblings().removeClass("bg7");
-			$(this).append("<div><span>选择颜色</span></div>");
-			$(".forth73>li>div").on("touchstart",function(){
-				$(".forth77").removeClass("none").siblings().addClass("none");
-				$(".forth77>div").on("touchstart",function(){
-					$(".forth73").removeClass("none").siblings().addClass("none");
-				});
-			})
-		});
-		$(".forth74 li").on("touchstart",function(e){
-			$(".forth74 li div").remove();
-			$(this).addClass("bg7").siblings().removeClass("bg7");
-			$(this).append("<div><span>选择颜色</span></div>");
-			$(".forth74>li>div").on("touchstart",function(){
-				$(".forth77").removeClass("none").siblings().addClass("none");
-				$(".forth77>div").on("touchstart",function(){
-					$(".forth74").removeClass("none").siblings().addClass("none");
-				});
-			})
-		});
-		$(".forth75 li").on("touchstart",function(e){
-			$(".forth75 li div").remove();
-			$(this).addClass("bg7").siblings().removeClass("bg7");
-			$(this).append("<div><span>选择颜色</span></div>");
-			$(".forth75>li>div").on("touchstart",function(){
-				$(".forth77").removeClass("none").siblings().addClass("none");
-				$(".forth77>div").on("touchstart",function(){
-					$(".forth75").removeClass("none").siblings().addClass("none");
-				});
-			})
-		});
-		$(".forth76 li").on("touchstart",function(e){
-			var index7 = $(this).index();
-			$(".forth7>div>ul:eq("+index7+")").removeClass("none").siblings().addClass("none");
-			$(this).removeClass("border7_left").siblings().addClass("border7_left");
-			$(this).addClass("border7_top border7_bottom").siblings().removeClass("border7_top border7_bottom");
-			$(".forth76 li:first-child").removeClass("border7_top");
-			$(".forth76 li:last-child").removeClass("border7_bottom");
-			$(this).css({"opacity":"1"}).siblings().css({"opacity":"0.5"});
-		});
-		$(".forth77 li").on("touchstart",function(e){
-			$(this).addClass("bg7").siblings().removeClass("bg7");
-		});
+		// $(".third73 li:nth-child(2)").on("touchstart",function(e){
+		// 	$(".third72").removeClass("none").siblings().addClass("none");
+		// 	$(".third71").addClass("none").siblings().removeClass("none");
+		// 	$(".third73 li:nth-child(1)").addClass("border7_left").siblings().removeClass("border7_left");
+		// 	$(".third73 li:nth-child(2)").css({"opacity":"1"});
+		// 	$(".third73 li:nth-child(1)").css({"opacity":"0.5"});
+		// });
+		// $(".forth71 li").on("touchstart",function(e){
+		// 	$(".forth71 li div").remove();
+		// 	$(this).addClass("bg7").siblings().removeClass("bg7");
+		// 	$(this).append("<div><span>选择颜色</span></div>");
+		// 	$(".forth71>li>div").on("touchstart",function(){
+		// 		$(".forth77").removeClass("none").siblings().addClass("none");
+		// 		$(".forth77>div").on("touchstart",function(){
+		// 			$(".forth71").removeClass("none").siblings().addClass("none");
+		// 		});
+		// 	})
+		// });
+		// $(".forth72 li").on("touchstart",function(e){
+		// 	$(".forth72 li div").remove();
+		// 	$(this).addClass("bg7").siblings().removeClass("bg7");
+		// 	$(this).append("<div><span>选择颜色</span></div>");
+		// 	$(".forth72>li>div").on("touchstart",function(){
+		// 		$(".forth77").removeClass("none").siblings().addClass("none");
+		// 		$(".forth77>div").on("touchstart",function(){
+		// 			$(".forth72").removeClass("none").siblings().addClass("none");
+		// 		});
+		// 	})
+		// });
+		// $(".forth73 li").on("touchstart",function(e){
+		// 	$(".forth73 li div").remove();
+		// 	$(this).addClass("bg7").siblings().removeClass("bg7");
+		// 	$(this).append("<div><span>选择颜色</span></div>");
+		// 	$(".forth73>li>div").on("touchstart",function(){
+		// 		$(".forth77").removeClass("none").siblings().addClass("none");
+		// 		$(".forth77>div").on("touchstart",function(){
+		// 			$(".forth73").removeClass("none").siblings().addClass("none");
+		// 		});
+		// 	})
+		// });
+		// $(".forth74 li").on("touchstart",function(e){
+		// 	$(".forth74 li div").remove();
+		// 	$(this).addClass("bg7").siblings().removeClass("bg7");
+		// 	$(this).append("<div><span>选择颜色</span></div>");
+		// 	$(".forth74>li>div").on("touchstart",function(){
+		// 		$(".forth77").removeClass("none").siblings().addClass("none");
+		// 		$(".forth77>div").on("touchstart",function(){
+		// 			$(".forth74").removeClass("none").siblings().addClass("none");
+		// 		});
+		// 	})
+		// });
+		// $(".forth75 li").on("touchstart",function(e){
+		// 	$(".forth75 li div").remove();
+		// 	$(this).addClass("bg7").siblings().removeClass("bg7");
+		// 	$(this).append("<div><span>选择颜色</span></div>");
+		// 	$(".forth75>li>div").on("touchstart",function(){
+		// 		$(".forth77").removeClass("none").siblings().addClass("none");
+		// 		$(".forth77>div").on("touchstart",function(){
+		// 			$(".forth75").removeClass("none").siblings().addClass("none");
+		// 		});
+		// 	})
+		// });
+		// $(".forth76 li").on("touchstart",function(e){
+		// 	var index7 = $(this).index();
+		// 	$(".forth7>div>ul:eq("+index7+")").removeClass("none").siblings().addClass("none");
+		// 	$(this).removeClass("border7_left").siblings().addClass("border7_left");
+		// 	$(this).addClass("border7_top border7_bottom").siblings().removeClass("border7_top border7_bottom");
+		// 	$(".forth76 li:first-child").removeClass("border7_top");
+		// 	$(".forth76 li:last-child").removeClass("border7_bottom");
+		// 	$(this).css({"opacity":"1"}).siblings().css({"opacity":"0.5"});
+		// });
+		// $(".forth77 li").on("touchstart",function(e){
+		// 	$(this).addClass("bg7").siblings().removeClass("bg7");
+		// });
 		// $(".top71").on("touchstart", function(e) {
 		// 	 // e.preventDefault();
 		// 	 startX = e.originalEvent.changedTouches[0].pageX;

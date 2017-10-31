@@ -4,7 +4,7 @@
 			<div class="top71">
 				<ul>
 					<li id="showfirst"><img src="{staticurl action='free.png' type='img'}"></li>
-					<!-- <li><img src="{staticurl action='free.png' type='img'}"></li> -->
+					<li><img src="{staticurl action='free.png' type='img'}"></li>
 				</ul>
 			</div>
 			<div class="top72">
@@ -23,110 +23,19 @@
 							<img src="{staticurl action='shangjiantou.png' type='img'}">
 						</li>
 						<li><span></span><span>发型</span></li>
-						<!-- <li><span></span><span>鞋子</span></li> -->
 					</ul>
 				</div>
 				<div class="second7 none">
-					<img src="images/403.png">
+					<img src="{staticurl action='403.png' type='img'}">
 				</div>
 				<div class="third7 none">
 					<ul class="third71">
 						<li class="bg7"><img src="images/313.png"><span>丸子头</span></li>
 						<li><img src="images/314.png"><span>短发</span></li>
-						<li><img src="images/315.png"><span>马尾辫</span></li>
-						<li><img src="images/316.png"><span>波波头</span></li>
-						<li><img src="images/313.png"><span>丸子头</span></li>
-						<li><img src="images/314.png"><span>短发</span></li>
-						<li><img src="images/315.png"><span>马尾辫</span></li>
-						<li><img src="images/316.png"><span>波波头</span></li>
 					</ul>
-					<!-- <ul class=" third72 none">
-						<li class="bg7"><img src="images/301.png"><span>黑色</span></li>
-						<li><img src="images/302.png"><span>棕色</span></li>
-						<li><img src="images/303.png"><span>紫色</span></li>
-						<li><img src="images/301.png"><span>黑色</span></li>
-						<li><img src="images/302.png"><span>棕色</span></li>
-						<li><img src="images/303.png"><span>短发</span></li>
-						<li><img src="images/301.png"><span>黑色</span></li>
-						<li><img src="images/302.png"><span>棕色</span></li>
-					</ul> -->
 					<ul  class="third73">
 						<li style="opacity:1;"><span></span><span>发型</span></li>
 					<!-- 	<li class="border7_left border7_top"><span></span><span>发色</span></li> -->
-					</ul>
-				</div>
-				<div class="forth7 none">
-					<div>
-						<ul class="forth71"> 
-							<li><img src="images/314.png"><span>短发</span></li>
-							<li><img src="images/315.png"><span>马尾辫</span></li>
-							<li><img src="images/316.png"><span>波波头</span></li>
-							<li><img src="images/313.png"><span>丸子头</span></li>
-							<li><img src="images/314.png"><span>短发</span></li>
-							<li><img src="images/315.png"><span>马尾辫</span></li>
-							<li><img src="images/316.png"><span>波波头</span></li>
-						</ul>
-						<ul class="forth72 none">
-							<li><img src="images/302.png"><span>棕色</span></li>
-							<li><img src="images/303.png"><span>紫色</span></li>
-							<li><img src="images/301.png"><span>黑色</span></li>
-							<li><img src="images/302.png"><span>棕色</span></li>
-							<li><img src="images/303.png"><span>短发</span></li>
-							<li><img src="images/301.png"><span>黑色</span></li>
-							<li><img src="images/302.png"><span>棕色</span></li>
-							<li><img src="images/302.png"><span>棕色</span></li>
-							<li><img src="images/303.png"><span>紫色</span></li>
-							<li><img src="images/301.png"><span>黑色</span></li>
-							<li><img src="images/302.png"><span>棕色</span></li>
-							<li><img src="images/303.png"><span>短发</span></li>
-							<li><img src="images/301.png"><span>黑色</span></li>
-							<li><img src="images/302.png"><span>棕色</span></li>
-						</ul>
-						<ul class="forth73 none">
-							 <li><img src="images/314.png"><span>短发</span></li>
-							<li><img src="images/315.png"><span>马尾辫</span></li>
-							<li><img src="images/316.png"><span>波波头</span></li>
-							<li><img src="images/313.png"><span>丸子头</span></li>
-							<li><img src="images/314.png"><span>短发</span></li>
-							<li><img src="images/315.png"><span>马尾辫</span></li>
-							<li><img src="images/316.png"><span>波波头</span></li>
-						</ul>
-						<ul class="forth74 none"> 
-							<li><img src="images/302.png"><span>棕色</span></li>
-							<li><img src="images/303.png"><span>紫色</span></li>
-							<li><img src="images/301.png"><span>黑色</span></li>
-							<li><img src="images/302.png"><span>棕色</span></li>
-							<li><img src="images/303.png"><span>短发</span></li>
-							<li><img src="images/301.png"><span>黑色</span></li>
-							<li><img src="images/302.png"><span>棕色</span></li>
-						</ul>
-						<ul class="forth75 none"> 
-							<li><img src="images/314.png"><span>短发</span></li>
-							<li><img src="images/315.png"><span>马尾辫</span></li>
-							<li><img src="images/316.png"><span>波波头</span></li>
-							<li><img src="images/313.png"><span>丸子头</span></li>
-							<li><img src="images/314.png"><span>短发</span></li>
-							<li><img src="images/315.png"><span>马尾辫</span></li>
-							<li><img src="images/316.png"><span>波波头</span></li>
-						</ul>
-						<ul class="forth77 none">
-							<div><img src="images/zuo.png"></div>
-							<li class="bg7"><img src="images/301.png"><span>黑色</span></li>
-							<li><img src="images/302.png"><span>棕色</span></li>
-							<li><img src="images/303.png"><span>紫色</span></li>
-							<li><img src="images/301.png"><span>黑色</span></li>
-							<li><img src="images/302.png"><span>棕色</span></li>
-							<li><img src="images/303.png"><span>短发</span></li>
-							<li><img src="images/301.png"><span>黑色</span></li>
-							<li><img src="images/302.png"><span>棕色</span></li>
-						</ul>
-					</div>
-					<ul class="forth76">
-						<li id="forth761"><span></span><span>所有</span></li>
-						<li class="border7_left border7_top"><span></span><span>单鞋</span></li>
-						<li class="border7_left"><span></span><span>凉鞋</span></li>
-						<li class="border7_left"><span></span><span>休闲鞋</span></li>
-						<li class="border7_left"><span></span><span>靴子</span></li>
 					</ul>
 				</div>
 			</div>
@@ -361,7 +270,7 @@
                          drawing(n+1);//递归
                     } 
                     else{
-                      ctx.drawImage(img,70,290,65,60);//鞋子
+                      ctx.drawImage(img,70,290,68,60);//鞋子
                          drawing(n+1);//递归
                     }
                 }
