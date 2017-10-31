@@ -2002,8 +2002,7 @@ align-items: center;
 .top72 div:nth-child(1){ 
 	background: #abb8c3; 
 	border: 1px solid #a9b7c2;
-	background-color: #a9b7c2;
-	margin-left:1.5rem;
+	background-color: #a9b7c2; 
 	width: 8rem;
 	height: 7rem;  
 	text-align: center;
