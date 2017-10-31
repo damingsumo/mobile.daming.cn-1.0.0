@@ -1,4 +1,15 @@
 {include file="common/header.tpl" pageTitle="商品列表"}
+  <input type="hidden" value="{$userFace.synthesis_url}" id="face_synthesis_url">
+  <input type="hidden" value="{$userHairStyle.behide_synthesis_url}" id="behide_synthesis_url">
+  <input type="hidden" value="{$userHairStyle.front_synthesis_url}" id="front_synthesis_url">
+  <input type="hidden" value="{$userHairStyle.behide_ordinate}" id="behide_ordinate">
+  <input type="hidden" value="{$userHairStyle.behide_abscissa}" id="behide_abscissa">
+  <input type="hidden" value="{$userHairStyle.behide_length}" id="behide_length">
+  <input type="hidden" value="{$userHairStyle.behide_width}" id="behide_width">
+  <input type="hidden" value="{$userHairStyle.front_ordinate}" id="front_ordinate">
+  <input type="hidden" value="{$userHairStyle.front_abscissa}" id="front_abscissa">
+  <input type="hidden" value="{$userHairStyle.front_length}" id="front_length">
+  <input type="hidden" value="{$userHairStyle.front_width}" id="front_width">
    <div class="content7">
 		<div class="content7_top">
 			<div class="top71">
@@ -30,8 +41,9 @@
 				</div>
 				<div class="third7 none">
 					<ul class="third71">
-						<li class="bg7"><img src="images/313.png"><span>丸子头</span></li>
-						<li><img src="images/314.png"><span>短发</span></li>
+					{foreach $hairstyles as $hairstyle}
+						<li {if $hairStyle.hair_style_id == $image.hair_style_id} class="bg7" {/if} onclick="choose()"><img src="{$hairStyle.show_url}"><span>丸子头</span></li>
+						{/foreach}
 					</ul>
 					<ul  class="third73">
 						<li style="opacity:1;"><span></span><span>发型</span></li>

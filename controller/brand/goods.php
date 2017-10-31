@@ -172,10 +172,34 @@ class Controller_Brand_Goods extends Controller_Base {
                 }
             }
         }
+        
+        $hairstyles = WebApi_Image_HairStyle::instance()->getHairStylesByParams(array());
+        $image = WebApi_Image::instance()->getImagesByParams(array('uid'=>$uid));
+        if(empty($image)) {
+            $image = current($image);
+        }
+        
+        $userHairStyle = array();
+        $userHairStyle = WebApi_Image_HairStyle::instance()->row('*', $image['hair_style_id']);
+        if(empty($userHairStyle)) {
+            $userHairStyle = WebApi_Image_HairStyle::instance()->getHairStylesByParams(array());
+            $userHairStyle = current($userHairStyle);
+        }
+        $userFace = array();
+        $userFace = WebApi_Image_Face::instance()->row('*',  $image['face_id']);
+        if(empty($userFace)) {
+            $userFace = WebApi_Image_Face::instance()->getFacesByParams(array());
+            $userFace = current($userFace);
+        }
+        $params['userHairStyle'] = $userHairStyle;
+        $params['userFace'] = $userFace;
+        $params['image'] = $image;
         $params['body'] = $body;
         $params['good'] = $good;
         $params['sizes'] = $sizes;
         $params['genre'] = $genre;
+        $params['hairstyles'] = $hairstyles;
+        
         return $this->display('detail',$params);
     }
     
