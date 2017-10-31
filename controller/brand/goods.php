@@ -192,7 +192,7 @@ class Controller_Brand_Goods extends Controller_Base {
             $userFace = current($userFace);
         }
         
-        $goodsCollocation = WebApi_Brand_Goods_Collocation::
+//         $goodsCollocation = WebApi_Brand_Goods_Collocation::
         $params['userHairStyle'] = $userHairStyle;
         $params['userFace'] = $userFace;
         $params['image'] = $image;
