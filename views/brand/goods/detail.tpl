@@ -3,8 +3,8 @@
 		<div class="content7_top">
 			<div class="top71">
 				<ul>
-					<li><img src="{staticurl action='free.png' type='img'}"></li>
-					<li><img src="{staticurl action='free.png' type='img'}"></li>
+					<li id="showfirst"><img src="{staticurl action='free.png' type='img'}"></li>
+					<!-- <li><img src="{staticurl action='free.png' type='img'}"></li> -->
 				</ul>
 			</div>
 			<div class="top72">
@@ -23,7 +23,7 @@
 							<img src="{staticurl action='shangjiantou.png' type='img'}">
 						</li>
 						<li><span></span><span>发型</span></li>
-						<li><span></span><span>鞋子</span></li>
+						<!-- <li><span></span><span>鞋子</span></li> -->
 					</ul>
 				</div>
 				<div class="second7 none">
@@ -40,7 +40,7 @@
 						<li><img src="images/315.png"><span>马尾辫</span></li>
 						<li><img src="images/316.png"><span>波波头</span></li>
 					</ul>
-					<ul class=" third72 none">
+					<!-- <ul class=" third72 none">
 						<li class="bg7"><img src="images/301.png"><span>黑色</span></li>
 						<li><img src="images/302.png"><span>棕色</span></li>
 						<li><img src="images/303.png"><span>紫色</span></li>
@@ -49,10 +49,10 @@
 						<li><img src="images/303.png"><span>短发</span></li>
 						<li><img src="images/301.png"><span>黑色</span></li>
 						<li><img src="images/302.png"><span>棕色</span></li>
-					</ul>
+					</ul> -->
 					<ul  class="third73">
 						<li style="opacity:1;"><span></span><span>发型</span></li>
-						<li class="border7_left border7_top"><span></span><span>发色</span></li>
+					<!-- 	<li class="border7_left border7_top"><span></span><span>发色</span></li> -->
 					</ul>
 				</div>
 				<div class="forth7 none">
@@ -307,5 +307,74 @@
 <!-- 			<button class="skin_color">查看详情</button> -->
 <!-- 			<button class="skin_color button_color">加入购物车</button> -->
 <!-- 		</div> -->
+{literal}
+<script type="text/javascript">
+
+ $(document).ready(function(){ 
+    var data59=['/static/images/chaoduanfa.png','/static/images/bozi.png','/static/images/shenzi.png',
+    '/static/images/zhuilinglian.png','/static/images/chaoduanfa1.png',
+    '/static/images/lujian.png','/static/images/changxue.png'];
+     base64=[];
+     draw(function(){
+           document.getElementById("showfirst").innerHTML='<img src="'+base64[0]+'">';
+      }); 
+    function draw(fn){ 
+        var c=document.createElement('canvas'),
+        ctx=c.getContext('2d'),
+        len=data59.length;
+        c.width=190;
+        c.height=350;
+        ctx.rect(0,0,c.width,c.height);
+        ctx.fillStyle='#c3d3e0';
+        ctx.fill();
+
+        function drawing(n){
+            if(n<len){
+                var img=new Image;
+                img.crossOrigin = 'Anonymous'; //解决跨域
+
+                img.src=data59[n]; 
+                img.onload=function(){
+                     if(n==0){
+                        ctx.drawImage(img,74,12,56,56);//后面头发
+                         drawing(n+1);//递归
+
+                   }
+                   else if(n==1){
+                           ctx.drawImage(img,61,60,90,20);//脖子
+                         drawing(n+1);//递归
+                         
+                    } 
+                    else if(n==2){
+                       ctx.drawImage(img,32,80,150,265);//身子
+                         drawing(n+1);//递归
+                    } 
+                     else if(n==3){
+                        ctx.drawImage(img,77,18,52,49);//脸
+                         drawing(n+1);//递归
+                    } 
+                     else if(n==4){
+                       ctx.drawImage(img,70,12,63,40);//前面头发
+                         drawing(n+1);//递归
+                    } else if(n==5){
+                      ctx.drawImage(img,30,68,152,160);//衣服
+                         drawing(n+1);//递归
+                    } 
+                    else{
+                      ctx.drawImage(img,70,290,65,60);//鞋子
+                         drawing(n+1);//递归
+                    }
+                }
+            }else{
+            //保存生成作品图片 
+             base64.push(c.toDataURL("images/png",0.8));
+                fn();
+            }
+        }
+        drawing(0);
+    }
+});
+</script>
+{/literal}
 </body>
 </html>
