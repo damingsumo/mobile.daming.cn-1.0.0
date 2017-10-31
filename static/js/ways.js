@@ -411,15 +411,13 @@ $(function(){
 				$(".top71 ul li img").css({"margin-left":'0rem'});
 			});
 		});
-		$(".third71 li").on("touchstart",function(e){
-			$(this).addClass("bg7").siblings().removeClass("bg7");
-		});
-		$(".third72 li").on("touchstart",function(e){
-			$(this).addClass("bg7").siblings().removeClass("bg7");
-		});
-		$(".third73 li:nth-child(1)").on("touchstart",function(e){
-			$(".third71").removeClass("none").siblings().addClass("none");
-		});
+		
+		// $(".third72 li").on("touchstart",function(e){
+		// 	$(this).addClass("bg7").siblings().removeClass("bg7");
+		// });
+		// $(".third73 li:nth-child(1)").on("touchstart",function(e){
+		// 	$(".third71").removeClass("none").siblings().addClass("none");
+		// });
 		// $(".third73 li:nth-child(2)").on("touchstart",function(e){
 		// 	$(".third72").removeClass("none").siblings().addClass("none");
 		// 	$(".third71").addClass("none").siblings().removeClass("none");

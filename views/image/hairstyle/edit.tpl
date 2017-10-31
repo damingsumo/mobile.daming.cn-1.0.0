@@ -17,7 +17,7 @@
   <div class="bottom3">
     <ul class="bottom3_1 hairstyle">
     {foreach $hairStyles as $hairStyle}
-      <a onclick="hairstyle({$hairStyle.hair_style_id})"><li value="{$hairStyle.hair_style_id}" {if $hairStyle.hair_style_id == $image.hair_style_id} class="bg3" {/if}><img src="{$hairStyle.show_url}"><span>{$hairStyle.name}</span></li></a>
+      <a onclick="hairstyle({$hairStyle.hair_style_id})" class="bg3"><li value="{$hairStyle.hair_style_id}" {if $hairStyle.hair_style_id == $image.hair_style_id}  {/if}><img src="{$hairStyle.show_url}"><span>{$hairStyle.name}</span></li></a>
       {/foreach}
     </ul>
     <ul class="none bottom3_2">
