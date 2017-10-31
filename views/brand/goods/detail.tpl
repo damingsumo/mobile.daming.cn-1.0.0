@@ -41,7 +41,7 @@
 				</div>
 				<div class="third7 none">
 					<ul class="third71">
-					{foreach $hairstyles as $hairstyle}
+					{foreach $hairStyles as $hairStyle}
 						<li {if $hairStyle.hair_style_id == $image.hair_style_id} class="bg7" {/if} onclick="choose()"><img src="{$hairStyle.show_url}"><span>丸子头</span></li>
 						{/foreach}
 					</ul>
