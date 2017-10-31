@@ -199,7 +199,6 @@ class Controller_Brand_Goods extends Controller_Base {
         $params['sizes'] = $sizes;
         $params['genre'] = $genre;
         $params['hairStyles'] = $hairstyles;
-        print_r($params);exit;
         return $this->display('detail',$params);
     }
     
