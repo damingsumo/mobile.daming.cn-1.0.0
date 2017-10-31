@@ -32,7 +32,7 @@ class Controller_Brand_Goods extends Controller_Base {
         }
         
         foreach($goods as &$good) {
-            $good['picture_url'] =  'http://'.MGR_DOMIAN.$good['picture_url'];
+            $good['show_url'] =  'http://'.MGR_DOMIAN.$good['show_url'];
             $good['genre'] = WebApi_Genre::instance()->row('*',$good['genre_id']);
             $good['genre']['picture_url'] = 'http://'.MGR_DOMIAN.$good['genre']['picture_url'];
         }
@@ -191,6 +191,8 @@ class Controller_Brand_Goods extends Controller_Base {
             $userFace = WebApi_Image_Face::instance()->getFacesByParams(array());
             $userFace = current($userFace);
         }
+        
+        $goodsCollocation = WebApi_Brand_Goods_Collocation::
         $params['userHairStyle'] = $userHairStyle;
         $params['userFace'] = $userFace;
         $params['image'] = $image;

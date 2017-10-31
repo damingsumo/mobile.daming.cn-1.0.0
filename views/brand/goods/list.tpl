@@ -24,7 +24,7 @@
      {foreach $goods as $good}
           <li value="{$good.gid}">
             <a href="detail?gid={$good.gid}" id="{$good.gid}">
-              <img src="{$good.picture_url}">
+              <img src="{$good.show_url}">
            </a>
             <a href="detail?gid={$good.gid}">
                 <span>{$good.goods_name}</span>

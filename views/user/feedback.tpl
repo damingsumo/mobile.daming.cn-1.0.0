@@ -1,5 +1,5 @@
 {include file="common/header.tpl" pageTitle="我的"}
-{include file="common/menu.tpl"}
+{include file="common/menu.tpl"} 
 <form action="/user/feedback" id="myform" method="post" onsubmit="return check()">
     <div class="Feedback">
       <textarea class="textarea" placeholder="谢谢您的意见和反馈" name="note"></textarea>
