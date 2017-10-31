@@ -175,7 +175,7 @@ class Controller_Brand_Goods extends Controller_Base {
         
         $hairstyles = WebApi_Image_HairStyle::instance()->getHairStylesByParams(array());
         $image = WebApi_Image::instance()->getImagesByParams(array('uid'=>$uid));
-        if(empty($image)) {
+        if(!empty($image)) {
             $image = current($image);
         }
         
