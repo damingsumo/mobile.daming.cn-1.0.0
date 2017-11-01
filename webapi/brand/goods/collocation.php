@@ -16,7 +16,7 @@ class WebApi_Brand_Goods_Collocation extends WebApi{
         if(!is_array($params)) {
             return array();
         }
-        return CoreApi_Brand_Goods_Collocation::instance()->getSizesByParams($params, $page, $pageSize);
+        return CoreApi_Brand_Goods_Collocation::instance()->getCollocationsByParams($params, $page, $pageSize);
     }
     
     
@@ -24,6 +24,6 @@ class WebApi_Brand_Goods_Collocation extends WebApi{
         if(!is_array($params)) {
             return false;
         }
-        return CoreApi_Brand_Goods_Collocation::instance()->getSizesCountByParams($params);
+        return CoreApi_Brand_Goods_Collocation::instance()->getCollocationsCountByParams($params);
     }
 }

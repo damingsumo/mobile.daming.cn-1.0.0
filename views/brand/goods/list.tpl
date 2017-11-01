@@ -1,6 +1,17 @@
 {include file="common/header.tpl" pageTitle="商品列表"}
 {include file="common/menu.tpl"}
      <div class="topnav">
+       <input type="hidden" value="{$userFace.synthesis_url}" id="face_synthesis_url">
+      <input type="hidden" value="{$userHairStyle.behide_synthesis_url}" id="behide_synthesis_url">
+      <input type="hidden" value="{$userHairStyle.front_synthesis_url}" id="front_synthesis_url">
+      <input type="hidden" value="{$userHairStyle.detail_behide_ordinate}" id="behide_ordinate">
+      <input type="hidden" value="{$userHairStyle.detail_behide_abscissa}" id="behide_abscissa">
+      <input type="hidden" value="{$userHairStyle.detail_behide_length}" id="behide_length">
+      <input type="hidden" value="{$userHairStyle.detail_behide_width}" id="behide_width">
+      <input type="hidden" value="{$userHairStyle.detail_front_ordinate}" id="front_ordinate">
+      <input type="hidden" value="{$userHairStyle.detail_front_abscissa}" id="front_abscissa">
+      <input type="hidden" value="{$userHairStyle.detail_front_length}" id="front_length">
+      <input type="hidden" value="{$userHairStyle.detail_front_width}" id="front_width">
        <ul>
          <li>
            <a href="list?key=0&brand_id={$brandId}" {if $key==0 }class="font_color" {/if}>综合</a>
@@ -23,6 +34,29 @@
         
      {foreach $goods as $good}
           <li value="{$good.gid}">
+  <input type="hidden" value="{$good.synthesis_url}" id="front_width">
+  <input type="hidden" value="{$good..behide_ordinate}" id="front_width">
+  <input type="hidden" value="{$good.behide_abscissa}" id="front_width">
+  <input type="hidden" value="{$good.behide_length}" id="front_width">
+  <input type="hidden" value="{$good.behide_width}" id="front_width">
+  
+  <input type="hidden" value="$good['goodsCollocation']['first_collocation_id'].synthesis_url}" id="front_width">
+  <input type="hidden" value="$good['goodsCollocation']['first_collocation_id'].behide_ordinate}" id="front_width">
+  <input type="hidden" value="$good['goodsCollocation']['first_collocation_id'].behide_abscissa}" id="front_width">
+  <input type="hidden" value="$good['goodsCollocation']['first_collocation_id'].behide_length}" id="front_width">
+  <input type="hidden" value="$good['goodsCollocation']['first_collocation_id'].behide_width}" id="front_width">
+  
+  <input type="hidden" value="$good['goodsCollocation']['shoes'].synthesis_url}" id="front_width">
+  <input type="hidden" value="$good['goodsCollocation']['shoes'].behide_ordinate}" id="front_width">
+  <input type="hidden" value="$good['goodsCollocation']['shoes'].behide_abscissa}" id="front_width">
+  <input type="hidden" value="{$good['goodsCollocation']['shoes'].behide_length}" id="front_width">
+  <input type="hidden" value="{$good['goodsCollocation']['shoes'].behide_width}" id="front_width">
+  
+  <input type="hidden" value="{if isset($good['goodsCollocation']['second_collocation_goods'].synthesis_url)}{$goodsCollocation['second_collocation_goods'].synthesis_url}{/if}" id="front_width">
+  <input type="hidden" value="{if isset($good['goodsCollocation']['second_collocation_goods'].synthesis_url)}{$goodsCollocation['second_collocation_goods'].behide_ordinate}{/if}" id="front_width">
+  <input type="hidden" value="{if isset($good['goodsCollocation']['second_collocation_goods'].synthesis_url)}{$goodsCollocation['second_collocation_goods'].behide_abscissa}{/if}" id="front_width">
+  <input type="hidden" value="{if isset($good['goodsCollocation']['second_collocation_goods'].synthesis_url)}{$goodsCollocation['second_collocation_goods'].behide_length}{/if}" id="front_width">
+  <input type="hidden" value="{if isset($good['goodsCollocation']['second_collocation_goods'].synthesis_url)}{$goodsCollocation['second_collocation_goods'].behide_width}{/if}" id="front_width">
             <a href="detail?gid={$good.gid}" id="{$good.gid}">
               <img src="{$good.show_url}">
            </a>
