@@ -66,7 +66,7 @@ class Controller_Brand_Goods extends Controller_Base {
         $userFace = array();
         $userFace = WebApi_Image_Face::instance()->row('*',  $image['face_id']);
         if(empty($userFace)) {
-            $userFace = WebApi_Image_Face::instance()->getFacesByParams(array());
+             $userFace = WebApi_Image_Face::instance()->getFacesByParams(array());
             $userFace = current($userFace);
         }
         $params['userHairStyle'] = $userHairStyle;
