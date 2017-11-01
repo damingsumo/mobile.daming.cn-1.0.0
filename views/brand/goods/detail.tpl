@@ -10,6 +10,29 @@
   <input type="hidden" value="{$userHairStyle.detail_front_abscissa}" id="front_abscissa">
   <input type="hidden" value="{$userHairStyle.detail_front_length}" id="front_length">
   <input type="hidden" value="{$userHairStyle.detail_front_width}" id="front_width">
+  <input type="hidden" value="{$good.synthesis_url}" id="front_width">
+  <input type="hidden" value="{$good..behide_ordinate}" id="front_width">
+  <input type="hidden" value="{$good.behide_abscissa}" id="front_width">
+  <input type="hidden" value="{$good.behide_length}" id="front_width">
+  <input type="hidden" value="{$good.behide_width}" id="front_width">
+  
+  <input type="hidden" value="{$goodsCollocation['first_collocation_id'].synthesis_url}" id="front_width">
+  <input type="hidden" value="{$goodsCollocation['first_collocation_id'].behide_ordinate}" id="front_width">
+  <input type="hidden" value="{$goodsCollocation['first_collocation_id'].behide_abscissa}" id="front_width">
+  <input type="hidden" value="{$goodsCollocation['first_collocation_id'].behide_length}" id="front_width">
+  <input type="hidden" value="{$goodsCollocation['first_collocation_id'].behide_width}" id="front_width">
+  
+  <input type="hidden" value="{$goodsCollocation['shoes'].synthesis_url}" id="front_width">
+  <input type="hidden" value="{$goodsCollocation['shoes'].behide_ordinate}" id="front_width">
+  <input type="hidden" value="{$goodsCollocation['shoes'].behide_abscissa}" id="front_width">
+  <input type="hidden" value="{$goodsCollocation['shoes'].behide_length}" id="front_width">
+  <input type="hidden" value="{$goodsCollocation['shoes'].behide_width}" id="front_width">
+  
+  <input type="hidden" value="{if isset($goodsCollocation['second_collocation_goods'].synthesis_url)}{$goodsCollocation['second_collocation_goods'].synthesis_url}{/if}" id="front_width">
+  <input type="hidden" value="{if isset($goodsCollocation['second_collocation_goods'].synthesis_url)}{$goodsCollocation['second_collocation_goods'].behide_ordinate}{/if}" id="front_width">
+  <input type="hidden" value="{if isset($goodsCollocation['second_collocation_goods'].synthesis_url)}{$goodsCollocation['second_collocation_goods'].behide_abscissa}{/if}" id="front_width">
+  <input type="hidden" value="{if isset($goodsCollocation['second_collocation_goods'].synthesis_url)}{$goodsCollocation['second_collocation_goods'].behide_length}{/if}" id="front_width">
+  <input type="hidden" value="{if isset($goodsCollocation['second_collocation_goods'].synthesis_url)}{$goodsCollocation['second_collocation_goods'].behide_width}{/if}" id="front_width">
    <div class="content7">
 		<div class="content7_top">
 			<div class="top71">
@@ -238,8 +261,14 @@ $(".third71 a").click(function(){
     var frontstyle= $("#front_synthesis_url").val();
      var clothes= $("#clothes_synthesis_url").val();
      var shoes= $("#shoes_synthesis_url").val();
+
+     if(aa == "") {
     var data59=[behidestyle,'/static/images/bozi.png','/static/images/shenzi.png',
     facestyle,frontstyle,clothes,shoes];
+     }else {
+    	 var data59=[behidestyle,'/static/images/bozi.png','/static/images/shenzi.png',
+    	             facestyle,frontstyle,clothes,shoes, aa];
+         }
      base64=[];
      draw(function(){
            document.getElementById("showfirst").innerHTML='<img src="'+base64[0]+'">';
