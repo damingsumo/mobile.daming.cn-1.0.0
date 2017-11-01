@@ -4,6 +4,7 @@ class Controller_Brand_Goods extends Controller_Base {
      * 首页
      */
     public function actionList() {
+        $uid = account::getUid();
         $brandId = isset($_GET['brand_id']) ? $_GET['brand_id'] : 0;
         $genreId = isset($_GET['genre_id']) ? $_GET['genre_id'] : 0;
         $key = isset($_GET['key']) ? $_GET['key'] : 0;
@@ -35,7 +36,40 @@ class Controller_Brand_Goods extends Controller_Base {
             $good['show_url'] =  'http://'.MGR_DOMIAN.$good['show_url'];
             $good['genre'] = WebApi_Genre::instance()->row('*',$good['genre_id']);
             $good['genre']['picture_url'] = 'http://'.MGR_DOMIAN.$good['genre']['picture_url'];
+            
+            $goodsCollocation = array();
+            $goodsCollocation = WebApi_Brand_Goods_Collocation::instance()->getCollocationsByParams(array('gid'=>$good['gid']));
+            if(!empty($goodsCollocation)) {
+                $goodsCollocation = array();
+                $goodsCollocation['shoes'] = WebApi_Shoes::instance()->row('*', $goodsCollocation['shoes_id']);
+                if(isset($goodsCollocation['first_collocation_id'])) {
+                    $goodsCollocation['first_collocation_goods'] = WebApi_Brand_Goods::instance()->row('*', $goodsCollocation['first_collocation_id']);
+                }
+                if(isset($goodsCollocation['second_collocation_id'])) {
+                    $goodsCollocation['second_collocation_goods'] = WebApi_Brand_Goods::instance()->row('*', $goodsCollocation['second_collocation_id']);
+                }
+            }
+            $good['goodsCollocation'] = $goodsCollocation;
         }
+        
+        $image = WebApi_Image::instance()->getImagesByParams(array('uid'=>$uid));
+        if(!empty($image)) {
+            $image = current($image);
+        }
+        
+        $userHairStyle = array();
+        $userHairStyle = WebApi_Image_HairStyle::instance()->row('*', $image['hair_style_id']);
+        if(empty($userHairStyle)) {
+            $userHairStyle = WebApi_Image_HairStyle::instance()->getHairStylesByParams(array());
+            $userHairStyle = current($userHairStyle);
+        }
+        $userFace = array();
+        $userFace = WebApi_Image_Face::instance()->row('*',  $image['face_id']);
+        if(empty($userFace)) {
+            $userFace = WebApi_Image_Face::instance()->getFacesByParams(array());
+            $userFace = current($userFace);
+        }
+        
         $params['brandId'] = $brandId;
         $params['goods'] = $goods;
         $params['total'] = $total;
@@ -191,8 +225,18 @@ class Controller_Brand_Goods extends Controller_Base {
             $userFace = WebApi_Image_Face::instance()->getFacesByParams(array());
             $userFace = current($userFace);
         }
-        
-//         $goodsCollocation = WebApi_Brand_Goods_Collocation::
+        $goodsCollocation = array();
+        $goodsCollocation = WebApi_Brand_Goods_Collocation::instance()->getCollocationsByParams(array('gid'=>$gid));
+        if(!empty($goodsCollocation)) {
+            $goodsCollocation = array();
+            $goodsCollocation['shoes'] = WebApi_Shoes::instance()->row('*', $goodsCollocation['shoes_id']);
+            if(isset($goodsCollocation['first_collocation_id'])) {
+                $goodsCollocation['first_collocation_goods'] = WebApi_Brand_Goods::instance()->row('*', $goodsCollocation['first_collocation_id']);
+            }
+            if(isset($goodsCollocation['second_collocation_id'])) {
+                $goodsCollocation['second_collocation_goods'] = WebApi_Brand_Goods::instance()->row('*', $goodsCollocation['second_collocation_id']);
+            }
+        }
         $params['userHairStyle'] = $userHairStyle;
         $params['userFace'] = $userFace;
         $params['image'] = $image;
@@ -201,6 +245,7 @@ class Controller_Brand_Goods extends Controller_Base {
         $params['sizes'] = $sizes;
         $params['genre'] = $genre;
         $params['hairStyles'] = $hairstyles;
+        $params['goodsCollocation'] = $goodsCollocation;
         return $this->display('detail',$params);
     }
     
