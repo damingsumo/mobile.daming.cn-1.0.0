@@ -395,7 +395,7 @@ function choose(hair_style_id) {
                          drawing(n+1);//递归
                     } 
                     else{
-                      ctx.drawImage(img,sho,sha,shl,shw);//鞋子
+                      ctx.drawImage(img,sho,sha,shl,60);//鞋子
                          drawing(n+1);//递归
                     }
                 }
