@@ -395,31 +395,31 @@ $(function(){
 			$(".first7").addClass("none").siblings().removeClass("none");
 			$(".third7").removeClass("none").siblings().addClass("none");
 			$(".top71 ul li img").css({"margin-left":'4rem'});
-			$(".top71 ul").on("touchstart",function(){
+			
+		});
+		$(".top71 ul").on("touchstart",function(){
 				$(".third7").addClass("none").siblings().removeClass("none");
 				$(".first7").removeClass("none").siblings().addClass("none");
 				$(".top71 ul li img").css({"margin-left":'0rem'});
 			});
-		});
-		$(".first7 ul li:nth-child(3)").on("touchstart",function(e){
-			$(".first7").addClass("none").siblings().removeClass("none");
-			$(".forth7").removeClass("none").siblings().addClass("none");
-			$(".top71 ul li img").css({"margin-left":'4rem'});
-			$(".top71 ul").on("touchstart",function(){
-				$(".forth7").addClass("none").siblings().removeClass("none");
-				$(".first7").removeClass("none").siblings().addClass("none");
-				$(".top71 ul li img").css({"margin-left":'0rem'});
-			});
-		});
-		$(".third71 li").on("touchstart",function(e){
-			$(this).addClass("bg7").siblings().removeClass("bg7");
-		});
-		$(".third72 li").on("touchstart",function(e){
-			$(this).addClass("bg7").siblings().removeClass("bg7");
-		});
-		$(".third73 li:nth-child(1)").on("touchstart",function(e){
-			$(".third71").removeClass("none").siblings().addClass("none");
-		});
+		
+		// $(".first7 ul li:nth-child(3)").on("touchstart",function(e){
+		// 	$(".first7").addClass("none").siblings().removeClass("none");
+		// 	$(".forth7").removeClass("none").siblings().addClass("none");
+		// 	$(".top71 ul li img").css({"margin-left":'4rem'});
+		// 	$(".top71 ul").on("touchstart",function(){
+		// 		$(".forth7").addClass("none").siblings().removeClass("none");
+		// 		$(".first7").removeClass("none").siblings().addClass("none");
+		// 		$(".top71 ul li img").css({"margin-left":'0rem'});
+		// 	});
+		// });
+		
+		// $(".third72 li").on("touchstart",function(e){
+		// 	$(this).addClass("bg7").siblings().removeClass("bg7");
+		// });
+		// $(".third73 li:nth-child(1)").on("touchstart",function(e){
+		// 	$(".third71").removeClass("none").siblings().addClass("none");
+		// });
 		// $(".third73 li:nth-child(2)").on("touchstart",function(e){
 		// 	$(".third72").removeClass("none").siblings().addClass("none");
 		// 	$(".third71").addClass("none").siblings().removeClass("none");

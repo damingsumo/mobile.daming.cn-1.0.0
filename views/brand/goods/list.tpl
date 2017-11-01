@@ -46,9 +46,13 @@
   var number = document.getElementById("asd").getElementsByTagName("li");
     for(var i = 0;i<number.length;i++){
     var ss = number[i].getAttribute("value");
-    var data59=['/static/images/chaoduanfa.png','/static/images/bozi.png','/static/images/shenzi.png',
-    '/static/images/zhuilinglian.png','/static/images/chaoduanfa1.png',
-    '/static/images/lujian.png','/static/images/changxue.png'];
+    var facestyle = $("#face_synthesis_url").val();
+    var behidestyle = $("#behide_synthesis_url").val();
+    var frontstyle= $("#front_synthesis_url").val();
+     var clothes= $("#clothes_synthesis_url").val();
+     var shoes= $("#shoes_synthesis_url").val();
+    var data59=[behidestyle,'/static/images/bozi.png','/static/images/shenzi.png',
+    facestyle,frontstyle,clothes,shoes];
         base64=[];
           var func =function(wer){
               draw(function(){
@@ -70,13 +74,28 @@
             if(n<len){
                 var img=new Image;
                 img.crossOrigin = 'Anonymous'; //解决跨域
-
+                var beo =$("#behide_ordinate").val();
+                 var bea = $("#behide_abscissa").val();
+                 var bel = $("#behide_length").val();
+                var bew = $("#behide_width").val();
+                 var fro = $("#front_ordinate").val();
+                 var fra =  $("#front_abscissa").val();
+                 var frl = $("#front_length").val();
+                 var frw = $("#front_width").val();
+                 var clo = $("#clothes_ordinate").val();
+                 var cla =  $("#clothes_abscissa").val();
+                 var cll = $("#clothes_length").val();
+                 var clw = $("#clothes_width").val();
+                 var sho = $("#shoes_ordinate").val();
+                 var sha =  $("#shoes_abscissa").val();
+                 var shl = $("#shoes_length").val();
+                 var shw = $("#shoes_width").val();
                 img.src=data59[n]; 
                 img.onload=function(){
                      if(n==0){
-                        ctx.drawImage(img,63,12,38,56);//头发
+                        ctx.drawImage(img,beo,bea,bel,bew);//头发
                          drawing(n+1);//递归
-
+                        // ctx.drawImage(img,63,12,38,56);//头发
                    }
                    else if(n==1){
                            ctx.drawImage(img,55,60,59,20);//脖子
@@ -90,17 +109,21 @@
                      else if(n==3){
                         ctx.drawImage(img,65,18,35,48.5);//脸
                          drawing(n+1);//递归
+                         // ctx.drawImage(img,65,18,35,48.5);//脸
                     } 
                      else if(n==4){
-                       ctx.drawImage(img,61,15,42,35);//内衬1
+                       ctx.drawImage(img,fro,fra,frl,frw);
                          drawing(n+1);//递归
+                          // ctx.drawImage(img,61,15,42,35);
                     } else if(n==5){
-                      ctx.drawImage(img,37,69,95,130);
+                      ctx.drawImage(img,clo,cla,cll,clw);
                          drawing(n+1);//递归
+                         // ctx.drawImage(img,37,69,95,130);
                     } 
                     else{
-                      ctx.drawImage(img,59,277,43,50);
+                      ctx.drawImage(img,sho,sha,shl,shw);
                          drawing(n+1);//递归
+                         // ctx.drawImage(img,59,277,43,50);
                     }
                 }
             }else{

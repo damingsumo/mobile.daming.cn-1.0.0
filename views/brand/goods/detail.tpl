@@ -2,20 +2,19 @@
   <input type="hidden" value="{$userFace.synthesis_url}" id="face_synthesis_url">
   <input type="hidden" value="{$userHairStyle.behide_synthesis_url}" id="behide_synthesis_url">
   <input type="hidden" value="{$userHairStyle.front_synthesis_url}" id="front_synthesis_url">
-  <input type="hidden" value="{$userHairStyle.behide_ordinate}" id="behide_ordinate">
-  <input type="hidden" value="{$userHairStyle.behide_abscissa}" id="behide_abscissa">
-  <input type="hidden" value="{$userHairStyle.behide_length}" id="behide_length">
-  <input type="hidden" value="{$userHairStyle.behide_width}" id="behide_width">
-  <input type="hidden" value="{$userHairStyle.front_ordinate}" id="front_ordinate">
-  <input type="hidden" value="{$userHairStyle.front_abscissa}" id="front_abscissa">
-  <input type="hidden" value="{$userHairStyle.front_length}" id="front_length">
-  <input type="hidden" value="{$userHairStyle.front_width}" id="front_width">
+  <input type="hidden" value="{$userHairStyle.detail_behide_ordinate}" id="behide_ordinate">
+  <input type="hidden" value="{$userHairStyle.detail_behide_abscissa}" id="behide_abscissa">
+  <input type="hidden" value="{$userHairStyle.detail_behide_length}" id="behide_length">
+  <input type="hidden" value="{$userHairStyle.detail_behide_width}" id="behide_width">
+  <input type="hidden" value="{$userHairStyle.detail_front_ordinate}" id="front_ordinate">
+  <input type="hidden" value="{$userHairStyle.detail_front_abscissa}" id="front_abscissa">
+  <input type="hidden" value="{$userHairStyle.detail_front_length}" id="front_length">
+  <input type="hidden" value="{$userHairStyle.detail_front_width}" id="front_width">
    <div class="content7">
 		<div class="content7_top">
 			<div class="top71">
 				<ul>
-					<li id="showfirst"><img src="{staticurl action='free.png' type='img'}"></li>
-					<li><img src="{staticurl action='free.png' type='img'}"></li>
+					<li id="showfirst"><img src=""></li>
 				</ul>
 			</div>
 			<div class="top72">
@@ -42,7 +41,7 @@
 				<div class="third7 none">
 					<ul class="third71">
 					{foreach $hairStyles as $hairStyle}
-						<li {if $hairStyle.hair_style_id == $image.hair_style_id} class="bg7" {/if} onclick="choose()"><img src="{$hairStyle.show_url}"><span>丸子头</span></li>
+						<a onclick="choose({$hairStyle.hair_style_id})"><li value="{$hairStyle.hair_style_id}" {if $hairStyle.hair_style_id == $image.hair_style_id} {/if} ><img src="{$hairStyle.show_url}"><span>丸子头</span></li></a>
 						{/foreach}
 					</ul>
 					<ul  class="third73">
@@ -230,11 +229,17 @@
 <!-- 		</div> -->
 {literal}
 <script type="text/javascript">
-
+$(".third71 a").click(function(){
+			$(this).addClass("bg7").siblings().removeClass("bg7");
+});
  $(document).ready(function(){ 
-    var data59=['/static/images/chaoduanfa.png','/static/images/bozi.png','/static/images/shenzi.png',
-    '/static/images/zhuilinglian.png','/static/images/chaoduanfa1.png',
-    '/static/images/lujian.png','/static/images/changxue.png'];
+ 	var facestyle = $("#face_synthesis_url").val();
+    var behidestyle = $("#behide_synthesis_url").val();
+    var frontstyle= $("#front_synthesis_url").val();
+     var clothes= $("#clothes_synthesis_url").val();
+     var shoes= $("#shoes_synthesis_url").val();
+    var data59=[behidestyle,'/static/images/bozi.png','/static/images/shenzi.png',
+    facestyle,frontstyle,clothes,shoes];
      base64=[];
      draw(function(){
            document.getElementById("showfirst").innerHTML='<img src="'+base64[0]+'">';
@@ -253,11 +258,26 @@
             if(n<len){
                 var img=new Image;
                 img.crossOrigin = 'Anonymous'; //解决跨域
-
+                var beo =$("#behide_ordinate").val();
+                 var bea = $("#behide_abscissa").val();
+                 var bel = $("#behide_length").val();
+                var bew = $("#behide_width").val();
+                 var fro = $("#front_ordinate").val();
+                 var fra =  $("#front_abscissa").val();
+                 var frl = $("#front_length").val();
+                 var frw = $("#front_width").val();
+                 var clo = $("#clothes_ordinate").val();
+                 var cla =  $("#clothes_abscissa").val();
+                 var cll = $("#clothes_length").val();
+                 var clw = $("#clothes_width").val();
+                 var sho = $("#shoes_ordinate").val();
+                 var sha =  $("#shoes_abscissa").val();
+                 var shl = $("#shoes_length").val();
+                 var shw = $("#shoes_width").val();
                 img.src=data59[n]; 
                 img.onload=function(){
                      if(n==0){
-                        ctx.drawImage(img,74,12,56,56);//后面头发
+                        ctx.drawImage(img,beo,bea,bel,bew);//后面头发
                          drawing(n+1);//递归
 
                    }
@@ -275,14 +295,14 @@
                          drawing(n+1);//递归
                     } 
                      else if(n==4){
-                       ctx.drawImage(img,70,12,63,40);//前面头发
+                       ctx.drawImage(img,fro,fra,frl,frw);//前面头发
                          drawing(n+1);//递归
                     } else if(n==5){
-                      ctx.drawImage(img,30,68,152,160);//衣服
+                      ctx.drawImage(img,clo,cla,cll,clw);//衣服
                          drawing(n+1);//递归
                     } 
                     else{
-                      ctx.drawImage(img,70,290,68,60);//鞋子
+                      ctx.drawImage(img,sho,sha,shl,shw);//鞋子
                          drawing(n+1);//递归
                     }
                 }
@@ -295,6 +315,109 @@
         drawing(0);
     }
 });
+
+function choose(hair_style_id) {
+		$.ajax({
+			type: "POST",
+			url: '/user/hairstyle/ajaxGetHairstyle',
+			data: {hair_style_id:hair_style_id},
+			datatype:'json',
+			success: function(data) {
+				var member = eval('('+data+')');
+				if(member.status == 200) {
+					
+    var behidestyle =member.data['hairstyle']['behide_synthesis_url'];
+          var facestyle =member.data['face']['synthesis_url'];
+          var frontstyle=member.data['hairstyle']['front_synthesis_url'];
+          var clothes=member.data['goods']['synthesis_url'];
+          var shoes=member.data['shoes']['synthesis_url'];
+    var data59=[behidestyle,'/static/images/bozi.png','/static/images/shenzi.png',
+    facestyle,frontstyle,clothes,shoes];
+    base64=[]; 
+        draw(function(){
+        document.getElementById('showfirst').innerHTML='<img src="'+base64[0]+'" style="margin-left:4rem;">';
+        }) 
+    function draw(fn){
+         var c=document.createElement('canvas'),
+        ctx=c.getContext('2d'),
+        len=data59.length;
+        c.width=190;
+        c.height=350;
+        ctx.rect(0,0,c.width,c.height);
+        ctx.fillStyle='#c3d3e0';
+        ctx.fill(); 
+        function drawing(n){
+          
+            if(n<len){
+                var img=new Image;
+                img.crossOrigin = 'Anonymous'; //解决跨域
+                 var beo =member.data['hairstyle']['detail_behide_ordinate'];
+                 var bea = member.data['hairstyle']['detail_behide_abscissa'];
+                 var bel = member.data['hairstyle']['detail_behide_length'];
+                var bew = member.data['hairstyle']['detail_behide_width'];
+                 var fro = member.data['hairstyle']['detail_front_ordinate'];
+                 var fra = member.data['hairstyle']['detail_front_abscissa'];
+                 var frl = member.data['hairstyle']['detail_front_length'];
+                 var frw = member.data['hairstyle']['detail_front_width'];
+                 var clo = member.data['goods']['clothes_ordinate'];
+                 var cla = member.data['goods']['clothes_abscissa'];
+                 var cll = member.data['goods']['clothes_length'];
+                 var clw = member.data['goods']['clothes_width'];
+                 var sho = member.data['shoes']['shoes_ordinate'];
+                 var sha = member.data['shoes']['shoes_abscissa'];
+                 var shl = member.data['shoes']['shoes_length'];
+                 var shw = member.data['shoes']['shoes_width'];
+                img.src=data59[n]; 
+                img.onload=function(){
+                    if(n==0){
+                        ctx.drawImage(img,beo,bea,bel,bew);//后面头发
+                         drawing(n+1);//递归
+
+                   }
+                   else if(n==1){
+                           ctx.drawImage(img,61,60,90,20);//脖子
+                         drawing(n+1);//递归
+                         
+                    } 
+                    else if(n==2){
+                       ctx.drawImage(img,32,80,150,265);//身子
+                         drawing(n+1);//递归
+                    } 
+                     else if(n==3){
+                        ctx.drawImage(img,77,18,52,49);//脸
+                         drawing(n+1);//递归
+                    } 
+                     else if(n==4){
+                       ctx.drawImage(img,fro,fra,frl,frw);//前面头发
+                         drawing(n+1);//递归
+                    } else if(n==5){
+                      ctx.drawImage(img,clo,cla,cll,clw);//衣服
+                         drawing(n+1);//递归
+                    } 
+                    else{
+                      ctx.drawImage(img,sho,sha,shl,shw);//鞋子
+                         drawing(n+1);//递归
+                    }
+                }
+            }else{
+
+            //保存生成作品图片 
+             base64.push(c.toDataURL("image/png",0.8));
+                fn();
+            }
+        }
+        drawing(0);
+    }
+  
+
+
+
+
+
+				}
+			}
+		});
+	}
 </script>
 {/literal}
 </body>

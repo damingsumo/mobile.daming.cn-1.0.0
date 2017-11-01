@@ -2120,6 +2120,7 @@ align-items: center;
 	background: #fff;
 	overflow: auto;
 	height:100%;
+	width: 7.5rem;
 }
 .third7 ul li{
 	width: 6rem;
@@ -2425,7 +2426,10 @@ align-items: center;
 .none{
 	display: none;
 }
-.bg7{
+.third71 a{
+	float: left;
+}
+.third71 a.bg7{
 	background: url(../images/306.png) no-repeat;
 	background-position: 100% 0;
 	background-size: 1rem;
