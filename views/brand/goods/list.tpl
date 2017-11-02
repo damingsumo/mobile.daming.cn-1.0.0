@@ -62,7 +62,10 @@
                 <span>¥{$good.price/100}</span>
                 <span>¥{$good.old_price/100}</span>
               	</div>
-              <img src="{$good['genre']['picture_url']}" class="logo_clothes">
+                <div class="logo_size">
+                  <img src="{$good['genre']['picture_url']}" class="logo_clothes">
+                </div>
+              
             </a>
           </li>
      {/foreach}
