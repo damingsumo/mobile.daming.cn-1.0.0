@@ -11,7 +11,7 @@ class Controller_Brand extends Controller_Base {
         }
         $params['brands'] = $brands;
         foreach ($brands as &$brand) {
-            $brand['picture_url'] = MGR_DOMIAN.$brand['picture_url'];
+            $brand['picture_url'] = $brand['picture_url'];
         }
         $params['total'] = $total;
         return $this->display('list', $params);
