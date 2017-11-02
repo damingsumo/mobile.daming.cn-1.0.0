@@ -25,7 +25,7 @@ class CoreApi_Brand_Goods_Collocation extends CoreApi {
     * @param string $order
     * @param string $desc
     */
-    public function getCollocationsByParams($params, $page, $pagesize, $returnFormat = 'Array', $order = "size", $desc = "asc") {
+    public function getCollocationsByParams($params, $page, $pagesize, $returnFormat = 'Array', $order = "create_time", $desc = "asc") {
 		$sql = 'select * from ' . $this->_tableName . ' where 1 ';
 		if(isset($params['gid'])) {
 		    $sql.=' and gid='.$params['gid'].' or first_collocation_id='.$params['gid'].' or second_collocation_id='.$params['gid'];

@@ -34,29 +34,25 @@
         
      {foreach $goods as $good}
           <li value="{$good.gid}">
-  <input type="hidden" value="{$good.synthesis_url}" id="front_width">
-  <input type="hidden" value="{$good.behide_ordinate}" id="front_width">
-  <input type="hidden" value="{$good.behide_abscissa}" id="front_width">
-  <input type="hidden" value="{$good.behide_length}" id="front_width">
-  <input type="hidden" value="{$good.behide_width}" id="front_width">
+  <input type="hidden" value="{$good.synthesis_url}" id="clothes_synthesis_url">
+  <input type="hidden" value="{$good.ordinate}" id="clothes_ordinate">
+  <input type="hidden" value="{$good.abscissa}" id="clothes_abscissa">
+  <input type="hidden" value="{$good.length}" id="clothes_length">
+  <input type="hidden" value="{$good.width}" id="clothes_width">
   
-  <input type="hidden" value="$good['goodsCollocation']['first_collocation_id'].synthesis_url}" id="front_width">
-  <input type="hidden" value="$good['goodsCollocation']['first_collocation_id'].behide_ordinate}" id="front_width">
-  <input type="hidden" value="$good['goodsCollocation']['first_collocation_id'].behide_abscissa}" id="front_width">
-  <input type="hidden" value="$good['goodsCollocation']['first_collocation_id'].behide_length}" id="front_width">
-  <input type="hidden" value="$good['goodsCollocation']['first_collocation_id'].behide_width}" id="front_width">
+  <input type="hidden" value="$good['goodsCollocation'].synthesis_url}" id="front_width">
+  <input type="hidden" value="$good['goodsCollocation'].ordinate}" id="front_width">
+  <input type="hidden" value="$good['goodsCollocation'].abscissa}" id="front_width">
+  <input type="hidden" value="$good['goodsCollocation'].length}" id="front_width">
+  <input type="hidden" value="$good['goodsCollocation'].width}" id="front_width">
   
-  <input type="hidden" value="$good['goodsCollocation']['shoes'].synthesis_url}" id="front_width">
-  <input type="hidden" value="$good['goodsCollocation']['shoes'].behide_ordinate}" id="front_width">
-  <input type="hidden" value="$good['goodsCollocation']['shoes'].behide_abscissa}" id="front_width">
-  <input type="hidden" value="{$good['goodsCollocation']['shoes'].behide_length}" id="front_width">
-  <input type="hidden" value="{$good['goodsCollocation']['shoes'].behide_width}" id="front_width">
+  <input type="hidden" value="{$good['goodsCollocation']['shoes'].synthesis_url}" id="shoes_synthesis_url">
+  <input type="hidden" value="{$good['goodsCollocation']['shoes'].ordinate}" id="shoes_ordinate">
+  <input type="hidden" value="{$good['goodsCollocation']['shoes'].abscissa}" id="shoes_abscissa">
+  <input type="hidden" value="{$good['goodsCollocation']['shoes'].length}" id="shoes_length">
+  <input type="hidden" value="{$good['goodsCollocation']['shoes'].width}" id="shoes_width">
   
-  <input type="hidden" value="{if isset($good['goodsCollocation']['second_collocation_goods'].synthesis_url)}{$goodsCollocation['second_collocation_goods'].synthesis_url}{/if}" id="front_width">
-  <input type="hidden" value="{if isset($good['goodsCollocation']['second_collocation_goods'].synthesis_url)}{$goodsCollocation['second_collocation_goods'].behide_ordinate}{/if}" id="front_width">
-  <input type="hidden" value="{if isset($good['goodsCollocation']['second_collocation_goods'].synthesis_url)}{$goodsCollocation['second_collocation_goods'].behide_abscissa}{/if}" id="front_width">
-  <input type="hidden" value="{if isset($good['goodsCollocation']['second_collocation_goods'].synthesis_url)}{$goodsCollocation['second_collocation_goods'].behide_length}{/if}" id="front_width">
-  <input type="hidden" value="{if isset($good['goodsCollocation']['second_collocation_goods'].synthesis_url)}{$goodsCollocation['second_collocation_goods'].behide_width}{/if}" id="front_width">
+ 
             <a href="detail?gid={$good.gid}" id="{$good.gid}">
               <img src="{$good.show_url}">
            </a>
@@ -83,7 +79,7 @@
     var facestyle = $("#face_synthesis_url").val();
     var behidestyle = $("#behide_synthesis_url").val();
     var frontstyle= $("#front_synthesis_url").val();
-     var clothes= $("#clothes_synthesis_url").val();
+    var clothes= $("#clothes_synthesis_url").val();
      var shoes= $("#shoes_synthesis_url").val();
     var data59=[behidestyle,'/static/images/bozi.png','/static/images/shenzi.png',
     facestyle,frontstyle,clothes,shoes];
@@ -98,8 +94,8 @@
         var c=document.createElement('canvas'),
         ctx=c.getContext('2d'),
         len=data59.length;
-        c.width=190;
-        c.height=350;
+        c.width=300;
+        c.height=380;
         ctx.rect(0,0,c.width,c.height);
         ctx.fillStyle='#c9dbe7';
         ctx.fill();
@@ -111,7 +107,7 @@
                 var beo =$("#behide_ordinate").val();
                  var bea = $("#behide_abscissa").val();
                  var bel = $("#behide_length").val();
-                var bew = $("#behide_width").val();
+                 var bew = $("#behide_width").val();
                  var fro = $("#front_ordinate").val();
                  var fra =  $("#front_abscissa").val();
                  var frl = $("#front_length").val();
@@ -126,38 +122,34 @@
                  var shw = $("#shoes_width").val();
                 img.src=data59[n]; 
                 img.onload=function(){
-                     if(n==0){
-                        ctx.drawImage(img,beo,bea,bel,bew);//头发
+                      if(n==0){
+                        ctx.drawImage(img,beo,bea,bel,bew);//后面头发
                          drawing(n+1);//递归
-                        // ctx.drawImage(img,63,12,38,56);//头发
+
                    }
                    else if(n==1){
-                           ctx.drawImage(img,55,60,59,20);//脖子
+                           ctx.drawImage(img,99,60,90,20);//脖子
                          drawing(n+1);//递归
                          
                     } 
                     else if(n==2){
-                       ctx.drawImage(img,35,80,100,240);//身子
+                       ctx.drawImage(img,70,80,150,265);//身子
                          drawing(n+1);//递归
                     } 
                      else if(n==3){
-                        ctx.drawImage(img,65,18,35,48.5);//脸
+                        ctx.drawImage(img,115,18,52,49);//脸
                          drawing(n+1);//递归
-                         // ctx.drawImage(img,65,18,35,48.5);//脸
                     } 
                      else if(n==4){
-                       ctx.drawImage(img,fro,fra,frl,frw);
+                       ctx.drawImage(img,fro,fra,frl,frw);//前面头发
                          drawing(n+1);//递归
-                          // ctx.drawImage(img,61,15,42,35);
                     } else if(n==5){
-                      ctx.drawImage(img,clo,cla,cll,clw);
+                      ctx.drawImage(img,clo,cla,cll,clw);//衣服
                          drawing(n+1);//递归
-                         // ctx.drawImage(img,37,69,95,130);
                     } 
                     else{
-                      ctx.drawImage(img,sho,sha,shl,shw);
+                      ctx.drawImage(img,sho,sha,shl,shw);//鞋子
                          drawing(n+1);//递归
-                         // ctx.drawImage(img,59,277,43,50);
                     }
                 }
             }else{

@@ -40,14 +40,15 @@ class Controller_Brand_Goods extends Controller_Base {
             $goodsCollocation = array();
             $goodsCollocation = WebApi_Brand_Goods_Collocation::instance()->getCollocationsByParams(array('gid'=>$good['gid']));
             if(!empty($goodsCollocation)) {
-                $goodsCollocation = array();
+                $goodsCollocation = current($goodsCollocation);
+
                 $goodsCollocation['shoes'] = WebApi_Shoes::instance()->row('*', $goodsCollocation['shoes_id']);
-                if(isset($goodsCollocation['first_collocation_id'])) {
-                    $goodsCollocation['first_collocation_goods'] = WebApi_Brand_Goods::instance()->row('*', $goodsCollocation['first_collocation_id']);
-                }
-                if(isset($goodsCollocation['second_collocation_id'])) {
-                    $goodsCollocation['second_collocation_goods'] = WebApi_Brand_Goods::instance()->row('*', $goodsCollocation['second_collocation_id']);
-                }
+                // if(isset($goodsCollocation['first_collocation_id'])) {
+                //     $goodsCollocation['first_collocation_goods'] = WebApi_Brand_Goods::instance()->row('*', $goodsCollocation['first_collocation_id']);
+                // }
+                // if(isset($goodsCollocation['second_collocation_id'])) {
+                //     $goodsCollocation['second_collocation_goods'] = WebApi_Brand_Goods::instance()->row('*', $goodsCollocation['second_collocation_id']);
+                // }
             }
             $good['goodsCollocation'] = $goodsCollocation;
         }
@@ -66,7 +67,7 @@ class Controller_Brand_Goods extends Controller_Base {
         $userFace = array();
         $userFace = WebApi_Image_Face::instance()->row('*',  $image['face_id']);
         if(empty($userFace)) {
-             $userFace = WebApi_Image_Face::instance()->getFacesByParams(array());
+            $userFace = WebApi_Image_Face::instance()->getFacesByParams(array());
             $userFace = current($userFace);
         }
         $params['userHairStyle'] = $userHairStyle;
@@ -76,7 +77,7 @@ class Controller_Brand_Goods extends Controller_Base {
         $params['total'] = $total;
         $params['brand'] = $brand;
         $params['key'] = $key;
-        print_r($params);exit;
+        
         return $this->display('list', $params);
     }
     
@@ -230,14 +231,14 @@ class Controller_Brand_Goods extends Controller_Base {
         $goodsCollocation = array();
         $goodsCollocation = WebApi_Brand_Goods_Collocation::instance()->getCollocationsByParams(array('gid'=>$gid));
         if(!empty($goodsCollocation)) {
-            $goodsCollocation = array();
+            $goodsCollocation = current($goodsCollocation );
             $goodsCollocation['shoes'] = WebApi_Shoes::instance()->row('*', $goodsCollocation['shoes_id']);
-            if(isset($goodsCollocation['first_collocation_id'])) {
-                $goodsCollocation['first_collocation_goods'] = WebApi_Brand_Goods::instance()->row('*', $goodsCollocation['first_collocation_id']);
-            }
-            if(isset($goodsCollocation['second_collocation_id'])) {
-                $goodsCollocation['second_collocation_goods'] = WebApi_Brand_Goods::instance()->row('*', $goodsCollocation['second_collocation_id']);
-            }
+            // if(isset($goodsCollocation['first_collocation_id'])) {
+            //     $goodsCollocation['first_collocation_goods'] = WebApi_Brand_Goods::instance()->row('*', $goodsCollocation['first_collocation_id']);
+            // }
+            // if(isset($goodsCollocation['second_collocation_id'])) {
+            //     $goodsCollocation['second_collocation_goods'] = WebApi_Brand_Goods::instance()->row('*', $goodsCollocation['second_collocation_id']);
+            // }
         }
         $params['userHairStyle'] = $userHairStyle;
         $params['userFace'] = $userFace;
@@ -248,6 +249,7 @@ class Controller_Brand_Goods extends Controller_Base {
         $params['genre'] = $genre;
         $params['hairStyles'] = $hairstyles;
         $params['goodsCollocation'] = $goodsCollocation;
+// print_r($params);exit;
         return $this->display('detail',$params);
     }
     
