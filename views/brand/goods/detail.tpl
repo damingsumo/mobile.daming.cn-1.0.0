@@ -22,6 +22,12 @@
   <input type="hidden" value="{$goodsCollocation['shoes'].abscissa}" id="shoes_abscissa">
   <input type="hidden" value="{$goodsCollocation['shoes'].length}" id="shoes_length">
   <input type="hidden" value="{$goodsCollocation['shoes'].width}" id="shoes_width">
+
+  <input type="hidden" value="{$good.synthesis_url}" id="clothes_synthesis_url">
+  <input type="hidden" value="{$good.ordinate}" id="clothes_ordinate">
+  <input type="hidden" value="{$good.abscissa}" id="clothes_abscissa">
+  <input type="hidden" value="{$good.length}" id="clothes_length">
+  <input type="hidden" value="{$good.width}" id="clothes_width">
    <div class="content7">
 		<div class="content7_top">
 			<div class="top71">
@@ -248,9 +254,10 @@ $(".third71 a").click(function(){
  	var facestyle = $("#face_synthesis_url").val();
     var behidestyle = $("#behide_synthesis_url").val();
     var frontstyle= $("#front_synthesis_url").val();
-     var shoes= $("#shoes_synthesis_url").val(); 
+     var shoes= $("#shoes_synthesis_url").val();
+      var clothes= $("#clothes_synthesis_url").val(); 
     var data59=[behidestyle,'/static/images/bozi.png','/static/images/shenzi.png',
-    facestyle,frontstyle,'/static/images/lujian.png',shoes]; 
+    facestyle,frontstyle,clothes,shoes]; 
     // alert(facestyle);
      base64=[];
      draw(function(){
@@ -278,10 +285,10 @@ $(".third71 a").click(function(){
                  var fra =  $("#front_abscissa").val();
                  var frl = $("#front_length").val();
                  var frw = $("#front_width").val();
-                 // var clo = $("#clothes_ordinate").val();
-                 // var cla =  $("#clothes_abscissa").val();
-                 // var cll = $("#clothes_length").val();
-                 // var clw = $("#clothes_width").val();
+                 var clo = $("#clothes_ordinate").val();
+                 var cla =  $("#clothes_abscissa").val();
+                 var cll = $("#clothes_length").val();
+                 var clw = $("#clothes_width").val();
                  var sho = $("#shoes_ordinate").val();
                  var sha =  $("#shoes_abscissa").val();
                  var shl = $("#shoes_length").val();
@@ -310,7 +317,7 @@ $(".third71 a").click(function(){
                        ctx.drawImage(img,fro-38,fra,frl,frw);//前面头发
                          drawing(n+1);//递归
                     } else if(n==5){
-                      ctx.drawImage(img,30,67,152,160);//衣服
+                      ctx.drawImage(img,clo-38,cla,cll,clw);//衣服
                          drawing(n+1);//递归
                     } 
                     else{
