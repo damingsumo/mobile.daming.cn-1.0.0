@@ -35,7 +35,7 @@
      {foreach $goods as $good}
           <li value="{$good.gid}">
   <input type="hidden" value="{$good.synthesis_url}" id="front_width">
-  <input type="hidden" value="{$good..behide_ordinate}" id="front_width">
+  <input type="hidden" value="{$good.behide_ordinate}" id="front_width">
   <input type="hidden" value="{$good.behide_abscissa}" id="front_width">
   <input type="hidden" value="{$good.behide_length}" id="front_width">
   <input type="hidden" value="{$good.behide_width}" id="front_width">
