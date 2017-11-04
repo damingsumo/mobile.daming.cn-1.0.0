@@ -317,7 +317,7 @@ $(".third71 a").click(function(){
                        ctx.drawImage(img,fro-38,fra,frl,frw);//前面头发
                          drawing(n+1);//递归
                     } else if(n==5){
-                      ctx.drawImage(img,clo-38,cla,cll,clw);//衣服
+                      ctx.drawImage(img,cla-38,clo,cll,clw);//衣服
                          drawing(n+1);//递归
                     } 
                     else{

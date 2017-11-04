@@ -119,6 +119,7 @@
                  var cla =  $("#clothes_abscissa").val();
                  var cll = $("#clothes_length").val();
                  var clw = $("#clothes_width").val();
+                 // alert(clw);
                  var sho = $("#shoes_ordinate").val();
                  var sha =  $("#shoes_abscissa").val();
                  var shl = $("#shoes_length").val();
@@ -147,7 +148,7 @@
                        ctx.drawImage(img,fro,fra,frl,frw);//前面头发
                          drawing(n+1);//递归
                     } else if(n==5){
-                      ctx.drawImage(img,clo,cla,cll,clw);//衣服
+                      ctx.drawImage(img,cla,clo,cll,clw);//衣服
                          drawing(n+1);//递归
                     } 
                     else{
