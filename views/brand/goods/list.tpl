@@ -34,27 +34,27 @@
         
      {foreach $goods as $good}
           <li value="{$good.gid}">
-  <input type="hidden" value="{$good.synthesis_url}" id="clothes_synthesis_url">
-  <input type="hidden" value="{$good.ordinate}" id="clothes_ordinate">
-  <input type="hidden" value="{$good.abscissa}" id="clothes_abscissa">
-  <input type="hidden" value="{$good.length}" id="clothes_length">
-  <input type="hidden" value="{$good.width}" id="clothes_width">
+  <input type="hidden" value="{$good.synthesis_url}" name="clothes_synthesis_url">
+  <input type="hidden" value="{$good.ordinate}" name="clothes_ordinate">
+  <input type="hidden" value="{$good.abscissa}" name="clothes_abscissa">
+  <input type="hidden" value="{$good.length}" name="clothes_length">
+  <input type="hidden" value="{$good.width}" name="clothes_width">
   
-  <input type="hidden" value="$good['goodsCollocation'].synthesis_url}" id="front_width">
-  <input type="hidden" value="$good['goodsCollocation'].ordinate}" id="front_width">
-  <input type="hidden" value="$good['goodsCollocation'].abscissa}" id="front_width">
-  <input type="hidden" value="$good['goodsCollocation'].length}" id="front_width">
-  <input type="hidden" value="$good['goodsCollocation'].width}" id="front_width">
+  <input type="hidden" value="$good['goodsCollocation'].synthesis_url}" name="front_width">
+  <input type="hidden" value="$good['goodsCollocation'].ordinate}" namename="front_width">
+  <input type="hidden" value="$good['goodsCollocation'].abscissa}" name="front_width">
+  <input type="hidden" value="$good['goodsCollocation'].length}" name="front_width">
+  <input type="hidden" value="$good['goodsCollocation'].width}" name="front_width">
   
-  <input type="hidden" value="{$good['goodsCollocation']['shoes'].synthesis_url}" id="shoes_synthesis_url">
-  <input type="hidden" value="{$good['goodsCollocation']['shoes'].ordinate}" id="shoes_ordinate">
-  <input type="hidden" value="{$good['goodsCollocation']['shoes'].abscissa}" id="shoes_abscissa">
-  <input type="hidden" value="{$good['goodsCollocation']['shoes'].length}" id="shoes_length">
-  <input type="hidden" value="{$good['goodsCollocation']['shoes'].width}" id="shoes_width">
+  <input type="hidden" value="{$good['goodsCollocation']['shoes'].synthesis_url}" name="shoes_synthesis_url">
+  <input type="hidden" value="{$good['goodsCollocation']['shoes'].ordinate}" name="shoes_ordinate">
+  <input type="hidden" value="{$good['goodsCollocation']['shoes'].abscissa}" name="shoes_abscissa">
+  <input type="hidden" value="{$good['goodsCollocation']['shoes'].length}" name="shoes_length">
+  <input type="hidden" value="{$good['goodsCollocation']['shoes'].width}" name="shoes_width">
   
  
-            <a href="detail?gid={$good.gid}" id="{$good.gid}">
-              <img src="{$good.show_url}">
+            <a href="detail?gid={$good.gid}" id="{$good.gid}" name="goodimg">
+              <img src="{$good.show_url}" >
            </a>
             <a href="detail?gid={$good.gid}">
                 <span>{$good.goods_name}</span>
@@ -77,22 +77,45 @@
 
   $(document).ready(function(){
   var number = document.getElementById("asd").getElementsByTagName("li");
+  var numbera =document.getElementsByName("clothes_synthesis_url");
+  var numberb =document.getElementsByName("clothes_ordinate");
+  var numberc =document.getElementsByName("clothes_abscissa");
+  var numberd =document.getElementsByName("clothes_length");
+  var numbere =document.getElementsByName("clothes_width");
+ var number1 =document.getElementsByName("shoes_synthesis_url");
+  var number2 =document.getElementsByName("shoes_ordinate");
+   var number3 =document.getElementsByName("shoes_abscissa");
+    var number4 =document.getElementsByName("shoes_length");
+     var number5 =document.getElementsByName("shoes_width");
     for(var i = 0;i<number.length;i++){
     var ss = number[i].getAttribute("value");
     var facestyle = $("#face_synthesis_url").val();
     var behidestyle = $("#behide_synthesis_url").val();
     var frontstyle= $("#front_synthesis_url").val();
-    var clothes= $("#clothes_synthesis_url").val();
-     var shoes= $("#shoes_synthesis_url").val();
-    var data59=[behidestyle,'/static/images/bozi.png','/static/images/shenzi.png',
-    facestyle,frontstyle,clothes,shoes];
-        base64=[];
-          var func =function(wer){
+     
+    var clothes= numbera[i]["defaultValue"];
+     var shoes= number1[i]["defaultValue"];
+      var clo = numberb[i]["defaultValue"];
+     var cla = numberc[i]["defaultValue"];
+     var cll = numberd[i]["defaultValue"];
+     var clw = numbere[i]["defaultValue"];
+     var sho = number2[i]["defaultValue"];
+     var sha = number3[i]["defaultValue"];
+     var shl = number4[i]["defaultValue"];
+     var shw = number5[i]["defaultValue"];
+     var data59=[behidestyle,'/static/images/bozi.png','/static/images/shenzi.png',
+                 facestyle,frontstyle,clothes,shoes];
+    // console.log(clothes);
+        base64=[];  
+         var func =function(wer){ 
+               
+                  // console.log( data59)
               draw(function(){
-                       document.getElementById(wer).innerHTML='<img src="'+base64[0]+'">';
-                  }); 
-           }
-        func(ss);
+                    document.getElementById(wer).innerHTML='<img src="'+base64[0]+'">';
+                   // console.log(  document.getElementById(wer))
+              }); 
+          }
+        func(ss);   
     function draw(fn){ 
         var c=document.createElement('canvas'),
         ctx=c.getContext('2d'),
@@ -106,6 +129,7 @@
         function drawing(n){
             if(n<len){
                 var img=new Image;
+                // console.log(img)
                 img.crossOrigin = 'Anonymous'; //解决跨域
                 var beo =$("#behide_ordinate").val();
                  var bea = $("#behide_abscissa").val();
@@ -115,16 +139,7 @@
                  var fra =  $("#front_abscissa").val();
                  var frl = $("#front_length").val();
                  var frw = $("#front_width").val();
-                 var clo = $("#clothes_ordinate").val();
-                 var cla =  $("#clothes_abscissa").val();
-                 var cll = $("#clothes_length").val();
-                 var clw = $("#clothes_width").val();
-                 // alert(clw);
-                 var sho = $("#shoes_ordinate").val();
-                 var sha =  $("#shoes_abscissa").val();
-                 var shl = $("#shoes_length").val();
-                 var shw = $("#shoes_width").val();
-                img.src=data59[n]; 
+                  img.src=data59[n];
                 img.onload=function(){
                       if(n==0){
                         ctx.drawImage(img,beo,bea,bel,bew);//后面头发
@@ -147,23 +162,27 @@
                      else if(n==4){
                        ctx.drawImage(img,fro,fra,frl,frw);//前面头发
                          drawing(n+1);//递归
-                    } else if(n==5){
+                    } else if(n==5){ 
                       ctx.drawImage(img,cla,clo,cll,clw);//衣服
+                      // console.log(img.src);
                          drawing(n+1);//递归
                     } 
-                    else{
+                    else{ 
                       ctx.drawImage(img,sho,sha,shl,shw);//鞋子
                          drawing(n+1);//递归
                     }
                 }
             }else{
             //保存生成作品图片 
+
              base64.push(c.toDataURL("images/png",0.8));
+             // console.log( base64.push(c.toDataURL("images/png",0.8)))
                 fn();
             }
         }
         drawing(0);
     }
+    
     }
 });
 </script>
