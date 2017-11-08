@@ -132,13 +132,13 @@
 		<div class="form_detil">
 			<ul>
 			{foreach $sizes as $k=>$size}
-				<li {if $k == 0}class="size_color" {/if}>{if $size.size == 1}S{else if $size.size == 2}M{else if $size.size == 3}L{else if $size.size == 4}XL
+				<li {if $brandSize['size'] == $size.size}class="size_color" {/if}>{if $size.size == 1}S{else if $size.size == 2}M{else if $size.size == 3}L{else if $size.size == 4}XL
 				{/if}</li>
 			{/foreach}
 			</ul>
 			<div class="base">
 			{foreach $sizes as $k=>$size}
-			<table {if $k == 0} class="base-table"{else} class="base-table none"{/if}>
+			<table {if $brandSize['size'] == $size.size} class="base-table"{else} class="base-table none"{/if}>
 				<tbody>
 					<tr {if $size.kummerbund == 0} class="none"{/if}>
 				 		 <th>腰围{$size.kummerbund}</th> 
