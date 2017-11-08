@@ -55,7 +55,7 @@ class CoreApi_Brand_Size extends CoreApi {
 		    unset($params['height_key']);
 		}
 		if(isset($params['weight_key'])) {
-		    $sql .= ' and start_weight<= '. $params['weight_key'].'and end_weight>= '. $params['weight_key'];
+		    $sql .= ' and start_weight<= '. $params['weight_key'].' and end_weight>= '. $params['weight_key'];
 		    unset($params['weight_key']);
 		}
 		if(!empty($params)) {
