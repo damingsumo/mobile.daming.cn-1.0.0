@@ -113,7 +113,8 @@ class Controller_Brand_Goods extends Controller_Base {
         }
         
         $modelSize = WebApi_Model_Size::instance()->getSizesByParams(array('height'=>$userHW['height'], 'weight'=>$userHW['weight'], 'gid'=>$gid));
-        if(!empty($modelSizes)) {
+        if(!empty($modelSize)) {
+            $modelSize = current($modelSize);
             $brandSize = $modelSize;
         }
         foreach ($sizes as &$size) {
@@ -142,7 +143,7 @@ class Controller_Brand_Goods extends Controller_Base {
             }
             $size['long_legs_status'] = 0;
             if($genre['outseam_status'] != 0) {
-                $longLegs = $modelSize['outseam'] - $body['long_legs'];
+                $longLegs = $modelSize['long_legs'] - $body['long_legs'];
                 if($longLegs < 0) {
                     $size['long_legs_status'] = 2;
                 } elseif($longLegs == 0) {
