@@ -123,6 +123,7 @@
 				<span>版式</span><em>{if $good.size_comparison ==1}偏大一码  {elseif $good.size_comparison ==2}偏大半码 {elseif $good.size_comparison ==3}尺码正常{elseif $good.size_comparison ==4}偏小半码{elseif $good.size_comparison ==5}偏小一码{/if}</em>
 			</div>
 		</div>
+		{if !empty($modelSize)}
 		<div class="size_form">
 			<span>尺码对照表</span>
 			<a href="#">
@@ -217,6 +218,7 @@
 			{/foreach}
 			</div>
 		</div>
+		{/if}
 <!--         <div class="report"> -->
 <!--         	<span>和您身材相似用户的试穿报告</span> -->
 <!--         </div> -->
