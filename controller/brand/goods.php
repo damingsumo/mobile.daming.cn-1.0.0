@@ -112,7 +112,7 @@ class Controller_Brand_Goods extends Controller_Base {
             $brandSize = current($brandSize);
         }
         
-        $modelSize = WebApi_Model_Size::instance()->getSizesByParams(array('height_key'=>$userHW['height'], 'weight_key'=>$userHW['weight'], 'gid'=>$gid));
+        $modelSize = WebApi_Model_Size::instance()->getSizesByParams(array('height'=>$userHW['height'], 'weight'=>$userHW['weight'], 'gid'=>$gid));
         if(!empty($modelSizes)) {
             $brandSize = $modelSize;
         }
