@@ -1522,12 +1522,12 @@ align-items: center;
 	justify-content:center;
 	float: left;
 	position: relative;
-	/*height: 43rem;*/
+	height: 43rem;
 }
 .content6_top ul li img:nth-child(1){
 	width: 16rem;
 	height: 37rem;
-	/*position: absolute;*/
+	position: absolute;
 	bottom: 0;
 	 
 }

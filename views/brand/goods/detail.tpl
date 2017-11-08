@@ -349,8 +349,9 @@ function choose(hair_style_id) {
           var facestyle =member.data['face']['synthesis_url'];
           var frontstyle=member.data['hairstyle']['front_synthesis_url'];
          var shoes= $("#shoes_synthesis_url").val(); 
+         var clothes= $("#clothes_synthesis_url").val(); 
     var data59=[behidestyle,'/static/images/bozi.png','/static/images/shenzi.png',
-    facestyle,frontstyle,'/static/images/lujian.png',shoes];
+    facestyle,frontstyle,clothes,shoes];
     base64=[]; 
         draw(function(){
         document.getElementById('showfirst').innerHTML='<img src="'+base64[0]+'" style="margin-left:4rem;">';
@@ -381,6 +382,10 @@ function choose(hair_style_id) {
                  var sha =  $("#shoes_abscissa").val();
                  var shl = $("#shoes_length").val();
                  var shw = $("#shoes_width").val();
+                 var clo = $("#clothes_ordinate").val();
+                 var cla =  $("#clothes_abscissa").val();
+                 var cll = $("#clothes_length").val();
+                 var clw = $("#clothes_width").val();
                 img.src=data59[n]; 
                 img.onload=function(){
                     if(n==0){
@@ -405,7 +410,7 @@ function choose(hair_style_id) {
                        ctx.drawImage(img,fro-38,fra,frl,frw);//前面头发
                          drawing(n+1);//递归
                     } else if(n==5){
-                      ctx.drawImage(img,30,67,152,160);//衣服
+                      ctx.drawImage(img,cla-38,clo,cll,clw);//衣服
                          drawing(n+1);//递归
                     } 
                     else{
