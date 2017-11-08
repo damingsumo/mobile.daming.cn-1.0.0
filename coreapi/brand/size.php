@@ -64,7 +64,6 @@ class CoreApi_Brand_Size extends CoreApi {
 				$sql .= ' and ' . $k . '=:' . $k;
 			}
 		}
-		print_r($sql);exit;
 		$sql .= ' order by ' . $order . ' ' . $desc;
 		return $this->db->page($sql, $binds, $page, $pagesize, $returnFormat);
 	}
