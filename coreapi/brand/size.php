@@ -51,11 +51,11 @@ class CoreApi_Brand_Size extends CoreApi {
 		$sql = 'select * from ' . $this->_tableName . ' where 1 ';
 		$binds = array();
 		if(isset($params['height_key'])) {
-		    $sql .= ' and start_height<= '. $params['height_key'].' end_height>= '. $params['height_key'];
+		    $sql .= ' and start_height<= '. $params['height_key'].' and end_height>= '. $params['height_key'];
 		    unset($params['height_key']);
 		}
 		if(isset($params['weight_key'])) {
-		    $sql .= ' and start_weight<= '. $params['weight_key'].' end_weight>= '. $params['weight_key'];
+		    $sql .= ' and start_weight<= '. $params['weight_key'].'and end_weight>= '. $params['weight_key'];
 		    unset($params['weight_key']);
 		}
 		if(!empty($params)) {
@@ -64,7 +64,7 @@ class CoreApi_Brand_Size extends CoreApi {
 				$sql .= ' and ' . $k . '=:' . $k;
 			}
 		}
-		
+		print_r($sql);exit;
 		$sql .= ' order by ' . $order . ' ' . $desc;
 		return $this->db->page($sql, $binds, $page, $pagesize, $returnFormat);
 	}
