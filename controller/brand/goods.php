@@ -119,108 +119,80 @@ class Controller_Brand_Goods extends Controller_Base {
         foreach ($sizes as &$size) {
             $size['kummerbund_status'] = 0;
             if($genre['kummerbund_status'] != 0) {
-                $kummerbund = $size['kummerbund'] - $body['kummerbund'];
-                if($kummerbund <= 0.5 && $kummerbund >= -0.5) {
-                    $size['kummerbund_status'] = 3;
-                } elseif($kummerbund > 0.5 && $kummerbund <= 1.5) {
+                $kummerbund = $modelSize['kummerbund'] - $body['kummerbund'];
+                if($kummerbund <0) {
                     $size['kummerbund_status'] = 2;
-                } elseif($kummerbund > 1.5) {
+                } elseif($kummerbund == 0) {
                     $size['kummerbund_status'] = 1;
-                } elseif($kummerbund < -0.5 && $kummerbund >= -1.5) {
+                } elseif($kummerbund > 0) {
                     $size['kummerbund_status'] = 4;
-                } elseif($kummerbund < -1.5) {
-                    $size['kummerbund_status'] = 5;
                 }
             }
             
             $size['hipline_status'] = 0;
             if($genre['hipline_status'] != 0) {
-                $hipline = $size['hipline'] - $body['hipline'];
-                if($hipline <= 0.5 && $hipline >= -0.5) {
-                    $size['hipline_status'] = 3;
-                } elseif($hipline > 0.5 && $hipline <= 1.5) {
+                $hipline = $modelSize['hipline'] - $body['hipline'];
+                if($hipline <0) {
                     $size['hipline_status'] = 2;
-                } elseif($hipline > 1.5) {
+                } elseif($hipline == 0) {
                     $size['hipline_status'] = 1;
-                } elseif($hipline < -0.5 && $hipline >= -1.5) {
+                } elseif($hipline > 0) {
                     $size['hipline_status'] = 4;
-                } elseif($hipline < -1.5) {
-                    $size['hipline_status'] = 5;
                 }
             }
             $size['long_legs_status'] = 0;
             if($genre['outseam_status'] != 0) {
-                $longLegs = $size['outseam'] - $body['long_legs'];
-                if($longLegs <= 0.5 && $longLegs >= -0.5) {
-                    $size['long_legs_status'] = 3;
-                } elseif($longLegs > 0.5 && $longLegs <= 1.5) {
+                $longLegs = $modelSize['outseam'] - $body['long_legs'];
+                if($longLegs < 0) {
                     $size['long_legs_status'] = 2;
-                } elseif($longLegs > 1.5) {
+                } elseif($longLegs == 0) {
                     $size['long_legs_status'] = 1;
-                } elseif($longLegs < -0.5 && $longLegs >= -1.5) {
+                } elseif($longLegs >0) {
                     $size['long_legs_status'] = 4;
-                } elseif($longLegs < -1.5) {
-                    $size['long_legs_status'] = 5;
                 }
             }
             $size['thigh_girth_status'] = 0;
             if($genre['thigh_girth_status'] != 0) {
-                $thighGirth = $size['thigh_girth'] - $body['thigh_girth'];
-                if($thighGirth <= 0.5 && $thighGirth >= -0.5) {
-                    $size['thigh_girth_status'] = 3;
-                } elseif($thighGirth > 0.5 && $thighGirth <= 1.5) {
+                $thighGirth = $modelSize['thigh_girth'] - $body['thigh_girth'];
+                if($thighGirth < 0) {
                     $size['thigh_girth_status'] = 2;
-                } elseif($thighGirth > 1.5) {
+                } elseif($thighGirth == 0) {
                     $size['thigh_girth_status'] = 1;
-                } elseif($thighGirth < -0.5 && $thighGirth >= -1.5) {
+                } elseif($thighGirth > 0) {
                     $size['thigh_girth_status'] = 4;
-                } elseif($thighGirth < -1.5) {
-                    $size['thigh_girth_status'] = 5;
                 }
             }
             $size['upper_chest_circumference_status'] = 0;
             if($genre['bust_status'] != 0) {
-                $bust = $size['bust'] - $body['upper_chest_circumference'];
-                if($bust <= 0.5 && $kummerbund >= -0.5) {
-                    $size['upper_chest_circumference_status'] = 3;
-                } elseif($bust > 0.5 && $kummerbund <= 1.5) {
+                $bust = $modelSize['bust'] - $body['upper_chest_circumference'];
+                if($bust <0) {
                     $size['upper_chest_circumference_status'] = 2;
-                } elseif($bust > 1.5) {
+                } elseif($bust == 0) {
                     $size['upper_chest_circumference_status'] = 1;
-                } elseif($bust < -0.5 && $kummerbund >= -1.5) {
+                } elseif($bust > 0 ) {
                     $size['upper_chest_circumference_status'] = 4;
-                } elseif($bust < -1.5) {
-                    $size['upper_chest_circumference_status'] = 5;
                 }
             }
             $size['body_length_status'] = 0;
             if($genre['length_status'] != 0) {
-                $kummerbund = $size['length'] - $body['body_length'];
-                if($kummerbund <= 0.5 && $kummerbund >= -0.5) {
-                    $size['body_length_status'] = 3;
-                } elseif($kummerbund > 0.5 && $kummerbund <= 1.5) {
+                $body_length = $modelSize['body_length'] - $body['body_length'];
+                if($body_length < 0) {
                     $size['body_length_status'] = 2;
-                } elseif($kummerbund > 1.5) {
+                } elseif($body_length == 0) {
                     $size['body_length_status'] = 1;
-                } elseif($kummerbund < -0.5 && $kummerbund >= -1.5) {
+                } elseif($body_length > 0) {
                     $size['body_length_status'] = 4;
-                } elseif($kummerbund < -1.5) {
-                    $size['body_length_status'] = 5;
                 }
             }
             $size['s_width_status'] = 0;
             if($genre['s_width_status'] != 0) {
-                $kummerbund = $size['s_width'] - $body['s_width'];
-                if($kummerbund <= 0.5 && $kummerbund >= -0.5) {
-                    $size['s_width_status'] = 3;
-                } elseif($kummerbund > 0.5 && $kummerbund <= 1.5) {
+                $s_width = $modelSize['s_width'] - $body['s_width'];
+                if($s_width < 0) {
                     $size['s_width_status'] = 2;
-                } elseif($kummerbund > 1.5) {
+                } elseif($s_width == 0) {
                     $size['s_width_status'] = 1;
-                } elseif($kummerbund < -0.5 && $kummerbund >= -1.5) {
+                } elseif($s_width > 0) {
                     $size['s_width_status'] = 4;
-                } elseif($kummerbund < -1.5) {
-                    $size['s_width_status'] = 5;
                 }
             }
         }
