@@ -132,8 +132,8 @@
 		<div class="form_detil">
 			<ul>
 			{foreach $sizes as $k=>$size}
-				<li {if $k == 0}class="size_color" {/if}>{if $size.size == 1}XXS{else if $size.size == 2}XS{else if $size.size == 3}S{else if $size.size == 4}M
-				{else if $size.size == 5}L{else if $size.size == 6}XL{/if}</li>
+				<li {if $k == 0}class="size_color" {/if}>{if $size.size == 1}S{else if $size.size == 2}M{else if $size.size == 3}L{else if $size.size == 4}XL
+				{/if}</li>
 			{/foreach}
 			</ul>
 			<div class="base">
