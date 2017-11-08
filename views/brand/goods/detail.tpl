@@ -35,15 +35,15 @@
 					<li id="showfirst"><img src=""></li>
 				</ul>
 			</div>
-			<div class="top72">
-				<div>
-					<span>你适合穿</span>
-					<a href="#"></a>
-				</div>
-				<div>
-					<a href="#"></a>
-				</div>
-			</div>
+<!-- 			<div class="top72"> -->
+<!-- 				<div> -->
+<!-- 					<span>你适合穿</span> -->
+<!-- 					<a href="#"></a> -->
+<!-- 				</div> -->
+<!-- 				<div> -->
+<!-- 					<a href="#"></a> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
 			<div class="left7">
 				<div class="first7">
 					<ul>
@@ -68,23 +68,23 @@
 					</ul>
 				</div>
 			</div>
-			<div class="right7">
-				<span>搭配单品</span>
-				<div>
-					<ul>
-						<li>
-							<a href="#">
-								<img src="{staticurl action='danpin.png' type='img'}">
-							</a>
-						</li>
-						 <li>
-							<a href="#">
-								<img src="{staticurl action='danpin.png' type='img'}">
-							</a>
-						</li>
-					</ul>
-				</div>
-			</div>
+<!-- 			<div class="right7"> -->
+<!-- 				<span>搭配单品</span> -->
+<!-- 				<div> -->
+<!-- 					<ul> -->
+<!-- 						<li> -->
+<!-- 							<a href="#"> -->
+<!-- 								<img src="{staticurl action='danpin.png' type='img'}"> -->
+<!-- 							</a> -->
+<!-- 						</li> -->
+<!-- 						 <li> -->
+<!-- 							<a href="#"> -->
+<!-- 								<img src="{staticurl action='danpin.png' type='img'}"> -->
+<!-- 							</a> -->
+<!-- 						</li> -->
+<!-- 					</ul> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
 		</div>  
 	</div>  
 	<div class="price">
@@ -108,13 +108,19 @@
 			<img src="{staticurl action='bianji.png' type='img'}">
 		</a>
 		<div class="skin_size">
+		{if !empty($brandSize)}
 			<div class="size_content">
-				<span>S</span> 
+				<span>{if $brandSize.size == 1}S{elseif $brandSize.size==2}M{elseif $brandSize.size==3}X{elseif $brandSize.size==4}XL{else}暂无推荐尺码{/if}</span> 
 				<span>推荐尺码</span>
 			</div>
+			{else}
+			<div class="size_content">
+			<span>商家未提供尺码</span>
+			</div>
+		{/if}
 			<div class="size_content_color">
-				<span>本单品</span><em>尺码正常，</em>
-				<span>版式</span><em>合身微弹</em>
+				<span>本单品</span><em>{if $good.size_comparison ==1}无弹  {elseif $good.size_comparison ==2}微弹{elseif $good.size_comparison ==3}较弹{elseif $good.size_comparison ==4}高弹{/if}</em>
+				<span>版式</span><em>{if $good.size_comparison ==1}偏大一码  {elseif $good.size_comparison ==2}偏大半码 {elseif $good.size_comparison ==3}尺码正常{elseif $good.size_comparison ==4}偏小半码{elseif $good.size_comparison ==5}偏小一码{/if}</em>
 			</div>
 		</div>
 		<div class="size_form">

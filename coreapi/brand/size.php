@@ -50,13 +50,13 @@ class CoreApi_Brand_Size extends CoreApi {
     public function getSizesByParams($params, $page, $pagesize, $returnFormat = 'Array', $order = "create_time", $desc = "desc") {
 		$sql = 'select * from ' . $this->_tableName . ' where 1 ';
 		$binds = array();
-		if(isset($params['height'])) {
-		    $sql .= ' and start_height<= '. $params['height'].' end_height>= '. $params['height'];
-		    unset($params['height']);
+		if(isset($params['height_key'])) {
+		    $sql .= ' and start_height<= '. $params['height_key'].' end_height>= '. $params['height_key'];
+		    unset($params['height_key']);
 		}
-		if(isset($params['weight'])) {
-		    $sql .= ' and start_weight<= '. $params['weight'].' end_weight>= '. $params['weight'];
-		    unset($params['height']);
+		if(isset($params['weight_key'])) {
+		    $sql .= ' and start_weight<= '. $params['weight_key'].' end_weight>= '. $params['weight_key'];
+		    unset($params['weight_key']);
 		}
 		if(!empty($params)) {
 			foreach($params as $k => $v) {

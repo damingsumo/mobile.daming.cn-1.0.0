@@ -101,6 +101,19 @@ class Controller_Brand_Goods extends Controller_Base {
         }
         $body = current($body);
         $sizes = WebApi_Brand_Goods_Size::instance()->getSizesByParams(array('gid'=>$gid));
+        
+        $userHW = WebApi_User_Hw::instance()->getHwsByParams(array('uid'=>$uid));
+        if(!empty($userHW)) {
+            $userHW = current($userHW);
+        }
+        $brandSize = array();
+        $brandSize = WebApi_Brand_Size::instance()->getSizesByParams(array('height_key'=>$userHW['height'], 'weight_key'=>$userHW['weight']));
+        if(!empty($brandSize)) {
+            $brandSize = current($brandSize);
+        }
+        
+        
+        
         foreach ($sizes as &$size) {
             $size['kummerbund_status'] = 0;
             if($genre['kummerbund_status'] != 0) {
@@ -249,6 +262,7 @@ class Controller_Brand_Goods extends Controller_Base {
         $params['genre'] = $genre;
         $params['hairStyles'] = $hairstyles;
         $params['goodsCollocation'] = $goodsCollocation;
+        $params['brandSize'] = $brandSize;
 // print_r($params);exit;
         return $this->display('detail',$params);
     }
