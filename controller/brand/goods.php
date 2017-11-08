@@ -124,14 +124,14 @@ class Controller_Brand_Goods extends Controller_Base {
                         if($kummerbund <0) {
                             $size['kummerbund_status'] = 4;
                         } elseif($kummerbund == 0) {
-                            $size['kummerbund_status'] = 1;
+                            $size['kummerbund_status'] = 3;
                         } elseif($kummerbund > 0) {
                             $size['kummerbund_status'] = 2;
                         }
                     }elseif ($size['size'] < $modelSize['size']) {
                         $size['kummerbund_status'] = 4;
                     }elseif ($size['size'] > $modelSize['size']) {
-                        $size['kummerbund_status'] = 1;
+                        $size['kummerbund_status'] = 2;
                     }
                 }
                 
@@ -142,14 +142,14 @@ class Controller_Brand_Goods extends Controller_Base {
                         if($hipline <0) {
                             $size['hipline_status'] = 4;
                         } elseif($hipline == 0) {
-                            $size['hipline_status'] = 1;
+                            $size['hipline_status'] = 3;
                         } elseif($hipline > 0) {
                             $size['hipline_status'] = 2;
                         }
                     }elseif ($size['size'] < $modelSize['size']) {
                         $size['hipline_status'] = 4;
                     }elseif ($size['size'] > $modelSize['size']) {
-                        $size['hipline_status'] = 1;
+                        $size['hipline_status'] = 2;
                     }
                 }
                 $size['long_legs_status'] = 0;
@@ -159,14 +159,14 @@ class Controller_Brand_Goods extends Controller_Base {
                         if($longLegs < 0) {
                             $size['long_legs_status'] = 4;
                         } elseif($longLegs == 0) {
-                            $size['long_legs_status'] = 1;
+                            $size['long_legs_status'] = 3;
                         } elseif($longLegs >0) {
                             $size['long_legs_status'] = 2;
                         }
                     }elseif ($size['size'] < $modelSize['size']) {
                         $size['long_legs_status'] = 4;
                     }elseif ($size['size'] > $modelSize['size']) {
-                        $size['long_legs_status'] = 1;
+                        $size['long_legs_status'] = 2;
                     }
                 }
                 $size['thigh_girth_status'] = 0;
@@ -176,14 +176,14 @@ class Controller_Brand_Goods extends Controller_Base {
                         if($thighGirth < 0) {
                             $size['thigh_girth_status'] = 4;
                         } elseif($thighGirth == 0) {
-                            $size['thigh_girth_status'] = 1;
+                            $size['thigh_girth_status'] = 3;
                         } elseif($thighGirth > 0) {
                             $size['thigh_girth_status'] = 2;
                         }
                     }elseif ($size['size'] < $modelSize['size']) {
                         $size['thigh_girth_status'] = 4;
                     }elseif ($size['size'] > $modelSize['size']) {
-                        $size['thigh_girth_status'] = 1;
+                        $size['thigh_girth_status'] = 2;
                     }
                 }
                 $size['upper_chest_circumference_status'] = 0;
@@ -193,14 +193,14 @@ class Controller_Brand_Goods extends Controller_Base {
                         if($bust <0) {
                             $size['upper_chest_circumference_status'] = 4;
                         } elseif($bust == 0) {
-                            $size['upper_chest_circumference_status'] = 1;
+                            $size['upper_chest_circumference_status'] = 3;
                         } elseif($bust > 0 ) {
                             $size['upper_chest_circumference_status'] = 2;
                         }
                     }elseif ($size['size'] < $modelSize['size']) {
                         $size['upper_chest_circumference_status'] = 4;
                     }elseif ($size['size'] > $modelSize['size']) {
-                        $size['upper_chest_circumference_status'] = 1;
+                        $size['upper_chest_circumference_status'] = 2;
                     }
                 }
                 $size['body_length_status'] = 0;
@@ -210,14 +210,14 @@ class Controller_Brand_Goods extends Controller_Base {
                         if($body_length < 0) {
                             $size['body_length_status'] = 4;
                         } elseif($body_length == 0) {
-                            $size['body_length_status'] = 1;
+                            $size['body_length_status'] = 3;
                         } elseif($body_length > 0) {
                             $size['body_length_status'] = 2;
                         }
                     }elseif ($size['size'] < $modelSize['size']) {
                         $size['body_length_status'] = 4;
                     }elseif ($size['size'] > $modelSize['size']) {
-                        $size['body_length_status'] = 1;
+                        $size['body_length_status'] = 2;
                     }
                 }
                 $size['s_width_status'] = 0;
@@ -227,14 +227,14 @@ class Controller_Brand_Goods extends Controller_Base {
                         if($s_width < 0) {
                             $size['s_width_status'] = 4;
                         } elseif($s_width == 0) {
-                            $size['s_width_status'] = 1;
+                            $size['s_width_status'] = 3;
                         } elseif($s_width > 0) {
                             $size['s_width_status'] = 2;
                         }
                     }elseif ($size['size'] < $modelSize['size']) {
                         $size['s_width_status'] = 4;
                     }elseif ($size['size'] > $modelSize['size']) {
-                        $size['s_width_status'] = 1;
+                        $size['s_width_status'] = 2;
                     }
                 }
             }
@@ -280,7 +280,7 @@ class Controller_Brand_Goods extends Controller_Base {
         $params['hairStyles'] = $hairstyles;
         $params['goodsCollocation'] = $goodsCollocation;
         $params['brandSize'] = $brandSize;
-        $params['brandSize'] = $modelSize;
+        $params['modelSize'] = $modelSize;
 // print_r($params);exit;
         return $this->display('detail',$params);
     }
