@@ -52,9 +52,10 @@
   <input type="hidden" value="{$good['goodsCollocation']['shoes'].length}" name="shoes_length">
   <input type="hidden" value="{$good['goodsCollocation']['shoes'].width}" name="shoes_width">
   
- 
-            <a href="detail?gid={$good.gid}" id="{$good.gid}" name="goodimg">
+          
+            <a href="detail?gid={$good.gid}"   id={$good.gid} name="goodimg">
               <img src="{$good.show_url}" >
+                
            </a>
             <a href="detail?gid={$good.gid}">
                 <span>{$good.goods_name}</span>
@@ -72,7 +73,7 @@
    </ul>
      </div>
 
-{literal}
+<!-- {literal}
 <script type="text/javascript">
 
   $(document).ready(function(){
@@ -87,7 +88,9 @@
    var number3 =document.getElementsByName("shoes_abscissa");
     var number4 =document.getElementsByName("shoes_length");
      var number5 =document.getElementsByName("shoes_width");
+
     for(var i = 0;i<number.length;i++){
+   // alert(i);
     var ss = number[i].getAttribute("value");
     var facestyle = $("#face_synthesis_url").val();
     var behidestyle = $("#behide_synthesis_url").val();
@@ -105,29 +108,34 @@
      var shw = number5[i]["defaultValue"];
      var data59=[behidestyle,'/static/images/bozi.png','/static/images/shenzi.png',
                  facestyle,frontstyle,clothes,shoes];
-    // console.log(clothes);
-        base64=[];  
+           base64=[i];
+           // console.log(base64)
          var func =function(wer){ 
+                draw(function(){ 
+
+                         // document.getElementById("85").src=strDataURI;
+                  document.getElementById(wer).innerHTML='<img src="'+base64[i]+'">';
+                 console.log(base64[i])
+                   // alert(base64[ ]);
+              }) 
                
-                  // console.log( data59)
-              draw(function(){
-                    document.getElementById(wer).innerHTML='<img src="'+base64[0]+'">';
-                   // console.log(  document.getElementById(wer))
-              }); 
-          }
-        func(ss);   
-    function draw(fn){ 
-        var c=document.createElement('canvas'),
+          
+      }
+        func(ss); 
+       function draw(fn){ 
+        var c = document.createElement("canvas"),
         ctx=c.getContext('2d'),
         len=data59.length;
+        
         c.width=300;
         c.height=380;
         ctx.rect(0,0,c.width,c.height);
         ctx.fillStyle='#c9dbe7';
         ctx.fill();
-
+      
         function drawing(n){
             if(n<len){
+              // console.log(n);
                 var img=new Image;
                 // console.log(img)
                 img.crossOrigin = 'Anonymous'; //解决跨域
@@ -174,18 +182,21 @@
                 }
             }else{
             //保存生成作品图片 
-
-             base64.push(c.toDataURL("images/png",0.8));
-             // console.log( base64.push(c.toDataURL("images/png",0.8)))
+           
+             base64.push(c.toDataURL("images/png"));
+             // base64[i];
+              // console.log(base64[i])
+             // alert( base64.push(c.toDataURL("images/png",0.8)));
                 fn();
             }
         }
         drawing(0);
     }
-    
-    }
+        
+              // return;
+        }     
 });
 </script>
-{/literal}
+{/literal} -->
 </body>
 </html>
