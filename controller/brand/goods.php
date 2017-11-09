@@ -111,10 +111,10 @@ class Controller_Brand_Goods extends Controller_Base {
         if(!empty($brandSize)) {
             $brandSize = current($brandSize);
         }
-        $modelSize = array();
+        $modelSizes = array();
         $modelSizes = WebApi_Model_Size::instance()->getSizesByParams(array('gid'=>$gid));
-        if(empty($modelSizes)) {
-            foreach ($modelSizes as $modelSize) {
+        if(!empty($modelSizes)) {
+            foreach ($modelSizes as &$modelSize) {
                 if($modelSize['kummerbund']/$body['kummerbund'] >= 1.04) {
                     $modelSize['kummerbund_status'] = 1;//宽松 
                 }elseif ($modelSize['kummerbund']/$body['kummerbund'] >= 1.02 || $modelSize['kummerbund']/$body['kummerbund'] < 1.04) {
@@ -163,15 +163,15 @@ class Controller_Brand_Goods extends Controller_Base {
                     $modelSize['thigh_girth_status'] = 5;
                 }
                 
-                if($modelSize['upper_chest_circumference']/$body['upper_chest_circumference'] >= 1.04) {
+                if($modelSize['bust']/$body['upper_chest_circumference'] >= 1.04) {
                     $modelSize['upper_chest_circumference_status'] = 1;
-                }elseif ($modelSize['upper_chest_circumference']/$body['upper_chest_circumference'] >= 1.02 || $modelSize['upper_chest_circumference']/$body['upper_chest_circumference'] < 1.04) {
+                }elseif ($modelSize['bust']/$body['upper_chest_circumference'] >= 1.02 || $modelSize['bust']/$body['upper_chest_circumference'] < 1.04) {
                     $modelSize['upper_chest_circumference_status'] = 2;
-                }elseif ($modelSize['upper_chest_circumference']/$body['upper_chest_circumference'] >= 0.98 || $modelSize['upper_chest_circumference']/$body['upper_chest_circumference'] < 1.02) {
+                }elseif ($modelSize['bust']/$body['upper_chest_circumference'] >= 0.98 || $modelSize['bust']/$body['upper_chest_circumference'] < 1.02) {
                     $modelSize['upper_chest_circumference_status'] = 3;
-                }elseif ($modelSize['upper_chest_circumference']/$body['upper_chest_circumference'] >= 0.96 || $modelSize['upper_chest_circumference']/$body['upper_chest_circumference'] < 0.98) {
+                }elseif ($modelSize['bust']/$body['upper_chest_circumference'] >= 0.96 || $modelSize['bust']/$body['upper_chest_circumference'] < 0.98) {
                     $modelSize['upper_chest_circumference_status'] = 4;
-                }elseif ($modelSize['upper_chest_circumference']/$body['upper_chest_circumference'] <= 0.96) {
+                }elseif ($modelSize['bust']/$body['upper_chest_circumference'] <= 0.96) {
                     $modelSize['upper_chest_circumference_status'] = 5;
                 }
                 
@@ -188,8 +188,7 @@ class Controller_Brand_Goods extends Controller_Base {
                 }
             }
         }                
-        
-        
+                
         
         
 //         if(!empty($modelSize)) {
@@ -359,7 +358,7 @@ class Controller_Brand_Goods extends Controller_Base {
         $params['hairStyles'] = $hairstyles;
         $params['goodsCollocation'] = $goodsCollocation;
         $params['brandSize'] = $brandSize;
-        $params['modelSize'] = $modelSize;
+        $params['modelSizes'] = $modelSizes;
 // print_r($params);exit;
         return $this->display('detail',$params);
     }

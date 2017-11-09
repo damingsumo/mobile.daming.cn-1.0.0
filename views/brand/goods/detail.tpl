@@ -123,7 +123,7 @@
 				<span>版式</span><em>{if $good.size_comparison ==1}偏大一码  {elseif $good.size_comparison ==2}偏大半码 {elseif $good.size_comparison ==3}尺码正常{elseif $good.size_comparison ==4}偏小半码{elseif $good.size_comparison ==5}偏小一码{/if}</em>
 			</div>
 		</div>
-		{if !empty($modelSize)}
+		{if !empty($modelSizes)&&!empty($brandSize)}
 		<div class="size_form">
 			<span>尺码对照表</span>
 			<a href="#">
@@ -157,7 +157,7 @@
 						 <td  {if isset($modelSize['hipline_status']) && $modelSize['hipline_status']== 4}class="fit" {/if}>稍紧</td>
 						 <td  {if isset($modelSize['hipline_status']) && $modelSize['hipline_status']== 5}class="fit" {/if}>紧</td>
 				 	</tr>
-				 	<tr {if $modelSize.outseam == 0} class="none"{/if}>
+				 	<tr {if $modelSize.long_legs == 0} class="none"{/if}>
 				 		 <th>裤长</th> 
 						 <td {if isset($modelSize['long_legs_status']) && $modelSize['long_legs_status']== 1}class="fit" {/if}>宽松</td>
 						 <td {if isset($modelSize['long_legs_status']) && $modelSize['long_legs_status']== 2}class="fit" {/if}> 稍松</td>
@@ -189,7 +189,7 @@
 						 <td {if isset($modelSize['upper_chest_circumference_status']) && $modelSize['upper_chest_circumference_status']== 4}class="fit" {/if}>稍紧</td>
 						 <td {if isset($modelSize['upper_chest_circumference_status']) && $modelSize['upper_chest_circumference_status'] == 5}class="fit" {/if}>紧</td>
 				 	</tr>
-					<tr {if $modelSize.length == 0} class="none"{/if}>
+					<tr {if $modelSize.body_length == 0} class="none"{/if}>
 				 		 <th>衣长</th> 
 						 <td {if isset($modelSize['body_length_status']) && $modelSize['body_length_status']== 1}class="fit" {/if}>宽松</td>
 						 <td {if isset($modelSize['body_length_status']) && $modelSize['body_length_status']== 2}class="fit" {/if}> 稍松</td>

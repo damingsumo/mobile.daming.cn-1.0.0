@@ -34,7 +34,7 @@ class CoreApi_Model_Size extends CoreApi {
     * @param string $order
     * @param string $desc
     */
-    public function getSizesByParams($params, $page, $pagesize, $returnFormat = 'Array', $order = "create_time", $desc = "desc") {
+    public function getSizesByParams($params, $page, $pagesize, $returnFormat = 'Array', $order = "size", $desc = "asc") {
 		$sql = 'select * from ' . $this->_tableName . ' where 1 ';
 		$binds = array();
 		if(!empty($params)) {
