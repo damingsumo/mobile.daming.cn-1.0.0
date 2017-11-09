@@ -138,81 +138,81 @@
 			{/foreach}
 			</ul>
 			<div class="base">
-			{foreach $sizes as $k=>$size}
-			<table {if $brandSize['size'] == $size.size} class="base-table"{else} class="base-table none"{/if}>
+			{foreach $modelSizes as $k=>$modelSize}
+			<table {if $modelSize['size'] == $size.size} class="base-table"{else} class="base-table none"{/if}>
 				<tbody>
-					<tr {if $size.kummerbund == 0} class="none"{/if}>
-				 		 <th>腰围{$size.kummerbund}</th> 
-						 <td {if isset($size['kummerbund_status']) && $size['kummerbund_status']== 1}class="fit" {/if}>宽松</td>
-						 <td {if isset($size['kummerbund_status']) && $size['kummerbund_status']== 2}class="fit" {/if}>稍松</td>
-						 <td {if isset($size['kummerbund_status']) && $size['kummerbund_status']== 3}class="fit" {/if}>刚好</td>
-						 <td {if isset($size['kummerbund_status']) && $size['kummerbund_status']== 4}class="fit" {/if}>稍紧</td>
-						 <td {if isset($size['kummerbund_status']) && $size['kummerbund_status']== 5}class="fit" {/if}>紧</td>
+					<tr {if $modelSize.kummerbund == 0} class="none"{/if}>
+				 		 <th>腰围</th> 
+						 <td {if isset($modelSize['kummerbund_status']) && $modelSize['kummerbund_status']== 1}class="fit" {/if}>宽松</td>
+						 <td {if isset($modelSize['kummerbund_status']) && $modelSize['kummerbund_status']== 2}class="fit" {/if}>稍松</td>
+						 <td {if isset($modelSize['kummerbund_status']) && $modelSize['kummerbund_status']== 3}class="fit" {/if}>刚好</td>
+						 <td {if isset($modelSize['kummerbund_status']) && $modelSize['kummerbund_status']== 4}class="fit" {/if}>稍紧</td>
+						 <td {if isset($modelSize['kummerbund_status']) && $modelSize['kummerbund_status']== 5}class="fit" {/if}>紧</td>
 				 	</tr>
-				 	<tr {if $size.hipline == 0} class="none"{/if}>
-				 		 <th>臀围 {$size.hipline}</th> 
-						 <td  {if isset($size['hipline_status']) && $size['hipline_status']== 1}class="fit" {/if}>宽松</td>
-						 <td  {if isset($size['hipline_status']) && $size['hipline_status']== 2}class="fit" {/if}> 稍松</td>
-						 <td  {if isset($size['hipline_status']) && $size['hipline_status']== 3}class="fit" {/if}>刚好</td>
-						 <td  {if isset($size['hipline_status']) && $size['hipline_status']== 4}class="fit" {/if}>稍紧</td>
-						 <td  {if isset($size['hipline_status']) && $size['hipline_status']== 5}class="fit" {/if}>紧</td>
+				 	<tr {if $modelSize.hipline == 0} class="none"{/if}>
+				 		 <th>臀围 </th> 
+						 <td  {if modelSize($size['hipline_status']) && $modelSize['hipline_status']== 1}class="fit" {/if}>宽松</td>
+						 <td  {if isset($modelSize['hipline_status']) && $modelSize['hipline_status']== 2}class="fit" {/if}> 稍松</td>
+						 <td  {if isset($modelSize['hipline_status']) && $modelSize['hipline_status']== 3}class="fit" {/if}>刚好</td>
+						 <td  {if isset($modelSize['hipline_status']) && $modelSize['hipline_status']== 4}class="fit" {/if}>稍紧</td>
+						 <td  {if isset($modelSize['hipline_status']) && $modelSize['hipline_status']== 5}class="fit" {/if}>紧</td>
 				 	</tr>
-				 	<tr {if $size.outseam == 0} class="none"{/if}>
-				 		 <th>裤长 {$size.outseam}</th> 
-						 <td {if isset($size['long_legs_status']) && $size['long_legs_status']== 1}class="fit" {/if}>宽松</td>
-						 <td {if isset($size['long_legs_status']) && $size['long_legs_status']== 2}class="fit" {/if}> 稍松</td>
-						 <td {if isset($size['long_legs_status']) && $size['long_legs_status']== 3}class="fit" {/if}>刚好</td>
-						 <td {if isset($size['long_legs_status']) && $size['long_legs_status']== 4}class="fit" {/if}>稍紧</td>
-						 <td {if isset($size['long_legs_status']) && $size['long_legs_status']== 5}class="fit" {/if}>紧</td>
+				 	<tr {if $modelSize.outseam == 0} class="none"{/if}>
+				 		 <th>裤长</th> 
+						 <td {if isset($modelSize['long_legs_status']) && $modelSize['long_legs_status']== 1}class="fit" {/if}>宽松</td>
+						 <td {if isset($modelSize['long_legs_status']) && $modelSize['long_legs_status']== 2}class="fit" {/if}> 稍松</td>
+						 <td {if isset($modelSize['long_legs_status']) && $modelSize['long_legs_status']== 3}class="fit" {/if}>刚好</td>
+						 <td {if isset($modelSize['long_legs_status']) && $modelSize['long_legs_status']== 4}class="fit" {/if}>稍紧</td>
+						 <td {if isset($modelSize['long_legs_status']) && $modelSize['long_legs_status']== 5}class="fit" {/if}>紧</td>
 				 	</tr>
-				 	<tr {if $size.thigh_girth == 0} class="none"{/if}>
-				 		 <th>大腿围 {$size.thigh_girth}</th> 
-						 <td {if isset($size['thigh_girth_status']) && $size['thigh_girth_status']== 1}class="fit" {/if}>宽松</td>
-						 <td {if isset($size['thigh_girth_status']) && $size['thigh_girth_status']== 2}class="fit" {/if}> 稍松</td>
-						 <td {if isset($size['thigh_girth_status']) && $size['thigh_girth_status']== 3}class="fit" {/if}>刚好</td>
-						 <td {if isset($size['thigh_girth_status']) && $size['thigh_girth_status']== 4}class="fit" {/if}>稍紧</td>
-						 <td {if isset($size['thigh_girth_status']) && $size['thigh_girth_status']== 5}class="fit" {/if}>紧</td>
+				 	<tr {if $modelSize.thigh_girth == 0} class="none"{/if}>
+				 		 <th>大腿围 </th> 
+						 <td {if isset($modelSize['thigh_girth_status']) && $modelSize['thigh_girth_status']== 1}class="fit" {/if}>宽松</td>
+						 <td {if isset($modelSize['thigh_girth_status']) && $modelSize['thigh_girth_status']== 2}class="fit" {/if}> 稍松</td>
+						 <td {if isset($modelSize['thigh_girth_status']) && $modelSize['thigh_girth_status']== 3}class="fit" {/if}>刚好</td>
+						 <td {if isset($modelSize['thigh_girth_status']) && $modelSize['thigh_girth_status']== 4}class="fit" {/if}>稍紧</td>
+						 <td {if isset($modelSize['thigh_girth_status']) && $modelSize['thigh_girth_status']== 5}class="fit" {/if}>紧</td>
 				 	</tr>
-				 	<tr {if $size.knee_circumference == 0} class="none"{/if}>
-				 		 <th>膝围{$size.knee_circumference}</th> 
-						 <td class="">宽松</td>
-						 <td class=""> 稍松</td>
-						 <td class="">刚好</td>
-						 <td class="fit">稍紧</td>
-						 <td class="">紧</td>
+<!-- 				 	<tr class="none"> -->
+<!-- 				 		 <th>膝围</th>  -->
+<!-- 						 <td class="">宽松</td> -->
+<!-- 						 <td class=""> 稍松</td> -->
+<!-- 						 <td class="">刚好</td> -->
+<!-- 						 <td class="fit">稍紧</td> -->
+<!-- 						 <td class="">紧</td> -->
+<!-- 				 	</tr> -->
+				 	<tr {if $modelSize.bust == 0} class="none"{/if}>
+				 		 <th>胸围</th> 
+						 <td {if isset($modelSize['upper_chest_circumference_status']) && $modelSize['upper_chest_circumference_status']== 1}class="fit" {/if}>宽松</td>
+						 <td {if isset($modelSize['upper_chest_circumference_status']) && $modelSize['upper_chest_circumference_status']== 2}class="fit" {/if}> 稍松</td>
+						 <td {if isset($modelSize['upper_chest_circumference_status']) && $modelSize['upper_chest_circumference_status']== 3}class="fit" {/if}>刚好</td>
+						 <td {if isset($modelSize['upper_chest_circumference_status']) && $modelSize['upper_chest_circumference_status']== 4}class="fit" {/if}>稍紧</td>
+						 <td {if isset($modelSize['upper_chest_circumference_status']) && $modelSize['upper_chest_circumference_status'] == 5}class="fit" {/if}>紧</td>
 				 	</tr>
-				 	<tr {if $size.bust == 0} class="none"{/if}>
-				 		 <th>胸围{$size.bust}</th> 
-						 <td {if isset($size['upper_chest_circumference_status']) && $size['upper_chest_circumference_status']== 1}class="fit" {/if}>宽松</td>
-						 <td {if isset($size['upper_chest_circumference_status']) && $size['upper_chest_circumference_status']== 2}class="fit" {/if}> 稍松</td>
-						 <td {if isset($size['upper_chest_circumference_status']) && $size['upper_chest_circumference_status']== 3}class="fit" {/if}>刚好</td>
-						 <td {if isset($size['upper_chest_circumference_status']) && $size['upper_chest_circumference_status']== 4}class="fit" {/if}>稍紧</td>
-						 <td {if isset($size['upper_chest_circumference_status']) && $size['upper_chest_circumference_status'] == 5}class="fit" {/if}>紧</td>
-				 	</tr>
-					<tr {if $size.length == 0} class="none"{/if}>
-				 		 <th>衣长{$size.length}</th> 
-						 <td {if isset($size['body_length_status']) && $size['body_length_status']== 1}class="fit" {/if}>宽松</td>
-						 <td {if isset($size['body_length_status']) && $size['body_length_status']== 2}class="fit" {/if}> 稍松</td>
-						 <td {if isset($size['body_length_status']) && $size['body_length_status']== 3}class="fit" {/if}>刚好</td>
-						 <td {if isset($size['body_length_status']) && $size['body_length_status']== 4}class="fit" {/if}>稍紧</td>
-						 <td {if isset($size['body_length_status']) && $size['body_length_status']== 5}class="fit" {/if}>紧</td>
+					<tr {if $modelSize.length == 0} class="none"{/if}>
+				 		 <th>衣长</th> 
+						 <td {if isset($modelSize['body_length_status']) && $modelSize['body_length_status']== 1}class="fit" {/if}>宽松</td>
+						 <td {if isset($modelSize['body_length_status']) && $modelSize['body_length_status']== 2}class="fit" {/if}> 稍松</td>
+						 <td {if isset($modelSize['body_length_status']) && $modelSize['body_length_status']== 3}class="fit" {/if}>刚好</td>
+						 <td {if isset($modelSize['body_length_status']) && $modelSize['body_length_status']== 4}class="fit" {/if}>稍紧</td>
+						 <td {if isset($modelSize['body_length_status']) && $modelSize['body_length_status']== 5}class="fit" {/if}>紧</td>
 				 	</tr>	 
-				 	<tr {if $size.s_width == 0} class="none"{/if}>
-				 		 <th>肩宽 {$size.s_width}</th> 
-						 <td {if isset($size['s_width_status']) && $size['s_width_status']== 1}class="fit" {/if}>长</td>
-						 <td {if isset($size['s_width_status']) && $size['s_width_status']== 2}class="fit" {/if}> 稍长</td>
-						 <td {if isset($size['s_width_status']) && $size['s_width_status']== 3}class="fit" {/if}>刚好</td>
-						 <td {if isset($size['s_width_status']) && $size['s_width_status']== 4}class="fit" {/if}>稍短</td>
-						 <td {if isset($size['s_width_status']) && $size['s_width_status']== 5}class="fit" {/if}>短</td>
+				 	<tr {if $modelSize.s_width == 0} class="none"{/if}>
+				 		 <th>肩宽 </th> 
+						 <td {if isset($modelSize['s_width_status']) && $modelSize['s_width_status']== 1}class="fit" {/if}>长</td>
+						 <td {if isset($modelSize['s_width_status']) && $modelSize['s_width_status']== 2}class="fit" {/if}> 稍长</td>
+						 <td {if isset($modelSize['s_width_status']) && $modelSize['s_width_status']== 3}class="fit" {/if}>刚好</td>
+						 <td {if isset($modelSize['s_width_status']) && $modelSize['s_width_status']== 4}class="fit" {/if}>稍短</td>
+						 <td {if isset($modelSize['s_width_status']) && $modelSize['s_width_status']== 5}class="fit" {/if}>短</td>
 				 	</tr>
-				 	<tr {if $size.sleeve_width == 0} class="none"{/if}>
-				 		 <th>袖肥 {$size.sleeve_width}</th> 
-						 <td class="">宽松</td>
-						 <td class=""> 稍松</td>
-						 <td class="">刚好</td>
-						 <td class="fit">稍紧</td>
-						 <td class="">紧</td>
-				 	</tr>
+<!-- 				 	<tr class="none"> -->
+<!-- 				 		 <th>袖肥</th>  -->
+<!-- 						 <td class="">宽松</td> -->
+<!-- 						 <td class=""> 稍松</td> -->
+<!-- 						 <td class="">刚好</td> -->
+<!-- 						 <td class="fit">稍紧</td> -->
+<!-- 						 <td class="">紧</td> -->
+<!-- 				 	</tr> -->
 				</tbody>
 			</table>
 			{/foreach}
