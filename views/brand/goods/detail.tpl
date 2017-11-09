@@ -139,7 +139,7 @@
 			</ul>
 			<div class="base">
 			{foreach $modelSizes as $k=>$modelSize}
-			<table {if $modelSize['size'] == $size.size} class="base-table"{else} class="base-table none"{/if}>
+			<table {if $modelSize['size'] == $brandSize.size} class="base-table"{else} class="base-table none"{/if}>
 				<tbody>
 					<tr {if $modelSize.kummerbund == 0} class="none"{/if}>
 				 		 <th>腰围</th> 
