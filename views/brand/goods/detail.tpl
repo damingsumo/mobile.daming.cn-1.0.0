@@ -151,7 +151,7 @@
 				 	</tr>
 				 	<tr {if $modelSize.hipline == 0} class="none"{/if}>
 				 		 <th>臀围 </th> 
-						 <td  {if modelSize($size['hipline_status']) && $modelSize['hipline_status']== 1}class="fit" {/if}>宽松</td>
+						 <td  {if isset(modelSize($size['hipline_status']) && $modelSize['hipline_status']== 1}class="fit" {/if}>宽松</td>
 						 <td  {if isset($modelSize['hipline_status']) && $modelSize['hipline_status']== 2}class="fit" {/if}> 稍松</td>
 						 <td  {if isset($modelSize['hipline_status']) && $modelSize['hipline_status']== 3}class="fit" {/if}>刚好</td>
 						 <td  {if isset($modelSize['hipline_status']) && $modelSize['hipline_status']== 4}class="fit" {/if}>稍紧</td>
