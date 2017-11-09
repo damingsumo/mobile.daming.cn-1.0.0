@@ -65,9 +65,9 @@
 			</li>
 			{/foreach}
 		</ul>
-		<div class="sub">
+		<!-- <div class="sub">
 			<button>查看所有宝贝</button>
-		</div>
+		</div> -->
 	</div>
 </body>
 </html>

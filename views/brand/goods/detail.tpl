@@ -110,7 +110,7 @@
 		<div class="skin_size">
 		{if !empty($brandSize)}
 			<div class="size_content">
-				<span>{if $brandSize.size == 1}S{elseif $brandSize.size==2}M{elseif $brandSize.size==3}X{elseif $brandSize.size==4}XL{else}暂无推荐尺码{/if}</span> 
+				<span>{if $brandSize.size == 1}S{elseif $brandSize.size==2}M{elseif $brandSize.size==3}L{elseif $brandSize.size==4}XL{else}暂无推荐尺码{/if}</span> 
 				<span>推荐尺码</span>
 			</div>
 			{else}

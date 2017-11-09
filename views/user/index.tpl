@@ -52,7 +52,7 @@
 				<li>
 					<img src="{staticurl action='9.png' type='img'}">
 					<span>小M</span>
-					<a href="#">智能小秘书</a>
+					<span>智能小秘书</span>
 				</li>
 				<li>
 					<span>我已经了解你的身材，</span>
@@ -62,7 +62,7 @@
 					<div>
 						<div>
 							<span>尺码推荐</span>
-							<a href="#">立即查看</a>
+							<span>立即查看</span>
 						</div>
 						<img src="{staticurl action='10.png' type='img'}">
 					</div>
@@ -90,7 +90,7 @@
 				</div>
 				</a>
 			</li>
-			<li>
+			<!-- <li>
 				<a href="#">
 				<img src="{staticurl action='13.png' type='img'}">
 				<em>联系我们</em>
@@ -98,7 +98,7 @@
 					<img src="{staticurl action='19.png' type='img'}">
 				</div>
 				</a>
-			</li>
+			</li> -->
 			<li>
 				<a href="/user/goFeedback">
 				<img src="{staticurl action='14.png' type='img'}">
@@ -108,7 +108,7 @@
 				</div>				
 				</a>
 			</li>
-			<li>
+			<!-- <li>
 				<a href="#">
 				<img src="{staticurl action='15.png' type='img'}">
 				<em>关于我们</em>
@@ -116,7 +116,7 @@
 					<img src="{staticurl action='19.png' type='img'}">
 				</div>
 				</a>
-			</li>
+			</li> -->
 		</ul>
 	</div>
 		<!-- <input type="hidden" value="{$userFace.synthesis_url}" id="face_synthesis_url">
