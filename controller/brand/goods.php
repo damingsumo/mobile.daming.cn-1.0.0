@@ -112,6 +112,79 @@ class Controller_Brand_Goods extends Controller_Base {
             $brandSize = current($brandSize);
         }
         $modelSize = array();
+        $modelSizes = WebApi_Model_Size::instance()->getSizesByParams(array('gid'=>$gid));
+        if(empty($modelSizes)) {
+            foreach ($modelSizes as $modelSize) {
+                if($modelSize['kummerbund']/$body['kummerbund'] >= 1.04) {
+                    $modelSize['kummerbund_status'] = 1;//宽松 
+                }elseif ($modelSize['kummerbund']/$body['kummerbund'] >= 1.02 || $modelSize['kummerbund']/$body['kummerbund'] < 1.04) {
+                    $modelSize['kummerbund_status'] = 2;//稍松
+                }elseif ($modelSize['kummerbund']/$body['kummerbund'] >= 0.98 || $modelSize['kummerbund']/$body['kummerbund'] < 1.02) {
+                    $modelSize['kummerbund_status'] = 3;//正好
+                }elseif ($modelSize['kummerbund']/$body['kummerbund'] >= 0.96 || $modelSize['kummerbund']/$body['kummerbund'] < 0.98) {
+                    $modelSize['kummerbund_status'] = 4;//稍紧
+                }elseif ($modelSize['kummerbund']/$body['kummerbund'] <= 0.96) {
+                    $modelSize['kummerbund_status'] = 5;//紧
+                }
+                
+                if($modelSize['hipline']/$body['hipline'] >= 1.04) {
+                    $modelSize['hipline_status'] = 1;
+                }elseif ($modelSize['hipline']/$body['hipline'] >= 1.02 || $modelSize['hipline']/$body['hipline'] < 1.04) {
+                    $modelSize['hipline_status'] = 2;
+                }elseif ($modelSize['hipline']/$body['hipline'] >= 0.98 || $modelSize['hipline']/$body['hipline'] < 1.02) {
+                    $modelSize['hipline_status'] = 3;
+                }elseif ($modelSize['hipline']/$body['hipline'] >= 0.96 || $modelSize['hipline']/$body['hipline'] < 0.98) {
+                    $modelSize['hipline_status'] = 4;
+                }elseif ($modelSize['hipline']/$body['hipline'] <= 0.96) {
+                    $modelSize['hipline_status'] = 5;
+                }
+                
+                if($modelSize['long_legs']/$body['long_legs'] >= 1.04) {
+                    $modelSize['long_legs_status'] = 1;
+                }elseif ($modelSize['long_legs']/$body['long_legs'] >= 1.02 || $modelSize['long_legs']/$body['long_legs'] < 1.04) {
+                    $modelSize['long_legs_status'] = 2;
+                }elseif ($modelSize['long_legs']/$body['long_legs'] >= 0.98 || $modelSize['long_legs']/$body['long_legs'] < 1.02) {
+                    $modelSize['long_legs_status'] = 3;
+                }elseif ($modelSize['long_legs']/$body['long_legs'] >= 0.96 || $modelSize['long_legs']/$body['long_legs'] < 0.98) {
+                    $modelSize['long_legs_status'] = 4;
+                }elseif ($modelSize['long_legs']/$body['long_legs'] <= 0.96) {
+                    $modelSize['long_legs_status'] = 5;
+                }
+                
+                if($modelSize['thigh_girth']/$body['thigh_girth'] >= 1.04) {
+                    $modelSize['thigh_girth_status'] = 1;
+                }elseif ($modelSize['thigh_girth']/$body['thigh_girth'] >= 1.02 || $modelSize['thigh_girth']/$body['thigh_girth'] < 1.04) {
+                    $modelSize['thigh_girth_status'] = 2;
+                }elseif ($modelSize['thigh_girth']/$body['thigh_girth'] >= 0.98 || $modelSize['thigh_girth']/$body['thigh_girth'] < 1.02) {
+                    $modelSize['thigh_girth_status'] = 3;
+                }elseif ($modelSize['thigh_girth']/$body['thigh_girth'] >= 0.96 || $modelSize['thigh_girth']/$body['thigh_girth'] < 0.98) {
+                    $modelSize['thigh_girth_status'] = 4;
+                }elseif ($modelSize['thigh_girth']/$body['thigh_girth'] <= 0.96) {
+                    $modelSize['thigh_girth_status'] = 5;
+                }
+                
+                if($modelSize['upper_chest_circumference']/$body['upper_chest_circumference'] >= 1.04) {
+                    $modelSize['upper_chest_circumference_status'] = 1;
+                }elseif ($modelSize['upper_chest_circumference']/$body['upper_chest_circumference'] >= 1.02 || $modelSize['upper_chest_circumference']/$body['upper_chest_circumference'] < 1.04) {
+                    $modelSize['upper_chest_circumference_status'] = 2;
+                }elseif ($modelSize['upper_chest_circumference']/$body['upper_chest_circumference'] >= 0.98 || $modelSize['upper_chest_circumference']/$body['upper_chest_circumference'] < 1.02) {
+                    $modelSize['upper_chest_circumference_status'] = 3;
+                }elseif ($modelSize['upper_chest_circumference']/$body['upper_chest_circumference'] >= 0.96 || $modelSize['upper_chest_circumference']/$body['upper_chest_circumference'] < 0.98) {
+                    $modelSize['upper_chest_circumference_status'] = 4;
+                }elseif ($modelSize['upper_chest_circumference']/$body['upper_chest_circumference'] <= 0.96) {
+                    $modelSize['upper_chest_circumference_status'] = 5;
+                }
+                
+                if($modelSize['s_width']/$body['s_width'] >= 1.04) {
+                    $modelSize['s_width_status'] = 1;
+                }elseif ($modelSize['s_width']/$body['s_width'] >= 1.02 || $modelSize['s_width']/$body['s_width'] < 1.04) {
+                    $modelSize['s_width_status'] = 2;
+                }elseif ($modelSize['s_width']/$body['s_width'] >= 0.98 || $modelSize['s_width']/$body['s_width'] < 1.02) {
+                    $modelSize['s_width_status'] = 3;
+                }elseif ($modelSize['s_width']/$body['s_width'] >= 0.96 || $modelSize['s_width']/$body['s_width'] < 0.98) {
+                    $modelSize['s_width_status'] = 4;
+                }elseif ($modelSize['s_width']/$body['s_width'] <= 0.96) {
+                    $modelSize['s_width_status'] = 5;
         $modelSize = WebApi_Model_Size::instance()->getSizesByParams(array('height'=>$userHW['height'], 'weight'=>$userHW['weight'], 'gid'=>$gid));
         if(!empty($modelSize)) {
             $modelSize = current($modelSize);
@@ -237,8 +310,142 @@ class Controller_Brand_Goods extends Controller_Base {
                         $size['s_width_status'] = 2;
                     }
                 }
+                
             }
         }
+        
+        
+        
+        
+        
+        
+        
+//         if(!empty($modelSize)) {
+//             $modelSize = current($modelSize);
+//             $brandSize = $modelSize;
+//             foreach ($sizes as &$size) {
+//                 $size['kummerbund_status'] = 0;
+//                 if($genre['kummerbund_status'] != 0 ){
+//                     if($size['size'] == $modelSize['size']) {
+//                         $kummerbund = $modelSize['kummerbund'] - $body['kummerbund'];
+//                         if($kummerbund <0) {
+//                             $size['kummerbund_status'] = 4;
+//                         } elseif($kummerbund == 0) {
+//                             $size['kummerbund_status'] = 1;
+//                         } elseif($kummerbund > 0) {
+//                             $size['kummerbund_status'] = 2;
+//                         }
+//                     }elseif ($size['size'] < $modelSize['size']) {
+//                         $size['kummerbund_status'] = 4;
+//                     }elseif ($size['size'] > $modelSize['size']) {
+//                         $size['kummerbund_status'] = 1;
+//                     }
+//                 }
+                
+//                 $size['hipline_status'] = 0;
+//                 if($genre['hipline_status'] != 0) {
+//                     if($size['size'] == $modelSize['size']) {
+//                         $hipline = $modelSize['hipline'] - $body['hipline'];
+//                         if($hipline <0) {
+//                             $size['hipline_status'] = 4;
+//                         } elseif($hipline == 0) {
+//                             $size['hipline_status'] = 1;
+//                         } elseif($hipline > 0) {
+//                             $size['hipline_status'] = 2;
+//                         }
+//                     }elseif ($size['size'] < $modelSize['size']) {
+//                         $size['hipline_status'] = 4;
+//                     }elseif ($size['size'] > $modelSize['size']) {
+//                         $size['hipline_status'] = 1;
+//                     }
+//                 }
+//                 $size['long_legs_status'] = 0;
+//                 if($genre['outseam_status'] != 0) {
+//                     if($size['size'] == $modelSize['size']) {
+//                         $longLegs = $modelSize['long_legs'] - $body['long_legs'];
+//                         if($longLegs < 0) {
+//                             $size['long_legs_status'] = 4;
+//                         } elseif($longLegs == 0) {
+//                             $size['long_legs_status'] = 1;
+//                         } elseif($longLegs >0) {
+//                             $size['long_legs_status'] = 2;
+//                         }
+//                     }elseif ($size['size'] < $modelSize['size']) {
+//                         $size['long_legs_status'] = 4;
+//                     }elseif ($size['size'] > $modelSize['size']) {
+//                         $size['long_legs_status'] = 1;
+//                     }
+//                 }
+//                 $size['thigh_girth_status'] = 0;
+//                 if($genre['thigh_girth_status'] != 0) {
+//                     if($size['size'] == $modelSize['size']) {
+//                         $thighGirth = $modelSize['thigh_girth'] - $body['thigh_girth'];
+//                         if($thighGirth < 0) {
+//                             $size['thigh_girth_status'] = 4;
+//                         } elseif($thighGirth == 0) {
+//                             $size['thigh_girth_status'] = 1;
+//                         } elseif($thighGirth > 0) {
+//                             $size['thigh_girth_status'] = 2;
+//                         }
+//                     }elseif ($size['size'] < $modelSize['size']) {
+//                         $size['thigh_girth_status'] = 4;
+//                     }elseif ($size['size'] > $modelSize['size']) {
+//                         $size['thigh_girth_status'] = 1;
+//                     }
+//                 }
+//                 $size['upper_chest_circumference_status'] = 0;
+//                 if($genre['bust_status'] != 0) {
+//                     if($size['size'] == $modelSize['size']) {
+//                         $bust = $modelSize['bust'] - $body['upper_chest_circumference'];
+//                         if($bust <0) {
+//                             $size['upper_chest_circumference_status'] = 4;
+//                         } elseif($bust == 0) {
+//                             $size['upper_chest_circumference_status'] = 1;
+//                         } elseif($bust > 0 ) {
+//                             $size['upper_chest_circumference_status'] = 2;
+//                         }
+//                     }elseif ($size['size'] < $modelSize['size']) {
+//                         $size['upper_chest_circumference_status'] = 4;
+//                     }elseif ($size['size'] > $modelSize['size']) {
+//                         $size['upper_chest_circumference_status'] = 1;
+//                     }
+//                 }
+//                 $size['body_length_status'] = 0;
+//                 if($genre['length_status'] != 0) {
+//                     if($size['size'] == $modelSize['size']) {
+//                         $body_length = $modelSize['body_length'] - $body['body_length'];
+//                         if($body_length < 0) {
+//                             $size['body_length_status'] = 4;
+//                         } elseif($body_length == 0) {
+//                             $size['body_length_status'] = 1;
+//                         } elseif($body_length > 0) {
+//                             $size['body_length_status'] = 2;
+//                         }
+//                     }elseif ($size['size'] < $modelSize['size']) {
+//                         $size['body_length_status'] = 4;
+//                     }elseif ($size['size'] > $modelSize['size']) {
+//                         $size['body_length_status'] = 1;
+//                     }
+//                 }
+//                 $size['s_width_status'] = 0;
+//                 if($genre['s_width_status'] != 0) {
+//                     if($size['size'] == $modelSize['size']) {
+//                         $s_width = $modelSize['s_width'] - $body['s_width'];
+//                         if($s_width < 0) {
+//                             $size['s_width_status'] = 4;
+//                         } elseif($s_width == 0) {
+//                             $size['s_width_status'] = 1;
+//                         } elseif($s_width > 0) {
+//                             $size['s_width_status'] = 2;
+//                         }
+//                     }elseif ($size['size'] < $modelSize['size']) {
+//                         $size['s_width_status'] = 4;
+//                     }elseif ($size['size'] > $modelSize['size']) {
+//                         $size['s_width_status'] = 1;
+//                     }
+//                 }
+//             }
+//         }
         
         $hairstyles = WebApi_Image_HairStyle::instance()->getHairStylesByParams(array());
         $image = WebApi_Image::instance()->getImagesByParams(array('uid'=>$uid));
