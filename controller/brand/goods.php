@@ -115,75 +115,75 @@ class Controller_Brand_Goods extends Controller_Base {
         $modelSizes = WebApi_Model_Size::instance()->getSizesByParams(array('gid'=>$gid));
         if(!empty($modelSizes)) {
             foreach ($modelSizes as &$modelSize) {
-                if($modelSize['kummerbund']/$body['kummerbund'] >= 1.04) {
+                if($modelSize['kummerbund']/$body['kummerbund'] >= 1.1) {
                     $modelSize['kummerbund_status'] = 1;//宽松 
-                }elseif ($modelSize['kummerbund']/$body['kummerbund'] >= 1.02 || $modelSize['kummerbund']/$body['kummerbund'] < 1.04) {
+                }elseif ($modelSize['kummerbund']/$body['kummerbund'] >= 1.06 && $modelSize['kummerbund']/$body['kummerbund'] < 1.1) {
                     $modelSize['kummerbund_status'] = 2;//稍松
-                }elseif ($modelSize['kummerbund']/$body['kummerbund'] >= 0.98 || $modelSize['kummerbund']/$body['kummerbund'] < 1.02) {
+                }elseif ($modelSize['kummerbund']/$body['kummerbund'] >= 0.9  && $modelSize['kummerbund']/$body['kummerbund'] < 1.06) {
                     $modelSize['kummerbund_status'] = 3;//正好
-                }elseif ($modelSize['kummerbund']/$body['kummerbund'] >= 0.96 || $modelSize['kummerbund']/$body['kummerbund'] < 0.98) {
+                }elseif ($modelSize['kummerbund']/$body['kummerbund'] >= 0.85 && $modelSize['kummerbund']/$body['kummerbund'] <0.9) {
                     $modelSize['kummerbund_status'] = 4;//稍紧
-                }elseif ($modelSize['kummerbund']/$body['kummerbund'] <= 0.96) {
+                }elseif ($modelSize['kummerbund']/$body['kummerbund'] < 0.85) {
                     $modelSize['kummerbund_status'] = 5;//紧
                 }
                 
-                if($modelSize['hipline']/$body['hipline'] >= 1.04) {
+                if($modelSize['hipline']/$body['hipline'] >= 1.1) {
                     $modelSize['hipline_status'] = 1;
-                }elseif ($modelSize['hipline']/$body['hipline'] >= 1.02 || $modelSize['hipline']/$body['hipline'] < 1.04) {
+                }elseif ($modelSize['hipline']/$body['hipline'] >= 1.01 && $modelSize['hipline']/$body['hipline'] < 1.1) {
                     $modelSize['hipline_status'] = 2;
-                }elseif ($modelSize['hipline']/$body['hipline'] >= 0.98 || $modelSize['hipline']/$body['hipline'] < 1.02) {
+                }elseif ($modelSize['hipline']/$body['hipline'] >= 0.93 && $modelSize['hipline']/$body['hipline'] < 1.01) {
                     $modelSize['hipline_status'] = 3;
-                }elseif ($modelSize['hipline']/$body['hipline'] >= 0.96 || $modelSize['hipline']/$body['hipline'] < 0.98) {
+                }elseif ($modelSize['hipline']/$body['hipline'] >= 0.9 && $modelSize['hipline']/$body['hipline'] < 0.93) {
                     $modelSize['hipline_status'] = 4;
-                }elseif ($modelSize['hipline']/$body['hipline'] <= 0.96) {
+                }elseif ($modelSize['hipline']/$body['hipline'] < 0.9) {
                     $modelSize['hipline_status'] = 5;
                 }
                 
-                if($modelSize['long_legs']/$body['long_legs'] >= 1.04) {
+                if($modelSize['long_legs']/$body['long_legs'] >= 1.1) {
                     $modelSize['long_legs_status'] = 1;
-                }elseif ($modelSize['long_legs']/$body['long_legs'] >= 1.02 || $modelSize['long_legs']/$body['long_legs'] < 1.04) {
+                }elseif ($modelSize['long_legs']/$body['long_legs'] >= 1.01 && $modelSize['long_legs']/$body['long_legs'] < 1.1) {
                     $modelSize['long_legs_status'] = 2;
-                }elseif ($modelSize['long_legs']/$body['long_legs'] >= 0.98 || $modelSize['long_legs']/$body['long_legs'] < 1.02) {
+                }elseif ($modelSize['long_legs']/$body['long_legs'] >= 0.93 && $modelSize['long_legs']/$body['long_legs'] < 1.01) {
                     $modelSize['long_legs_status'] = 3;
-                }elseif ($modelSize['long_legs']/$body['long_legs'] >= 0.96 || $modelSize['long_legs']/$body['long_legs'] < 0.98) {
+                }elseif ($modelSize['long_legs']/$body['long_legs'] >= 0.9 && $modelSize['long_legs']/$body['long_legs'] < 0.93) {
                     $modelSize['long_legs_status'] = 4;
-                }elseif ($modelSize['long_legs']/$body['long_legs'] <= 0.96) {
+                }elseif ($modelSize['long_legs']/$body['long_legs'] < 0.9) {
                     $modelSize['long_legs_status'] = 5;
                 }
                 
-                if($modelSize['thigh_girth']/$body['thigh_girth'] >= 1.04) {
+                if($modelSize['thigh_girth']/$body['thigh_girth'] >= 1.1) {
                     $modelSize['thigh_girth_status'] = 1;
-                }elseif ($modelSize['thigh_girth']/$body['thigh_girth'] >= 1.02 || $modelSize['thigh_girth']/$body['thigh_girth'] < 1.04) {
+                }elseif ($modelSize['thigh_girth']/$body['thigh_girth'] >= 1.01 && $modelSize['thigh_girth']/$body['thigh_girth'] < 1.1) {
                     $modelSize['thigh_girth_status'] = 2;
-                }elseif ($modelSize['thigh_girth']/$body['thigh_girth'] >= 0.98 || $modelSize['thigh_girth']/$body['thigh_girth'] < 1.02) {
+                }elseif ($modelSize['thigh_girth']/$body['thigh_girth'] >= 0.93 && $modelSize['thigh_girth']/$body['thigh_girth'] < 1.01) {
                     $modelSize['thigh_girth_status'] = 3;
-                }elseif ($modelSize['thigh_girth']/$body['thigh_girth'] >= 0.96 || $modelSize['thigh_girth']/$body['thigh_girth'] < 0.98) {
+                }elseif ($modelSize['thigh_girth']/$body['thigh_girth'] >= 0.9 && $modelSize['thigh_girth']/$body['thigh_girth'] < 0.93) {
                     $modelSize['thigh_girth_status'] = 4;
-                }elseif ($modelSize['thigh_girth']/$body['thigh_girth'] <= 0.96) {
+                }elseif ($modelSize['thigh_girth']/$body['thigh_girth'] < 0.9) {
                     $modelSize['thigh_girth_status'] = 5;
                 }
                 
-                if($modelSize['bust']/$body['upper_chest_circumference'] >= 1.04) {
+                if($modelSize['bust']/$body['upper_chest_circumference'] >= 1.1) {
                     $modelSize['upper_chest_circumference_status'] = 1;
-                }elseif ($modelSize['bust']/$body['upper_chest_circumference'] >= 1.02 || $modelSize['bust']/$body['upper_chest_circumference'] < 1.04) {
+                }elseif ($modelSize['bust']/$body['upper_chest_circumference'] >= 1.04 && $modelSize['bust']/$body['upper_chest_circumference'] < 1.1) {
                     $modelSize['upper_chest_circumference_status'] = 2;
-                }elseif ($modelSize['bust']/$body['upper_chest_circumference'] >= 0.98 || $modelSize['bust']/$body['upper_chest_circumference'] < 1.02) {
+                }elseif ($modelSize['bust']/$body['upper_chest_circumference'] >= 0.98 && $modelSize['bust']/$body['upper_chest_circumference'] < 1.04) {
                     $modelSize['upper_chest_circumference_status'] = 3;
-                }elseif ($modelSize['bust']/$body['upper_chest_circumference'] >= 0.96 || $modelSize['bust']/$body['upper_chest_circumference'] < 0.98) {
+                }elseif ($modelSize['bust']/$body['upper_chest_circumference'] >= 0.95 && $modelSize['bust']/$body['upper_chest_circumference'] < 0.98) {
                     $modelSize['upper_chest_circumference_status'] = 4;
-                }elseif ($modelSize['bust']/$body['upper_chest_circumference'] <= 0.96) {
+                }elseif ($modelSize['bust']/$body['upper_chest_circumference'] < 0.95) {
                     $modelSize['upper_chest_circumference_status'] = 5;
                 }
                 
-                if($modelSize['s_width']/$body['s_width'] >= 1.04) {
+                if($modelSize['s_width']/$body['s_width'] >= 1.1) {
                     $modelSize['s_width_status'] = 1;
-                }elseif ($modelSize['s_width']/$body['s_width'] >= 1.02 || $modelSize['s_width']/$body['s_width'] < 1.04) {
+                }elseif ($modelSize['s_width']/$body['s_width'] >= 1.02 && $modelSize['s_width']/$body['s_width'] < 1.1) {
                     $modelSize['s_width_status'] = 2;
-                }elseif ($modelSize['s_width']/$body['s_width'] >= 0.98 || $modelSize['s_width']/$body['s_width'] < 1.02) {
+                }elseif ($modelSize['s_width']/$body['s_width'] >= 0.98 && $modelSize['s_width']/$body['s_width'] < 1.02) {
                     $modelSize['s_width_status'] = 3;
-                }elseif ($modelSize['s_width']/$body['s_width'] >= 0.96 || $modelSize['s_width']/$body['s_width'] < 0.98) {
+                }elseif ($modelSize['s_width']/$body['s_width'] >= 0.95 && $modelSize['s_width']/$body['s_width'] < 0.98) {
                     $modelSize['s_width_status'] = 4;
-                }elseif ($modelSize['s_width']/$body['s_width'] <= 0.96) {
+                }elseif ($modelSize['s_width']/$body['s_width'] < 0.95) {
                     $modelSize['s_width_status'] = 5;
                 }
             }
