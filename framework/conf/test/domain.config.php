@@ -5,6 +5,6 @@
  */
 
 //主域名
-define('DOMAIN', 'ztit.com.cn');
+define('DOMAIN', 'bestdaming.cn');
 //访问地址
-define('HOME_URL', 'http://test.mgr.match.'.DOMAIN.'/');
+define('HOME_URL', 'http://test.mobile.'.DOMAIN.'/');
