@@ -1,5 +1,5 @@
 <?php
-class WebApi_Image_HairStyle extends WebApi{
+class WebApi_Image_Hairstyle extends WebApi{
 
     private static $instance__;
 
@@ -16,7 +16,7 @@ class WebApi_Image_HairStyle extends WebApi{
         if(!is_array($params)) {
             return array();
         }
-        return CoreApi_Image_HairStyle::instance()->getHairStylesByParams($params, $page, $pageSize);
+        return CoreApi_Image_Hairstyle::instance()->getHairStylesByParams($params, $page, $pageSize);
     }
     
     
@@ -24,6 +24,6 @@ class WebApi_Image_HairStyle extends WebApi{
         if(!is_array($params)) {
             return false;
         }
-        return CoreApi_Image_HairStyle::instance()->getHairStylesCountByParams($params);
+        return CoreApi_Image_Hairstyle::instance()->getHairStylesCountByParams($params);
     }
 }

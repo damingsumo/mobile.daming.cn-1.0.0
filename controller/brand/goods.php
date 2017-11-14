@@ -43,12 +43,12 @@ class Controller_Brand_Goods extends Controller_Base {
                 $goodsCollocation = current($goodsCollocation);
 
                 $goodsCollocation['shoes'] = WebApi_Shoes::instance()->row('*', $goodsCollocation['shoes_id']);
-                // if(isset($goodsCollocation['first_collocation_id'])) {
-                //     $goodsCollocation['first_collocation_goods'] = WebApi_Brand_Goods::instance()->row('*', $goodsCollocation['first_collocation_id']);
-                // }
-                // if(isset($goodsCollocation['second_collocation_id'])) {
-                //     $goodsCollocation['second_collocation_goods'] = WebApi_Brand_Goods::instance()->row('*', $goodsCollocation['second_collocation_id']);
-                // }
+                if(isset($goodsCollocation['first_collocation_id'])) {
+                    $goodsCollocation['first_collocation_goods'] = WebApi_Brand_Goods::instance()->row('*', $goodsCollocation['first_collocation_id']);
+                }
+                if(isset($goodsCollocation['second_collocation_id'])) {
+                    $goodsCollocation['second_collocation_goods'] = WebApi_Brand_Goods::instance()->row('*', $goodsCollocation['second_collocation_id']);
+                }
             }
             $good['goodsCollocation'] = $goodsCollocation;
         }
@@ -59,11 +59,11 @@ class Controller_Brand_Goods extends Controller_Base {
         }
         
         $userHairStyle = array();
-//         $userHairStyle = WebApi_Image_HairStyle::instance()->row('*', $image['hair_style_id']);
-//         if(empty($userHairStyle)) {
-//             $userHairStyle = WebApi_Image_HairStyle::instance()->getHairStylesByParams(array());
-//             $userHairStyle = current($userHairStyle);
-//         }
+        $userHairStyle = WebApi_Image_Hairstyle::instance()->row('*', $image['hair_style_id']);
+        if(empty($userHairStyle)) {
+            $userHairStyle = WebApi_Image_HairStyle::instance()->getHairStylesByParams(array());
+            $userHairStyle = current($userHairStyle);
+        }
         $userFace = array();
         $userFace = WebApi_Image_Face::instance()->row('*',  $image['face_id']);
         if(empty($userFace)) {

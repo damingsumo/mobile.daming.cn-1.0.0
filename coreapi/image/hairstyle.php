@@ -1,5 +1,5 @@
 <?php
-class CoreApi_Image_hairStyle extends CoreApi {
+class CoreApi_Image_hairstyle extends CoreApi {
 
     protected static $instance__; //必要,
     protected $_module = 'yd_res';
