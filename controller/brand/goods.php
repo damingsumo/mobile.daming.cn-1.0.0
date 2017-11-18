@@ -35,7 +35,7 @@ class Controller_Brand_Goods extends Controller_Base {
         foreach($goods as &$good) {
             $good['show_url'] =  'http://'.MGR_DOMIAN.$good['show_url'];
             $good['genre'] = WebApi_Genre::instance()->row('*',$good['genre_id']);
-            $good['genre']['picture_url'] = 'http://'.MGR_DOMIAN.$good['genre']['picture_url'];
+            $good['genre']['picture_url'] = $good['genre']['picture_url'];
             
             $goodsCollocation = array();
             $goodsCollocation = WebApi_Brand_Goods_Collocation::instance()->getCollocationsByParams(array('gid'=>$good['gid']));
