@@ -1525,11 +1525,11 @@ align-items: center;
 	height: 43rem;
 }
 .content6_top ul li img:nth-child(1){
-	width: 16rem;
+	/*width: 16rem;
 	height: 37rem;
-	position: absolute;
+	position: absolute;*/
 	bottom: 0;
-	 
+	 margin-left: 5rem;
 }
 /*.content6_top ul li:nth-child(2) img{
 	width: 7rem;
