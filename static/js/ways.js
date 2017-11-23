@@ -167,73 +167,73 @@ $(function(){
         $("#leg").val(str);  
         $("#body_thick").val(str);  
         $("#body_length").val(str);
-	$(".right51 ul:nth-child(3) li").on("touchstart", function(e){
+	$(".right51 ul:nth-child(3) li").click(function(){
         var index5 = $(this).index();
 		var str=$(this).val(); 
         $("#waist").val(str);
 		$(".left51 ul li").eq(index5).show().siblings().hide();
 	});
-	$(".right52 ul:nth-child(3) li").on("touchend", function(e){
+	$(".right52 ul:nth-child(3) li").click(function(){
 		var index5 = $(this).index();
 		var str=$(this).val(); 
         $("#belly").val(str);
 		$(".left52 ul li").eq(index5).show().siblings().hide();
 	});
-	$(".right53 ul:nth-child(3) li").on("touchend", function(e){
+	$(".right53 ul:nth-child(3) li").click(function(){
 		var index5 = $(this).index();
 		var str=$(this).val(); 
         $("#stern_type").val(str);
 		$(".left53 ul li").eq(index5).show().siblings().hide();
 	});
-	$(".right54 ul:nth-child(3) li").on("touchend", function(e){
+	$(".right54 ul:nth-child(3) li").click(function(){
 		var index5 = $(this).index();
 		var str=$(this).val(); 
         $("#hip_type").val(str);
 		$(".left54 ul li").eq(index5).show().siblings().hide();
 	});
-	$(".right55 ul:nth-child(3) li").on("touchend", function(e){
+	$(".right55 ul:nth-child(3) li").click(function(){
 		var index5 = $(this).index();
 		var str=$(this).val(); 
         $("#shoulder").val(str);
 		$(".left55 ul li").eq(index5).show().siblings().hide();
 	});
-	$(".right56 ul:nth-child(3) li").on("touchend", function(e){
+	$(".right56 ul:nth-child(3) li").click(function(){
 		var index5 = $(this).index();
 		var str=$(this).val(); 
         $("#arm").val(str);
 		$(".left56 ul li").eq(index5).show().siblings().hide();
 	});
-	$(".right57 ul:nth-child(3) li").on("touchend", function(e){
+	$(".right57 ul:nth-child(3) li").click(function(){
 		var index5 = $(this).index();
 		var str=$(this).val(); 
         $("#arm_circumference").val(str);
 		$(".left57 ul li").eq(index5).show().siblings().hide();
 	});
-	$(".right58 ul:nth-child(3) li").on("touchend", function(e){
+	$(".right58 ul:nth-child(3) li").click(function(){
 		var index5 = $(this).index();
 		var str=$(this).val(); 
         $("#hip").val(str);
 		$(".left58 ul li").eq(index5).show().siblings().hide();
 	});
-	$(".right59 ul:nth-child(3) li").on("touchend", function(e){
+	$(".right59 ul:nth-child(3) li").click(function(){
 		var index5 = $(this).index();
 		var str=$(this).val(); 
         $("#thigh").val(str);
 		$(".left59 ul li").eq(index5).show().siblings().hide();
 	});
-	$(".right510 ul:nth-child(3) li").on("touchend", function(e){
+	$(".right510 ul:nth-child(3) li").click(function(){
 		var index5 = $(this).index();
 		var str=$(this).val(); 
         $("#leg").val(str);
 		$(".left510 ul li").eq(index5).show().siblings().hide();
 	});
-	$(".right511 ul:nth-child(3) li").on("touchend", function(e){
+	$(".right511 ul:nth-child(3) li").click(function(){
 		var index5 = $(this).index();
 		var str=$(this).val(); 
         $("#body_thick").val(str);
 		$(".left511 ul li").eq(index5).show().siblings().hide();
 	});
-	$(".right512 ul:nth-child(3) li").on("touchend", function(e){
+	$(".right512 ul:nth-child(3) li").click(function(){
 		var index5 = $(this).index();
 		var str=$(this).val(); 
         $("#body_length").val(str);
@@ -266,14 +266,14 @@ $(function(){
 	// 	$(".content5_top ul").animate({"margin-left":'-100%'}, "slow");
 	//  	$(".round52").addClass("color5").siblings().removeClass("color5");
 	//  });
-	//  $('.content5_bottom ul li input[type=checkbox]').click(function() {
-	// 	   $(".content5_bottom ul li input").attr('disabled', true);
-	// 	  		 if ($(".content5_bottom ul li input:checked").length >= 3) {
-	// 	   			 $(".content5_bottom ul li input:checked").attr('disabled', false);
-	// 	   } else {
-	// 	   			 $(".content5_bottom ul li input").attr('disabled', false);
-	// 	   }
- //    });
+	 $('.content5_bottom ul li input[type=checkbox]').click(function() {
+		   $(".content5_bottom ul li input").attr('disabled', true);
+		  		 if ($(".content5_bottom ul li input:checked").length >= 3) {
+		   			 $(".content5_bottom ul li input:checked").attr('disabled', false);
+		   } else {
+		   			 $(".content5_bottom ul li input").attr('disabled', false);
+		   }
+    });
    // 身高体重
 	$(".content6_top").on("touchstart", function(e) {
 	 // e.preventDefault();
