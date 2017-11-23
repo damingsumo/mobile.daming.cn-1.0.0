@@ -139,18 +139,18 @@ $(function(){
 		}
 	});
 	// 身材特征
-	$(".content5_center>div:nth-child(2)>ul>li").on("touchend", function(e){
+	$(".content5_center>div:nth-child(2)>ul>li").click(function(){
 		$(".content5_center>div:nth-child(2)").addClass("kuang5");
 		$(".content5_center").addClass("kuang51");
 	});
 	
-		$(".content5_top").on("touchend", function(e){
+		$(".content5_top").click(function(){
 			$(".change5").removeClass("kuang5");
 			$(".content5_center>ul>li div ul:nth-child(2) li span").removeClass("border5");
 			$(".content5_center>ul>li div ul:nth-child(2) li:nth-child(3) span").addClass("border5");
 			$(".content5_center").removeClass("kuang51");
 		});
-		$(".right5 ul:nth-child(3) li").on("touchend", function(e){
+		$(".right5 ul:nth-child(3) li").click(function(){
 		$(this).addClass("border5").siblings().removeClass("border5");
 		 
 	});
