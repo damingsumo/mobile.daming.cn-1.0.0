@@ -1261,7 +1261,7 @@ align-items: center;
 .content5{
 	display: table;
 	width: 100%;
-	margin: 10rem 0 3rem 0;
+	margin: 10rem 0 5rem 0;
 }
 .content5_top{
 	width: 100%;
@@ -2872,7 +2872,7 @@ align-items: center;
     .content5{
 		display: table;
 		width: 100%;
-		margin:6rem 0 3rem 0;
+		margin:10rem 0 5rem 0;
 	} 
 	.content5_top ul{
 		width: 200%;
