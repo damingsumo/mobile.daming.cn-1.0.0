@@ -5,12 +5,7 @@
     <div class="content5_top">
       <ul>
         <li><img src="{staticurl action='119.png' type='img'}"></li>
-        <li><img src="{staticurl action='104.png' type='img'}"></li>
       </ul>
-      <div>
-        <span class="color5 round51"></span>
-        <span class="round52"></span>
-      </div>
     </div>
     <div class="content5_center">
       <div>

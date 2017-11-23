@@ -1275,7 +1275,7 @@ align-items: center;
 	padding: 0;
 	list-style: none;
 	display: table;
-	margin-bottom: 1.8rem;
+	/*margin-bottom: 1.8rem;*/
 }
 .content5_top ul li{
 	width: 50%;
