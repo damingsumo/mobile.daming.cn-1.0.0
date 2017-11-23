@@ -1122,18 +1122,18 @@ align-items: center;
 	font-size:2rem;
 }
 .footer4{
-	width: 100%;
-	position: fixed;	
-	bottom: 0;
-	z-index: 20;
+	width: 100% !important;
+	position: fixed !important;	
+	bottom: 0 !important;
+	z-index: 20 !important;
 }
 .footer4 input{
-	width: 100%;
-	height: 5rem;
-	background: #7361f0;
-	color: #fff;
-	border: 1px solid #7361f0;
-	font-size:2rem;
+	width: 100% !important;
+	height: 5rem !important;
+	background: #7361f0 !important;
+	color: #fff !important;
+	border: 1px solid #7361f0 !important;
+	font-size:2rem !important;
 }
 .bottom3_1 a.bg3{
 	background: url(../images/306.png) no-repeat;

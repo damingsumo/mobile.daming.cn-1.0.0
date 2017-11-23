@@ -239,41 +239,41 @@ $(function(){
         $("#body_length").val(str);
 		$(".left512 ul li").eq(index5).show().siblings().hide();
 	});
-	$(".content5_top").on("touchstart", function(e) {
-	 // e.preventDefault();
-	 startX = e.originalEvent.changedTouches[0].pageX;
-	});
+	// $(".content5_top").on("touchstart", function(e) {
+	//  // e.preventDefault();
+	//  startX = e.originalEvent.changedTouches[0].pageX;
+	// });
 
-	$(".content5_top").on("touchend", function(e) {
-	 // e.preventDefault();
-	 moveEndX = e.originalEvent.changedTouches[0].pageX;
-	 X = moveEndX - startX;
+	// $(".content5_top").on("touchend", function(e) {
+	//  // e.preventDefault();
+	//  moveEndX = e.originalEvent.changedTouches[0].pageX;
+	//  X = moveEndX - startX;
 	 
-	 if ( X > 0 ) {
-	 	$(".content5_top ul").animate({"margin-left":'0'}, "slow");
-	 	$(".round51").addClass("color5").siblings().removeClass("color5");
-	 }
-	 else if ( X < 0 ) {
-		$(".content5_top ul").animate({"margin-left":'-100%'}, "slow");
-	 	$(".round52").addClass("color5").siblings().removeClass("color5");
-	 }
-	});
-	$(".round51").on("touchstart",function(e){
-		$(".content5_top ul").animate({"margin-left":'0'}, "slow");
-	 	$(".round51").addClass("color5").siblings().removeClass("color5");
-	 });
-	$(".round52").on("touchstart",function(e){
-		$(".content5_top ul").animate({"margin-left":'-100%'}, "slow");
-	 	$(".round52").addClass("color5").siblings().removeClass("color5");
-	 });
-	 $('.content5_bottom ul li input[type=checkbox]').click(function() {
-		   $(".content5_bottom ul li input").attr('disabled', true);
-		  		 if ($(".content5_bottom ul li input:checked").length >= 3) {
-		   			 $(".content5_bottom ul li input:checked").attr('disabled', false);
-		   } else {
-		   			 $(".content5_bottom ul li input").attr('disabled', false);
-		   }
-    });
+	//  if ( X > 0 ) {
+	//  	$(".content5_top ul").animate({"margin-left":'0'}, "slow");
+	//  	$(".round51").addClass("color5").siblings().removeClass("color5");
+	//  }
+	//  else if ( X < 0 ) {
+	// 	$(".content5_top ul").animate({"margin-left":'-100%'}, "slow");
+	//  	$(".round52").addClass("color5").siblings().removeClass("color5");
+	//  }
+	// });
+	// $(".round51").on("touchstart",function(e){
+	// 	$(".content5_top ul").animate({"margin-left":'0'}, "slow");
+	//  	$(".round51").addClass("color5").siblings().removeClass("color5");
+	//  });
+	// $(".round52").on("touchstart",function(e){
+	// 	$(".content5_top ul").animate({"margin-left":'-100%'}, "slow");
+	//  	$(".round52").addClass("color5").siblings().removeClass("color5");
+	//  });
+	//  $('.content5_bottom ul li input[type=checkbox]').click(function() {
+	// 	   $(".content5_bottom ul li input").attr('disabled', true);
+	// 	  		 if ($(".content5_bottom ul li input:checked").length >= 3) {
+	// 	   			 $(".content5_bottom ul li input:checked").attr('disabled', false);
+	// 	   } else {
+	// 	   			 $(".content5_bottom ul li input").attr('disabled', false);
+	// 	   }
+ //    });
    // 身高体重
 	$(".content6_top").on("touchstart", function(e) {
 	 // e.preventDefault();
