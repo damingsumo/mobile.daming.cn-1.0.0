@@ -523,7 +523,7 @@ $('select').change(function(){
 	   	    }
 		}
 		else if(b>=80  && b<= 88){
-			var data0=['/static/images/bobo.png','images/bozi.png','/static/images/14675.png',
+			var data0=['/static/images/bobo.png','images/static/bozi.png','/static/images/14675.png',
 	    		   '/static/images/xiongzhao.png','images/edanlian.png','/static/images/duanfa.png']; 
 	    	base64=[]
 	        draw(function(){
