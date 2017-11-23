@@ -1261,7 +1261,7 @@ align-items: center;
 .content5{
 	display: table;
 	width: 100%;
-	margin: 8rem 0 3rem 0;
+	margin: 10rem 0 3rem 0;
 }
 .content5_top{
 	width: 100%;
@@ -1275,7 +1275,7 @@ align-items: center;
 	padding: 0;
 	list-style: none;
 	display: table;
-	/*margin-bottom: 1.8rem;*/
+	margin-bottom: 1.8rem;
 }
 .content5_top ul li{
 	width: 50%;
@@ -2869,7 +2869,23 @@ align-items: center;
 		left: -24px;
 		top: 8px;
 	}
-
+    .content5{
+		display: table;
+		width: 100%;
+		margin:10rem 0 3rem 0;
+	} 
+	.content5_top ul{
+		width: 200%;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		display: table;
+		/*margin-bottom: 1.8rem;*/
+	}
+	.content5_top ul li img:nth-child(1){
+		width:16rem;
+		height:44rem;
+	}
 	.size_edit{
 		padding: 1.5rem 2.5rem;
 	}
