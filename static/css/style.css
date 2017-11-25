@@ -29,6 +29,12 @@ ul{
 li{  
 	list-style: none;
 }
+input[type="button"], input[type="submit"], input[type="reset"], input[type="test"] {
+     -webkit-appearance: none;
+}
+textarea {  
+    -webkit-appearance: none;
+}  
 .header{
 	display: flex;
 	line-height: 40px;
@@ -1122,8 +1128,8 @@ align-items: center;
 	font-size:2rem;
 }
 .footer4{
-	width: 100%;
-	position: fixed;	
+	width: 100% ;
+	position: fixed ;	
 	bottom: 0;
 	z-index: 20;
 }
@@ -1255,7 +1261,7 @@ align-items: center;
 .content5{
 	display: table;
 	width: 100%;
-	margin: 10rem 0 3rem 0;
+	margin: 10rem 0 5rem 0;
 }
 .content5_top{
 	width: 100%;
@@ -1269,7 +1275,7 @@ align-items: center;
 	padding: 0;
 	list-style: none;
 	display: table;
-	margin-bottom: 3rem;
+	margin-bottom: 1.8rem;
 }
 .content5_top ul li{
 	width: 50%;
@@ -2863,7 +2869,38 @@ align-items: center;
 		left: -24px;
 		top: 8px;
 	}
-
+    .content5{
+		display: table;
+		width: 100%;
+		margin:10rem 0 5rem 0;
+	} 
+	.content5_top ul{
+		width: 200%;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		display: table;
+		/*margin-bottom: 1.8rem;*/
+	}
+	.content5_top ul li img:nth-child(1){
+		width:16rem;
+		height:44rem;
+	}
+	.reset{
+		float: left;
+		height: 6.01rem;
+		line-height: 6.01rem;
+		width: 100%;
+		position: relative;
+		margin-bottom: 5rem;
+	}
+	.revise_content span{
+	width: 75%;
+	padding:20% 0;
+	font-size: 1.6rem;
+	display: inline-block;
+	line-height:2.5rem;
+}
 	.size_edit{
 		padding: 1.5rem 2.5rem;
 	}
