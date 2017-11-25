@@ -12,7 +12,6 @@ class Controller_Brand_Genre extends Controller_Base {
         $data = array();
         foreach ($Relevances as $k => &$v) {
             $v['genre'] = WebApi_Genre::instance()->row('*',$v['genre_id']);
-            $v['genre']['picture_url'] =  'http://'.MGR_DOMIAN.$v['genre']['picture_url'];
             $data[$v['genre']['category']][] = $v;
         }
         $parmas['genres'] = $data;
