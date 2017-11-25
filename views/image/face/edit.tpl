@@ -153,7 +153,7 @@ $(document).ready(function(){
 			type: "POST",
 			url: 'ajaxGetFace',
 			data: {face_id:face_id},
-			datatype:'jsonp',
+			datatype:'json',
 			success: function(data) {
 				var member = eval('('+data+')');
 				if(member.status == 200) {
