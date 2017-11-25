@@ -16,6 +16,9 @@ class Tideassociation extends Controller_Base {
             $goods = WebApi_Brand_Goods::instance()->getGoodsByParams(array('brand_id'=>$brandId));
         }
         
+        
+        
+        
         $image = WebApi_Image::instance()->getImagesByParams(array('uid'=>$uid));
         if(!empty($image)) {
             $image = current($image);

@@ -21,7 +21,7 @@ class Controller_User_Face extends Controller_Base {
             return $this->error('未找到发型信息');
         }
         foreach ($hairStyles as &$hairStyle) {
-            $hairStyle['show_url'] = 'http://'.MGR_DOMIAN.$hairStyle['show_url'];
+            $hairStyle['show_url'] = $hairStyle['show_url'];
         }
         $hairColors = WebApi_Image_HairColor::instance()->getHairColorsByParams(array());
         if(empty($hairColors)) {
@@ -62,7 +62,7 @@ class Controller_User_Face extends Controller_Base {
                 return $this->error('未找到脸型信息');
             }
             foreach ($faces as &$face) {
-                $face['show_url'] = 'http://'.MGR_DOMIAN.$face['show_url'];
+                $face['show_url'] = $face['show_url'];
             }
             $complexions = WebApi_Image_Complexion::instance()->getComplexionsByParams(array(), $page=1, $pageSzie=-1);
             if(empty($complexions)) {

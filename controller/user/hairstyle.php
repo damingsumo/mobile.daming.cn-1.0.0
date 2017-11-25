@@ -37,7 +37,7 @@ class Controller_User_Hairstyle extends Controller_Base {
                 return $this->error('未找到脸型信息');
             }
             foreach ($hairStyles as &$hairStyle) {
-                $hairStyle['show_url'] = 'http://'.MGR_DOMIAN.$hairStyle['show_url'];
+                $hairStyle['show_url'] = $hairStyle['show_url'];
             }
             $hairColors = WebApi_Image_HairColor::instance()->getHairColorsByParams(array(), $page=1, $pageSzie=-1);
             if(empty($hairColors)) {
