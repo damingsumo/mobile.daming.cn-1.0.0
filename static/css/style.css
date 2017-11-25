@@ -29,7 +29,7 @@ ul{
 li{  
 	list-style: none;
 }
-input[type="button"], input[type="submit"], input[type="reset"], input[type="test"] {
+input[type="button"], input[type="submit"], input[type="reset"], input[type="text"] {
      -webkit-appearance: none;
 }
 textarea {  
