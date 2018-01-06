@@ -21,7 +21,12 @@ class Controller_Index extends Controller_Base {
 	 * @note 首页index
 	 */
 	public function index() {
-	    print_r($_REQUEST);exit;
+	    $code = isset($_REQUEST['code']) ? $_REQUEST['code'] : '';
+	    $state = isset($_REQUEST['state']) ? urldecode($_REQUEST['state']) : '';
+	    if($code == '') {
+	        return $this->error('授权失败，部分功能不能使用--1');
+	    }
+	    print_r($code);exit;
 // 	    $uid = Account::getUid();
 // 	    $total = WebApi_Image::instance()->getImagesCountByParams(array('uid'=>$uid));
 // 	    if($total == 0) {
