@@ -16,8 +16,8 @@
     </div>
   </div>
   <form action="/user/face/add" id="myform" method="post">
-  <input type="hidden" name="face_id" value="" id="face">
-  <input type="hidden" name="complexion_id" value="" id="complexion">
+  <input type="hidden" name="face_id" value="{$userFace.face_id}" id="face">
+  <input type="hidden" name="complexion_id" value="{if isset($userFace.complexion_id)}{$userFace.complexion_id}{/if}" id="complexion">
   <div class="bottom3">
     <ul class="bottom3_1">
     {foreach $faces as $face}
@@ -26,7 +26,7 @@
     </ul>
     <ul class="none bottom3_2 ">
     {foreach $complexions as $complexion}
-      <li value="{$complexion.complexion_id}"><img src="{$complexion.picture_url}"><span>{$complexion.name}</span></li>
+      <a onclick="complexion({$complexion.complexion_id})"><li value="{$complexion.complexion_id}"><img src="{$complexion.picture_url}"><span>{$complexion.name}</span></li></a>
       {/foreach}
     </ul>
   </div>
@@ -146,7 +146,7 @@
     function face(face_id) {
         $.ajax({
             type: "POST",
-            url: 'ajaxGetFace',
+            url: 'face/ajaxGetFace',
             data: {face_id:face_id},
             datatype:'json',
             success: function(data) {
@@ -474,6 +474,18 @@
         }
       });
   }
+
+    function complexion(complexion_id) {
+        $.ajax({
+            type: "POST",
+            url: 'face/ajaxGetComplexion',
+            data: {complexion_id:complexion_id},
+            datatype:'json',
+            success: function(data) {
+                var member = eval('('+data+')');
+                if(member.status == 200) {
+
+                    }
 
 </script>
   {/literal}

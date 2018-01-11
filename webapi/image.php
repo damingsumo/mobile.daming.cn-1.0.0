@@ -30,10 +30,10 @@ class WebApi_Image extends WebApi{
     public function add($data) {
         $params = array();
         $params['uid'] = isset($data['uid']) ? $data['uid'] : 0;
-        $params['face_id'] = isset($data['face_id']) ? $data['face_id'] : 0;
-        $params['complexion_id'] = isset($data['complexion_id']) ? $data['complexion_id'] : 0;
-        $params['hair_color_id'] = isset($data['hair_color_id']) ? $data['hair_color_id'] : 0;
-        $params['hair_style_id'] = isset($data['hair_style_id']) ? $data['hair_style_id'] : 0;
+        $params['face_id'] = isset($data['face_id']) ? $data['face_id'] : 1;
+        $params['complexion_id'] = isset($data['complexion_id']) ? $data['complexion_id'] : 1;
+        $params['hair_color_id'] = isset($data['hair_color_id']) ? $data['hair_color_id'] : 1;
+        $params['hair_style_id'] = isset($data['hair_style_id']) ? $data['hair_style_id'] : 1;
         $params['create_time'] = date('Y-m-d H:i:s');
         $params['update_time'] = date('Y-m-d H:i:s');
         return CoreApi_Image::instance()->insert($params);

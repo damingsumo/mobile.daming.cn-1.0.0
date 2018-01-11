@@ -8,7 +8,7 @@ class Controller_User extends Controller_Base {
         return $this->display('index', $params);
     }
     
-    public function goAdd() {
+    public function actionGoAdd() {
         return $this->display('add');
     }
     
@@ -84,6 +84,7 @@ class Controller_User extends Controller_Base {
         $params['userFace'] = $userFace;
         $params['faces'] = $faces;
         $params['complexions'] = $complexions;
+//         print_r($params);exit;
         return $this->display('image/face/add',$params);
          
     }

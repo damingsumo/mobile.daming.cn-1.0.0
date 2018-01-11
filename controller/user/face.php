@@ -136,21 +136,107 @@ class Controller_User_Face extends Controller_Base {
             $user = current($user);
         }
         $hairstyle = array();
-        if(empty($user) || $user['hair_style_id']=="") {
+        $complexion = array();
+        $haircolor = array();
+        if(empty($user)||$user['hair_style_id'] == "") {
             $hairstyle = WebApi_Image_HairStyle::instance()->getHairStylesByParams(array());
             $hairstyle = current($hairstyle);
-        }else{
+        }else {
             $hairstyle = WebApi_Image_HairStyle::instance()->row('*', $user['hair_style_id']);
             if(empty($hairstyle)) {
                 return $this->ajaxError('未找到发型数据');
             }
         }
+        if(empty($user)||$user['complexion_id'] == "") {
+            $complexion = WebApi_Image_Complexion::instance()->getComplexionsByParams(array());
+            $complexion = current($complexion);
+        }else {
+            $complexion = WebApi_Image_Complexion::instance()->row('*', $user['complexion_id']);
+            if(empty($complexion)) {
+                return $this->ajaxError('未找到肤色数据');
+            }
+        }
+        if(empty($user)||$user['hair_color_id'] == "") {
+            $haircolor = WebApi_Image_HairColor::instance()->getHairColorsByParams(array());
+            $haircolor = current($haircolor);
+        }else {
+            $haircolor = WebApi_Image_HairColor::instance()->row('*', $user['hair_color_id']);
+            if(empty($haircolor)) {
+                return $this->ajaxError('未找到发色数据');
+            }
+        }
         $params = array();
         $params['hairstyle'] = $hairstyle;
+        $params['complexion'] = $complexion;
+        $params['haircolor'] = $haircolor;
         $params['face'] = $face;
         return $this->ajaxSuccess($params);
     }
     
-    
+    /**
+     * 获取肤色信息
+     * 
+     */
+    public function ajaxGetComplexion() {
+        $complexionId = isset($_POST['complexion_id']) ? $_POST['complexion_id'] : 0;
+        $uid = Account::getUid();
+        if($complexionId <= 0 ) {
+            return $this->ajaxError('肤色ID错误');
+        }
+        $complexion = array();
+        $complexion = WebApi_Image_Complexion::instance()->row('*', $complexionId);
+        if(empty($complexion)) {
+            return $this->error('未找到肤色数据');
+        }
+        $user = array();
+        $user = WebApi_Image::instance()->getImagesByParams(array('uid'=>$uid));
+        if(!empty($user)) {
+            $user = current($user);
+        }
+        $hairstyle = array();
+        $face = array();
+        $haircolor = array();
+        if(empty($user)) {
+            $hairstyle = WebApi_Image_HairStyle::instance()->getHairStylesByParams(array());
+            $hairstyle = current($hairstyle);
+            $face = WebApi_Image_Face::instance()->getFacesByParams(array());
+            $face = current($face);
+            $haircolor = WebApi_Image_HairColor::instance()->getHairColorsByParams(array());
+            $haircolor = current($haircolor);
+        }
+        if(empty($user)||$user['hair_style_id'] == "") {
+            $hairstyle = WebApi_Image_HairStyle::instance()->getHairStylesByParams(array());
+            $hairstyle = current($hairstyle);
+        }else {
+            $hairstyle = WebApi_Image_HairStyle::instance()->row('*', $user['hair_style_id']);
+            if(empty($hairstyle)) {
+                return $this->ajaxError('未找到发型数据');
+            }
+        }
+        if(empty($user)||$user['face_id'] == "") {
+            $face = WebApi_Image_Face::instance()->getFacesByParams(array());
+            $face = current($face);
+        } else {
+            $face = WebApi_Image_Face::instance()->row('*', $user['face_id']);
+            if(empty($face)) {
+                return $this->ajaxError('未找到肤色数据');
+            }
+        }
+        if(empty($user)||$user['hair_color_id'] == "") {
+            $haircolor = WebApi_Image_HairColor::instance()->getHairColorsByParams(array());
+            $haircolor = current($haircolor);
+        }else {
+            $haircolor = WebApi_Image_HairColor::instance()->row('*', $user['hair_color_id']);
+            if(empty($haircolor)) {
+                return $this->ajaxError('未找到发色数据');
+            }
+        }
+        $params = array();
+        $params['hairstyle'] = $hairstyle;
+        $params['complexion'] = $complexion;
+        $params['haircolor'] = $haircolor;
+        $params['face'] = $face;
+        return $this->ajaxSuccess($params);
+    }
     
 }
