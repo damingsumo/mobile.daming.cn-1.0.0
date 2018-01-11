@@ -29,12 +29,59 @@ ul{
 li{  
 	list-style: none;
 }
-input[type="button"], input[type="submit"], input[type="reset"], input[type="text"] {
-     -webkit-appearance: none;
+.collocation{
+	float: left;
+	margin-top: 6rem;
+	position: relative;
+	width: 100%;
+	/*text-align: center;*/
 }
-textarea {  
-    -webkit-appearance: none;
-}  
+.collocation_left{
+	float: left;
+	background-color: #fff;
+	/*width: 5rem;*/
+	margin-top: 3rem;
+	position: relative;
+}
+.collocation_right{
+	/*width: 5rem;*/
+	margin-top: 3rem;
+	position: relative;
+}
+.collocation_right ul{
+	position: absolute;
+	background-color: #fff;
+	right: 0;
+}
+.collocation_left ul li,.collocation_right ul li {
+	text-align: center;
+	padding: 1rem;
+	padding-bottom: 0;
+}
+.collocation_left ul li:last-child,.collocation_right ul li:last-child{
+	padding-bottom: 1rem;
+}
+.collocation_left ul li img,.collocation_right ul li img{
+    width: 5rem;
+    height: 5rem;
+}
+.collocation_left ul li span,.collocation_right ul li span{
+	display: block;
+}
+.model{
+	float: left;
+	width: 60%;
+	position: relative;
+}
+/*.model canvas{
+	width: 20rem;
+	height: 40rem;
+}*/
+.model canvas,.model img{
+	position: absolute;
+	left: 26px;
+	top: 4rem;
+}
 .header{
 	display: flex;
 	line-height: 40px;
@@ -272,7 +319,7 @@ textarea {
 	margin-bottom: 0.5rem;
 	margin-top:1rem;
 }
-.content_center ul li:nth-child(1) span:nth-child(3){
+.content_center ul li:nth-child(1) a:nth-child(3){
 	text-decoration: none;
 	color: #1b1b1b;
 	opacity: 0.8;
@@ -307,7 +354,7 @@ textarea {
 	display: block;
 	margin-bottom: 0.5rem;
 }
-.content_center ul li:nth-child(3) span:nth-child(2){
+.content_center ul li:nth-child(3) a:nth-child(2){
 	color: #b32fff;
 	font-size: 0.8rem;
 	text-decoration: none;
@@ -438,7 +485,6 @@ textarea {
 .top{
 	display: table;
 	width: 100%;
-	height: 15rem;
 }
 .bg { 
 	width: 100%;
@@ -709,7 +755,7 @@ textarea {
 	width: 100%;
 	margin-bottom: 15px;
 	background-color: #fff;
-} 
+}
 .jacket:last-child{
 	margin-bottom: 47px;
 }
@@ -851,16 +897,15 @@ textarea {
 }
 .buttom{ 
 	bottom: 0;
-	margin: 5rem 0 0 0;
 	width: 100%;
 }
 .buttom input{
 	width: 100%;
 	height: 4rem;
 	border: none;
-	background-color: #0099FF;
+	background-color: #d2d2d2;
 	font-size: 1.6rem;
-	color: #fff;
+	color: #1b1b1b;
 }
 .about_img{
 	margin-top: 75px;
@@ -1002,6 +1047,7 @@ textarea {
 	list-style: none; 
 	display: table;
     width: 30rem;
+    position: relative;
 }
 .center3>div>ul li{
 	float: left; 
@@ -1033,7 +1079,8 @@ textarea {
 	flex:1;
 	width: 50%;
 	height: 8rem;
-	display: inline-block;  
+	display: inline-block; 
+	border-right: 2px solid #dadada;
 }
 .face>div>ul li{
 	border-top: 2px solid #dadada;
@@ -1128,8 +1175,8 @@ align-items: center;
 	font-size:2rem;
 }
 .footer4{
-	width: 100% ;
-	position: fixed ;	
+	width: 100%;
+	position: fixed;	
 	bottom: 0;
 	z-index: 20;
 }
@@ -1144,7 +1191,7 @@ align-items: center;
 .bottom3_1 a.bg3{
 	background: url(../images/306.png) no-repeat;
 	background-position: 100% 0;
-	background-size: 1.5rem;
+	background-size: 1rem;
 	border: 1px solid #7361f0;
 }
 .topnav{
@@ -1187,7 +1234,16 @@ align-items: center;
 .clothes_list li{
 	width: 49%;
     float: left;
+    /*height: 375px;*/
     background-color: #fff;
+    position: relative;
+}
+.clothes_list li canvas{
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 32.5rem;
+	top: 0;
 }
 .clothes_price{
 	margin: 0.5rem 0 1rem 1rem; 
@@ -1212,7 +1268,7 @@ align-items: center;
 } 
 .clothes_list li>a>img:first-child{
 	width: 100%;
-	height: 32rem;
+	height: 32.2rem;
 }
 .clothes_list li>a>span{
 	font-size: 1.2rem;
@@ -1261,7 +1317,7 @@ align-items: center;
 .content5{
 	display: table;
 	width: 100%;
-	margin: 10rem 0 5rem 0;
+	margin: 10rem 0 3rem 0;
 }
 .content5_top{
 	width: 100%;
@@ -1275,7 +1331,7 @@ align-items: center;
 	padding: 0;
 	list-style: none;
 	display: table;
-	margin-bottom: 1.8rem;
+	margin-bottom: 3rem;
 }
 .content5_top ul li{
 	width: 50%;
@@ -1510,8 +1566,9 @@ align-items: center;
 .content6_top{
 	width: 100%;
 	display: table;
-	/*padding-top: 2rem;*/
-	position: relative; 
+	padding-top: 2rem;
+	position: relative;
+	overflow: hidden;
 }
 .content6_top ul{
 	width: 100%;
@@ -1519,8 +1576,8 @@ align-items: center;
 	padding: 0;
 	list-style: none;
 	display: table;
-	/*margin-bottom: 1rem;*/
-	height: 45rem;
+	margin-bottom: 1rem;
+	height: 42rem;
 }
 .content6_top ul li{
 	width: 100%;
@@ -1531,11 +1588,11 @@ align-items: center;
 	height: 43rem;
 }
 .content6_top ul li img:nth-child(1){
-	/*width: 16rem;
-	height: 37rem;
-	position: absolute;*/
+	/*width: 16rem;*/
+	/*height: 37rem;*/
+	/*position: absolute;*/
 	bottom: 0;
-	 margin-left: 5rem;
+	 
 }
 /*.content6_top ul li:nth-child(2) img{
 	width: 7rem;
@@ -1606,6 +1663,7 @@ align-items: center;
 	background-position: 100% 50%;
 	float: right; 
 	font-size: 1rem; 
+	padding-top: 0.1rem;
 } 
 .content6_bottom ul:nth-child(1) li div span{
 	color: #8e8e8e;
@@ -1686,6 +1744,7 @@ align-items: center;
 	background-position: 100% 50%;
 	float: right;
 	font-size: 1rem;
+	padding-top: 0.2rem;
 }
 .none{
 	display: none;
@@ -2008,7 +2067,8 @@ align-items: center;
 .top72 div:nth-child(1){ 
 	background: #abb8c3; 
 	border: 1px solid #a9b7c2;
-	background-color: #a9b7c2; 
+	background-color: #a9b7c2;
+	margin-left:1.5rem;
 	width: 8rem;
 	height: 7rem;  
 	text-align: center;
@@ -2126,7 +2186,6 @@ align-items: center;
 	background: #fff;
 	overflow: auto;
 	height:100%;
-	width: 7.5rem;
 }
 .third7 ul li{
 	width: 6rem;
@@ -2150,7 +2209,7 @@ align-items: center;
 	margin-top: 4rem;
 	border-top-right-radius: 10px;
 	border-bottom-right-radius:10px;
-	height:7rem;
+	height: 14rem;
 }
 .third7 ul:last-child li{
 	width: 6rem;
@@ -2432,10 +2491,7 @@ align-items: center;
 .none{
 	display: none;
 }
-.third71 a{
-	float: left;
-}
-.third71 a.bg7{
+.bg7{
 	background: url(../images/306.png) no-repeat;
 	background-position: 100% 0;
 	background-size: 1rem;
@@ -2814,11 +2870,10 @@ align-items: center;
 }
  .password ul li input::-webkit-input-placeholder{
  	color: #999;
- 	font-size: 1.2rem;
+ 	font-size: 1.4rem;
  }
 .password ul li input{
 	flex:4;
-	font-size: 1.4rem;
 }
  
 .password_login a:first-child{ 
@@ -2848,13 +2903,83 @@ align-items: center;
 }
 .register ul li input{
     flex:2;
-    font-size: 1.4rem;
+}
+.good_name{
+	float: left;
+	margin-top: 7rem;
+	background-color: #fff;
+	width: 100%;
+	height: 2.8rem;
+	line-height: 2.8rem;
+	/*justify-content: center; 
+	flex-direction: column;
+	display: flex;*/
+} 
+.good_name img{
+	float: left;
+	width: 1.8rem;
+	height: 1.8rem; 
+	margin:0.5rem 0.7rem 0.5rem 2rem;
+}
+.good_name  span{ 
+	float: left;
+	display: inline-block;
+}
+.good_name  span:last-child{
+	color: #FF0000;
+	font-size: 1.1rem;
+	float: right;
+	margin-right: 1.7rem;
+}
+.good_detial{
+	float: left;
+	width: 100%;
+	height: 7rem;
+	padding: 0.5rem 0 0.5rem 2rem;
+}
+.good_detial img{
+	width: 6rem;
+	height: 6rem;
+	float: left;
+}
+.good_detial span:nth-child(2),.good_detial span:nth-child(3){
+	display: inline-block;
+	margin-left: 1rem;
+	float: left;
+	width: 60%;
+}
+.good_price{
+	float: right;
+	width: 27px;
+	margin-top: -2.7rem;
+	margin-right: 1.7rem;
+	height: 41px;
+}
+.good_price label{
+	float: right;
+	display: block;
+}
+.good_detial a{
+	display: inline-block;
+	width: 4.5rem;
+	height: 1.4rem;
+	float: right;
+	border-radius:1rem;
+	border: 1px solid rgba(121, 121, 121, 1);
+	background-color: #fff;
+	text-align: center; 
+	display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-right: 1.7rem;
+    margin-top: 0.4rem;
 }
 @media screen and (min-width: 320px) and (max-width: 413px){
 	.last_style div:nth-child(2),.last_style div:nth-child(4),
     .last_style div:nth-child(6),.last_style div:nth-child(8){
    		 left:80%;
-    }
+    } 
     .last_style span{
 	padding:0.5rem 0.5rem; 
 	width: 5rem;
@@ -2871,38 +2996,7 @@ align-items: center;
 		left: -24px;
 		top: 8px;
 	}
-    .content5{
-		display: table;
-		width: 100%;
-		margin:10rem 0 5rem 0;
-	} 
-	.content5_top ul{
-		width: 200%;
-		margin: 0;
-		padding: 0;
-		list-style: none;
-		display: table;
-		/*margin-bottom: 1.8rem;*/
-	}
-	.content5_top ul li img:nth-child(1){
-		width:16rem;
-		height:44rem;
-	}
-	.reset{
-		float: left;
-		height: 6.01rem;
-		line-height: 6.01rem;
-		width: 100%;
-		position: relative;
-		margin-bottom: 5rem;
-	}
-	.revise_content span{
-	width: 75%;
-	padding:20% 0;
-	font-size: 1.6rem;
-	display: inline-block;
-	line-height:2.5rem;
-}
+
 	.size_edit{
 		padding: 1.5rem 2.5rem;
 	}
@@ -2953,9 +3047,21 @@ align-items: center;
 		width: 68%;
 		height: 59%
 	}
+	.model canvas,.model img{
+		position: absolute;
+		left: 5px;
+	}
 }
 @media screen and (min-width: 767px){
 	.clothes_list li>a>img:first-child{
+		width: 100%;
+		height: 64rem;
+	}
+	.clothes_list li canvas{ 
+		width: 100%;
+		height: 64rem;
+	}
+	.clothes_list li canvas{ 
 		width: 100%;
 		height: 64rem;
 	}
@@ -2983,6 +3089,10 @@ align-items: center;
 	.content_center ul li:nth-child(3) > div,.content_center ul li:nth-child(4) > div{
 		height: 8rem;
 	} 
+	.model canvas,.model img{
+		position: absolute;
+		left: 303px;
+	}
 }
 @media screen and (min-width: 1023px){
 	.last_style div:nth-child(2),.last_style div:nth-child(4),
@@ -2993,6 +3103,10 @@ align-items: center;
 		padding:0.5rem 0.5rem; 
 		width: 12rem;
 		font-size: 1.2rem;
+	}
+	.model canvas,.model img{
+		position: absolute;
+		left: 337px;
 	}
 	.last_style span:nth-child(3){
 		margin-top: 0.5rem;
@@ -3040,6 +3154,10 @@ align-items: center;
 		top: 19rem;
 	}
 	.clothes_list li>a>img:first-child{
+		width: 100%;
+		height: 64rem;
+	}
+	.clothes_list li canvas{ 
 		width: 100%;
 		height: 64rem;
 	}
