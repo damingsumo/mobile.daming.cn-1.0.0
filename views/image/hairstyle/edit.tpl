@@ -26,7 +26,7 @@
     </ul>
     <ul class="none bottom3_2">
     {foreach $hairColors as $hairColor}
-      <li  value="{$hairColor.hair_color_id}" {if $hairColor.hair_color_id == $image.hair_color_id} class="bg3" {/if}><img src="{$hairColor.picture_url}"><span>{$hairColor.name}</span></li>
+      <a  onclick="haircolor({$hairColor.hair_color_id})"><li  value="{$hairColor.hair_color_id}" {if $hairColor.hair_color_id == $image.hair_color_id} class="bg3" {/if}><img src="{$hairColor.picture_url}"><span>{$hairColor.name}</span></li></a>
       {/foreach}
     </ul>
   </div>
@@ -247,7 +247,18 @@ $(document).ready(function(){
 			}
 		});
 	}
- 
+  function haircolor(hair_color_id) {
+	    $.ajax({
+	      type: "POST",
+	      url: '/user/hairstyle/ajaxGetHairColor',
+	      data: {hair_color_id:hair_color_id},
+	      datatype:'json',
+	      success: function(data) {
+	        var member = eval('('+data+')');
+	        if(member.status == 200) {
+
+		        
+	        }
   </script>
 	{/literal}
 </body>

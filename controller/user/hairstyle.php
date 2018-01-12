@@ -107,16 +107,96 @@ class Controller_User_Hairstyle extends Controller_Base {
             $user = current($user);
         }
         $face = array();
-        $face = WebApi_Image_Face::instance()->row('*', $user['face_id']);
-        if(empty($face)) {
-            return $this->ajaxError('未找到脸型数据');
+        $complexion = array();
+        $haircolor = array();
+        if(empty($user)||$user['face_id'] == "") {
+            $face = WebApi_Image_Face::instance()->getFacesByParams(array());
+            $face = current($face);
+        }else {
+            $face = WebApi_Image_Face::instance()->row('*', $user['face_id']);
+            if(empty($face)) {
+                return $this->ajaxError('未找到脸部数据');
+            }
+        }
+        if(empty($user)||$user['complexion_id'] == "") {
+            $complexion = WebApi_Image_Complexion::instance()->getComplexionsByParams(array());
+            $complexion = current($complexion);
+        }else {
+            $complexion = WebApi_Image_Complexion::instance()->row('*', $user['complexion_id']);
+            if(empty($complexion)) {
+                return $this->ajaxError('未找到肤色数据');
+            }
+        }
+        if(empty($user)||$user['hair_color_id'] == "") {
+            $haircolor = WebApi_Image_HairColor::instance()->getHairColorsByParams(array());
+            $haircolor = current($haircolor);
+        }else {
+            $haircolor = WebApi_Image_HairColor::instance()->row('*', $user['hair_color_id']);
+            if(empty($haircolor)) {
+                return $this->ajaxError('未找到发色数据');
+            }
         }
         $params = array();
         $params['hairstyle'] = $hairStyle;
+        $params['complexion'] = $complexion;
+        $params['haircolor'] = $haircolor;
         $params['face'] = $face;
         return $this->ajaxSuccess($params);
     }
     
     
+    public function ajaxGetHairColor() {
+        $hairColorId = isset($_POST['hair_color_id']) ? $_POST['hair_color_id'] : 0;
+        $uid = Account::getUid();
+        if($hairColorId <= 0 ) {
+            return $this->ajaxError('发色ID错误');
+        }
+        $hairColor = array();
+        $hairColor = WebApi_Image_HairStyle::instance()->row('*', $hairColorId);
+        if(empty($hairColor)) {
+            return $this->ajaxError('未找到发色数据');
+        }
+        $user = array();
+        $user = WebApi_Image::instance()->getImagesByParams(array('uid'=>$uid));
+        if(!empty($user)) {
+            $user = current($user);
+        }
+        $face = array();
+        $complexion = array();
+        $hairStyle = array();
+        if(empty($user)||$user['face_id'] == "") {
+            $face = WebApi_Image_Face::instance()->getFacesByParams(array());
+            $face = current($face);
+        }else {
+            $face = WebApi_Image_Face::instance()->row('*', $user['face_id']);
+            if(empty($face)) {
+                return $this->ajaxError('未找到脸部数据');
+            }
+        }
+        if(empty($user)||$user['complexion_id'] == "") {
+            $complexion = WebApi_Image_Complexion::instance()->getComplexionsByParams(array());
+            $complexion = current($complexion);
+        }else {
+            $complexion = WebApi_Image_Complexion::instance()->row('*', $user['complexion_id']);
+            if(empty($complexion)) {
+                return $this->ajaxError('未找到肤色数据');
+            }
+        }
+        if(empty($user)||$user['hair_style_id'] == "") {
+            $hairStyle = WebApi_Image_HairStyle::instance()->getHairStylesByParams(array());
+            $hairStyle = current($hairStyle);
+        }else {
+            $hairStyle = WebApi_Image_HairStyle::instance()->row('*', $user['hair_style_id']);
+            if(empty($hairStyle)) {
+                return $this->ajaxError('未找到发型数据');
+            }
+        }
+        $params = array();
+        $params['hairstyle'] = $hairStyle;
+        $params['complexion'] = $complexion;
+        $params['haircolor'] = $hairColor;
+        $params['face'] = $face;
+        return $this->ajaxSuccess($params);
+    }
     
 }
