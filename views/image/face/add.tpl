@@ -149,10 +149,7 @@ $(".bottom3_2 a").click(function(){
                    var m = rgb.split(",");
                    var r = m[0];
                    var g = m[1];
-                   var b = m[2]; 
-                   // console.log(r);
-                   // console.log(g);
-                   // console.log(b);
+                   var b = m[2];  
                  var behidestyle =member.data['hairstyle']['behide_synthesis_url'];
                  var facestyle =member.data['face']['synthesis_url'];
                  var frontstyle=member.data['hairstyle']['front_synthesis_url'];
