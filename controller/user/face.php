@@ -135,7 +135,6 @@ class Controller_User_Face extends Controller_Base {
         if(!empty($user)) {
             $user = current($user);
         }
-        $user['face_id'] = $faceId;
         $hairstyle = array();
         $complexion = array();
         $haircolor = array();
