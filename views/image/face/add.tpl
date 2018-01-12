@@ -337,7 +337,7 @@ $(".bottom3_2 a").click(function(){
 
     function complexion(complexion_id) {
       $("#complexion").attr("value",complexion_id); 
-      var face_id = $('#face').val
+      var face_id = $('#face').val();
         $.ajax({
             type: "POST",
             url: 'face/ajaxGetComplexion',
