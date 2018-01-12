@@ -189,10 +189,6 @@ class Controller_User_Face extends Controller_Base {
             return $this->error('未找到肤色数据');
         }
         
-        $res = WebApi_Image::instance()->update(array('complexion_id'=>$complexionId), $uid);
-        if(!$res) {
-            return $this->ajaxError('同步失败');
-        }
         $user = array();
         $user = WebApi_Image::instance()->getImagesByParams(array('uid'=>$uid));
         if(!empty($user)) {
