@@ -121,6 +121,7 @@ class Controller_User_Face extends Controller_Base {
      */
     public function ajaxGetFace() {
         $faceId = isset($_POST['face_id']) ? $_POST['face_id'] : 0;
+        $complexionId = isset($_POST['complexion_id']) ? $_POST['complexion_id'] : 0;
         $uid = Account::getUid();
         if($faceId <= 0 ) {
             return $this->ajaxError('脸型ID错误');
@@ -135,6 +136,7 @@ class Controller_User_Face extends Controller_Base {
         if(!empty($user)) {
             $user = current($user);
         }
+        $user['complexion_id'] = $complexionId;
         $hairstyle = array();
         $complexion = array();
         $haircolor = array();
@@ -178,6 +180,7 @@ class Controller_User_Face extends Controller_Base {
      * 
      */
     public function ajaxGetComplexion() {
+        $faceId = isset($_POST['face_id']) ? $_POST['face_id'] : 0;
         $complexionId = isset($_POST['complexion_id']) ? $_POST['complexion_id'] : 0;
         $uid = Account::getUid();
         if($complexionId <= 0 ) {
@@ -194,6 +197,7 @@ class Controller_User_Face extends Controller_Base {
         if(!empty($user)) {
             $user = current($user);
         }
+        $user['face_id'] = $faceId;
         $hairstyle = array();
         $face = array();
         $haircolor = array();
