@@ -92,6 +92,7 @@ class Controller_User_Hairstyle extends Controller_Base {
     
     public function ajaxGetHairstyle() {
         $hairStyleId = isset($_POST['hair_style_id']) ? $_POST['hair_style_id'] : 0;
+        $hairColorId = isset($_POST['hair_color_id']) ? $_POST['hair_color_id'] : 0;
         $uid = Account::getUid();
         if($hairStyleId <= 0 ) {
             return $this->ajaxError('发型ID错误');
@@ -106,6 +107,7 @@ class Controller_User_Hairstyle extends Controller_Base {
         if(!empty($user)) {
             $user = current($user);
         }
+        $user['hair_color_id'] = $hairColorId;
         $face = array();
         $complexion = array();
         $haircolor = array();
@@ -147,6 +149,7 @@ class Controller_User_Hairstyle extends Controller_Base {
     
     public function ajaxGetHairColor() {
         $hairColorId = isset($_POST['hair_color_id']) ? $_POST['hair_color_id'] : 0;
+        $hairStyleId = isset($_POST['hair_style_id']) ? $_POST['hair_style_id'] : 0;
         $uid = Account::getUid();
         if($hairColorId <= 0 ) {
             return $this->ajaxError('发色ID错误');
@@ -161,6 +164,7 @@ class Controller_User_Hairstyle extends Controller_Base {
         if(!empty($user)) {
             $user = current($user);
         }
+        $user['hair_style_id'] = $hairStyleId;
         $face = array();
         $complexion = array();
         $hairStyle = array();
