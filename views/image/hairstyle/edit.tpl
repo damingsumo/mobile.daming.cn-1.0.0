@@ -16,8 +16,8 @@
     </div>
   </div>
   <form action="/user/hairstyle/edit" id="myform" method="post">
-  <input type="hidden" value="" id="face" name="hair_style_id">
-  <input type="hidden" value="" id="sss" name="hair_color_id">
+  <input type="hidden" value="" id="hair_style_id" name="hair_style_id">
+  <input type="hidden" value="" id="hair_color_id" name="hair_color_id">
   <div class="bottom3">
     <ul class="bottom3_1 hairstyle">
     {foreach $hairStyles as $hairStyle}
@@ -26,7 +26,7 @@
     </ul>
     <ul class="none bottom3_2">
     {foreach $hairColors as $hairColor}
-      <a  onclick="haircolor({$hairColor.hair_color_id})"><li  value="{$hairColor.hair_color_id}" {if $hairColor.hair_color_id == $image.hair_color_id} class="bg3" {/if}><img src="{$hairColor.picture_url}"><span>{$hairColor.name}</span></li></a>
+      <a  onclick="haircolor({$hairColor.hair_color_id})"><li  value="{$hairColor.hair_color_id}" {if $hairColor.hair_color_id == $image.hair_color_id} {/if}><img src="{$hairColor.picture_url}"><span>{$hairColor.name}</span></li></a>
       {/foreach}
     </ul>
   </div>
@@ -123,48 +123,44 @@ $(document).ready(function(){
         $(".bottom3 ul").eq(index_3).removeClass("none").siblings().addClass("none");
     }); 
   var str=$(".bottom3_1 li:first-child").val();
-  $("#face").val(str);
+  $("#hair_style_id").val(str);
   var str=$(".bottom3_2 li:first-child").val();
-  $("#sss").val(str);
-  $(".bottom3_1 li").on("touchstart",function(e){
-    var index_31 = $(this).index();
-    var str=$(this).val();
-    // $(this).addClass("bg3").siblings().removeClass("bg3");
-    $(".center3_1 li").eq(index_31).addClass("block").siblings().removeClass("block");
-    $("#face").val(str);
-  });
+  $("#hair_color_id").val(str); 
   $(".bottom3_1 a").click(function(){
       $(this).addClass("bg3").siblings(".bottom3_1 a ").removeClass("bg3");
   });
-  $(".bottom3_2  li").on("touchstart",function(e){
-    var index_31 = $(this).index();
-    var str=$(this).val();
-     $("#sss").val(str);
-    // $(this).addClass("bg3").siblings().removeClass("bg3");
-    $(".center3_2 li").eq(index_31).addClass("block").siblings().removeClass("block");
-  });
- 
+  $(".bottom3_2 a").click(function(){
+      $(this).addClass("bg3").siblings(".bottom3_2 a ").removeClass("bg3");
+  }); 
   function hairstyle(hair_style_id) {
+     $("#hair_style_id").attr("value",hair_style_id);
+     var hair_color_id = $("#hair_color_id").val();
 		$.ajax({
 			type: "POST",
 			url: 'ajaxGetHairstyle',
-			data: {hair_style_id:hair_style_id},
+			data: {hair_style_id:hair_style_id,hair_color_id:hair_color_id},
 			datatype:'json',
 			success: function(data) {
 				var member = eval('('+data+')');
 				if(member.status == 200) {
-              var behidestyle =member.data['hairstyle']['behide_synthesis_url'];
+                  var rgb = member.data['haircolor']['rgb'];
+                   var m = rgb.split(",");
+                   var r = m[0];
+                   var g = m[1];
+                   var b = m[2]; 
+                   // console.log(m)
+                 var behidestyle =member.data['hairstyle']['behide_synthesis_url'];
                  var facestyle =member.data['face']['synthesis_url'];
                  var frontstyle=member.data['hairstyle']['front_synthesis_url'];
                  var beo =member.data['hairstyle']['behide_ordinate'];
                  var bea = member.data['hairstyle']['behide_abscissa'];
                  var bel = member.data['hairstyle']['behide_length'];
-                var bew = member.data['hairstyle']['behide_width'];
+                 var bew = member.data['hairstyle']['behide_width'];
                  var fro = member.data['hairstyle']['front_ordinate'];
                  var fra = member.data['hairstyle']['front_abscissa'];
                  var frl = member.data['hairstyle']['front_length'];
                  var frw = member.data['hairstyle']['front_width'];
-           var qw=document.getElementById("sss").value;
+           var qw=document.getElementById("hair_color_id").value;
            if( qw == 1){ 
            var canvas1 = document.getElementById("behid_hair"); 
            var ctx1 = canvas1.getContext("2d");
@@ -180,9 +176,9 @@ $(document).ready(function(){
                    var imgData = ctx1.getImageData(beo,bea,bel,bew-30); 
                        var data = imgData.data; 
                        for(var i = 0 ; i<data.length; i+=4){ 
-                           data [i] -= 0; 
-                           data [i + 1] -= 80; 
-                           data [i + 2] -= 0; 
+                           data [i] -= r; 
+                           data [i + 1] -= g; 
+                           data [i + 2] -= b; 
                        }  
                    ctx1.putImageData(imgData,beo,bea); 
                 }
@@ -197,9 +193,9 @@ $(document).ready(function(){
                   var imgData = ctx2.getImageData(fro,fra,frl,frw); 
                    var data = imgData.data; 
                    for(var i = 0 ; i<data.length; i+=4){ 
-                       data [i] -= 0; 
-                       data [i + 1] -= 80; 
-                       data [i + 2] -= 0; 
+                       data [i] -= r; 
+                       data [i + 1] -= g; 
+                       data [i + 2] -= b; 
                    }  
                    ctx2.putImageData(imgData,fro,fra);  
                  }
@@ -219,9 +215,9 @@ $(document).ready(function(){
                          var imgData = ctx1.getImageData(beo,bea,bel,bew-30); 
                              var data = imgData.data; 
                              for(var i = 0 ; i<data.length; i+=4){ 
-                                 data [i] -= 0; 
-                                 data [i + 1] -= 0; 
-                                 data [i + 2] -= 0; 
+                                 data [i] -= r; 
+                                 data [i + 1] -= g; 
+                                 data [i + 2] -= b; 
                              }  
                          ctx1.putImageData(imgData,beo,bea); 
                       }
@@ -236,9 +232,9 @@ $(document).ready(function(){
                       var imgData = ctx2.getImageData(fro,fra,frl,frw); 
                        var data = imgData.data; 
                        for(var i = 0 ; i<data.length; i+=4){ 
-                           data [i] -= 0; 
-                           data [i + 1] -= 0; 
-                           data [i + 2] -= 0; 
+                           data [i] -= r; 
+                           data [i + 1] -= g; 
+                           data [i + 2] -= b; 
                        }  
                        ctx2.putImageData(imgData,fro,fra);  
                      }
@@ -248,17 +244,75 @@ $(document).ready(function(){
 		});
 	}
   function haircolor(hair_color_id) {
+       $("#hair_color_id").attr("value",hair_color_id);
+       var hair_style_id = $("#hair_style_id").val();
 	    $.ajax({
 	      type: "POST",
 	      url: '/user/hairstyle/ajaxGetHairColor',
-	      data: {hair_color_id:hair_color_id},
+	      data: {hair_color_id:hair_color_id,hair_style_id:hair_style_id},
 	      datatype:'json',
 	      success: function(data) {
 	        var member = eval('('+data+')');
-	        if(member.status == 200) {
+	        if(member.status == 200) { 
+                var rgb = member.data['haircolor']['rgb'];
+                   var m = rgb.split(",");
+                   var r = m[0];
+                   var g = m[1];
+                   var b = m[2]; 
+                var behidestyle =member.data['hairstyle']['behide_synthesis_url'];
+                 var facestyle =member.data['face']['synthesis_url'];
+                 var frontstyle=member.data['hairstyle']['front_synthesis_url'];
+                 var beo =member.data['hairstyle']['behide_ordinate'];
+                 var bea = member.data['hairstyle']['behide_abscissa'];
+                 var bel = member.data['hairstyle']['behide_length'];
+                var bew = member.data['hairstyle']['behide_width'];
+                 var fro = member.data['hairstyle']['front_ordinate'];
+                 var fra = member.data['hairstyle']['front_abscissa'];
+                 var frl = member.data['hairstyle']['front_length'];
+                 var frw = member.data['hairstyle']['front_width'];
+                 var qw=document.getElementById("hair_color_id").value; 
+                 var canvas1 = document.getElementById("behid_hair"); 
+                 var ctx1 = canvas1.getContext("2d");
+                 var canvas2 = document.getElementById("hair"); 
+                 var ctx2 = canvas2.getContext("2d");
+           //后面的头发
+           var img = new Image(); 
+               img.crossOrigin =" anonymous" ; 
+               img.src =behidestyle; 
+               ctx1.clearRect(0,0,1000,1000); 
+               img.onload = function(){
+                   ctx1.drawImage(img,beo,bea,bel,bew-30); 
+                   var imgData = ctx1.getImageData(beo,bea,bel,bew-30); 
+                       var data = imgData.data; 
+                       for(var i = 0 ; i<data.length; i+=4){ 
+                           data [i] -= r; 
+                           data [i + 1] -= g; 
+                           data [i + 2] -= b; 
+                       }  
+                   ctx1.putImageData(imgData,beo,bea); 
+                }
+                 //前面的头发  
+               var img4 = new Image(); 
+                   img4.crossOrigin =" anonymous" ; 
+                   img4.src =frontstyle; 
+                   ctx2.clearRect(0,0,1000,1000); 
+                img4.onload = function () //确保图片已经加载完毕  
+                {  
+                  ctx2.drawImage(img4,fro,fra,frl,frw);
+                  var imgData = ctx2.getImageData(fro,fra,frl,frw); 
+                   var data = imgData.data; 
+                   for(var i = 0 ; i<data.length; i+=4){ 
+                       data [i] -= r; 
+                       data [i + 1] -= g; 
+                       data [i + 2] -= b; 
+                   }  
+                   ctx2.putImageData(imgData,fro,fra);  
+                 }
+        }
+      }
+    });
+  }
 
-		        
-	        }
   </script>
 	{/literal}
 </body>
