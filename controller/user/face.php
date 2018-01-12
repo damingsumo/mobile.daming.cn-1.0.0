@@ -5,6 +5,7 @@ class Controller_User_Face extends Controller_Base {
     
     public function add() {
         $uid = account::getUid();
+        $imageId = isset($_POST['imageId']) ? $_POST['face_id'] : 0;
         $faceId = isset($_POST['face_id']) ? $_POST['face_id'] : 0;
         $complexion = isset($_POST['complexion_id']) ? $_POST['complexion_id'] : 0;
         $_POST['uid'] = $uid;
@@ -15,6 +16,12 @@ class Controller_User_Face extends Controller_Base {
         if(empty($hairStyles)) {
             return $this->error('未找到发型信息');
         }
+        
+        $res = WebApi_Image::instance()->update(array('face_id'=>$faceId,'complexion_id'=>$complexion), $imageId);
+        if(!($res)) {
+            return $this->error('创建失败');
+        }
+        
         foreach ($hairStyles as &$hairStyle) {
             $hairStyle['show_url'] = $hairStyle['show_url'];
         }

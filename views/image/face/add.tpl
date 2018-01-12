@@ -17,7 +17,8 @@
   </div>
   <form action="/user/face/add" id="myform" method="post">
   <input type="hidden" name="face_id" value="{$userFace.face_id}" id="face">
-  <input type="hidden" value="" id="face_picture">
+  <input type="hidden" value="{$imageId}" name="imageId">
+  
   <input type="hidden" name="complexion_id" value="{if isset($userFace.complexion_id)}{$userFace.complexion_id}{/if}" id="complexion">
   <!-- <input type="hidden" value="" id="complexion_rgb"> -->
   <div class="bottom3">

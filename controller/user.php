@@ -88,6 +88,7 @@ class Controller_User extends Controller_Base {
         $params['userFace'] = $userFace;
         $params['faces'] = $faces;
         $params['complexions'] = $complexions;
+        $params['imageId'] = $imageId;
 //         print_r($params);exit;
         return $this->display('image/face/add',$params);
          
