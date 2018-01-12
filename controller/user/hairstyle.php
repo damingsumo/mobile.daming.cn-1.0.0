@@ -152,7 +152,7 @@ class Controller_User_Hairstyle extends Controller_Base {
             return $this->ajaxError('发色ID错误');
         }
         $hairColor = array();
-        $hairColor = WebApi_Image_HairStyle::instance()->row('*', $hairColorId);
+        $hairColor = WebApi_Image_HairColor::instance()->row('*', $hairColorId);
         if(empty($hairColor)) {
             return $this->ajaxError('未找到发色数据');
         }

@@ -136,11 +136,11 @@ $(".bottom3_2 a").click(function(){
     });
     function face(face_id) {
       $("#face").attr("value",face_id);
-     
+     var complexion_id = $("#complexion").val();
         $.ajax({
             type: "POST",
             url: 'face/ajaxGetFace',
-            data: {face_id:face_id},
+            data: {face_id:face_id,complexion_id:complexion_id},
             datatype:'json',
             success: function(data) {
                 var member = eval('('+data+')');
