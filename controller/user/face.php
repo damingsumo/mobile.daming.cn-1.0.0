@@ -130,16 +130,12 @@ class Controller_User_Face extends Controller_Base {
         if(empty($face)) {
             return $this->ajaxError('未找到脸型数据');
         }
-        $res = WebApi_Image::instance()->update(array('face_id'=>$faceId), $uid);
-        if(!$res) {
-            return $this->ajaxError('同步失败');
-        }
-        
         $user = array();
         $user = WebApi_Image::instance()->getImagesByParams(array('uid'=>$uid));
         if(!empty($user)) {
             $user = current($user);
         }
+        $user['face_id'] = $faceId;
         $hairstyle = array();
         $complexion = array();
         $haircolor = array();
