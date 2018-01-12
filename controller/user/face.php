@@ -11,11 +11,6 @@ class Controller_User_Face extends Controller_Base {
         if($faceId <= 0) {
             return $this->error('请选择脸型');
         }
-        $imageId = WebApi_Image::instance()->add($_POST);
-        if(!$imageId) {
-            return $this->error('添加失败');
-        }
-        
         $hairStyles = WebApi_Image_HairStyle::instance()->getHairStylesByParams(array());
         if(empty($hairStyles)) {
             return $this->error('未找到发型信息');
@@ -136,6 +131,7 @@ class Controller_User_Face extends Controller_Base {
         if(!empty($user)) {
             $user = current($user);
         }
+        print_r($user);exit;
         $user['complexion_id'] = $complexionId;
         $hairstyle = array();
         $complexion = array();

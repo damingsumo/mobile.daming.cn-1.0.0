@@ -58,6 +58,10 @@ class Controller_User extends Controller_Base {
             return $this->error('添加用户身体数据错误');
         }
         
+        $imageId = WebApi_Image::instance()->add(array('uid'=>$uid));
+        if(!$imageId) {
+            return $this->error('添加失败');
+        }
         
         $faces = WebApi_Image_Face::instance()->getFacesByParams(array(), $page=1, $pageSzie=-1);
         if(empty($faces)) {
