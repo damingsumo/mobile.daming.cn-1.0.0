@@ -108,22 +108,6 @@
                   var clw = numbere[i]["defaultValue"];
                   var c=document.getElementById(wer);  
                   var ctx=c.getContext("2d");   
-                  var img6=new Image();  
-                  img6.src=clothes;   
-                  img6.onload = function () //确保图、片已经加载完毕  
-                  {  
-                      ctx.drawImage(img6,clo,cla,cll,clw);  
-                      console.log(cla)
-                      ctx.globalCompositeOperation="destination-over";
-                      //身子
-                      var img2 = new Image();
-                          img2.crossOrigin =" anonymous" ; 
-                          img2.src="/static/images/shenzi.png"; 
-                      img2.onload = function () //确保图片已经加载完毕  
-                      {  
-                            ctx.drawImage(img2,70,90,150,255);   
-                       } 
-                  } 
                      //前面的头发  
                    var img4 = new Image(); 
                        img4.crossOrigin =" anonymous" ; 
@@ -157,13 +141,28 @@
                               } 
                          }
                      }
-                     var img7 = new Image(); 
-                       img7.crossOrigin =" anonymous" ; 
-                       img7.src =shoes; 
-                    img7.onload = function () //确保图片已经加载完毕  
-                    {  
-                      ctx.drawImage(img7,sho,sha,shl,shw); 
-                    }
+                  var img6=new Image();  
+                  img6.src=clothes;   
+                  img6.onload = function () //确保图、片已经加载完毕  
+                  {  
+                      ctx.drawImage(img6,clo,cla,cll,clw);  
+                      ctx.globalCompositeOperation="destination-over";
+                      //身子
+                      var img2 = new Image();
+                          img2.crossOrigin =" anonymous" ; 
+                          img2.src="/static/images/shenzi.png"; 
+                      img2.onload = function () //确保图片已经加载完毕  
+                      {  
+                            ctx.drawImage(img2,70,90,150,255);   
+                       } 
+                  } 
+                 var img7 = new Image(); 
+                   img7.crossOrigin =" anonymous" ; 
+                   img7.src =shoes; 
+                img7.onload = function () //确保图片已经加载完毕  
+                {  
+                  ctx.drawImage(img7,sho,sha,shl,shw); 
+                }
              }
             func(ss); 
       }     
