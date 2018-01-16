@@ -10,19 +10,16 @@
   <input type="hidden" value="{$userHairStyle.detail_front_abscissa}" id="front_abscissa">
   <input type="hidden" value="{$userHairStyle.detail_front_length}" id="front_length">
   <input type="hidden" value="{$userHairStyle.detail_front_width}" id="front_width">
-  
   <input type="hidden" value="{$goodsCollocation.synthesis_url}" id="first_synthesis_url">
   <input type="hidden" value="{$goodsCollocation.ordinate}" id="first_ordinate">
   <input type="hidden" value="{$goodsCollocation.abscissa}" id="first_abscissa">
   <input type="hidden" value="{$goodsCollocation.length}" id="first_length">
   <input type="hidden" value="{$goodsCollocation.width}" id="first_width">
-  
   <input type="hidden" value="{$goodsCollocation['shoes'].synthesis_url}" id="shoes_synthesis_url">
   <input type="hidden" value="{$goodsCollocation['shoes'].ordinate}" id="shoes_ordinate">
   <input type="hidden" value="{$goodsCollocation['shoes'].abscissa}" id="shoes_abscissa">
   <input type="hidden" value="{$goodsCollocation['shoes'].length}" id="shoes_length">
   <input type="hidden" value="{$goodsCollocation['shoes'].width}" id="shoes_width">
-
   <input type="hidden" value="{$good.synthesis_url}" id="clothes_synthesis_url">
   <input type="hidden" value="{$good.ordinate}" id="clothes_ordinate">
   <input type="hidden" value="{$good.abscissa}" id="clothes_abscissa">
@@ -33,9 +30,9 @@
 		<div class="top71">
 		  <ul>
 			<li> 
-				<canvas id="behid_hair" style="position: absolute; left:5.5rem;z-index:1;" width="220" height="430"></canvas>
-		         <canvas id="MyCanvas" style="position: absolute; left:5.5rem;z-index:51;" width="220" height="430;"></canvas>
-		         <canvas id="hair" style="position: absolute; left:5.5rem;z-index:55;" width="220" height="430;"></canvas>
+				<canvas id="behid_hair" width="220" height="430"></canvas>
+		         <canvas id="MyCanvas"  width="220" height="430;"></canvas>
+		         <canvas id="hair" width="220" height="430;"></canvas>
 			</li>
 		  </ul>
 		</div>
@@ -266,88 +263,88 @@ $(".third71 a").click(function(){
  	var facestyle = $("#face_synthesis_url").val();
     var behidestyle = $("#behide_synthesis_url").val();
     var frontstyle= $("#front_synthesis_url").val();
-     var shoes= $("#shoes_synthesis_url").val();
-      var clothes= $("#clothes_synthesis_url").val();
-      var beo =$("#behide_ordinate").val();
-     var bea = $("#behide_abscissa").val();
-     var bel = $("#behide_length").val();
+    var shoes= $("#shoes_synthesis_url").val();
+    var clothes= $("#clothes_synthesis_url").val();
+    var beo =$("#behide_ordinate").val();
+    var bea = $("#behide_abscissa").val();
+    var bel = $("#behide_length").val();
     var bew = $("#behide_width").val();
-     var fro = $("#front_ordinate").val();
-     var fra =  $("#front_abscissa").val();
-     var frl = $("#front_length").val();
-     var frw = $("#front_width").val();
-     var clo = $("#clothes_ordinate").val();
-     var cla =  $("#clothes_abscissa").val();
-     var cll = $("#clothes_length").val();
-     var clw = $("#clothes_width").val();
-     var sho = $("#shoes_ordinate").val();
-     var sha =  $("#shoes_abscissa").val();
-     var shl = $("#shoes_length").val();
-     var shw = $("#shoes_width").val(); 
-      var canvas = document.getElementById("MyCanvas"); 
-           var ctx = canvas.getContext("2d"); 
-           var canvas1 = document.getElementById("behid_hair"); 
-           var ctx1 = canvas1.getContext("2d");
-           var canvas2 = document.getElementById("hair"); 
-           var ctx2 = canvas2.getContext("2d");
-           //后面的头发
-           var img = new Image(); 
-               img.crossOrigin =" anonymous" ; 
-               img.src =behidestyle; 
-               ctx1.clearRect(0,0,1000,1000); 
-               img.onload = function(){
-                   ctx1.drawImage(img,beo,bea,bel,bew);  
-                }
-           //脸  
-           var img3 = new Image(); 
-               img3.crossOrigin =" anonymous"; 
-               img3.src =facestyle; 
-               // ctx.clearRect(0,0,1000,1000); 
-            img3.onload = function () //确保图片已经加载完毕  
-            {  
-              ctx.drawImage(img3,115,28,52,49);  
-                 //脖子
-                var img1 = new Image(); 
-                    img1.crossOrigin =" anonymous" ; 
-                    img1.src= "/static/images/bozi.png"; 
-                img1.onload = function () //确保图片已经加载完毕  
-                {  
-                  ctx.drawImage(img1,100,70,89,20);  
-                } 
-                //身子
-                var img2 = new Image();
-                    img2.crossOrigin =" anonymous" ; 
-                    img2.src="/static/images/shenzi.png"; 
-                img2.onload = function () //确保图片已经加载完毕  
-                {  
-                      ctx.drawImage(img2,70,90,150,300);  
-	                  //衣服
-	                  var img6= new Image();
-	                    img6.crossOrigin =" anonymous" ; 
-	                    img6.src=clothes; 
-	                  img6.onload = function () //确保图片已经加载完毕  
-	                  {  
-	                      ctx.drawImage(img6,clo,cla,cll,parseInt(clw)+25);  
-	                  }
-	                  var img7 = new Image(); 
-			               img7.crossOrigin =" anonymous" ; 
-			               img7.src =shoes; 
-			               // ctx.clearRect(0,0,1000,1000); 
-			            img7.onload = function () //确保图片已经加载完毕  
-			            {  
-			              ctx.drawImage(img7,sho,parseInt(sha)+40,shl,shw); 
-			            }
-                 }
-             }
-		     //前面的头发  
-		   var img4 = new Image(); 
-		       img4.crossOrigin =" anonymous" ; 
-		       img4.src =frontstyle; 
-		       // ctx.clearRect(0,0,1000,1000); 
-		    img4.onload = function () //确保图片已经加载完毕  
-		    {  
-		      ctx2.drawImage(img4,fro,fra,frl,frw); 
-		     }
+    var fro = $("#front_ordinate").val();
+    var fra =  $("#front_abscissa").val();
+    var frl = $("#front_length").val();
+    var frw = $("#front_width").val();
+    var clo = $("#clothes_ordinate").val();
+    var cla =  $("#clothes_abscissa").val();
+    var cll = $("#clothes_length").val();
+    var clw = $("#clothes_width").val();
+    var sho = $("#shoes_ordinate").val();
+    var sha =  $("#shoes_abscissa").val();
+    var shl = $("#shoes_length").val();
+    var shw = $("#shoes_width").val(); 
+    var canvas = document.getElementById("MyCanvas"); 
+    var ctx = canvas.getContext("2d"); 
+    var canvas1 = document.getElementById("behid_hair"); 
+    var ctx1 = canvas1.getContext("2d");
+    var canvas2 = document.getElementById("hair"); 
+    var ctx2 = canvas2.getContext("2d");
+    //后面的头发
+    var img = new Image(); 
+       img.crossOrigin =" anonymous" ; 
+       img.src =behidestyle; 
+       ctx1.clearRect(0,0,1000,1000); 
+       img.onload = function(){
+           ctx1.drawImage(img,beo,bea,bel,bew);  
+        }
+    //脸  
+    var img3 = new Image(); 
+        img3.crossOrigin =" anonymous"; 
+        img3.src =facestyle; 
+       // ctx.clearRect(0,0,1000,1000); 
+    img3.onload = function () //确保图片已经加载完毕  
+    {  
+      ctx.drawImage(img3,115,28,52,49);  
+         //脖子
+        var img1 = new Image(); 
+            img1.crossOrigin =" anonymous" ; 
+            img1.src= "/static/images/bozi.png"; 
+        img1.onload = function () //确保图片已经加载完毕  
+        {  
+          ctx.drawImage(img1,100,70,89,20);  
+        } 
+        //身子
+        var img2 = new Image();
+            img2.crossOrigin =" anonymous" ; 
+            img2.src="/static/images/shenzi.png"; 
+        img2.onload = function () //确保图片已经加载完毕  
+        {  
+              ctx.drawImage(img2,70,90,150,300);  
+              //衣服
+              var img6= new Image();
+                img6.crossOrigin =" anonymous" ; 
+                img6.src=clothes; 
+              img6.onload = function () //确保图片已经加载完毕  
+              {  
+                  ctx.drawImage(img6,clo,cla,cll,parseInt(clw)+25);  
+              }
+              var img7 = new Image(); 
+	               img7.crossOrigin =" anonymous" ; 
+	               img7.src =shoes; 
+	               // ctx.clearRect(0,0,1000,1000); 
+	            img7.onload = function () //确保图片已经加载完毕  
+	            {  
+	              ctx.drawImage(img7,sho,parseInt(sha)+40,shl,shw); 
+	            }
+         }
+     }
+     //前面的头发  
+     var img4 = new Image(); 
+         img4.crossOrigin =" anonymous" ; 
+         img4.src =frontstyle; 
+       // ctx.clearRect(0,0,1000,1000); 
+    img4.onload = function () //确保图片已经加载完毕  
+    {  
+      ctx2.drawImage(img4,fro,fra,frl,frw); 
+     }
 		     
 });
 
@@ -360,49 +357,49 @@ function choose(hair_style_id) {
 			success: function(data) {
 				var member = eval('('+data+')');
 				if(member.status == 200) {
-			   		 var behidestyle =member.data['hairstyle']['behide_synthesis_url'];
-			          var facestyle =member.data['face']['synthesis_url'];
-			          var frontstyle=member.data['hairstyle']['front_synthesis_url'];
-			         var shoes= $("#shoes_synthesis_url").val(); 
-			         var clothes= $("#clothes_synthesis_url").val(); 
-			          var beo =member.data['hairstyle']['detail_behide_ordinate'];
-			          var bea = member.data['hairstyle']['detail_behide_abscissa'];
-	                 var bel = member.data['hairstyle']['detail_behide_length'];
+			   		var behidestyle =member.data['hairstyle']['behide_synthesis_url'];
+			        var facestyle =member.data['face']['synthesis_url'];
+			        var frontstyle=member.data['hairstyle']['front_synthesis_url'];
+			        var shoes= $("#shoes_synthesis_url").val(); 
+			        var clothes= $("#clothes_synthesis_url").val(); 
+			        var beo =member.data['hairstyle']['detail_behide_ordinate'];
+			        var bea = member.data['hairstyle']['detail_behide_abscissa'];
+	                var bel = member.data['hairstyle']['detail_behide_length'];
 	                var bew = member.data['hairstyle']['detail_behide_width'];
-	                 var fro = member.data['hairstyle']['detail_front_ordinate'];
-	                 var fra = member.data['hairstyle']['detail_front_abscissa'];
-	                 var frl = member.data['hairstyle']['detail_front_length'];
-	                 var frw = member.data['hairstyle']['detail_front_width'];
+	                var fro = member.data['hairstyle']['detail_front_ordinate'];
+	                var fra = member.data['hairstyle']['detail_front_abscissa'];
+	                var frl = member.data['hairstyle']['detail_front_length'];
+	                var frw = member.data['hairstyle']['detail_front_width'];
 	                var sho = $("#shoes_ordinate").val();
-	                 var sha =  $("#shoes_abscissa").val();
-	                 var shl = $("#shoes_length").val();
-	                 var shw = $("#shoes_width").val();
-	                 var clo = $("#clothes_ordinate").val();
-	                 var cla =  $("#clothes_abscissa").val();
-	                 var cll = $("#clothes_length").val();
-	                 var clw = $("#clothes_width").val(); 
-	                 var canvas1 = document.getElementById("behid_hair"); 
-			         var ctx1 = canvas1.getContext("2d");
-			         var canvas2 = document.getElementById("hair"); 
-			         var ctx2 = canvas2.getContext("2d");
-			         //后面的头发
-			         var img = new Image(); 
-		               img.crossOrigin =" anonymous" ; 
-		               img.src =behidestyle; 
-		               ctx1.clearRect(0,0,1000,1000); 
-		               img.onload = function(){
+	                var sha =  $("#shoes_abscissa").val();
+	                var shl = $("#shoes_length").val();
+	                var shw = $("#shoes_width").val();
+	                var clo = $("#clothes_ordinate").val();
+	                var cla =  $("#clothes_abscissa").val();
+	                var cll = $("#clothes_length").val();
+	                var clw = $("#clothes_width").val(); 
+	                var canvas1 = document.getElementById("behid_hair"); 
+	    	        var ctx1 = canvas1.getContext("2d");
+			        var canvas2 = document.getElementById("hair"); 
+			        var ctx2 = canvas2.getContext("2d");
+			        //后面的头发
+			        var img = new Image(); 
+		                img.crossOrigin =" anonymous" ; 
+		                img.src =behidestyle; 
+		                ctx1.clearRect(0,0,1000,1000); 
+		                img.onload = function(){
 		                   ctx1.drawImage(img,beo,bea,bel,bew );  
 		                }
 		                 //前面的头发  
-		               var img4 = new Image(); 
+		                var img4 = new Image(); 
 		                   img4.crossOrigin =" anonymous" ; 
 		                   img4.src =frontstyle; 
 		                   ctx2.clearRect(0,0,1000,1000); 
 		                img4.onload = function () //确保图片已经加载完毕  
 		                {  
 		                  ctx2.drawImage(img4,fro,fra,frl,frw); 
-		                 } 
-			   }
+		                } 
+			    }
 			}
 		});
 	}

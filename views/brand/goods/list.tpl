@@ -70,7 +70,7 @@
     </div>
 {literal}
 <script type="text/javascript">
-  $(document).ready(function(){
+$(document).ready(function(){
       var number = document.getElementById("asd").getElementsByTagName("li");
       var numbera =document.getElementsByName("clothes_synthesis_url");
       var numberb =document.getElementsByName("clothes_ordinate");
@@ -102,50 +102,50 @@
             var frl = $("#front_length").val();
             var frw = $("#front_width").val();
             var func =function(wer){ 
-                  var clo = numberb[i]["defaultValue"];
-                  var cla = numberc[i]["defaultValue"];
-                  var cll = numberd[i]["defaultValue"];
-                  var clw = numbere[i]["defaultValue"];
-                  var c=document.getElementById(wer);  
-                  var ctx=c.getContext("2d");   
+                   var clo = numberb[i]["defaultValue"];
+                   var cla = numberc[i]["defaultValue"];
+                   var cll = numberd[i]["defaultValue"];
+                   var clw = numbere[i]["defaultValue"];
+                   var c=document.getElementById(wer);  
+                   var ctx=c.getContext("2d");   
                      //前面的头发  
                    var img4 = new Image(); 
                        img4.crossOrigin =" anonymous" ; 
                        img4.src =frontstyle; 
                     img4.onload = function () //确保图片已经加载完毕  
                     {  
-                      ctx.drawImage(img4,fro,fra,frl,frw); 
-                      ctx.globalCompositeOperation="destination-over";
-                      //脸  
-                       var img3 = new Image(); 
-                           img3.crossOrigin =" anonymous" ; 
-                           img3.src =facestyle; 
-                        img3.onload = function () //确保图片已经加载完毕  
-                        {  
-                          ctx.drawImage(img3,115,28,52,49); 
-                             //脖子
-                              var img1 = new Image(); 
-                                  img1.crossOrigin =" anonymous" ; 
-                                  img1.src= "/static/images/bozi.png"; 
-                              img1.onload = function () //确保图片已经加载完毕  
-                              {  
-                                ctx.drawImage(img1,100,70,89,20);  
-                                ctx.globalCompositeOperation="destination-over";
-                                //后面的头发
-                               var img = new Image(); 
-                               img.crossOrigin =" anonymous" ; 
-                               img.src =behidestyle; 
-                               img.onload = function(){
-                                   ctx.drawImage(img,beo,bea,bel,bew); 
-                                 }  
-                              } 
-                         }
+                      ctx.drawImage(img4,fro,fra,frl,frw);  
                      }
                   var img6=new Image();  
                   img6.src=clothes;   
                   img6.onload = function () //确保图、片已经加载完毕  
                   {  
                       ctx.drawImage(img6,clo,cla,cll,clw);  
+                      ctx.globalCompositeOperation="destination-over";
+                     //脖子
+                      var img1 = new Image(); 
+                          img1.crossOrigin =" anonymous" ; 
+                          img1.src= "/static/images/bozi.png"; 
+                      img1.onload = function () //确保图片已经加载完毕  
+                      {  
+                        ctx.drawImage(img1,100,70,89,20);  
+                        //脸  
+                       var img3 = new Image(); 
+                           img3.crossOrigin =" anonymous" ; 
+                           img3.src =facestyle; 
+                        img3.onload = function () //确保图片已经加载完毕  
+                        {  
+                          ctx.drawImage(img3,115,28,52,49); 
+                         }
+                        ctx.globalCompositeOperation="destination-over";
+                        //后面的头发
+                       var img = new Image(); 
+                       img.crossOrigin =" anonymous" ; 
+                       img.src =behidestyle; 
+                       img.onload = function(){
+                           ctx.drawImage(img,beo,bea,bel,bew); 
+                         }  
+                      } 
                       ctx.globalCompositeOperation="destination-over";
                       //身子
                       var img2 = new Image();
