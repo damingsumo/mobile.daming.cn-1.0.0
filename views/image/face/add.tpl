@@ -18,9 +18,7 @@
   <form action="/user/face/add" id="myform" method="post">
   <input type="hidden" name="face_id" value="{$userFace.face_id}" id="face">
   <input type="hidden" value="{$imageId}" name="imageId">
-  
   <input type="hidden" name="complexion_id" value="{if isset($userFace.complexion_id)}{$userFace.complexion_id}{/if}" id="complexion">
-  <!-- <input type="hidden" value="" id="complexion_rgb"> -->
   <div class="bottom3">
     <ul class="bottom3_1">
     {foreach $faces as $face}
@@ -74,27 +72,8 @@
                img.src =behidestyle; 
                ctx.clearRect(0,0,1000,1000); 
                img.onload = function(){
-                   ctx.drawImage(img,beo,bea,bel,bew-30);  
-                }
-                   //脸  
-                   var img3 = new Image(); 
-                       img3.crossOrigin =" anonymous" ; 
-                       img3.src =facestyle; 
-                       ctx1.clearRect(0,0,1000,1000); 
-                    img3.onload = function () //确保图片已经加载完毕  
-                    {  
-                      ctx1.drawImage(img3,95,208,130,120);   
-                     }
-                     //前面的头发  
-                   var img4 = new Image(); 
-                       img4.crossOrigin =" anonymous" ; 
-                       img4.src =frontstyle; 
-                       ctx2.clearRect(0,0,1000,1000); 
-                    img4.onload = function () //确保图片已经加载完毕  
-                    {  
-                      ctx2.drawImage(img4,fro,fra,frl,frw); 
-                     }
-                     //脖子
+                   ctx.drawImage(img,beo,bea,bel,bew-30); 
+                    //脖子
                     var img1 = new Image(); 
                         img1.crossOrigin =" anonymous" ; 
                         img1.src= "/static/images/bozi.png"; 
@@ -117,6 +96,25 @@
                           {  
                             ctx.drawImage(img5,70,340,205,170); 
                           }
+                     } 
+                }
+                   //脸  
+                   var img3 = new Image(); 
+                       img3.crossOrigin =" anonymous" ; 
+                       img3.src =facestyle; 
+                       ctx1.clearRect(0,0,1000,1000); 
+                    img3.onload = function () //确保图片已经加载完毕  
+                    {  
+                      ctx1.drawImage(img3,95,208,130,120);   
+                     }
+                     //前面的头发  
+                   var img4 = new Image(); 
+                       img4.crossOrigin =" anonymous" ; 
+                       img4.src =frontstyle; 
+                       ctx2.clearRect(0,0,1000,1000); 
+                    img4.onload = function () //确保图片已经加载完毕  
+                    {  
+                      ctx2.drawImage(img4,fro,fra,frl,frw); 
                      }
    });
    $(".center3>ul li").click(function(){
@@ -177,7 +175,47 @@ $(".bottom3_2 a").click(function(){
                    img.src =behidestyle; 
                    ctx.clearRect(0,0,1000,1000); 
                    img.onload = function(){
-                       ctx.drawImage(img,beo,bea,bel,bew-30);  
+                       ctx.drawImage(img,beo,bea,bel,bew-30);
+                       //脖子
+                        var img1 = new Image(); 
+                            img1.crossOrigin =" anonymous" ; 
+                            img1.src= "/static/images/bozi.png"; 
+                        img1.onload = function () //确保图片已经加载完毕  
+                        {  
+                          ctx.drawImage(img1,70,315,195,30);  
+                          var imgData = ctx.getImageData(70,315,195,30); 
+                           var data = imgData.data; 
+                           for(var i = 0 ; i<data.length; i+=4){ 
+                               data [i] -= r; 
+                               data [i + 1] -= g; 
+                               data [i + 2] -= b; 
+                           }  
+                           ctx.putImageData(imgData,70,315); 
+                        } 
+                        //身子
+                        var img2 = new Image();
+                            img2.crossOrigin =" anonymous" ; 
+                            img2.src="/static/images/shenzi.png"; 
+                        img2.onload = function () //确保图片已经加载完毕  
+                        {  
+                              ctx.drawImage(img2,0,345,340,450);     
+                          var imgData = ctx.getImageData(0,345,340,450); 
+                           var data = imgData.data; 
+                           for(var i = 0 ; i<data.length; i+=4){ 
+                               data [i] -= r; 
+                               data [i + 1] -= g; 
+                               data [i + 2] -= b; 
+                           }  
+                           ctx.putImageData(imgData,0,345); 
+                              //胸罩
+                              var img5 = new Image();
+                                  img5.crossOrigin =" anonymous" ;
+                                  img5.src= "/static/images/xiongzhao.png"; 
+                              img5.onload = function () //确保图片已经加载完毕  
+                              {  
+                                ctx.drawImage(img5,70,340,205,170); 
+                              }
+                         }  
                     }
                      //脸  
                    var img3 = new Image(); 
@@ -205,46 +243,7 @@ $(".bottom3_2 a").click(function(){
                     {  
                       ctx2.drawImage(img4,fro,fra,frl,frw); 
                      }
-                     //脖子
-                    var img1 = new Image(); 
-                        img1.crossOrigin =" anonymous" ; 
-                        img1.src= "/static/images/bozi.png"; 
-                    img1.onload = function () //确保图片已经加载完毕  
-                    {  
-                      ctx.drawImage(img1,70,315,195,30);  
-                      var imgData = ctx.getImageData(70,315,195,30); 
-                       var data = imgData.data; 
-                       for(var i = 0 ; i<data.length; i+=4){ 
-                           data [i] -= r; 
-                           data [i + 1] -= g; 
-                           data [i + 2] -= b; 
-                       }  
-                       ctx.putImageData(imgData,70,315); 
-                    } 
-                    //身子
-                    var img2 = new Image();
-                        img2.crossOrigin =" anonymous" ; 
-                        img2.src="/static/images/shenzi.png"; 
-                    img2.onload = function () //确保图片已经加载完毕  
-                    {  
-                          ctx.drawImage(img2,0,345,340,450);     
-                      var imgData = ctx.getImageData(0,345,340,450); 
-                       var data = imgData.data; 
-                       for(var i = 0 ; i<data.length; i+=4){ 
-                           data [i] -= r; 
-                           data [i + 1] -= g; 
-                           data [i + 2] -= b; 
-                       }  
-                       ctx.putImageData(imgData,0,345); 
-                          //胸罩
-                          var img5 = new Image();
-                              img5.crossOrigin =" anonymous" ;
-                              img5.src= "/static/images/xiongzhao.png"; 
-                          img5.onload = function () //确保图片已经加载完毕  
-                          {  
-                            ctx.drawImage(img5,70,340,205,170); 
-                          }
-                     }
+                     
             }//if的判断符号
             else if( qw==5 ) {
                  var canvas = document.getElementById("MyCanvas"); 
