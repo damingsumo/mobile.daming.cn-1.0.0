@@ -5,13 +5,13 @@ class Controller_User extends Controller_Base {
      */
     public function index() {
         $uid = account::getUid();
-        $userHw = WebApi_User_Hw::instance()->getHwsByParams(array('uid'=>$uid));
-        if(empty($userHw)) {
-            return $this->error('未找到用户身高体重');
-        }
-        $userHw = current($userHw);
-        $hwPhoto = WebApi_Hw::instance()->getHwphotosByParams(array('heigth'=>$userHw['heigth'],'weight'=>$userHw['weight']));
-        $params['hwPhoto'] = $hwPhoto;
+//         $userHw = WebApi_User_Hw::instance()->getHwsByParams(array('uid'=>$uid));
+//         if(empty($userHw)) {
+//             return $this->error('未找到用户身高体重');
+//         }
+//         $userHw = current($userHw);
+//         $hwPhoto = WebApi_Hw::instance()->getHwphotosByParams(array('heigth'=>$userHw['heigth'],'weight'=>$userHw['weight']));
+//         $params['hwPhoto'] = $hwPhoto;
         $params['brandId'] = Account::getBrandId();
         return $this->display('index', $params);
     }

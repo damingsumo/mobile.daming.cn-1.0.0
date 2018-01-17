@@ -70,13 +70,13 @@ class Controller_Brand_Goods extends Controller_Base {
             $userFace = current($userFace);
         }
         
-        $userHw = WebApi_User_Hw::instance()->getHwsByParams(array('uid'=>$uid));
-        if(empty($userHw)) {
-            return $this->error('未找到用户身高体重');
-        }
-        $userHw = current($userHw);
-        $hwPhoto = WebApi_Hw::instance()->getHwphotosByParams(array('heigth'=>$userHw['heigth'],'weight'=>$userHw['weight']));
-        $params['hwPhoto'] = $hwPhoto;
+//         $userHw = WebApi_User_Hw::instance()->getHwsByParams(array('uid'=>$uid));
+//         if(empty($userHw)) {
+//             return $this->error('未找到用户身高体重');
+//         }
+//         $userHw = current($userHw);
+//         $hwPhoto = WebApi_Hw::instance()->getHwphotosByParams(array('heigth'=>$userHw['heigth'],'weight'=>$userHw['weight']));
+//         $params['hwPhoto'] = $hwPhoto;
         $params['userHairStyle'] = $userHairStyle;
         $params['userFace'] = $userFace;
         $params['brandId'] = $brandId;
@@ -356,13 +356,17 @@ class Controller_Brand_Goods extends Controller_Base {
             // }
         }
         
-        $userHw = WebApi_User_Hw::instance()->getHwsByParams(array('uid'=>$uid));
-        if(empty($userHw)) {
-            return $this->error('未找到用户身高体重');
-        }
-        $userHw = current($userHw);
-        $hwPhoto = WebApi_Hw::instance()->getHwphotosByParams(array('heigth'=>$userHw['heigth'],'weight'=>$userHw['weight']));
-        $params['hwPhoto'] = $hwPhoto;
+//         $userHw = WebApi_User_Hw::instance()->getHwsByParams(array('uid'=>$uid));
+//         if(empty($userHw)) {
+//             return $this->error('未找到用户身高体重');
+//         }
+        
+//         $userfigure = WebApi_User_Figure::instance()->
+        
+        
+//         $userHw = current($userHw);
+//         $hwPhoto = WebApi_Hw::instance()->getHwphotosByParams(array('heigth'=>$userHw['heigth'],'weight'=>$userHw['weight']));
+//         $params['hwPhoto'] = $hwPhoto;
         $params['userHairStyle'] = $userHairStyle;
         $params['userFace'] = $userFace;
         $params['image'] = $image;
