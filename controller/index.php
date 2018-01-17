@@ -20,7 +20,7 @@ class Controller_Index extends Controller_Base {
 	/**
 	 * @note 首页index
 	 */
-	public function index() {
+	public function actionIndex() {
 // 	    $code = isset($_REQUEST['code']) ? $_REQUEST['code'] : '';
 // 	    $state = isset($_REQUEST['state']) ? urldecode($_REQUEST['state']) : '';
 // 	    if($code == '') {

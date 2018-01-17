@@ -69,6 +69,14 @@ class Controller_Brand_Goods extends Controller_Base {
             $userFace = WebApi_Image_Face::instance()->getFacesByParams(array());
             $userFace = current($userFace);
         }
+        
+        $userHw = WebApi_User_Hw::instance()->getHwsByParams(array('uid'=>$uid));
+        if(empty($userHw)) {
+            return $this->error('未找到用户身高体重');
+        }
+        $userHw = current($userHw);
+        $hwPhoto = WebApi_Hw::instance()->getHwphotosByParams(array('heigth'=>$userHw['heigth'],'weight'=>$userHw['weight']));
+        $params['hwPhoto'] = $hwPhoto;
         $params['userHairStyle'] = $userHairStyle;
         $params['userFace'] = $userFace;
         $params['brandId'] = $brandId;
@@ -76,7 +84,7 @@ class Controller_Brand_Goods extends Controller_Base {
         $params['total'] = $total;
         $params['brand'] = $brand;
         $params['key'] = $key;
-        
+        print_r($params);exit;
         return $this->display('list', $params);
     }
     
@@ -347,6 +355,14 @@ class Controller_Brand_Goods extends Controller_Base {
             //     $goodsCollocation['second_collocation_goods'] = WebApi_Brand_Goods::instance()->row('*', $goodsCollocation['second_collocation_id']);
             // }
         }
+        
+        $userHw = WebApi_User_Hw::instance()->getHwsByParams(array('uid'=>$uid));
+        if(empty($userHw)) {
+            return $this->error('未找到用户身高体重');
+        }
+        $userHw = current($userHw);
+        $hwPhoto = WebApi_Hw::instance()->getHwphotosByParams(array('heigth'=>$userHw['heigth'],'weight'=>$userHw['weight']));
+        $params['hwPhoto'] = $hwPhoto;
         $params['userHairStyle'] = $userHairStyle;
         $params['userFace'] = $userFace;
         $params['image'] = $image;
