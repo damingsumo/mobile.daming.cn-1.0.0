@@ -84,7 +84,7 @@ class Controller_Brand_Goods extends Controller_Base {
         $params['total'] = $total;
         $params['brand'] = $brand;
         $params['key'] = $key;
-        print_r($params);exit;
+//         print_r($params);exit;
         return $this->display('list', $params);
     }
     
