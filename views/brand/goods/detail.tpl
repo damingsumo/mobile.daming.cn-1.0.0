@@ -314,7 +314,7 @@ $(".third71 a").click(function(){
         //身子
         var img2 = new Image();
             img2.crossOrigin =" anonymous" ; 
-            img2.src="/static/images/shenzi.png"; 
+            img2.src="/static/images/16634.png"; 
         img2.onload = function () //确保图片已经加载完毕  
         {  
               ctx.drawImage(img2,70,90,150,300);  
@@ -324,7 +324,7 @@ $(".third71 a").click(function(){
                 img6.src=clothes; 
               img6.onload = function () //确保图片已经加载完毕  
               {  
-                  ctx.drawImage(img6,clo,cla,cll,parseInt(clw)+25);  
+                  ctx.drawImage(img6,parseInt(clo)-6,cla,parseInt(cll)+10,parseInt(clw)+25);  
               }
               var img7 = new Image(); 
 	               img7.crossOrigin =" anonymous" ; 

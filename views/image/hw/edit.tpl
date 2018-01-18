@@ -4,8 +4,8 @@
 	<div class="content6">
 		<div class="content6_top">
 			<ul>
-				<li id="fff">
-					<img src="">
+				<li >
+					<canvas id="MyCanvas" width="200"  height="400"></canvas>
 				</li>
 			</ul>
 		</div>
@@ -229,1527 +229,1516 @@
 	</form>
 <script type="text/javascript">
 $(document).ready(function(){
-	var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/18055.png',
-	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
-	    	base64=[]
-	        draw(function(){
-	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
-	        }) 
-            function draw(fn){
-		        var c=document.createElement('canvas'),
-		        ctx=c.getContext('2d'),
-		        len=data0.length;
-		        c.width=200;
-		        c.height=400;
-		        ctx.rect(0,0,c.width,c.height);
-		        ctx.fillStyle='#f7f7f8';
-		        ctx.fill();
-	       		function drawing(n){
-		            if(n<len){
-		                var img=new Image;
-		                img.crossOrigin = 'Anonymous'; //解决跨域
-
-		                img.src=data0[n]; 
-		                img.onload=function(){
-		                     if(n==0){
-		                    	 ctx.drawImage(img,46,20,58,65);//长直
-		                         drawing(n+1);//递归
-		                        
-		                    }
-		                    else if(n==1){
-		                           ctx.drawImage(img,32,60,90,30);//脖子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==2){
-		                    	 ctx.drawImage(img,2,89,150,285);//身子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==3){
-		                    	 ctx.drawImage(img,30,85,95,135);//胸罩
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==4){
-		                    	  ctx.drawImage(img,48,23,52,49);//脸
-		                         drawing(n+1);//递归
-		                    } 
-		                    else {
-		                     	 ctx.drawImage(img,46,20,58,65);//内衬
-		                         drawing(n+1);//递归
-		                    }  
-		                }
-		            }else{
-		            //保存生成作品图片
-		                base64.push(c.toDataURL("images/png",0.8));
-		                fn();
-		            }
-		        }
-		        drawing(0);
-	   	    }
+	var canvas = document.getElementById("MyCanvas"); 
+    var ctx = canvas.getContext("2d");  
+    //后面的头发
+    var img = new Image(); 
+       img.crossOrigin =" anonymous" ; 
+       img.src ="/static/images/mawei.png"; 
+       ctx.clearRect(0,0,1000,1000); 
+       img.onload = function(){
+           ctx.drawImage(img,beo,bea,bel,bew);  
+        }
+    //脸  
+    var img3 = new Image(); 
+        img3.crossOrigin =" anonymous"; 
+        img3.src ="/static/images/yuandanlian.png"; 
+       // ctx.clearRect(0,0,1000,1000); 
+    img3.onload = function () //确保图片已经加载完毕  
+    {  
+      ctx.drawImage(img3,70,28,52,49);  
+         //脖子
+        var img1 = new Image(); 
+            img1.crossOrigin =" anonymous" ; 
+            img1.src= "/static/images/bozi.png"; 
+        img1.onload = function () //确保图片已经加载完毕  
+        {  
+          ctx.drawImage(img1,55,70,89,20);  
+        } 
+        //身子
+        var img2 = new Image();
+            img2.crossOrigin =" anonymous" ; 
+            img2.src="/static/images/16634.png"; 
+        img2.onload = function () //确保图片已经加载完毕  
+        {  
+              ctx.drawImage(img2,25,90,150,300);    
+         }
+     }
+     //前面的头发  
+     var img4 = new Image(); 
+         img4.crossOrigin =" anonymous" ; 
+         img4.src ="/static/images/neichen.png"; 
+       // ctx.clearRect(0,0,1000,1000); 
+    img4.onload = function () //确保图片已经加载完毕  
+    {  
+      ctx.drawImage(img4,fro,fra,frl,frw); 
+     }
+		     
 });
-$('select').change(function(){
-	 var a = $("select[title=sel]").val();
-	 var b = $("select[title=ael]").val();
-	if(a>=146 && a<= 153){
-		if(b>=34  && b<= 44){
-			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/14634.png',
-	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
-	    	base64=[]
-	        draw(function(){
-	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
-	        }) 
-            function draw(fn){
-		        var c=document.createElement('canvas'),
-		        ctx=c.getContext('2d'),
-		        len=data0.length;
-		        c.width=200;
-		        c.height=400;
-		        ctx.rect(0,0,c.width,c.height);
-		        ctx.fillStyle='#f7f7f8';
-		        ctx.fill();
-	       		function drawing(n){
-		            if(n<len){
-		                var img=new Image;
-		                img.crossOrigin = 'Anonymous'; //解决跨域
+// $('select').change(function(){
+// 	 var a = $("select[title=sel]").val();
+// 	 var b = $("select[title=ael]").val();
+// 	if(a>=146 && a<= 153){
+// 		if(b>=34  && b<= 44){
+// 			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/14634.png',
+// 	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
+// 	    	base64=[]
+// 	        draw(function(){
+// 	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
+// 	        }) 
+//             function draw(fn){
+// 		        var c=document.createElement('canvas'),
+// 		        ctx=c.getContext('2d'),
+// 		        len=data0.length;
+// 		        c.width=200;
+// 		        c.height=400;
+// 		        ctx.rect(0,0,c.width,c.height);
+// 		        ctx.fillStyle='#f7f7f8';
+// 		        ctx.fill();
+// 	       		function drawing(n){
+// 		            if(n<len){
+// 		                var img=new Image;
+// 		                img.crossOrigin = 'Anonymous'; //解决跨域
 
-		                img.src=data0[n]; 
-		                img.onload=function(){
-		                    if(n==0){
-		                    	 ctx.drawImage(img,46,40,58,65);//长直
-		                         drawing(n+1);//递归
+// 		                img.src=data0[n]; 
+// 		                img.onload=function(){
+// 		                    if(n==0){
+// 		                    	 ctx.drawImage(img,46,40,58,65);//长直
+// 		                         drawing(n+1);//递归
 		                        
-		                    }
-		                    else if(n==1){
-		                           ctx.drawImage(img,30,80,92,30);//脖子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==2){
-		                    	 ctx.drawImage(img,3,109,150,265);//身子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==3){
-		                    	 ctx.drawImage(img,30,105,98,131);//胸罩
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==4){
-		                    	  ctx.drawImage(img,48,43,52,49);//脸
-		                         drawing(n+1);//递归
-		                    } 
-		                    else {
-		                     	 ctx.drawImage(img,46,40,58,65);//内衬
-		                         drawing(n+1);//递归
-		                    }  
-		                }
-		            }else{
-		            //保存生成作品图片
-		                base64.push(c.toDataURL("images/png",0.8));
-		                fn();
-		            }
-		        }
-		        drawing(0);
-	   	    }
-		}
-		else if(b>=45  && b<= 56){
-			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/14645.png',
-	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
-	    	base64=[]
-	        draw(function(){
-	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
-	        }) 
-            function draw(fn){
-		        var c=document.createElement('canvas'),
-		        ctx=c.getContext('2d'),
-		        len=data0.length;
-		        c.width=200;
-		        c.height=400;
-		        ctx.rect(0,0,c.width,c.height);
-		        ctx.fillStyle='#f7f7f8';
-		        ctx.fill();
-	       		function drawing(n){
-		            if(n<len){
-		                var img=new Image;
-		                img.crossOrigin = 'Anonymous'; //解决跨域
+// 		                    }
+// 		                    else if(n==1){
+// 		                           ctx.drawImage(img,30,80,92,30);//脖子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==2){
+// 		                    	 ctx.drawImage(img,3,109,150,265);//身子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==3){
+// 		                    	 ctx.drawImage(img,30,105,98,131);//胸罩
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==4){
+// 		                    	  ctx.drawImage(img,48,43,52,49);//脸
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else {
+// 		                     	 ctx.drawImage(img,46,40,58,65);//内衬
+// 		                         drawing(n+1);//递归
+// 		                    }  
+// 		                }
+// 		            }else{
+// 		            //保存生成作品图片
+// 		                base64.push(c.toDataURL("images/png",0.8));
+// 		                fn();
+// 		            }
+// 		        }
+// 		        drawing(0);
+// 	   	    }
+// 		}
+// 		else if(b>=45  && b<= 56){
+// 			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/14645.png',
+// 	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
+// 	    	base64=[]
+// 	        draw(function(){
+// 	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
+// 	        }) 
+//             function draw(fn){
+// 		        var c=document.createElement('canvas'),
+// 		        ctx=c.getContext('2d'),
+// 		        len=data0.length;
+// 		        c.width=200;
+// 		        c.height=400;
+// 		        ctx.rect(0,0,c.width,c.height);
+// 		        ctx.fillStyle='#f7f7f8';
+// 		        ctx.fill();
+// 	       		function drawing(n){
+// 		            if(n<len){
+// 		                var img=new Image;
+// 		                img.crossOrigin = 'Anonymous'; //解决跨域
 
-		                img.src=data0[n]; 
-		                img.onload=function(){
-		                    if(n==0){
-		                    	 ctx.drawImage(img,46,40,58,65);//长直
-		                         drawing(n+1);//递归
+// 		                img.src=data0[n]; 
+// 		                img.onload=function(){
+// 		                    if(n==0){
+// 		                    	 ctx.drawImage(img,46,40,58,65);//长直
+// 		                         drawing(n+1);//递归
 		                        
-		                    }
-		                    else if(n==1){
-		                           ctx.drawImage(img,32,80,90,30);//脖子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==2){
-		                    	 ctx.drawImage(img,2,109,150,265);//身子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==3){
-		                    	 ctx.drawImage(img,27,105,99,131);//胸罩
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==4){
-		                    	  ctx.drawImage(img,48,43,52,49);//脸
-		                         drawing(n+1);//递归
-		                    } 
-		                    else {
-		                     	 ctx.drawImage(img,46,40,58,65);//内衬
-		                         drawing(n+1);//递归
-		                    } 
-		                }
-		            }else{
-		            //保存生成作品图片
-		                base64.push(c.toDataURL("images/png",0.8));
-		                fn();
-		            }
-		        }
-		        drawing(0);
-	   	    }
-		}
-		else if(b>=57  && b<= 68){
-			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/14668.png',
-	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
-	    	base64=[]
-	        draw(function(){
-	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
-	        }) 
-            function draw(fn){
-		        var c=document.createElement('canvas'),
-		        ctx=c.getContext('2d'),
-		        len=data0.length;
-		        c.width=200;
-		        c.height=400;
-		        ctx.rect(0,0,c.width,c.height);
-		        ctx.fillStyle='#f7f7f8';
-		        ctx.fill();
-	       		function drawing(n){
-		            if(n<len){
-		                var img=new Image;
-		                img.crossOrigin = 'Anonymous'; //解决跨域
+// 		                    }
+// 		                    else if(n==1){
+// 		                           ctx.drawImage(img,32,80,90,30);//脖子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==2){
+// 		                    	 ctx.drawImage(img,2,109,150,265);//身子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==3){
+// 		                    	 ctx.drawImage(img,27,105,99,131);//胸罩
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==4){
+// 		                    	  ctx.drawImage(img,48,43,52,49);//脸
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else {
+// 		                     	 ctx.drawImage(img,46,40,58,65);//内衬
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                }
+// 		            }else{
+// 		            //保存生成作品图片
+// 		                base64.push(c.toDataURL("images/png",0.8));
+// 		                fn();
+// 		            }
+// 		        }
+// 		        drawing(0);
+// 	   	    }
+// 		}
+// 		else if(b>=57  && b<= 68){
+// 			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/14668.png',
+// 	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
+// 	    	base64=[]
+// 	        draw(function(){
+// 	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
+// 	        }) 
+//             function draw(fn){
+// 		        var c=document.createElement('canvas'),
+// 		        ctx=c.getContext('2d'),
+// 		        len=data0.length;
+// 		        c.width=200;
+// 		        c.height=400;
+// 		        ctx.rect(0,0,c.width,c.height);
+// 		        ctx.fillStyle='#f7f7f8';
+// 		        ctx.fill();
+// 	       		function drawing(n){
+// 		            if(n<len){
+// 		                var img=new Image;
+// 		                img.crossOrigin = 'Anonymous'; //解决跨域
 
-		                img.src=data0[n]; 
-		                img.onload=function(){
-		                    if(n==0){
-		                    	 ctx.drawImage(img,46,40,58,65);//长直
-		                         drawing(n+1);//递归
+// 		                img.src=data0[n]; 
+// 		                img.onload=function(){
+// 		                    if(n==0){
+// 		                    	 ctx.drawImage(img,46,40,58,65);//长直
+// 		                         drawing(n+1);//递归
 		                        
-		                    }
-		                    else if(n==1){
-		                           ctx.drawImage(img,32,80,90,30);//脖子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==2){
-		                    	 ctx.drawImage(img,2,109,150,265);//身子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==3){
-		                    	 ctx.drawImage(img,27,105,101,131);//胸罩
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==4){
-		                    	  ctx.drawImage(img,48,43,52,49);//脸
-		                         drawing(n+1);//递归
-		                    } 
-		                    else {
-		                     	 ctx.drawImage(img,46,40,58,65);//内衬
-		                         drawing(n+1);//递归
-		                    } 
-		                }
-		            }else{
-		            //保存生成作品图片
-		                base64.push(c.toDataURL("images/png",0.8));
-		                fn();
-		            }
-		        }
-		        drawing(0);
-	   	    }
-		}
-		else if(b>=69  && b<= 79){
-			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/14688.png',
-	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
-	    	base64=[]
-	        draw(function(){
-	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
-	        }) 
-            function draw(fn){
-		        var c=document.createElement('canvas'),
-		        ctx=c.getContext('2d'),
-		        len=data0.length;
-		        c.width=200;
-		        c.height=400;
-		        ctx.rect(0,0,c.width,c.height);
-		        ctx.fillStyle='#f7f7f8';
-		        ctx.fill();
-	       		function drawing(n){
-		            if(n<len){
-		                var img=new Image;
-		                img.crossOrigin = 'Anonymous'; //解决跨域
+// 		                    }
+// 		                    else if(n==1){
+// 		                           ctx.drawImage(img,32,80,90,30);//脖子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==2){
+// 		                    	 ctx.drawImage(img,2,109,150,265);//身子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==3){
+// 		                    	 ctx.drawImage(img,27,105,101,131);//胸罩
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==4){
+// 		                    	  ctx.drawImage(img,48,43,52,49);//脸
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else {
+// 		                     	 ctx.drawImage(img,46,40,58,65);//内衬
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                }
+// 		            }else{
+// 		            //保存生成作品图片
+// 		                base64.push(c.toDataURL("images/png",0.8));
+// 		                fn();
+// 		            }
+// 		        }
+// 		        drawing(0);
+// 	   	    }
+// 		}
+// 		else if(b>=69  && b<= 79){
+// 			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/14688.png',
+// 	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
+// 	    	base64=[]
+// 	        draw(function(){
+// 	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
+// 	        }) 
+//             function draw(fn){
+// 		        var c=document.createElement('canvas'),
+// 		        ctx=c.getContext('2d'),
+// 		        len=data0.length;
+// 		        c.width=200;
+// 		        c.height=400;
+// 		        ctx.rect(0,0,c.width,c.height);
+// 		        ctx.fillStyle='#f7f7f8';
+// 		        ctx.fill();
+// 	       		function drawing(n){
+// 		            if(n<len){
+// 		                var img=new Image;
+// 		                img.crossOrigin = 'Anonymous'; //解决跨域
 
-		                img.src=data0[n]; 
-		                img.onload=function(){
-		                   if(n==0){
-		                    	 ctx.drawImage(img,46,40,58,65);//长直
-		                         drawing(n+1);//递归
+// 		                img.src=data0[n]; 
+// 		                img.onload=function(){
+// 		                   if(n==0){
+// 		                    	 ctx.drawImage(img,46,40,58,65);//长直
+// 		                         drawing(n+1);//递归
 		                        
-		                    }
-		                    else if(n==1){
-		                           ctx.drawImage(img,32,80,90,30);//脖子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==2){
-		                    	 ctx.drawImage(img,2,109,150,265);//身子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==3){
-		                    	 ctx.drawImage(img,27,105,101,131);//胸罩
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==4){
-		                    	  ctx.drawImage(img,48,43,52,49);//脸
-		                         drawing(n+1);//递归
-		                    } 
-		                    else {
-		                     	 ctx.drawImage(img,46,40,58,65);//内衬
-		                         drawing(n+1);//递归
-		                    } 
-		                }
-		            }else{
-		            //保存生成作品图片
-		                base64.push(c.toDataURL("images/png",0.8));
-		                fn();
-		            }
-		        }
-		        drawing(0);
-	   	    }
-		}
-		else if(b>=80  && b<= 88){
-			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/14675.png',
-	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
-	    	base64=[]
-	        draw(function(){
-	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
-	        }) 
-            function draw(fn){
-		        var c=document.createElement('canvas'),
-		        ctx=c.getContext('2d'),
-		        len=data0.length;
-		        c.width=200;
-		        c.height=400;
-		        ctx.rect(0,0,c.width,c.height);
-		        ctx.fillStyle='#f7f7f8';
-		        ctx.fill();
-	       		function drawing(n){
-		            if(n<len){
-		                var img=new Image;
-		                img.crossOrigin = 'Anonymous'; //解决跨域
+// 		                    }
+// 		                    else if(n==1){
+// 		                           ctx.drawImage(img,32,80,90,30);//脖子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==2){
+// 		                    	 ctx.drawImage(img,2,109,150,265);//身子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==3){
+// 		                    	 ctx.drawImage(img,27,105,101,131);//胸罩
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==4){
+// 		                    	  ctx.drawImage(img,48,43,52,49);//脸
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else {
+// 		                     	 ctx.drawImage(img,46,40,58,65);//内衬
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                }
+// 		            }else{
+// 		            //保存生成作品图片
+// 		                base64.push(c.toDataURL("images/png",0.8));
+// 		                fn();
+// 		            }
+// 		        }
+// 		        drawing(0);
+// 	   	    }
+// 		}
+// 		else if(b>=80  && b<= 88){
+// 			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/14675.png',
+// 	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
+// 	    	base64=[]
+// 	        draw(function(){
+// 	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
+// 	        }) 
+//             function draw(fn){
+// 		        var c=document.createElement('canvas'),
+// 		        ctx=c.getContext('2d'),
+// 		        len=data0.length;
+// 		        c.width=200;
+// 		        c.height=400;
+// 		        ctx.rect(0,0,c.width,c.height);
+// 		        ctx.fillStyle='#f7f7f8';
+// 		        ctx.fill();
+// 	       		function drawing(n){
+// 		            if(n<len){
+// 		                var img=new Image;
+// 		                img.crossOrigin = 'Anonymous'; //解决跨域
 
-		                img.src=data0[n]; 
-		                img.onload=function(){
-		                   if(n==0){
-		                    	 ctx.drawImage(img,46,40,58,65);//长直
-		                         drawing(n+1);//递归
+// 		                img.src=data0[n]; 
+// 		                img.onload=function(){
+// 		                   if(n==0){
+// 		                    	 ctx.drawImage(img,46,40,58,65);//长直
+// 		                         drawing(n+1);//递归
 		                        
-		                    }
-		                    else if(n==1){
-		                           ctx.drawImage(img,32,80,90,30);//脖子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==2){
-		                    	 ctx.drawImage(img,2,109,150,265);//身子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==3){
-		                    	 ctx.drawImage(img,27,105,101,131);//胸罩
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==4){
-		                    	  ctx.drawImage(img,48,43,52,49);//脸
-		                         drawing(n+1);//递归
-		                    } 
-		                    else {
-		                     	 ctx.drawImage(img,46,40,58,65);//内衬
-		                         drawing(n+1);//递归
-		                    } 
-		                }
-		            }else{
-		            //保存生成作品图片
-		                base64.push(c.toDataURL("images/png",0.8));
-		                fn();
-		            }
-		        }
-		        drawing(0);
-	   	    }
-		}
-	}
-	else if(a>=154 && a<= 160){
-		if(b>=34  && b<= 44){
-			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/15534.png',
-	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
-	    	base64=[]
-	        draw(function(){
-	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
-	        }) 
-            function draw(fn){
-		        var c=document.createElement('canvas'),
-		        ctx=c.getContext('2d'),
-		        len=data0.length;
-		        c.width=200;
-		        c.height=400;
-		        ctx.rect(0,0,c.width,c.height);
-		        ctx.fillStyle='#f7f7f8';
-		        ctx.fill();
-	       		function drawing(n){
-		            if(n<len){
-		                var img=new Image;
-		                img.crossOrigin = 'Anonymous'; //解决跨域
+// 		                    }
+// 		                    else if(n==1){
+// 		                           ctx.drawImage(img,32,80,90,30);//脖子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==2){
+// 		                    	 ctx.drawImage(img,2,109,150,265);//身子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==3){
+// 		                    	 ctx.drawImage(img,27,105,101,131);//胸罩
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==4){
+// 		                    	  ctx.drawImage(img,48,43,52,49);//脸
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else {
+// 		                     	 ctx.drawImage(img,46,40,58,65);//内衬
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                }
+// 		            }else{
+// 		            //保存生成作品图片
+// 		                base64.push(c.toDataURL("images/png",0.8));
+// 		                fn();
+// 		            }
+// 		        }
+// 		        drawing(0);
+// 	   	    }
+// 		}
+// 	}
+// 	else if(a>=154 && a<= 160){
+// 		if(b>=34  && b<= 44){
+// 			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/15534.png',
+// 	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
+// 	    	base64=[]
+// 	        draw(function(){
+// 	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
+// 	        }) 
+//             function draw(fn){
+// 		        var c=document.createElement('canvas'),
+// 		        ctx=c.getContext('2d'),
+// 		        len=data0.length;
+// 		        c.width=200;
+// 		        c.height=400;
+// 		        ctx.rect(0,0,c.width,c.height);
+// 		        ctx.fillStyle='#f7f7f8';
+// 		        ctx.fill();
+// 	       		function drawing(n){
+// 		            if(n<len){
+// 		                var img=new Image;
+// 		                img.crossOrigin = 'Anonymous'; //解决跨域
 
-		                img.src=data0[n]; 
-		                img.onload=function(){
-		                   if(n==0){
-		                    	 ctx.drawImage(img,46,35,58,65);//长直
-		                         drawing(n+1);//递归
+// 		                img.src=data0[n]; 
+// 		                img.onload=function(){
+// 		                   if(n==0){
+// 		                    	 ctx.drawImage(img,46,35,58,65);//长直
+// 		                         drawing(n+1);//递归
 		                        
-		                    }
-		                    else if(n==1){
-		                           ctx.drawImage(img,32,75,90,30);//脖子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==2){
-		                    	 ctx.drawImage(img,2,104,150,270);//身子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==3){
-		                    	 ctx.drawImage(img,30,100,95,132);//胸罩
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==4){
-		                    	  ctx.drawImage(img,48,38,52,49);//脸
-		                         drawing(n+1);//递归
-		                    } 
-		                    else {
-		                     	 ctx.drawImage(img,46,35,58,65);//内衬
-		                         drawing(n+1);//递归
-		                    } 
-		                }
-		            }else{
-		            //保存生成作品图片
-		                base64.push(c.toDataURL("images/png",0.8));
-		                fn();
-		            }
-		        }
-		        drawing(0);
-	   	    }
-		}
-		else if(b>=45  && b<= 56){
-			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/15554.png',
-	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
-	    	base64=[]
-	        draw(function(){
-	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
-	        }) 
-            function draw(fn){
-		        var c=document.createElement('canvas'),
-		        ctx=c.getContext('2d'),
-		        len=data0.length;
-		        c.width=200;
-		        c.height=400;
-		        ctx.rect(0,0,c.width,c.height);
-		        ctx.fillStyle='#f7f7f8';
-		        ctx.fill();
-	       		function drawing(n){
-		            if(n<len){
-		                var img=new Image;
-		                img.crossOrigin = 'Anonymous'; //解决跨域
+// 		                    }
+// 		                    else if(n==1){
+// 		                           ctx.drawImage(img,32,75,90,30);//脖子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==2){
+// 		                    	 ctx.drawImage(img,2,104,150,270);//身子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==3){
+// 		                    	 ctx.drawImage(img,30,100,95,132);//胸罩
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==4){
+// 		                    	  ctx.drawImage(img,48,38,52,49);//脸
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else {
+// 		                     	 ctx.drawImage(img,46,35,58,65);//内衬
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                }
+// 		            }else{
+// 		            //保存生成作品图片
+// 		                base64.push(c.toDataURL("images/png",0.8));
+// 		                fn();
+// 		            }
+// 		        }
+// 		        drawing(0);
+// 	   	    }
+// 		}
+// 		else if(b>=45  && b<= 56){
+// 			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/15554.png',
+// 	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
+// 	    	base64=[]
+// 	        draw(function(){
+// 	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
+// 	        }) 
+//             function draw(fn){
+// 		        var c=document.createElement('canvas'),
+// 		        ctx=c.getContext('2d'),
+// 		        len=data0.length;
+// 		        c.width=200;
+// 		        c.height=400;
+// 		        ctx.rect(0,0,c.width,c.height);
+// 		        ctx.fillStyle='#f7f7f8';
+// 		        ctx.fill();
+// 	       		function drawing(n){
+// 		            if(n<len){
+// 		                var img=new Image;
+// 		                img.crossOrigin = 'Anonymous'; //解决跨域
 
-		                img.src=data0[n]; 
-		                img.onload=function(){
-		                    if(n==0){
-		                    	 ctx.drawImage(img,46,35,58,65);//长直
-		                         drawing(n+1);//递归
+// 		                img.src=data0[n]; 
+// 		                img.onload=function(){
+// 		                    if(n==0){
+// 		                    	 ctx.drawImage(img,46,35,58,65);//长直
+// 		                         drawing(n+1);//递归
 		                        
-		                    }
-		                    else if(n==1){
-		                           ctx.drawImage(img,32,75,90,30);//脖子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==2){
-		                    	 ctx.drawImage(img,2,104,150,270);//身子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==3){
-		                    	 ctx.drawImage(img,30,100,98,132);//胸罩
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==4){
-		                    	  ctx.drawImage(img,48,38,52,49);//脸
-		                         drawing(n+1);//递归
-		                    } 
-		                    else {
-		                     	 ctx.drawImage(img,46,35,58,65);//内衬
-		                         drawing(n+1);//递归
-		                    } 
-		                }
-		            }else{
-		            //保存生成作品图片
-		                base64.push(c.toDataURL("images/png",0.8));
-		                fn();
-		            }
-		        }
-		        drawing(0);
-	   	    }
-		}
-		else if(b>=57  && b<= 68){
-			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/15565.png',
-	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
-	    	base64=[]
-	        draw(function(){
-	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
-	        }) 
-            function draw(fn){
-		        var c=document.createElement('canvas'),
-		        ctx=c.getContext('2d'),
-		        len=data0.length;
-		        c.width=200;
-		        c.height=400;
-		        ctx.rect(0,0,c.width,c.height);
-		        ctx.fillStyle='#f7f7f8';
-		        ctx.fill();
-	       		function drawing(n){
-		            if(n<len){
-		                var img=new Image;
-		                img.crossOrigin = 'Anonymous'; //解决跨域
+// 		                    }
+// 		                    else if(n==1){
+// 		                           ctx.drawImage(img,32,75,90,30);//脖子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==2){
+// 		                    	 ctx.drawImage(img,2,104,150,270);//身子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==3){
+// 		                    	 ctx.drawImage(img,30,100,98,132);//胸罩
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==4){
+// 		                    	  ctx.drawImage(img,48,38,52,49);//脸
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else {
+// 		                     	 ctx.drawImage(img,46,35,58,65);//内衬
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                }
+// 		            }else{
+// 		            //保存生成作品图片
+// 		                base64.push(c.toDataURL("images/png",0.8));
+// 		                fn();
+// 		            }
+// 		        }
+// 		        drawing(0);
+// 	   	    }
+// 		}
+// 		else if(b>=57  && b<= 68){
+// 			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/15565.png',
+// 	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
+// 	    	base64=[]
+// 	        draw(function(){
+// 	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
+// 	        }) 
+//             function draw(fn){
+// 		        var c=document.createElement('canvas'),
+// 		        ctx=c.getContext('2d'),
+// 		        len=data0.length;
+// 		        c.width=200;
+// 		        c.height=400;
+// 		        ctx.rect(0,0,c.width,c.height);
+// 		        ctx.fillStyle='#f7f7f8';
+// 		        ctx.fill();
+// 	       		function drawing(n){
+// 		            if(n<len){
+// 		                var img=new Image;
+// 		                img.crossOrigin = 'Anonymous'; //解决跨域
 
-		                img.src=data0[n]; 
-		                img.onload=function(){
-		                    if(n==0){
-		                    	 ctx.drawImage(img,46,35,58,65);//长直
-		                         drawing(n+1);//递归
+// 		                img.src=data0[n]; 
+// 		                img.onload=function(){
+// 		                    if(n==0){
+// 		                    	 ctx.drawImage(img,46,35,58,65);//长直
+// 		                         drawing(n+1);//递归
 		                        
-		                    }
-		                    else if(n==1){
-		                           ctx.drawImage(img,32,75,90,30);//脖子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==2){
-		                    	 ctx.drawImage(img,2,104,150,270);//身子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==3){
-		                    	 ctx.drawImage(img,27,100,100,132);//胸罩
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==4){
-		                    	  ctx.drawImage(img,48,38,52,49);//脸
-		                         drawing(n+1);//递归
-		                    } 
-		                    else {
-		                     	 ctx.drawImage(img,46,35,58,65);//内衬
-		                         drawing(n+1);//递归
-		                    }  
-		                }
-		            }else{
-		            //保存生成作品图片
-		                base64.push(c.toDataURL("images/png",0.8));
-		                fn();
-		            }
-		        }
-		        drawing(0);
-	   	    }
-		}
-		else if(b>=69  && b<= 79){
-			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/15575.png',
-	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
-	    	base64=[]
-	        draw(function(){
-	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
-	        }) 
-            function draw(fn){
-		        var c=document.createElement('canvas'),
-		        ctx=c.getContext('2d'),
-		        len=data0.length;
-		        c.width=200;
-		        c.height=400;
-		        ctx.rect(0,0,c.width,c.height);
-		        ctx.fillStyle='#f7f7f8';
-		        ctx.fill();
-	       		function drawing(n){
-		            if(n<len){
-		                var img=new Image;
-		                img.crossOrigin = 'Anonymous'; //解决跨域
+// 		                    }
+// 		                    else if(n==1){
+// 		                           ctx.drawImage(img,32,75,90,30);//脖子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==2){
+// 		                    	 ctx.drawImage(img,2,104,150,270);//身子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==3){
+// 		                    	 ctx.drawImage(img,27,100,100,132);//胸罩
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==4){
+// 		                    	  ctx.drawImage(img,48,38,52,49);//脸
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else {
+// 		                     	 ctx.drawImage(img,46,35,58,65);//内衬
+// 		                         drawing(n+1);//递归
+// 		                    }  
+// 		                }
+// 		            }else{
+// 		            //保存生成作品图片
+// 		                base64.push(c.toDataURL("images/png",0.8));
+// 		                fn();
+// 		            }
+// 		        }
+// 		        drawing(0);
+// 	   	    }
+// 		}
+// 		else if(b>=69  && b<= 79){
+// 			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/15575.png',
+// 	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
+// 	    	base64=[]
+// 	        draw(function(){
+// 	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
+// 	        }) 
+//             function draw(fn){
+// 		        var c=document.createElement('canvas'),
+// 		        ctx=c.getContext('2d'),
+// 		        len=data0.length;
+// 		        c.width=200;
+// 		        c.height=400;
+// 		        ctx.rect(0,0,c.width,c.height);
+// 		        ctx.fillStyle='#f7f7f8';
+// 		        ctx.fill();
+// 	       		function drawing(n){
+// 		            if(n<len){
+// 		                var img=new Image;
+// 		                img.crossOrigin = 'Anonymous'; //解决跨域
 
-		                img.src=data0[n]; 
-		                img.onload=function(){
-		                    if(n==0){
-		                    	 ctx.drawImage(img,46,35,58,65);//长直
-		                         drawing(n+1);//递归
+// 		                img.src=data0[n]; 
+// 		                img.onload=function(){
+// 		                    if(n==0){
+// 		                    	 ctx.drawImage(img,46,35,58,65);//长直
+// 		                         drawing(n+1);//递归
 		                        
-		                    }
-		                    else if(n==1){
-		                           ctx.drawImage(img,32,75,90,30);//脖子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==2){
-		                    	 ctx.drawImage(img,2,104,150,270);//身子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==3){
-		                    	 ctx.drawImage(img,27,100,102,132);//胸罩
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==4){
-		                    	  ctx.drawImage(img,48,38,52,49);//脸
-		                         drawing(n+1);//递归
-		                    } 
-		                    else {
-		                     	 ctx.drawImage(img,46,35,58,65);//内衬
-		                         drawing(n+1);//递归
-		                    }  
-		                }
-		            }else{
-		            //保存生成作品图片
-		                base64.push(c.toDataURL("images/png",0.8));
-		                fn();
-		            }
-		        }
-		        drawing(0);
-	   	    }
-		}
-		else if(b>=80  && b<= 88){
-			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/15588.png',
-	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
-	    	base64=[]
-	        draw(function(){
-	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
-	        }) 
-            function draw(fn){
-		        var c=document.createElement('canvas'),
-		        ctx=c.getContext('2d'),
-		        len=data0.length;
-		        c.width=200;
-		        c.height=400;
-		        ctx.rect(0,0,c.width,c.height);
-		        ctx.fillStyle='#f7f7f8';
-		        ctx.fill();
-	       		function drawing(n){
-		            if(n<len){
-		                var img=new Image;
-		                img.crossOrigin = 'Anonymous'; //解决跨域
+// 		                    }
+// 		                    else if(n==1){
+// 		                           ctx.drawImage(img,32,75,90,30);//脖子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==2){
+// 		                    	 ctx.drawImage(img,2,104,150,270);//身子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==3){
+// 		                    	 ctx.drawImage(img,27,100,102,132);//胸罩
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==4){
+// 		                    	  ctx.drawImage(img,48,38,52,49);//脸
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else {
+// 		                     	 ctx.drawImage(img,46,35,58,65);//内衬
+// 		                         drawing(n+1);//递归
+// 		                    }  
+// 		                }
+// 		            }else{
+// 		            //保存生成作品图片
+// 		                base64.push(c.toDataURL("images/png",0.8));
+// 		                fn();
+// 		            }
+// 		        }
+// 		        drawing(0);
+// 	   	    }
+// 		}
+// 		else if(b>=80  && b<= 88){
+// 			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/15588.png',
+// 	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
+// 	    	base64=[]
+// 	        draw(function(){
+// 	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
+// 	        }) 
+//             function draw(fn){
+// 		        var c=document.createElement('canvas'),
+// 		        ctx=c.getContext('2d'),
+// 		        len=data0.length;
+// 		        c.width=200;
+// 		        c.height=400;
+// 		        ctx.rect(0,0,c.width,c.height);
+// 		        ctx.fillStyle='#f7f7f8';
+// 		        ctx.fill();
+// 	       		function drawing(n){
+// 		            if(n<len){
+// 		                var img=new Image;
+// 		                img.crossOrigin = 'Anonymous'; //解决跨域
 
-		                img.src=data0[n]; 
-		                img.onload=function(){
-		                   if(n==0){
-		                    	 ctx.drawImage(img,46,35,58,65);//长直
-		                         drawing(n+1);//递归
+// 		                img.src=data0[n]; 
+// 		                img.onload=function(){
+// 		                   if(n==0){
+// 		                    	 ctx.drawImage(img,46,35,58,65);//长直
+// 		                         drawing(n+1);//递归
 		                        
-		                    }
-		                    else if(n==1){
-		                           ctx.drawImage(img,32,75,90,30);//脖子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==2){
-		                    	 ctx.drawImage(img,2,104,150,270);//身子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==3){
-		                    	 ctx.drawImage(img,27,103,102,132);//胸罩
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==4){
-		                    	  ctx.drawImage(img,48,38,52,49);//脸
-		                         drawing(n+1);//递归
-		                    } 
-		                    else {
-		                     	 ctx.drawImage(img,46,35,58,65);//内衬
-		                         drawing(n+1);//递归
-		                    }  
-		                }
-		            }else{
-		            //保存生成作品图片
-		                base64.push(c.toDataURL("images/png",0.8));
-		                fn();
-		            }
-		        }
-		        drawing(0);
-	   	    }
-		}
-	}
-	else if(a>=161 && a<= 169){
-		if(b>=34  && b<= 44){
-			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/16634.png',
-	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
-	    	base64=[]
-	        draw(function(){
-	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
-	        }) 
-            function draw(fn){
-		        var c=document.createElement('canvas'),
-		        ctx=c.getContext('2d'),
-		        len=data0.length;
-		        c.width=200;
-		        c.height=400;
-		        ctx.rect(0,0,c.width,c.height);
-		        ctx.fillStyle='#f7f7f8';
-		        ctx.fill();
-	       		function drawing(n){
-		            if(n<len){
-		                var img=new Image;
-		                img.crossOrigin = 'Anonymous'; //解决跨域
+// 		                    }
+// 		                    else if(n==1){
+// 		                           ctx.drawImage(img,32,75,90,30);//脖子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==2){
+// 		                    	 ctx.drawImage(img,2,104,150,270);//身子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==3){
+// 		                    	 ctx.drawImage(img,27,103,102,132);//胸罩
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==4){
+// 		                    	  ctx.drawImage(img,48,38,52,49);//脸
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else {
+// 		                     	 ctx.drawImage(img,46,35,58,65);//内衬
+// 		                         drawing(n+1);//递归
+// 		                    }  
+// 		                }
+// 		            }else{
+// 		            //保存生成作品图片
+// 		                base64.push(c.toDataURL("images/png",0.8));
+// 		                fn();
+// 		            }
+// 		        }
+// 		        drawing(0);
+// 	   	    }
+// 		}
+// 	}
+// 	else if(a>=161 && a<= 169){
+// 		if(b>=34  && b<= 44){
+// 			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/16634.png',
+// 	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
+// 	    	base64=[]
+// 	        draw(function(){
+// 	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
+// 	        }) 
+//             function draw(fn){
+// 		        var c=document.createElement('canvas'),
+// 		        ctx=c.getContext('2d'),
+// 		        len=data0.length;
+// 		        c.width=200;
+// 		        c.height=400;
+// 		        ctx.rect(0,0,c.width,c.height);
+// 		        ctx.fillStyle='#f7f7f8';
+// 		        ctx.fill();
+// 	       		function drawing(n){
+// 		            if(n<len){
+// 		                var img=new Image;
+// 		                img.crossOrigin = 'Anonymous'; //解决跨域
 
-		                img.src=data0[n]; 
-		                img.onload=function(){
-		                    if(n==0){
-		                    	 ctx.drawImage(img,46,30,58,65);//长直
-		                         drawing(n+1);//递归
+// 		                img.src=data0[n]; 
+// 		                img.onload=function(){
+// 		                    if(n==0){
+// 		                    	 ctx.drawImage(img,46,30,58,65);//长直
+// 		                         drawing(n+1);//递归
 		                        
-		                    }
-		                    else if(n==1){
-		                           ctx.drawImage(img,32,70,90,30);//脖子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==2){
-		                    	 ctx.drawImage(img,2,99,150,275);//身子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==3){
-		                    	 ctx.drawImage(img,30,95,95,133);//胸罩
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==4){
-		                    	  ctx.drawImage(img,48,33,52,49);//脸
-		                         drawing(n+1);//递归
-		                    } 
-		                    else {
-		                     	 ctx.drawImage(img,46,30,58,65);//内衬
-		                         drawing(n+1);//递归
-		                    }  
-		                }
-		            }else{
-		            //保存生成作品图片
-		                base64.push(c.toDataURL("images/png",0.8));
-		                fn();
-		            }
-		        }
-		        drawing(0);
-	   	    }
-		}
-		else if(b>=45  && b<= 56){
-			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/16653.png',
-	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
-	    	base64=[]
-	        draw(function(){
-	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
-	        }) 
-            function draw(fn){
-		        var c=document.createElement('canvas'),
-		        ctx=c.getContext('2d'),
-		        len=data0.length;
-		        c.width=200;
-		        c.height=400;
-		        ctx.rect(0,0,c.width,c.height);
-		        ctx.fillStyle='#f7f7f8';
-		        ctx.fill();
-	       		function drawing(n){
-		            if(n<len){
-		                var img=new Image;
-		                img.crossOrigin = 'Anonymous'; //解决跨域
+// 		                    }
+// 		                    else if(n==1){
+// 		                           ctx.drawImage(img,32,70,90,30);//脖子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==2){
+// 		                    	 ctx.drawImage(img,2,99,150,275);//身子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==3){
+// 		                    	 ctx.drawImage(img,30,95,95,133);//胸罩
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==4){
+// 		                    	  ctx.drawImage(img,48,33,52,49);//脸
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else {
+// 		                     	 ctx.drawImage(img,46,30,58,65);//内衬
+// 		                         drawing(n+1);//递归
+// 		                    }  
+// 		                }
+// 		            }else{
+// 		            //保存生成作品图片
+// 		                base64.push(c.toDataURL("images/png",0.8));
+// 		                fn();
+// 		            }
+// 		        }
+// 		        drawing(0);
+// 	   	    }
+// 		}
+// 		else if(b>=45  && b<= 56){
+// 			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/16653.png',
+// 	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
+// 	    	base64=[]
+// 	        draw(function(){
+// 	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
+// 	        }) 
+//             function draw(fn){
+// 		        var c=document.createElement('canvas'),
+// 		        ctx=c.getContext('2d'),
+// 		        len=data0.length;
+// 		        c.width=200;
+// 		        c.height=400;
+// 		        ctx.rect(0,0,c.width,c.height);
+// 		        ctx.fillStyle='#f7f7f8';
+// 		        ctx.fill();
+// 	       		function drawing(n){
+// 		            if(n<len){
+// 		                var img=new Image;
+// 		                img.crossOrigin = 'Anonymous'; //解决跨域
 
-		                img.src=data0[n]; 
-		                img.onload=function(){
-		                    if(n==0){
-		                    	 ctx.drawImage(img,46,30,58,65);//长直
-		                         drawing(n+1);//递归
+// 		                img.src=data0[n]; 
+// 		                img.onload=function(){
+// 		                    if(n==0){
+// 		                    	 ctx.drawImage(img,46,30,58,65);//长直
+// 		                         drawing(n+1);//递归
 		                        
-		                    }
-		                    else if(n==1){
-		                           ctx.drawImage(img,32,70,90,30);//脖子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==2){
-		                    	 ctx.drawImage(img,2,99,150,275);//身子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==3){
-		                    	 ctx.drawImage(img,30,95,97,133);//胸罩
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==4){
-		                    	  ctx.drawImage(img,48,33,52,49);//脸
-		                         drawing(n+1);//递归
-		                    } 
-		                    else {
-		                     	 ctx.drawImage(img,46,30,58,65);//内衬
-		                         drawing(n+1);//递归
-		                    }  
-		                }
-		            }else{
-		            //保存生成作品图片
-		                base64.push(c.toDataURL("images/png",0.8));
-		                fn();
-		            }
-		        }
-		        drawing(0);
-	   	    }
-		}
-		else if(b>=57  && b<= 68){
-			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/16663.png',
-	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
-	    	base64=[]
-	        draw(function(){
-	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
-	        }) 
-            function draw(fn){
-		        var c=document.createElement('canvas'),
-		        ctx=c.getContext('2d'),
-		        len=data0.length;
-		        c.width=200;
-		        c.height=400;
-		        ctx.rect(0,0,c.width,c.height);
-		        ctx.fillStyle='#f7f7f8';
-		        ctx.fill();
-	       		function drawing(n){
-		            if(n<len){
-		                var img=new Image;
-		                img.crossOrigin = 'Anonymous'; //解决跨域
+// 		                    }
+// 		                    else if(n==1){
+// 		                           ctx.drawImage(img,32,70,90,30);//脖子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==2){
+// 		                    	 ctx.drawImage(img,2,99,150,275);//身子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==3){
+// 		                    	 ctx.drawImage(img,30,95,97,133);//胸罩
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==4){
+// 		                    	  ctx.drawImage(img,48,33,52,49);//脸
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else {
+// 		                     	 ctx.drawImage(img,46,30,58,65);//内衬
+// 		                         drawing(n+1);//递归
+// 		                    }  
+// 		                }
+// 		            }else{
+// 		            //保存生成作品图片
+// 		                base64.push(c.toDataURL("images/png",0.8));
+// 		                fn();
+// 		            }
+// 		        }
+// 		        drawing(0);
+// 	   	    }
+// 		}
+// 		else if(b>=57  && b<= 68){
+// 			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/16663.png',
+// 	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
+// 	    	base64=[]
+// 	        draw(function(){
+// 	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
+// 	        }) 
+//             function draw(fn){
+// 		        var c=document.createElement('canvas'),
+// 		        ctx=c.getContext('2d'),
+// 		        len=data0.length;
+// 		        c.width=200;
+// 		        c.height=400;
+// 		        ctx.rect(0,0,c.width,c.height);
+// 		        ctx.fillStyle='#f7f7f8';
+// 		        ctx.fill();
+// 	       		function drawing(n){
+// 		            if(n<len){
+// 		                var img=new Image;
+// 		                img.crossOrigin = 'Anonymous'; //解决跨域
 
-		                img.src=data0[n]; 
-		                img.onload=function(){
-		                    if(n==0){
-		                    	 ctx.drawImage(img,46,30,58,65);//长直
-		                         drawing(n+1);//递归
+// 		                img.src=data0[n]; 
+// 		                img.onload=function(){
+// 		                    if(n==0){
+// 		                    	 ctx.drawImage(img,46,30,58,65);//长直
+// 		                         drawing(n+1);//递归
 		                        
-		                    }
-		                    else if(n==1){
-		                           ctx.drawImage(img,32,70,90,30);//脖子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==2){
-		                    	 ctx.drawImage(img,2,99,150,275);//身子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==3){
-		                    	 ctx.drawImage(img,27,95,100,133);//胸罩
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==4){
-		                    	  ctx.drawImage(img,48,33,52,49);//脸
-		                         drawing(n+1);//递归
-		                    } 
-		                    else {
-		                     	 ctx.drawImage(img,46,30,58,65);//内衬
-		                         drawing(n+1);//递归
-		                    }  
-		                }
-		            }else{
-		            //保存生成作品图片
-		                base64.push(c.toDataURL("images/png",0.8));
-		                fn();
-		            }
-		        }
-		        drawing(0);
-	   	    }
-		}
-		else if(b>=69  && b<= 79){
-			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/16676.png',
-	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
-	    	base64=[]
-	        draw(function(){
-	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
-	        }) 
-            function draw(fn){
-		        var c=document.createElement('canvas'),
-		        ctx=c.getContext('2d'),
-		        len=data0.length;
-		        c.width=200;
-		        c.height=400;
-		        ctx.rect(0,0,c.width,c.height);
-		        ctx.fillStyle='#f7f7f8';
-		        ctx.fill();
-	       		function drawing(n){
-		            if(n<len){
-		                var img=new Image;
-		                img.crossOrigin = 'Anonymous'; //解决跨域
+// 		                    }
+// 		                    else if(n==1){
+// 		                           ctx.drawImage(img,32,70,90,30);//脖子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==2){
+// 		                    	 ctx.drawImage(img,2,99,150,275);//身子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==3){
+// 		                    	 ctx.drawImage(img,27,95,100,133);//胸罩
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==4){
+// 		                    	  ctx.drawImage(img,48,33,52,49);//脸
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else {
+// 		                     	 ctx.drawImage(img,46,30,58,65);//内衬
+// 		                         drawing(n+1);//递归
+// 		                    }  
+// 		                }
+// 		            }else{
+// 		            //保存生成作品图片
+// 		                base64.push(c.toDataURL("images/png",0.8));
+// 		                fn();
+// 		            }
+// 		        }
+// 		        drawing(0);
+// 	   	    }
+// 		}
+// 		else if(b>=69  && b<= 79){
+// 			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/16676.png',
+// 	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
+// 	    	base64=[]
+// 	        draw(function(){
+// 	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
+// 	        }) 
+//             function draw(fn){
+// 		        var c=document.createElement('canvas'),
+// 		        ctx=c.getContext('2d'),
+// 		        len=data0.length;
+// 		        c.width=200;
+// 		        c.height=400;
+// 		        ctx.rect(0,0,c.width,c.height);
+// 		        ctx.fillStyle='#f7f7f8';
+// 		        ctx.fill();
+// 	       		function drawing(n){
+// 		            if(n<len){
+// 		                var img=new Image;
+// 		                img.crossOrigin = 'Anonymous'; //解决跨域
 
-		                img.src=data0[n]; 
-		                img.onload=function(){
-		                     if(n==0){
-		                    	 ctx.drawImage(img,46,30,58,65);//长直
-		                         drawing(n+1);//递归
+// 		                img.src=data0[n]; 
+// 		                img.onload=function(){
+// 		                     if(n==0){
+// 		                    	 ctx.drawImage(img,46,30,58,65);//长直
+// 		                         drawing(n+1);//递归
 		                        
-		                    }
-		                    else if(n==1){
-		                           ctx.drawImage(img,32,70,90,30);//脖子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==2){
-		                    	 ctx.drawImage(img,2,99,150,275);//身子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==3){
-		                    	 ctx.drawImage(img,27,95,102,133);//胸罩
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==4){
-		                    	  ctx.drawImage(img,48,33,52,49);//脸
-		                         drawing(n+1);//递归
-		                    } 
-		                    else {
-		                     	 ctx.drawImage(img,46,30,58,65);//内衬
-		                         drawing(n+1);//递归
-		                    } 
-		                }
-		            }else{
-		            //保存生成作品图片
-		                base64.push(c.toDataURL("images/png",0.8));
-		                fn();
-		            }
-		        }
-		        drawing(0);
-	   	    }
-		}
-		else if(b>=80  && b<= 88){
-			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/16687.png',
-	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
-	    	base64=[]
-	        draw(function(){
-	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
-	        }) 
-            function draw(fn){
-		        var c=document.createElement('canvas'),
-		        ctx=c.getContext('2d'),
-		        len=data0.length;
-		        c.width=200;
-		        c.height=400;
-		        ctx.rect(0,0,c.width,c.height);
-		        ctx.fillStyle='#f7f7f8';
-		        ctx.fill();
-	       		function drawing(n){
-		            if(n<len){
-		                var img=new Image;
-		                img.crossOrigin = 'Anonymous'; //解决跨域
+// 		                    }
+// 		                    else if(n==1){
+// 		                           ctx.drawImage(img,32,70,90,30);//脖子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==2){
+// 		                    	 ctx.drawImage(img,2,99,150,275);//身子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==3){
+// 		                    	 ctx.drawImage(img,27,95,102,133);//胸罩
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==4){
+// 		                    	  ctx.drawImage(img,48,33,52,49);//脸
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else {
+// 		                     	 ctx.drawImage(img,46,30,58,65);//内衬
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                }
+// 		            }else{
+// 		            //保存生成作品图片
+// 		                base64.push(c.toDataURL("images/png",0.8));
+// 		                fn();
+// 		            }
+// 		        }
+// 		        drawing(0);
+// 	   	    }
+// 		}
+// 		else if(b>=80  && b<= 88){
+// 			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/16687.png',
+// 	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
+// 	    	base64=[]
+// 	        draw(function(){
+// 	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
+// 	        }) 
+//             function draw(fn){
+// 		        var c=document.createElement('canvas'),
+// 		        ctx=c.getContext('2d'),
+// 		        len=data0.length;
+// 		        c.width=200;
+// 		        c.height=400;
+// 		        ctx.rect(0,0,c.width,c.height);
+// 		        ctx.fillStyle='#f7f7f8';
+// 		        ctx.fill();
+// 	       		function drawing(n){
+// 		            if(n<len){
+// 		                var img=new Image;
+// 		                img.crossOrigin = 'Anonymous'; //解决跨域
 
-		                img.src=data0[n]; 
-		                img.onload=function(){
-		                    if(n==0){
-		                    	 ctx.drawImage(img,46,30,58,65);//长直
-		                         drawing(n+1);//递归
+// 		                img.src=data0[n]; 
+// 		                img.onload=function(){
+// 		                    if(n==0){
+// 		                    	 ctx.drawImage(img,46,30,58,65);//长直
+// 		                         drawing(n+1);//递归
 		                        
-		                    }
-		                    else if(n==1){
-		                           ctx.drawImage(img,32,70,90,30);//脖子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==2){
-		                    	 ctx.drawImage(img,2,99,150,275);//身子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==3){
-		                    	 ctx.drawImage(img,27,95,102,133);//胸罩
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==4){
-		                    	  ctx.drawImage(img,48,33,52,49);//脸
-		                         drawing(n+1);//递归
-		                    } 
-		                    else {
-		                     	 ctx.drawImage(img,46,30,58,65);//内衬
-		                         drawing(n+1);//递归
-		                    } 
-		                }
-		            }else{
-		            //保存生成作品图片
-		                base64.push(c.toDataURL("images/png",0.8));
-		                fn();
-		            }
-		        }
-		        drawing(0);
-	   	    }
-		}
-	}
-	else if(a>=170 && a<= 175){
-		if(b>=34  && b<= 44){
-			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/17435.png',
-	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
-	    	base64=[]
-	        draw(function(){
-	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
-	        }) 
-            function draw(fn){
-		        var c=document.createElement('canvas'),
-		        ctx=c.getContext('2d'),
-		        len=data0.length;
-		        c.width=200;
-		        c.height=400;
-		        ctx.rect(0,0,c.width,c.height);
-		        ctx.fillStyle='#f7f7f8';
-		        ctx.fill();
-	       		function drawing(n){
-		            if(n<len){
-		                var img=new Image;
-		                img.crossOrigin = 'Anonymous'; //解决跨域
+// 		                    }
+// 		                    else if(n==1){
+// 		                           ctx.drawImage(img,32,70,90,30);//脖子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==2){
+// 		                    	 ctx.drawImage(img,2,99,150,275);//身子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==3){
+// 		                    	 ctx.drawImage(img,27,95,102,133);//胸罩
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==4){
+// 		                    	  ctx.drawImage(img,48,33,52,49);//脸
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else {
+// 		                     	 ctx.drawImage(img,46,30,58,65);//内衬
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                }
+// 		            }else{
+// 		            //保存生成作品图片
+// 		                base64.push(c.toDataURL("images/png",0.8));
+// 		                fn();
+// 		            }
+// 		        }
+// 		        drawing(0);
+// 	   	    }
+// 		}
+// 	}
+// 	else if(a>=170 && a<= 175){
+// 		if(b>=34  && b<= 44){
+// 			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/17435.png',
+// 	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
+// 	    	base64=[]
+// 	        draw(function(){
+// 	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
+// 	        }) 
+//             function draw(fn){
+// 		        var c=document.createElement('canvas'),
+// 		        ctx=c.getContext('2d'),
+// 		        len=data0.length;
+// 		        c.width=200;
+// 		        c.height=400;
+// 		        ctx.rect(0,0,c.width,c.height);
+// 		        ctx.fillStyle='#f7f7f8';
+// 		        ctx.fill();
+// 	       		function drawing(n){
+// 		            if(n<len){
+// 		                var img=new Image;
+// 		                img.crossOrigin = 'Anonymous'; //解决跨域
 
-		                img.src=data0[n]; 
-		                img.onload=function(){
-		                    if(n==0){
-		                    	 ctx.drawImage(img,46,25,58,65);//长直
-		                         drawing(n+1);//递归
+// 		                img.src=data0[n]; 
+// 		                img.onload=function(){
+// 		                    if(n==0){
+// 		                    	 ctx.drawImage(img,46,25,58,65);//长直
+// 		                         drawing(n+1);//递归
 		                        
-		                    }
-		                    else if(n==1){
-		                           ctx.drawImage(img,32,65,90,30);//脖子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==2){
-		                    	 ctx.drawImage(img,2,94,150,280);//身子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==3){
-		                    	 ctx.drawImage(img,30,90,95,134);//胸罩
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==4){
-		                    	  ctx.drawImage(img,48,28,52,49);//脸
-		                         drawing(n+1);//递归
-		                    } 
-		                    else {
-		                     	 ctx.drawImage(img,46,25,58,65);//内衬
-		                         drawing(n+1);//递归
-		                    }  
-		                }
-		            }else{
-		            //保存生成作品图片
-		                base64.push(c.toDataURL("images/png",0.8));
-		                fn();
-		            }
-		        }
-		        drawing(0);
-	   	    }
-		}
-		else if(b>=45  && b<= 56){
-			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/17453.png',
-	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
-	    	base64=[]
-	        draw(function(){
-	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
-	        }) 
-            function draw(fn){
-		        var c=document.createElement('canvas'),
-		        ctx=c.getContext('2d'),
-		        len=data0.length;
-		        c.width=200;
-		        c.height=400;
-		        ctx.rect(0,0,c.width,c.height);
-		        ctx.fillStyle='#f7f7f8';
-		        ctx.fill();
-	       		function drawing(n){
-		            if(n<len){
-		                var img=new Image;
-		                img.crossOrigin = 'Anonymous'; //解决跨域
+// 		                    }
+// 		                    else if(n==1){
+// 		                           ctx.drawImage(img,32,65,90,30);//脖子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==2){
+// 		                    	 ctx.drawImage(img,2,94,150,280);//身子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==3){
+// 		                    	 ctx.drawImage(img,30,90,95,134);//胸罩
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==4){
+// 		                    	  ctx.drawImage(img,48,28,52,49);//脸
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else {
+// 		                     	 ctx.drawImage(img,46,25,58,65);//内衬
+// 		                         drawing(n+1);//递归
+// 		                    }  
+// 		                }
+// 		            }else{
+// 		            //保存生成作品图片
+// 		                base64.push(c.toDataURL("images/png",0.8));
+// 		                fn();
+// 		            }
+// 		        }
+// 		        drawing(0);
+// 	   	    }
+// 		}
+// 		else if(b>=45  && b<= 56){
+// 			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/17453.png',
+// 	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
+// 	    	base64=[]
+// 	        draw(function(){
+// 	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
+// 	        }) 
+//             function draw(fn){
+// 		        var c=document.createElement('canvas'),
+// 		        ctx=c.getContext('2d'),
+// 		        len=data0.length;
+// 		        c.width=200;
+// 		        c.height=400;
+// 		        ctx.rect(0,0,c.width,c.height);
+// 		        ctx.fillStyle='#f7f7f8';
+// 		        ctx.fill();
+// 	       		function drawing(n){
+// 		            if(n<len){
+// 		                var img=new Image;
+// 		                img.crossOrigin = 'Anonymous'; //解决跨域
 
-		                img.src=data0[n]; 
-		                img.onload=function(){
-		                    if(n==0){
-		                    	 ctx.drawImage(img,46,25,58,65);//长直
-		                         drawing(n+1);//递归
+// 		                img.src=data0[n]; 
+// 		                img.onload=function(){
+// 		                    if(n==0){
+// 		                    	 ctx.drawImage(img,46,25,58,65);//长直
+// 		                         drawing(n+1);//递归
 		                        
-		                    }
-		                    else if(n==1){
-		                           ctx.drawImage(img,32,65,90,30);//脖子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==2){
-		                    	 ctx.drawImage(img,2,94,150,280);//身子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==3){
-		                    	 ctx.drawImage(img,30,90,95,134);//胸罩
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==4){
-		                    	  ctx.drawImage(img,48,28,52,49);//脸
-		                         drawing(n+1);//递归
-		                    } 
-		                    else {
-		                     	 ctx.drawImage(img,46,25,58,65);//内衬
-		                         drawing(n+1);//递归
-		                    }  
-		                }
-		            }else{
-		            //保存生成作品图片
-		                base64.push(c.toDataURL("images/png",0.8));
-		                fn();
-		            }
-		        }
-		        drawing(0);
-	   	    }
-		}
-		else if(b>=57  && b<= 68){
-			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/17465.png',
-	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
-	    	base64=[]
-	        draw(function(){
-	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
-	        }) 
-            function draw(fn){
-		        var c=document.createElement('canvas'),
-		        ctx=c.getContext('2d'),
-		        len=data0.length;
-		        c.width=200;
-		        c.height=400;
-		        ctx.rect(0,0,c.width,c.height);
-		        ctx.fillStyle='#f7f7f8';
-		        ctx.fill();
-	       		function drawing(n){
-		            if(n<len){
-		                var img=new Image;
-		                img.crossOrigin = 'Anonymous'; //解决跨域
+// 		                    }
+// 		                    else if(n==1){
+// 		                           ctx.drawImage(img,32,65,90,30);//脖子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==2){
+// 		                    	 ctx.drawImage(img,2,94,150,280);//身子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==3){
+// 		                    	 ctx.drawImage(img,30,90,95,134);//胸罩
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==4){
+// 		                    	  ctx.drawImage(img,48,28,52,49);//脸
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else {
+// 		                     	 ctx.drawImage(img,46,25,58,65);//内衬
+// 		                         drawing(n+1);//递归
+// 		                    }  
+// 		                }
+// 		            }else{
+// 		            //保存生成作品图片
+// 		                base64.push(c.toDataURL("images/png",0.8));
+// 		                fn();
+// 		            }
+// 		        }
+// 		        drawing(0);
+// 	   	    }
+// 		}
+// 		else if(b>=57  && b<= 68){
+// 			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/17465.png',
+// 	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
+// 	    	base64=[]
+// 	        draw(function(){
+// 	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
+// 	        }) 
+//             function draw(fn){
+// 		        var c=document.createElement('canvas'),
+// 		        ctx=c.getContext('2d'),
+// 		        len=data0.length;
+// 		        c.width=200;
+// 		        c.height=400;
+// 		        ctx.rect(0,0,c.width,c.height);
+// 		        ctx.fillStyle='#f7f7f8';
+// 		        ctx.fill();
+// 	       		function drawing(n){
+// 		            if(n<len){
+// 		                var img=new Image;
+// 		                img.crossOrigin = 'Anonymous'; //解决跨域
 
-		                img.src=data0[n]; 
-		                img.onload=function(){
-		                    if(n==0){
-		                    	 ctx.drawImage(img,46,25,58,65);//长直
-		                         drawing(n+1);//递归
+// 		                img.src=data0[n]; 
+// 		                img.onload=function(){
+// 		                    if(n==0){
+// 		                    	 ctx.drawImage(img,46,25,58,65);//长直
+// 		                         drawing(n+1);//递归
 		                        
-		                    }
-		                    else if(n==1){
-		                           ctx.drawImage(img,32,65,90,30);//脖子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==2){
-		                    	 ctx.drawImage(img,2,94,150,280);//身子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==3){
-		                    	 ctx.drawImage(img,27,90,100,134);//胸罩
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==4){
-		                    	  ctx.drawImage(img,48,28,52,49);//脸
-		                         drawing(n+1);//递归
-		                    } 
-		                    else {
-		                     	 ctx.drawImage(img,46,25,58,65);//内衬
-		                         drawing(n+1);//递归
-		                    }  
-		                }
-		            }else{
-		            //保存生成作品图片
-		                base64.push(c.toDataURL("images/png",0.8));
-		                fn();
-		            }
-		        }
-		        drawing(0);
-	   	    }
-		}
-		else if(b>=69  && b<= 79){
-			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/17476.png',
-	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
-	    	base64=[]
-	        draw(function(){
-	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
-	        }) 
-            function draw(fn){
-		        var c=document.createElement('canvas'),
-		        ctx=c.getContext('2d'),
-		        len=data0.length;
-		        c.width=200;
-		        c.height=400;
-		        ctx.rect(0,0,c.width,c.height);
-		        ctx.fillStyle='#f7f7f8';
-		        ctx.fill();
-	       		function drawing(n){
-		            if(n<len){
-		                var img=new Image;
-		                img.crossOrigin = 'Anonymous'; //解决跨域
+// 		                    }
+// 		                    else if(n==1){
+// 		                           ctx.drawImage(img,32,65,90,30);//脖子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==2){
+// 		                    	 ctx.drawImage(img,2,94,150,280);//身子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==3){
+// 		                    	 ctx.drawImage(img,27,90,100,134);//胸罩
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==4){
+// 		                    	  ctx.drawImage(img,48,28,52,49);//脸
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else {
+// 		                     	 ctx.drawImage(img,46,25,58,65);//内衬
+// 		                         drawing(n+1);//递归
+// 		                    }  
+// 		                }
+// 		            }else{
+// 		            //保存生成作品图片
+// 		                base64.push(c.toDataURL("images/png",0.8));
+// 		                fn();
+// 		            }
+// 		        }
+// 		        drawing(0);
+// 	   	    }
+// 		}
+// 		else if(b>=69  && b<= 79){
+// 			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/17476.png',
+// 	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
+// 	    	base64=[]
+// 	        draw(function(){
+// 	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
+// 	        }) 
+//             function draw(fn){
+// 		        var c=document.createElement('canvas'),
+// 		        ctx=c.getContext('2d'),
+// 		        len=data0.length;
+// 		        c.width=200;
+// 		        c.height=400;
+// 		        ctx.rect(0,0,c.width,c.height);
+// 		        ctx.fillStyle='#f7f7f8';
+// 		        ctx.fill();
+// 	       		function drawing(n){
+// 		            if(n<len){
+// 		                var img=new Image;
+// 		                img.crossOrigin = 'Anonymous'; //解决跨域
 
-		                img.src=data0[n]; 
-		                img.onload=function(){
-		                    if(n==0){
-		                    	 ctx.drawImage(img,46,25,58,65);//长直
-		                         drawing(n+1);//递归
+// 		                img.src=data0[n]; 
+// 		                img.onload=function(){
+// 		                    if(n==0){
+// 		                    	 ctx.drawImage(img,46,25,58,65);//长直
+// 		                         drawing(n+1);//递归
 		                        
-		                    }
-		                    else if(n==1){
-		                           ctx.drawImage(img,32,65,90,30);//脖子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==2){
-		                    	 ctx.drawImage(img,2,94,150,280);//身子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==3){
-		                    	 ctx.drawImage(img,27,90,102,134);//胸罩
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==4){
-		                    	  ctx.drawImage(img,48,28,52,49);//脸
-		                         drawing(n+1);//递归
-		                    } 
-		                    else {
-		                     	 ctx.drawImage(img,46,25,58,65);//内衬
-		                         drawing(n+1);//递归
-		                    } 
-		                }
-		            }else{
-		            //保存生成作品图片
-		                base64.push(c.toDataURL("images/png",0.8));
-		                fn();
-		            }
-		        }
-		        drawing(0);
-	   	    }
-		}
-		else if(b>=80  && b<= 88){
-			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static//static/images/17486.png',
-	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
-	    	base64=[]
-	        draw(function(){
-	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
-	        }) 
-            function draw(fn){
-		        var c=document.createElement('canvas'),
-		        ctx=c.getContext('2d'),
-		        len=data0.length;
-		        c.width=200;
-		        c.height=400;
-		        ctx.rect(0,0,c.width,c.height);
-		        ctx.fillStyle='#f7f7f8';
-		        ctx.fill();
-	       		function drawing(n){
-		            if(n<len){
-		                var img=new Image;
-		                img.crossOrigin = 'Anonymous'; //解决跨域
+// 		                    }
+// 		                    else if(n==1){
+// 		                           ctx.drawImage(img,32,65,90,30);//脖子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==2){
+// 		                    	 ctx.drawImage(img,2,94,150,280);//身子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==3){
+// 		                    	 ctx.drawImage(img,27,90,102,134);//胸罩
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==4){
+// 		                    	  ctx.drawImage(img,48,28,52,49);//脸
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else {
+// 		                     	 ctx.drawImage(img,46,25,58,65);//内衬
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                }
+// 		            }else{
+// 		            //保存生成作品图片
+// 		                base64.push(c.toDataURL("images/png",0.8));
+// 		                fn();
+// 		            }
+// 		        }
+// 		        drawing(0);
+// 	   	    }
+// 		}
+// 		else if(b>=80  && b<= 88){
+// 			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static//static/images/17486.png',
+// 	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
+// 	    	base64=[]
+// 	        draw(function(){
+// 	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
+// 	        }) 
+//             function draw(fn){
+// 		        var c=document.createElement('canvas'),
+// 		        ctx=c.getContext('2d'),
+// 		        len=data0.length;
+// 		        c.width=200;
+// 		        c.height=400;
+// 		        ctx.rect(0,0,c.width,c.height);
+// 		        ctx.fillStyle='#f7f7f8';
+// 		        ctx.fill();
+// 	       		function drawing(n){
+// 		            if(n<len){
+// 		                var img=new Image;
+// 		                img.crossOrigin = 'Anonymous'; //解决跨域
 
-		                img.src=data0[n]; 
-		                img.onload=function(){
-		                    if(n==0){
-		                    	 ctx.drawImage(img,46,25,58,65);//长直
-		                         drawing(n+1);//递归
+// 		                img.src=data0[n]; 
+// 		                img.onload=function(){
+// 		                    if(n==0){
+// 		                    	 ctx.drawImage(img,46,25,58,65);//长直
+// 		                         drawing(n+1);//递归
 		                        
-		                    }
-		                    else if(n==1){
-		                           ctx.drawImage(img,32,65,90,30);//脖子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==2){
-		                    	 ctx.drawImage(img,2,94,150,280);//身子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==3){
-		                    	 ctx.drawImage(img,27,90,102,134);//胸罩
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==4){
-		                    	  ctx.drawImage(img,48,28,52,49);//脸
-		                         drawing(n+1);//递归
-		                    } 
-		                    else {
-		                     	 ctx.drawImage(img,46,25,58,65);//内衬
-		                         drawing(n+1);//递归
-		                    } 
-		                }
-		            }else{
-		            //保存生成作品图片
-		                base64.push(c.toDataURL("images/png",0.8));
-		                fn();
-		            }
-		        }
-		        drawing(0);
-	   	    }
-		}
-	}
-	else if(a>=176 && a<= 182){
-		if(b>=34  && b<= 44){
-			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/18034.png',
-	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
-	    	base64=[]
-	        draw(function(){
-	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
-	        }) 
-            function draw(fn){
-		        var c=document.createElement('canvas'),
-		        ctx=c.getContext('2d'),
-		        len=data0.length;
-		        c.width=200;
-		        c.height=400;
-		        ctx.rect(0,0,c.width,c.height);
-		        ctx.fillStyle='#f7f7f8';
-		        ctx.fill();
-	       		function drawing(n){
-		            if(n<len){
-		                var img=new Image;
-		                img.crossOrigin = 'Anonymous'; //解决跨域
+// 		                    }
+// 		                    else if(n==1){
+// 		                           ctx.drawImage(img,32,65,90,30);//脖子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==2){
+// 		                    	 ctx.drawImage(img,2,94,150,280);//身子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==3){
+// 		                    	 ctx.drawImage(img,27,90,102,134);//胸罩
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==4){
+// 		                    	  ctx.drawImage(img,48,28,52,49);//脸
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else {
+// 		                     	 ctx.drawImage(img,46,25,58,65);//内衬
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                }
+// 		            }else{
+// 		            //保存生成作品图片
+// 		                base64.push(c.toDataURL("images/png",0.8));
+// 		                fn();
+// 		            }
+// 		        }
+// 		        drawing(0);
+// 	   	    }
+// 		}
+// 	}
+// 	else if(a>=176 && a<= 182){
+// 		if(b>=34  && b<= 44){
+// 			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/18034.png',
+// 	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
+// 	    	base64=[]
+// 	        draw(function(){
+// 	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
+// 	        }) 
+//             function draw(fn){
+// 		        var c=document.createElement('canvas'),
+// 		        ctx=c.getContext('2d'),
+// 		        len=data0.length;
+// 		        c.width=200;
+// 		        c.height=400;
+// 		        ctx.rect(0,0,c.width,c.height);
+// 		        ctx.fillStyle='#f7f7f8';
+// 		        ctx.fill();
+// 	       		function drawing(n){
+// 		            if(n<len){
+// 		                var img=new Image;
+// 		                img.crossOrigin = 'Anonymous'; //解决跨域
 
-		                img.src=data0[n]; 
-		                img.onload=function(){
-		                    if(n==0){
-		                    	 ctx.drawImage(img,46,20,58,65);//长直
-		                         drawing(n+1);//递归
+// 		                img.src=data0[n]; 
+// 		                img.onload=function(){
+// 		                    if(n==0){
+// 		                    	 ctx.drawImage(img,46,20,58,65);//长直
+// 		                         drawing(n+1);//递归
 		                        
-		                    }
-		                    else if(n==1){
-		                           ctx.drawImage(img,32,60,90,30);//脖子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==2){
-		                    	 ctx.drawImage(img,2,89,150,285);//身子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==3){
-		                    	 ctx.drawImage(img,30,85,95,135);//胸罩
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==4){
-		                    	  ctx.drawImage(img,48,23,52,49);//脸
-		                         drawing(n+1);//递归
-		                    } 
-		                    else {
-		                     	 ctx.drawImage(img,46,20,58,65);//内衬
-		                         drawing(n+1);//递归
-		                    }  
-		                }
-		            }else{
-		            //保存生成作品图片
-		                base64.push(c.toDataURL("images/png",0.8));
-		                fn();
-		            }
-		        }
-		        drawing(0);
-	   	    }
-		}
-		else if(b>=45  && b<= 56){
-			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/18055.png',
-	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
-	    	base64=[]
-	        draw(function(){
-	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
-	        }) 
-            function draw(fn){
-		        var c=document.createElement('canvas'),
-		        ctx=c.getContext('2d'),
-		        len=data0.length;
-		        c.width=200;
-		        c.height=400;
-		        ctx.rect(0,0,c.width,c.height);
-		        ctx.fillStyle='#f7f7f8';
-		        ctx.fill();
-	       		function drawing(n){
-		            if(n<len){
-		                var img=new Image;
-		                img.crossOrigin = 'Anonymous'; //解决跨域
+// 		                    }
+// 		                    else if(n==1){
+// 		                           ctx.drawImage(img,32,60,90,30);//脖子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==2){
+// 		                    	 ctx.drawImage(img,2,89,150,285);//身子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==3){
+// 		                    	 ctx.drawImage(img,30,85,95,135);//胸罩
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==4){
+// 		                    	  ctx.drawImage(img,48,23,52,49);//脸
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else {
+// 		                     	 ctx.drawImage(img,46,20,58,65);//内衬
+// 		                         drawing(n+1);//递归
+// 		                    }  
+// 		                }
+// 		            }else{
+// 		            //保存生成作品图片
+// 		                base64.push(c.toDataURL("images/png",0.8));
+// 		                fn();
+// 		            }
+// 		        }
+// 		        drawing(0);
+// 	   	    }
+// 		}
+// 		else if(b>=45  && b<= 56){
+// 			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/18055.png',
+// 	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
+// 	    	base64=[]
+// 	        draw(function(){
+// 	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
+// 	        }) 
+//             function draw(fn){
+// 		        var c=document.createElement('canvas'),
+// 		        ctx=c.getContext('2d'),
+// 		        len=data0.length;
+// 		        c.width=200;
+// 		        c.height=400;
+// 		        ctx.rect(0,0,c.width,c.height);
+// 		        ctx.fillStyle='#f7f7f8';
+// 		        ctx.fill();
+// 	       		function drawing(n){
+// 		            if(n<len){
+// 		                var img=new Image;
+// 		                img.crossOrigin = 'Anonymous'; //解决跨域
 
-		                img.src=data0[n]; 
-		                img.onload=function(){
-		                     if(n==0){
-		                    	 ctx.drawImage(img,46,20,58,65);//长直
-		                         drawing(n+1);//递归
+// 		                img.src=data0[n]; 
+// 		                img.onload=function(){
+// 		                     if(n==0){
+// 		                    	 ctx.drawImage(img,46,20,58,65);//长直
+// 		                         drawing(n+1);//递归
 		                        
-		                    }
-		                    else if(n==1){
-		                           ctx.drawImage(img,32,60,90,30);//脖子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==2){
-		                    	 ctx.drawImage(img,2,89,150,285);//身子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==3){
-		                    	 ctx.drawImage(img,30,85,95,135);//胸罩
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==4){
-		                    	  ctx.drawImage(img,48,23,52,49);//脸
-		                         drawing(n+1);//递归
-		                    } 
-		                    else {
-		                     	 ctx.drawImage(img,46,20,58,65);//内衬
-		                         drawing(n+1);//递归
-		                    }  
-		                }
-		            }else{
-		            //保存生成作品图片
-		                base64.push(c.toDataURL("images/png",0.8));
-		                fn();
-		            }
-		        }
-		        drawing(0);
-	   	    }
-		}
-		else if(b>=57  && b<= 68){
-			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/18067.png',
-	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
-	    	base64=[]
-	        draw(function(){
-	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
-	        }) 
-            function draw(fn){
-		        var c=document.createElement('canvas'),
-		        ctx=c.getContext('2d'),
-		        len=data0.length;
-		        c.width=200;
-		        c.height=400;
-		        ctx.rect(0,0,c.width,c.height);
-		        ctx.fillStyle='#f7f7f8';
-		        ctx.fill();
-	       		function drawing(n){
-		            if(n<len){
-		                var img=new Image;
-		                img.crossOrigin = 'Anonymous'; //解决跨域
+// 		                    }
+// 		                    else if(n==1){
+// 		                           ctx.drawImage(img,32,60,90,30);//脖子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==2){
+// 		                    	 ctx.drawImage(img,2,89,150,285);//身子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==3){
+// 		                    	 ctx.drawImage(img,30,85,95,135);//胸罩
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==4){
+// 		                    	  ctx.drawImage(img,48,23,52,49);//脸
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else {
+// 		                     	 ctx.drawImage(img,46,20,58,65);//内衬
+// 		                         drawing(n+1);//递归
+// 		                    }  
+// 		                }
+// 		            }else{
+// 		            //保存生成作品图片
+// 		                base64.push(c.toDataURL("images/png",0.8));
+// 		                fn();
+// 		            }
+// 		        }
+// 		        drawing(0);
+// 	   	    }
+// 		}
+// 		else if(b>=57  && b<= 68){
+// 			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/18067.png',
+// 	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
+// 	    	base64=[]
+// 	        draw(function(){
+// 	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
+// 	        }) 
+//             function draw(fn){
+// 		        var c=document.createElement('canvas'),
+// 		        ctx=c.getContext('2d'),
+// 		        len=data0.length;
+// 		        c.width=200;
+// 		        c.height=400;
+// 		        ctx.rect(0,0,c.width,c.height);
+// 		        ctx.fillStyle='#f7f7f8';
+// 		        ctx.fill();
+// 	       		function drawing(n){
+// 		            if(n<len){
+// 		                var img=new Image;
+// 		                img.crossOrigin = 'Anonymous'; //解决跨域
 
-		                img.src=data0[n]; 
-		                img.onload=function(){
-		                     if(n==0){
-		                    	 ctx.drawImage(img,46,20,58,65);//长直
-		                         drawing(n+1);//递归
+// 		                img.src=data0[n]; 
+// 		                img.onload=function(){
+// 		                     if(n==0){
+// 		                    	 ctx.drawImage(img,46,20,58,65);//长直
+// 		                         drawing(n+1);//递归
 		                        
-		                    }
-		                    else if(n==1){
-		                           ctx.drawImage(img,32,60,90,30);//脖子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==2){
-		                    	 ctx.drawImage(img,2,89,150,285);//身子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==3){
-		                    	 ctx.drawImage(img,27,85,100,135);//胸罩
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==4){
-		                    	  ctx.drawImage(img,48,23,52,49);//脸
-		                         drawing(n+1);//递归
-		                    } 
-		                    else {
-		                     	 ctx.drawImage(img,46,20,58,65);//内衬
-		                         drawing(n+1);//递归
-		                    }  
-		                }
-		            }else{
-		            //保存生成作品图片
-		                base64.push(c.toDataURL("images/png",0.8));
-		                fn();
-		            }
-		        }
-		        drawing(0);
-	   	    }
-		}
-		else if(b>=69  && b<= 79){
-			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/18079.png',
-	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
-	    	base64=[]
-	        draw(function(){
-	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
-	        }) 
-            function draw(fn){
-		        var c=document.createElement('canvas'),
-		        ctx=c.getContext('2d'),
-		        len=data0.length;
-		        c.width=200;
-		        c.height=400;
-		        ctx.rect(0,0,c.width,c.height);
-		        ctx.fillStyle='#f7f7f8';
-		        ctx.fill();
-	       		function drawing(n){
-		            if(n<len){
-		                var img=new Image;
-		                img.crossOrigin = 'Anonymous'; //解决跨域
+// 		                    }
+// 		                    else if(n==1){
+// 		                           ctx.drawImage(img,32,60,90,30);//脖子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==2){
+// 		                    	 ctx.drawImage(img,2,89,150,285);//身子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==3){
+// 		                    	 ctx.drawImage(img,27,85,100,135);//胸罩
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==4){
+// 		                    	  ctx.drawImage(img,48,23,52,49);//脸
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else {
+// 		                     	 ctx.drawImage(img,46,20,58,65);//内衬
+// 		                         drawing(n+1);//递归
+// 		                    }  
+// 		                }
+// 		            }else{
+// 		            //保存生成作品图片
+// 		                base64.push(c.toDataURL("images/png",0.8));
+// 		                fn();
+// 		            }
+// 		        }
+// 		        drawing(0);
+// 	   	    }
+// 		}
+// 		else if(b>=69  && b<= 79){
+// 			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/18079.png',
+// 	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
+// 	    	base64=[]
+// 	        draw(function(){
+// 	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
+// 	        }) 
+//             function draw(fn){
+// 		        var c=document.createElement('canvas'),
+// 		        ctx=c.getContext('2d'),
+// 		        len=data0.length;
+// 		        c.width=200;
+// 		        c.height=400;
+// 		        ctx.rect(0,0,c.width,c.height);
+// 		        ctx.fillStyle='#f7f7f8';
+// 		        ctx.fill();
+// 	       		function drawing(n){
+// 		            if(n<len){
+// 		                var img=new Image;
+// 		                img.crossOrigin = 'Anonymous'; //解决跨域
 
-		                img.src=data0[n]; 
-		                img.onload=function(){
-		                    if(n==0){
-		                    	 ctx.drawImage(img,46,20,58,65);//长直
-		                         drawing(n+1);//递归
+// 		                img.src=data0[n]; 
+// 		                img.onload=function(){
+// 		                    if(n==0){
+// 		                    	 ctx.drawImage(img,46,20,58,65);//长直
+// 		                         drawing(n+1);//递归
 		                        
-		                    }
-		                    else if(n==1){
-		                           ctx.drawImage(img,32,60,90,30);//脖子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==2){
-		                    	 ctx.drawImage(img,2,89,150,285);//身子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==3){
-		                    	 ctx.drawImage(img,27,85,102,135);//胸罩
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==4){
-		                    	  ctx.drawImage(img,48,23,52,49);//脸
-		                         drawing(n+1);//递归
-		                    } 
-		                    else {
-		                     	 ctx.drawImage(img,46,20,58,65);//内衬
-		                         drawing(n+1);//递归
-		                    }   
-		                }
-		            }else{
-		            //保存生成作品图片
-		                base64.push(c.toDataURL("images/png",0.8));
-		                fn();
-		            }
-		        }
-		        drawing(0);
-	   	    }
-		}
-		else if(b>=80  && b<= 88){
-			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/18088.png',
-	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
-	    	base64=[]
-	        draw(function(){
-	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
-	        }) 
-            function draw(fn){
-		        var c=document.createElement('canvas'),
-		        ctx=c.getContext('2d'),
-		        len=data0.length;
-		        c.width=200;
-		        c.height=400;
-		        ctx.rect(0,0,c.width,c.height);
-		        ctx.fillStyle='#f7f7f8';
-		        ctx.fill();
-	       		function drawing(n){
-		            if(n<len){
-		                var img=new Image;
-		                img.crossOrigin = 'Anonymous'; //解决跨域
+// 		                    }
+// 		                    else if(n==1){
+// 		                           ctx.drawImage(img,32,60,90,30);//脖子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==2){
+// 		                    	 ctx.drawImage(img,2,89,150,285);//身子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==3){
+// 		                    	 ctx.drawImage(img,27,85,102,135);//胸罩
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==4){
+// 		                    	  ctx.drawImage(img,48,23,52,49);//脸
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else {
+// 		                     	 ctx.drawImage(img,46,20,58,65);//内衬
+// 		                         drawing(n+1);//递归
+// 		                    }   
+// 		                }
+// 		            }else{
+// 		            //保存生成作品图片
+// 		                base64.push(c.toDataURL("images/png",0.8));
+// 		                fn();
+// 		            }
+// 		        }
+// 		        drawing(0);
+// 	   	    }
+// 		}
+// 		else if(b>=80  && b<= 88){
+// 			var data0=['/static/images/bobo.png','/static/images/bozi.png','/static/images/18088.png',
+// 	    		   '/static/images/xiongzhao.png','/static/images/edanlian.png','/static/images/duanfa.png']; 
+// 	    	base64=[]
+// 	        draw(function(){
+// 	        document.getElementById('fff').innerHTML='<img src="'+base64[0]+'">';
+// 	        }) 
+//             function draw(fn){
+// 		        var c=document.createElement('canvas'),
+// 		        ctx=c.getContext('2d'),
+// 		        len=data0.length;
+// 		        c.width=200;
+// 		        c.height=400;
+// 		        ctx.rect(0,0,c.width,c.height);
+// 		        ctx.fillStyle='#f7f7f8';
+// 		        ctx.fill();
+// 	       		function drawing(n){
+// 		            if(n<len){
+// 		                var img=new Image;
+// 		                img.crossOrigin = 'Anonymous'; //解决跨域
 
-		                img.src=data0[n]; 
-		                img.onload=function(){
-		                     if(n==0){
-		                    	 ctx.drawImage(img,46,20,58,65);//长直
-		                         drawing(n+1);//递归
+// 		                img.src=data0[n]; 
+// 		                img.onload=function(){
+// 		                     if(n==0){
+// 		                    	 ctx.drawImage(img,46,20,58,65);//长直
+// 		                         drawing(n+1);//递归
 		                        
-		                    }
-		                    else if(n==1){
-		                           ctx.drawImage(img,32,60,90,30);//脖子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==2){
-		                    	 ctx.drawImage(img,2,89,150,285);//身子
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==3){
-		                    	 ctx.drawImage(img,27,88,102,135);//胸罩
-		                         drawing(n+1);//递归
-		                    } 
-		                    else if(n==4){
-		                    	  ctx.drawImage(img,48,23,52,49);//脸
-		                         drawing(n+1);//递归
-		                    } 
-		                    else {
-		                     	 ctx.drawImage(img,46,20,58,65);//内衬
-		                         drawing(n+1);//递归
-		                    }  
-		                }
-		            }else{
-		            //保存生成作品图片
-		                base64.push(c.toDataURL("images/png",0.8));
-		                fn();
-		            }
-		        }
-		        drawing(0);
-	   	    }
-		}
-	}
-});
+// 		                    }
+// 		                    else if(n==1){
+// 		                           ctx.drawImage(img,32,60,90,30);//脖子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==2){
+// 		                    	 ctx.drawImage(img,2,89,150,285);//身子
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==3){
+// 		                    	 ctx.drawImage(img,27,88,102,135);//胸罩
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else if(n==4){
+// 		                    	  ctx.drawImage(img,48,23,52,49);//脸
+// 		                         drawing(n+1);//递归
+// 		                    } 
+// 		                    else {
+// 		                     	 ctx.drawImage(img,46,20,58,65);//内衬
+// 		                         drawing(n+1);//递归
+// 		                    }  
+// 		                }
+// 		            }else{
+// 		            //保存生成作品图片
+// 		                base64.push(c.toDataURL("images/png",0.8));
+// 		                fn();
+// 		            }
+// 		        }
+// 		        drawing(0);
+// 	   	    }
+// 		}
+// 	}
+// });
 </script>
 </body>
 </html>
