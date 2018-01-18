@@ -32,17 +32,13 @@ class CoreApi_Hw extends CoreApi {
         $binds = array();
         
         if(isset($params['height'])) {
-            $sql .= ' and height_start >= :height_start and height_end < :height_end';
-            $binds[':height_start'] = $params['height'];
-            $binds[':height_end'] = $params['height'];
+            $sql .= ' and height_start <= '.$params['height'].' and height_end > '.$params['height'];
             unset($params['height']);
         }
         
         if(isset($params['weight'])) {
-            $sql .= ' and weight_start >= :weight_start and weight_end < :weight_end';
-            $binds[':weight_start'] = $params['weight'];
-            $binds[':weight_end'] = $params['weight'];
-            unset($params['height']);
+            $sql .= ' and weight_start <= '.$params['weight'].' and weight_end > '.$params['weight'];
+            unset($params['weight']);
         }
         if(!empty($params)) {
             foreach($params as $k => $v) {
@@ -50,7 +46,6 @@ class CoreApi_Hw extends CoreApi {
                 $sql .= ' and ' . $k . '=:' . $k;
             }
         }
-    
         $sql .= ' order by ' . $order . ' ' . $desc;
         return $this->db->page($sql, $binds, $page, $pagesize, $returnFormat);
     }

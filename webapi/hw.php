@@ -16,13 +16,12 @@ class WebApi_Hw extends WebApi{
         if(!is_array($params)) {
             return array();
         }
-        $hwPhotos = CoreApi_Image::instance()->getHwphotosByParams($params, $page, $pageSize);
+        $hwPhotos = CoreApi_Hw::instance()->getHwphotosByParams($params, $page, $pageSize);
         if(empty($hwPhotos)) {
-            $hwPhotos = CoreApi_Image::instance()->row('*',1);
+            $hwPhotos = CoreApi_Hw::instance()->row('*',1);
         }else {
             $hwPhotos = current($hwPhotos);
         }
-        
         return $hwPhotos;
     }
     
