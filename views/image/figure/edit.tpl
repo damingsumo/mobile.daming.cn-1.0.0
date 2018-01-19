@@ -28,11 +28,11 @@
               <span>腰型</span>
                <input type="hidden" value="{$figure.waist}" id="waist" name="waist">
               <ul>
-                <li {if $figure.waist == 1} class="border5" {/if} value="1"></li>
-                <li {if $figure.waist == 2} class="border5" {/if} value="2"></li>
-                <li {if $figure.waist == 3} class="border5" {/if} value="3"><span></span></li>
-                <li {if $figure.waist == 4} class="border5" {/if} value="4"></li>
-                <li {if $figure.waist == 5} class="border5" {/if} value="5"></li>
+                <li {if $figure.waist == 1} class="border5" {/if} value="1" onclick="changge('waist',1)"></li>
+                <li {if $figure.waist == 2} class="border5" {/if} value="2" onclick="changge('waist',2)"></li>
+                <li {if $figure.waist == 3} class="border5" {/if} value="3" onclick="changge('waist',3)"><span></span></li>
+                <li {if $figure.waist == 4} class="border5" {/if} value="4" onclick="changge('waist',4)"></li>
+                <li {if $figure.waist == 5} class="border5" {/if} value="5" onclick="changge('waist',5)"></li>
               </ul>
               <span></span>
               <ul>
@@ -112,11 +112,11 @@
               <span>胯型</span>
               <input type="hidden" value="{$figure.hip_type}" id="hip_type" name="waist">
               <ul>
-                <li {if $figure.hip_type == 1} class="border5" {/if} value="1"></li>
-                <li {if $figure.hip_type == 2} class="border5" {/if} value="2"></li>
-                <li {if $figure.hip_type == 3} class="border5" {/if} value="3"><span></span></li>
-                <li {if $figure.hip_type == 4} class="border5" {/if} value="4"></li>
-                <li {if $figure.hip_type == 5} class="border5" {/if} value="5"></li>
+                <li {if $figure.hip_type == 1} class="border5" {/if} value="1" onclick="changge('hip_type',1)"></li>
+                <li {if $figure.hip_type == 2} class="border5" {/if} value="2" onclick="changge('hip_type',2)"></li>
+                <li {if $figure.hip_type == 3} class="border5" {/if} value="3" onclick="changge('hip_type',3)"><span></span></li>
+                <li {if $figure.hip_type == 4} class="border5" {/if} value="4" onclick="changge('hip_type',4)"></li>
+                <li {if $figure.hip_type == 5} class="border5" {/if} value="5" onclick="changge('hip_type',5)"></li>
               </ul>
               <span></span>
               <ul>
@@ -408,5 +408,27 @@
     <input type="submit" value="完成">
   </div>
   </form>
+  {literal}
+  <script type="text/javascript">
+  function changge(key,localfigure) {
+	  $.ajax({
+			type: "POST",
+			url: 'ajaxChangeFigure',
+			data: {key:key,localfigure:localfigure},
+			datatype:'json',
+			success: function(data) {
+				var member = eval('('+data+')');
+				if(member.status == 200) {
+
+
+
+					
+				}
+			}
+	  })
+	  
+  }
+  </script>
+  {/literal}
 </body>
 </html>
