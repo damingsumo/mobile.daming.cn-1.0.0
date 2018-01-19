@@ -25,6 +25,9 @@
   <input type="hidden" value="{$good.abscissa}" id="clothes_abscissa">
   <input type="hidden" value="{$good.length}" id="clothes_length">
   <input type="hidden" value="{$good.width}" id="clothes_width">
+  
+  <input type="hidden" value="{$hwPhoto['boday_url']}" id="boday_url">
+  <input type="hidden" value="{if isset($hwPhoto['leg_url'])}{$hwPhoto['leg_url']}{/if}" id="leg_url">
    <div class="content7">
 	<div class="content7_top">
 		<div class="top71">

@@ -1,12 +1,66 @@
 <?php
 class Controller_User_Figure extends Controller_Base {
     
+    
+    /***
+     * 
+     * 身材特征修改
+     */
     public function actionEdit() {
         if(empty($_POST)) {
             $uid = account::getUid();
             $figure = WebApi_User_Figure::instance()->getFiguresByParams(array('uid'=>$uid));
-            if(!empty($figure)) {
-                $figure = current($figure);
+            if(empty($figure)) {
+                return $this->error('未找到身材数据');
+            }
+            $localfigure = array();
+            $figure = current($figure);
+            if($figure['waist'] < 5) {
+                $localfigure['waist'] = 1;
+            }
+//             if($figure['belly'] < 5) {
+//                 $localfigure['belly'] = 1;
+//             }
+//             if($figure['stern_type'] < 5) {
+//                 $localfigure['stern_type'] = 1;
+//             }
+            if($figure['hip_type'] < 5) {
+                $localfigure['hip_type'] = 1;
+            }
+//             if($figure['shoulder'] < 5) {
+//                 $localfigure['shoulder'] = 1;
+//             }
+            if($figure['arm'] < 5) {
+                $localfigure['arm'] = 1;
+            }
+//             if($figure['arm_circumference'] < 5) {
+//                 $localfigure['arm_circumference'] = 1;
+//             }
+//             if($figure['hip'] < 5) {
+//                 $localfigure['hip'] = 1;
+//             }
+//             if($figure['thigh'] < 5) {
+//                 $localfigure['thigh'] = 1;
+//             }
+//             if($figure['leg'] < 5) {
+//                 $localfigure['leg'] = 1;
+//             }
+//             if($figure['body_thick'] < 5) {
+//                 $localfigure['body_thick'] = 1;
+//             }
+//             if($figure['body_length'] < 5) {
+//                 $localfigure['body_length'] = 1;
+//             }
+            $userHw = WebApi_User_Hw::instance()->getHwsByParams(array('uid'=>$uid));
+            if(empty($userHw)) {
+                return $this->error('未找到用户身高体重');
+            }
+            $userHw = current($userHw);
+            $localfigure['height'] = $userHw['height'];
+            $localfigure['weight'] = $userHw['weight'];
+            $hwPhoto = WebApi_Hw::instance()->getHwphotosByParams($localfigure);
+            if(empty($hwPhoto)) {
+                return $this->error('未找到图片数据');
             }
             $params = array();
             $params['figure'] = $figure;
@@ -23,6 +77,11 @@ class Controller_User_Figure extends Controller_Base {
         http::go('/user/index');
     }
     
+    /***
+     * 
+     * 身材数据修改
+     * 
+     */
     public function actionDetail() {
         if(empty($_POST)) {
             $uid = account::getUid();
@@ -72,4 +131,65 @@ class Controller_User_Figure extends Controller_Base {
         http::go('/user/figure/edit');
     }
     
+    
+    function AjaxChangeFigure() {
+        $uid = account::getUid();
+        $key = isset($_POST['key']) ? isset($_POST['key'])  : '';
+        $localFigure = isset($_POST['localFigure']) ? isset($_POST['localFigure']) : 1;
+        $figure = WebApi_User_Figure::instance()->getFiguresByParams(array('uid'=>$uid));
+        if(empty($figure)) {
+            return $this->ajaxError('未找到数据');
+        }
+        $figure = current($figure);
+        if($figure['waist'] < 5) {
+            $figure['waist'] = 1;
+        }
+//         if($figure['belly'] < 5) {
+//             $figure['belly'] = 1;
+//         }
+//         if($figure['stern_type'] < 5) {
+//             $figure['stern_type'] = 1;
+//         }
+        if($figure['hip_type'] < 5) {
+            $figure['hip_type'] = 1;
+        }
+//         if($figure['shoulder'] < 5) {
+//             $figure['shoulder'] = 1;
+//         }
+        if($figure['arm'] < 5) {
+            $figure['arm'] = 1;
+        }
+//         if($figure['arm_circumference'] < 5) {
+//             $figure['arm_circumference'] = 1;
+//         }
+//         if($figure['hip'] < 5) {
+//             $figure['hip'] = 1;
+//         }
+//         if($figure['thigh'] < 5) {
+//             $figure['thigh'] = 1;
+//         }
+//         if($figure['leg'] < 5) {
+//             $figure['leg'] = 1;
+//         }
+//         if($figure['body_thick'] < 5) {
+//             $figure['body_thick'] = 1;
+//         }
+//         if($figure['body_length'] < 5) {
+//             $figure['body_length'] = 1;
+//         }
+        $userHw = WebApi_User_Hw::instance()->getHwsByParams(array('uid'=>$uid));
+        if(empty($userHw)) {
+            return $this->error('未找到用户身高体重');
+        }
+        $userHw = current($userHw);
+        $figure[$key] = $localFigure;
+        $figure['height'] = $userHw['height'];
+        $figure['weight'] = $userHw['weight'];
+        $hwPhoto = WebApi_Hw::instance()->getHwphotosByParams($figure);
+        if(empty($hwPhoto)) {
+            return $this->error('未找到图片数据');
+        }
+        return $this->ajaxSuccess($hwPhoto);
+        
+    }
 }
