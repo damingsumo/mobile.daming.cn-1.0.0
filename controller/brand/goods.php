@@ -74,29 +74,8 @@ class Controller_Brand_Goods extends Controller_Base {
         if(empty($userHw)) {
             return $this->error('未找到用户身高体重');
         }
-        $userFigure = WebApi_User_Figure::instance()->getFiguresByParams(array('uid'=>$uid));
-        if(empty($userFgure)) {
-            return  $this->error('未找到用户细节信息');
-        }
-        $data = array();
-        $data[''] = $userFigure[''];
-        $data[''] = $userFigure[''];
-        $data[''] = $userFigure[''];
-        $data[''] = $userFigure[''];
-        $data[''] = $userFigure[''];
-        $data[''] = $userFigure[''];
-        $data[''] = $userFigure[''];
-        $data[''] = $userFigure[''];
-        $data[''] = $userFigure[''];
-        $data[''] = $userFigure[''];
-        $data[''] = $userFigure[''];
-        $data[''] = $userFigure[''];
-        
-        
-        
         $userHw = current($userHw);
         $hwPhoto = WebApi_Hw::instance()->getHwphotosByParams(array('height'=>$userHw['height'],'weight'=>$userHw['weight']));
-        print_r($hwPhoto);exit;
         $params['hwPhoto'] = $hwPhoto;
         $params['userHairStyle'] = $userHairStyle;
         $params['userFace'] = $userFace;
@@ -105,7 +84,6 @@ class Controller_Brand_Goods extends Controller_Base {
         $params['total'] = $total;
         $params['brand'] = $brand;
         $params['key'] = $key;
-        print_r($params);exit;
         return $this->display('list', $params);
     }
     
@@ -377,17 +355,13 @@ class Controller_Brand_Goods extends Controller_Base {
             // }
         }
         
-//         $userHw = WebApi_User_Hw::instance()->getHwsByParams(array('uid'=>$uid));
-//         if(empty($userHw)) {
-//             return $this->error('未找到用户身高体重');
-//         }
-        
-//         $userfigure = WebApi_User_Figure::instance()->
-        
-        
-//         $userHw = current($userHw);
-//         $hwPhoto = WebApi_Hw::instance()->getHwphotosByParams(array('heigth'=>$userHw['heigth'],'weight'=>$userHw['weight']));
-//         $params['hwPhoto'] = $hwPhoto;
+        $userHw = WebApi_User_Hw::instance()->getHwsByParams(array('uid'=>$uid));
+        if(empty($userHw)) {
+            return $this->error('未找到用户身高体重');
+        }
+        $userHw = current($userHw);
+        $hwPhoto = WebApi_Hw::instance()->getHwphotosByParams(array('height'=>$userHw['height'],'weight'=>$userHw['weight']));
+        $params['hwPhoto'] = $hwPhoto;
         $params['userHairStyle'] = $userHairStyle;
         $params['userFace'] = $userFace;
         $params['image'] = $image;
