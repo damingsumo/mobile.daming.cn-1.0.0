@@ -1,10 +1,16 @@
 {include file="common/header.tpl" pageTitle="我的"}
 <form action="edit" id="myform" method="post">
 <input type="hidden" name="user_figure_id" value="{$figure.user_figure_id}">
+
   <div class="content5">
     <div class="content5_top">
       <ul>
-        <li><img src="{staticurl action='119.png' type='img'}"></li>
+        <li>
+          <canvas id="behid_hair" width="220" height="430"></canvas>
+             <canvas id="MyCanvas"  width="220" height="430;"></canvas>
+             <canvas id="hair" width="220" height="430;"></canvas>
+
+        </li>
       </ul>
     </div>
     <div class="content5_center">
@@ -42,7 +48,7 @@
               </ul>
             </div>
           </li>
-          <li>
+          <!-- <li>
             <div class="left5 left52">
               <ul>
                 <li {if $figure.belly == 1} class="block5" {/if}><img src="{staticurl action='503.png' type='img'}"></li>
@@ -69,8 +75,8 @@
                 <li>大肚腩</li>
               </ul>
             </div>
-          </li>
-          <li>
+          </li> -->
+         <!--  <li>
             <div class="left5 left53">
               <ul>
                 <li {if $figure.stern_type == 1} class="block5" {/if}><img src="{staticurl action='tun1.png' type='img'}"></li>
@@ -97,7 +103,7 @@
                 <li>上翘</li>
               </ul>
             </div>
-          </li>
+          </li> -->
           <li>
             <div class="left5 left54">
               <ul>
@@ -126,7 +132,7 @@
               </ul>
             </div>
           </li>
-          <li>
+          <!-- <li>
             <div class="left5 left55">
               <ul>
                 <li {if $figure.shoulder == 1} class="block5" {/if}><img src="{staticurl action='506.png' type='img'}"></li>
@@ -153,7 +159,7 @@
                 <li>宽</li>
               </ul>
             </div>
-          </li>
+          </li> -->
           <li>
             <div class="left5 left56">
               <ul>
@@ -168,11 +174,11 @@
               <span>臂长</span>
               <input type="hidden" value="{$figure.arm}" id="arm" name="arm">
               <ul>
-                <li {if $figure.arm == 1} class="border5" {/if} value="1"></li>
-                <li {if $figure.arm == 2} class="border5" {/if} value="2"></li>
-                <li {if $figure.arm == 3} class="border5" {/if} value="3"><span></span></li>
-                <li {if $figure.arm == 4} class="border5" {/if} value="4"></li>
-                <li {if $figure.arm == 5} class="border5" {/if} value="5"></li>
+                <li {if $figure.arm == 1} class="border5" {/if} value="1" onclick="changge('arm',1)"></li>
+                <li {if $figure.arm == 2} class="border5" {/if} value="2" onclick="changge('arm',2)"></li>
+                <li {if $figure.arm == 3} class="border5" {/if} value="3" onclick="changge('arm',3)"><span></span></li>
+                <li {if $figure.arm == 4} class="border5" {/if} value="4" onclick="changge('arm',4)"></li>
+                <li {if $figure.arm == 5} class="border5" {/if} value="5" onclick="changge('arm',5)"></li>
               </ul>
               <span></span>
               <ul>
@@ -182,7 +188,7 @@
               </ul>
             </div>
           </li>
-          <li>
+         <!--  <li>
             <div class="left5 left57">
               <ul>
                 <li {if $figure.arm_circumference == 1} class="block5" {/if}><img src="{staticurl action='508.png' type='img'}"></li>
@@ -209,8 +215,8 @@
                 <li>粗</li>
               </ul>
             </div>
-          </li>
-          <li>
+          </li> -->
+          <!-- <li>
             <div class="left5 left58">
               <ul>
                 <li {if $figure.hip == 1} class="block5" {/if}><img src="{staticurl action='509.png' type='img'}"></li>
@@ -237,8 +243,8 @@
                 <li>宽</li>
               </ul>
             </div>
-          </li>
-          <li>
+          </li> -->
+         <!--  <li>
             <div class="left5 left59">
               <ul>
                 <li {if $figure.thigh == 1} class="block5" {/if}><img src="{staticurl action='510.png' type='img'}"></li>
@@ -265,8 +271,8 @@
                 <li>粗</li>
               </ul>
             </div>
-          </li>
-          <li>
+          </li> -->
+         <!--  <li>
             <div class="left5 left510">
               <ul>
                 <li {if $figure.leg == 1} class="block5" {/if}><img src="{staticurl action='511.png' type='img'}"></li>
@@ -293,8 +299,8 @@
                 <li>粗</li>
               </ul>
             </div>
-          </li>
-          <li>
+          </li> -->
+        <!--   <li>
             <div class="left5 left511">
               <ul>
                 <li {if $figure.body_thick == 1} class="block5" {/if}><img src="{staticurl action='shangshen2.png' type='img'}"></li>
@@ -349,7 +355,7 @@
                 <li>下身长</li>
               </ul>
             </div>
-          </li>
+          </li> -->
         </ul>
         <div class="content5_bottom">
           <span>以下特征中你最在意的是（最多3项）</span>
@@ -402,14 +408,15 @@
         </div>
       </div>
     </div>
-  </div>
-  
-  <div class="footer4">
+  </div> 
+ <div class="footer4">
     <input type="submit" value="完成">
   </div>
   </form>
   {literal}
   <script type="text/javascript">
+   $(document).ready(function(){  
+   })
   function changge(key,localfigure) {
 	  $.ajax({
 			type: "POST",
@@ -418,9 +425,59 @@
 			datatype:'json',
 			success: function(data) {
 				var member = eval('('+data+')');
-				if(member.status == 200) {
-
-
+				if(member.status == 200) { 
+                var body =member.data['hwPhoto']['boday_url']; 
+                console.log(body)
+                var canvas = document.getElementById("MyCanvas"); 
+                var ctx = canvas.getContext("2d"); 
+                var canvas1 = document.getElementById("behid_hair"); 
+                var ctx1 = canvas1.getContext("2d");
+                var canvas2 = document.getElementById("hair"); 
+                var ctx2 = canvas2.getContext("2d");
+                //后面的头发
+                var img = new Image(); 
+                   img.crossOrigin =" anonymous" ; 
+                   img.src ="/static/images/chaoduanfa.png"; 
+                   ctx1.clearRect(0,0,1000,1000); 
+                   img.onload = function(){
+                       ctx1.drawImage(img,beo,bea,bel,bew);  
+                    }
+                //脸  
+                var img3 = new Image(); 
+                    img3.crossOrigin =" anonymous"; 
+                    img3.src ="/static/images/yuandanlian.png"; 
+                   // ctx.clearRect(0,0,1000,1000); 
+                img3.onload = function () //确保图片已经加载完毕  
+                {  
+                  ctx.drawImage(img3,115,28,52,49);  
+                     //脖子
+                    var img1 = new Image(); 
+                        img1.crossOrigin =" anonymous" ; 
+                        img1.src= "/static/images/bozi.png"; 
+                    img1.onload = function () //确保图片已经加载完毕  
+                    {  
+                      ctx.drawImage(img1,100,85,89,20);  
+                    } 
+                    //身子
+                    var img2 = new Image();
+                        img2.crossOrigin =" anonymous" ; 
+                        img2.src=body; 
+                    img2.onload = function () //确保图片已经加载完毕  
+                    {  
+                          ctx.drawImage(img2,70,90,150,300);    
+                     }
+                 }
+                 //前面的头发  
+                 var img4 = new Image(); 
+                     img4.crossOrigin =" anonymous" ; 
+                     img4.src ="/static/images/chaoduanfa1.png"; 
+                   // ctx.clearRect(0,0,1000,1000); 
+                img4.onload = function () //确保图片已经加载完毕  
+                {  
+                  ctx2.drawImage(img4,fro,fra,frl,frw); 
+                 }
+         
+       
 
 					
 				}

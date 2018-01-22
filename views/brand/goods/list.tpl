@@ -91,6 +91,8 @@ $(document).ready(function(){
             var facestyle = $("#face_synthesis_url").val();
             var behidestyle = $("#behide_synthesis_url").val();
             var frontstyle= $("#front_synthesis_url").val(); 
+            var body=$("#boday_url").val();
+            var leg=$("#leg_url").val();
             var clothes= numbera[i]["defaultValue"];
             var shoes= number1[i]["defaultValue"];
             var sho = number2[i]["defaultValue"];
@@ -104,7 +106,7 @@ $(document).ready(function(){
             var fro = $("#front_ordinate").val();
             var fra =  $("#front_abscissa").val();
             var frl = $("#front_length").val();
-            var frw = $("#front_width").val();
+            var frw = $("#front_width").val(); 
             var func =function(wer){ 
                    var clo = numberb[i]["defaultValue"];
                    var cla = numberc[i]["defaultValue"];
@@ -154,18 +156,26 @@ $(document).ready(function(){
                       //身子
                       var img2 = new Image();
                           img2.crossOrigin =" anonymous" ; 
-                          img2.src="/static/images/shenzi.png"; 
+                          img2.src=body; 
                       img2.onload = function () //确保图片已经加载完毕  
                       {  
-                            ctx.drawImage(img2,70,90,150,255);   
+                            ctx.drawImage(img2,70,90,150,155);   
+                       } 
+                       //腿
+                      var img9 = new Image();
+                          img9.crossOrigin =" anonymous" ; 
+                          img9.src=leg; 
+                      img9.onload = function () //确保图片已经加载完毕  
+                      {  
+                            ctx.drawImage(img9,100,245,82,103);   
                        } 
                   } 
                  var img7 = new Image(); 
-                   img7.crossOrigin =" anonymous" ; 
-                   img7.src =shoes; 
+                     img7.crossOrigin =" anonymous" ; 
+                     img7.src =shoes; 
                 img7.onload = function () //确保图片已经加载完毕  
                 {  
-                  ctx.drawImage(img7,sho,sha,shl,shw); 
+                  ctx.drawImage(img7,parseInt(sho)-1,sha,parseInt(shl)+3,shw); 
                 }
              }
             func(ss); 
