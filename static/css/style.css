@@ -1340,6 +1340,8 @@ align-items: center;
 	display: flex;
 	justify-content:center;
 	float: left;
+	position: relative;
+	height: 48rem;
 }
 .content5_top ul li img:nth-child(1){
 	width:18rem;
@@ -1377,6 +1379,7 @@ align-items: center;
 	width: 100%;
 	background: #fff;
 	display: table;
+	z-index: 60;
 }
 .change5.kuang5{
 	height: 32rem;
@@ -2984,17 +2987,17 @@ align-items: center;
     margin-right: 1.7rem;
     margin-top: 0.4rem;
 }
-.top71 li canvas{ 
+.top71 li canvas,.content5_top canvas{ 
 	position: absolute;
 	left:17%; 
 }
-.top71 li canvas:first-child{
+.top71 li canvas:first-child,.content5_top canvas:first-child{
     z-index: 1;
 }
-.top71 li canvas:nth-child(2){
+.top71 li canvas:nth-child(2),.content5_top canvas:nth-child(2){
     z-index: 51;
 }	
-.top71 li canvas:nth-child(3){
+.top71 li canvas:nth-child(3),.content5_top canvas:nth-child(3){
     z-index: 55;
 }	
 @media screen and (width: 320px){

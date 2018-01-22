@@ -1,6 +1,6 @@
 {include file="common/header.tpl" pageTitle="创建身材"}
 		<form action="edit" id="myform" method="post">
-		<input type="hidden" name="user_hw_id" value="{$hw.user_hw_id}">
+		<input type="hidden" name="user_hw_id" value="{$hw.user_hw_id}" id="user_hw_id">
 	<div class="content6">
 		<div class="content6_top">
 			<ul>
@@ -229,6 +229,8 @@
 	</form>
 <script type="text/javascript">
 $(document).ready(function(){
+	var s=$("#user_hw_id").val();
+	console.log(s)
 	var canvas = document.getElementById("MyCanvas"); 
     var ctx = canvas.getContext("2d");  
     //后面的头发
@@ -260,6 +262,13 @@ $(document).ready(function(){
             img2.crossOrigin =" anonymous" ; 
             img2.src="/static/images/16634.png"; 
         img2.onload = function () //确保图片已经加载完毕  
+        {  
+              ctx.drawImage(img2,25,90,150,300);    
+         }
+         var img9 = new Image();
+            img9.crossOrigin =" anonymous" ; 
+            img9.src="/static/images/8989888.png"; 
+        img9.onload = function () //确保图片已经加载完毕  
         {  
               ctx.drawImage(img2,25,90,150,300);    
          }
