@@ -113,7 +113,9 @@ class Controller_User_Figure extends Controller_Base {
         if(empty($hwPhoto)) {
             return $this->error('未找到图片数据');
         }
-        return $this->ajaxSuccess($hwPhoto);
+        $params = array();
+        $params['hwPhoto'] = $hwPhoto
+        return $this->ajaxSuccess($params);
         
     }
 }
