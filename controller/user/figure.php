@@ -113,7 +113,16 @@ class Controller_User_Figure extends Controller_Base {
         if(empty($hwPhoto)) {
             return $this->error('未找到图片数据');
         }
+        $image = WebApi_Image::instance()->row('*',$uid);
+        $hairstyle = WebApi::instance()->row('*',$image['hair_style_id']);
+        $complexion = WebApi::instance()->row('*',$image['complexion_id']);
+        $haircolor = WebApi::instance()->row('*',$image['hair_color_id']);
+        $face = WebApi::instance()->row('*',$image['face_id']);
         $params = array();
+        $params['hairstyle'] = $hairstyle;
+        $params['complexion'] = $complexion;
+        $params['haircolor'] = $haircolor;
+        $params['face'] = $face;
         $params['hwPhoto'] = $hwPhoto;
         return $this->ajaxSuccess($params);
         
