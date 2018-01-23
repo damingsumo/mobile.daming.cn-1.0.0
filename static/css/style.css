@@ -1493,15 +1493,15 @@ align-items: center;
 	left: 5%;
 }
 .right5 ul:nth-child(3) li:nth-child(2){
-	left: 25%;
+	left:45%;
 }
-.right5 ul:nth-child(3) li:nth-child(3){
+/*.right5 ul:nth-child(3) li:nth-child(3){
 	left: 45%;
 }
 .right5 ul:nth-child(3) li:nth-child(4){
 	left: 65%;
-}
-.right5 ul:nth-child(3) li:nth-child(5){
+}*/
+.right5 ul:nth-child(3) li:nth-child(3){
 	left: 85%;
 }
 .right5 ul:nth-child(3) li.border5{

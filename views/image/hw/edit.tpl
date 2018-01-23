@@ -230,7 +230,6 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	var s=$("#user_hw_id").val();
-	console.log(s)
 	var canvas = document.getElementById("MyCanvas"); 
     var ctx = canvas.getContext("2d");  
     //后面的头发
