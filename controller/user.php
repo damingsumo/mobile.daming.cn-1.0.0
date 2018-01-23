@@ -31,7 +31,7 @@ class Controller_User extends Controller_Base {
         $params['haircolor'] = $haircolor;
         $params['face'] = $face;
         $params['hwPhoto'] = $hwPhoto;
-        return $this->display('add');
+        return $this->display('add',$params);
     }
     
     
