@@ -1575,6 +1575,10 @@ align-items: center;
 	position: relative;
 	overflow: hidden;
 }
+.content6_top canvas{
+	position: absolute;
+	top:-3.5rem;
+}
 .content6_top ul{
 	width: 100%;
 	margin: 0;
@@ -1590,7 +1594,7 @@ align-items: center;
 	justify-content:center;
 	float: left;
 	position: relative;
-	height: 43rem;
+	height: 46rem;
 }
 .content6_top ul li img:nth-child(1){
 	/*width: 16rem;*/
@@ -1628,7 +1632,7 @@ align-items: center;
 }
 .content6_bottom{
 	padding: 0 1rem 0.8rem 1rem;
-	background-color: #fff;
+	background-color: #fff; 
 }
 .content6_bottom span{
 	font-size: 1.2rem;

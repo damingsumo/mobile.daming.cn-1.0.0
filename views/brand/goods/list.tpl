@@ -12,7 +12,7 @@
       <input type="hidden" value="{$userHairStyle.detail_front_abscissa}" id="front_abscissa">
       <input type="hidden" value="{$userHairStyle.detail_front_length}" id="front_length">
       <input type="hidden" value="{$userHairStyle.detail_front_width}" id="front_width">
-      
+        <input type="hidden" value="{$hwPhoto.list_bodylength}" id="list_bodylength">
       <input type="hidden" value="{$hwPhoto['boday_url']}" id="boday_url">
       <input type="hidden" value="{if isset($hwPhoto['leg_url'])}{$hwPhoto['leg_url']}{/if}" id="leg_url">
       
@@ -93,6 +93,7 @@ $(document).ready(function(){
             var frontstyle= $("#front_synthesis_url").val(); 
             var body=$("#boday_url").val();
             var leg=$("#leg_url").val();
+            var list_bodylength=$("#list_bodylength").val();
             var clothes= numbera[i]["defaultValue"];
             var shoes= number1[i]["defaultValue"];
             var sho = number2[i]["defaultValue"];
@@ -159,7 +160,7 @@ $(document).ready(function(){
                           img2.src=body; 
                       img2.onload = function () //确保图片已经加载完毕  
                       {  
-                            ctx.drawImage(img2,70,90,150,155);   
+                            ctx.drawImage(img2,70,80,150,parseInt(list_bodylength)+10);   
                        } 
                        //腿
                       var img9 = new Image();

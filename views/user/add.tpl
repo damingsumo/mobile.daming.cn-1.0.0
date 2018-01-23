@@ -1,5 +1,34 @@
 {include file="common/header.tpl" pageTitle="创建身材"}
 <body style="background:#e8e8e8;">
+	<input type="hidden" value="{$face.synthesis_url}" id="face_synthesis_url">
+  <input type="hidden" value="{$hairstyle.behide_synthesis_url}" id="behide_synthesis_url">
+  <input type="hidden" value="{$hairstyle.front_synthesis_url}" id="front_synthesis_url">
+  <input type="hidden" value="{$hwPhoto.behide_ordinate}" id="behide_ordinate">
+  <input type="hidden" value="{$hwPhoto.behide_abscissa}" id="behide_abscissa">
+  <input type="hidden" value="{$hwPhoto.behide_length}" id="behide_length">
+  <input type="hidden" value="{$hwPhoto.behide_width}" id="behide_width">
+  <input type="hidden" value="{$hwPhoto.front_ordinate}" id="front_ordinate">
+  <input type="hidden" value="{$hwPhoto.front_abscissa}" id="front_abscissa">
+  <input type="hidden" value="{$hwPhoto.front_length}" id="front_length">
+  <input type="hidden" value="{$hwPhoto.front_width}" id="front_width">
+  <input type="hidden" value="{$hwPhoto.boday_url}" id="boday_url">
+  <input type="hidden" value="{$hwPhoto.bodylength}" id="bodylength">
+   <input type="hidden" value="{$hwPhoto.bodywidth}" id="bodywidth">   
+  <input type="hidden" value="{$hwPhoto.cup_length}" id="cup_length"> 
+  <input type="hidden" value="{$hwPhoto.leg_width}" id="leg_width"> 
+   <input type="hidden" value="{$hwPhoto.leg_length}" id="leg_length"> 
+   <input type="hidden" value="{$hwPhoto.leg_abscissa}" id="leg_abscissa"> 
+   <input type="hidden" value="{$hwPhoto.leg_url}" id="leg_url"> 
+   <input type="hidden" value="{$hwPhoto.bodyordinate}" id="bodyordinate"> 
+   <input type="hidden" value="{$hwPhoto.bodyabscissa}" id="bodyabscissa"> 
+   <input type="hidden" value="{$hwPhoto.cup_ordinate}" id="cup_ordinate"> 
+   <input type="hidden" value="{$hwPhoto.cup_width}" id="cup_width"> 
+   <input type="hidden" value="{$hwPhoto.cup_abscissa}" id="cup_abscissa"> 
+   <input type="hidden" value="{$hwPhoto.neck}" id="neck"> 
+   <input type="hidden" value="{$hwPhoto.face_ordinate}" id="face_ordinate">
+  <input type="hidden" value="{$hwPhoto.face_abscissa}" id="face_abscissa">
+  <input type="hidden" value="{$hwPhoto.face_length}" id="face_length">
+  <input type="hidden" value="{$hwPhoto.face_width}" id="face_width">
 	<div class="proper" id="start">
 		<div class="gray"></div>
 		<div class="mess">
@@ -37,7 +66,11 @@
 	<div class="content6">
 		<div class="content6_top">
 			<ul>
-				<li><img src="{staticurl action='119.png' type='img'}"></li> 
+				<li> 
+                    <canvas id="behid_hair" width="300" height="500"></canvas>
+		             <canvas id="MyCanvas"  width="300" height="500"></canvas>
+		             <canvas id="hair" width="300" height="500;"></canvas>
+				</li> 
 			</ul>
 		</div>
 		<div class="content6_bottom">
@@ -45,7 +78,7 @@
 				<li>
 					<div>
 						<span>身高</span>
-						<select name="height" id="height" class="height">
+						<select name="height" id="height" class="height" title="sel">
 							<option value="0">请选择</option>
 							<option value="146" title="320">146cm</option>
 							<option value="147" title="322">147cm</option>
@@ -91,7 +124,7 @@
 				<li>
 					<div>
 						<span>体重</span>
-						<select name="weight" id="weight" class="weight">
+						<select name="weight" id="weight" class="weight" title="ael">
 							<option value="0">请选择</option>
 							<option value="34" title="100">34kg</option>
 							<option value="35" title="102">35kg</option>
@@ -302,8 +335,237 @@ function check() {
 	}
 	return true;
 }
+$(document).ready(function(){
+	var facestyle = $("#face_synthesis_url").val(); 
+          var behidestyle = $("#behide_synthesis_url").val();
+          var frontstyle= $("#front_synthesis_url").val();
+          var shoes= $("#shoes_synthesis_url").val(); 
+          var beo =$("#behide_ordinate").val();
+          var bea = $("#behide_abscissa").val();
+          var bel = $("#behide_length").val();
+          var bew = $("#behide_width").val();
+          var fao =$("#face_ordinate").val();
+          var faa = $("#face_abscissa").val();
+          var fal = $("#face_length").val();
+          var faw = $("#face_width").val();
+          var fro = $("#front_ordinate").val();
+          var fra =  $("#front_abscissa").val();
+          var frl = $("#front_length").val();
+          var frw = $("#front_width").val();
+         var body=$("#boday_url").val();
+         var bodylength=$("#bodylength").val(); 
+         var leg=$("#leg_url").val();
+         var cup_length= $("#cup_length").val(); 
+         var bodywidth=$("#bodywidth").val();   
+         var bodyordinate=$("#bodyordinate").val();   
+         var bodyabscissa=$("#bodyabscissa").val();
+         var cup_ordinate=$("#cup_ordinate").val(); 
+         var cup_abscissa=$("#cup_abscissa").val();
+         var cup_width=$("#cup_width").val();          
+         var leg_width=$("#leg_width").val(); 
+         var leg_length=$("#leg_length").val(); 
+          var leg_abscissa=$("#leg_abscissa").val(); 
+            var neck=$("#neck").val();
+         var canvas = document.getElementById("MyCanvas"); 
+                var ctx = canvas.getContext("2d"); 
+                var canvas1 = document.getElementById("behid_hair"); 
+                var ctx1 = canvas1.getContext("2d");
+                var canvas2 = document.getElementById("hair"); 
+                var ctx2 = canvas2.getContext("2d");
+                // console.log(bodywidth)
+                //后面的头发
+                // var img = new Image(); 
+                //    img.crossOrigin =" anonymous" ; 
+                //    img.src =behidestyle; 
+                //    ctx1.clearRect(0,0,1000,1000); 
+                //    img.onload = function(){
+                //        ctx1.drawImage(img,parseInt(beo)+3,parseInt(bea)+70,bel,bew);  
+                //     }
+                //脸  
+                var img3 = new Image(); 
+                    img3.crossOrigin =" anonymous"; 
+                    img3.src ="/static/images/yuandanlian.png"; 
+                   ctx.clearRect(0,0,1000,1000); 
+                img3.onload = function () //确保图片已经加载完毕  
+                {  
+                  ctx.drawImage(img3,114,faa,65,75);  
+                     //脖子
+                    var img1 = new Image(); 
+                        img1.crossOrigin =" anonymous" ; 
+                        img1.src= "/static/images/bozi1.png"; 
+                    img1.onload = function () //确保图片已经加载完毕  
+                    {  
+                      ctx.drawImage(img1,104,neck,90,42);  
+                    } 
+                      ctx.globalCompositeOperation="destination-over";
+                    //身子
+                    var img2 = new Image();
+                        img2.crossOrigin =" anonymous" ; 
+                        img2.src=body; 
+                    img2.onload = function () //确保图片已经加载完毕  
+                    {  
+                          ctx.drawImage(img2,71,bodyabscissa,bodywidth,bodylength);   
+                          // ctx.drawImage(img2,71,147,161,241);  
+                          // console.log(body)
+                     } 
+                     //腿
+                    var img6 = new Image();
+                        img6.crossOrigin =" anonymous" ; 
+                        img6.src=leg; 
+                         // ctx.clearRect(0,0,1000,1000); 
+                    img6.onload = function () //确保图片已经加载完毕  
+                    {  
+                          ctx.drawImage(img6,103,leg_abscissa,leg_width,leg_length);   
+                          // ctx.drawImage(img6,104,385,89,115); 
+                          // console.log(leg_width) 
+                     } 
+                 }
+                 //前面的头发  
+                 var img4 = new Image(); 
+                     img4.crossOrigin =" anonymous" ; 
+                     img4.src =frontstyle; 
+                   // ctx.clearRect(0,0,1000,1000); 
+                img4.onload = function () //确保图片已经加载完毕  
+                {  
+                  ctx2.drawImage(img4,112,fra,67,59); 
+                 }
+                //胸罩  
+                 var img7 = new Image(); 
+                     img7.crossOrigin =" anonymous" ; 
+                     img7.src ="/static/images/xiongzhao.png"; 
+                   // ctx.clearRect(0,0,1000,1000); 
+                img7.onload = function () //确保图片已经加载完毕  
+                {  
+                  ctx.drawImage(img7,cup_ordinate,cup_abscissa,cup_width,cup_length); 
+                   // ctx.drawImage(img7,97,120,110,175);
+                 }
 
+		     
+});
+$('select').change(function(){
+	 var height = $("select[title=sel]").val();
+	 if(height==''||height==0){
+	 	height=160;
+	 }
+	 var weight = $("select[title=ael]").val();
+	 if(weight==''||weight==0){
+	 	weight=50;
+	 }
+	 $.ajax({
+			type: "POST",
+			url: '/user/hw/ajaxGetHwPhoto',
+			data: {height:height,weight:weight},
+			datatype:'json',
+			success: function(data) {
+				var member = eval('('+data+')');
+				if(member.status == 200) { 
+	                var body =member.data['hwPhoto']['boday_url']; 
+	                var leg =member.data['hwPhoto']['leg_url']; 
+	                var behidestyle =member.data['hairstyle']['behide_synthesis_url'];
+	                var bodylength= member.data['hwPhoto']['bodylength']; 
+	                var bodywidth= member.data['hwPhoto']['bodywidth']; 
+	                var bodyordinate= member.data['hwPhoto']['bodyordinate']; 
+	                var bodyabscissa= member.data['hwPhoto']['bodyabscissa']; 
+	                var leg_length= member.data['hwPhoto']['leg_length']; 
+	                var leg_width= member.data['hwPhoto']['leg_width']; 
+	                var leg_abscissa= member.data['hwPhoto']['leg_abscissa']; 
+	                var cup_ordinate= member.data['hwPhoto']['cup_ordinate']; 
+	                var cup_abscissa= member.data['hwPhoto']['cup_abscissa']; 
+	                var cup_width= member.data['hwPhoto']['cup_width']; 
+	                var cup_length= member.data['hwPhoto']['cup_length']; 
+	                var neck= member.data['hwPhoto']['neck']; 
+	                var facestyle =member.data['face']['synthesis_url'];
+	                var frontstyle=member.data['hairstyle']['front_synthesis_url'];
+	                var beo =member.data['hwPhoto']['behide_ordinate'];
+	                var bea = member.data['hwPhoto']['behide_abscissa'];
+                  var bel = member.data['hwPhoto']['behide_length'];
+                  var bew = member.data['hwPhoto']['behide_width'];
+                  var fro = member.data['hwPhoto']['front_ordinate'];
+                  var fra = member.data['hwPhoto']['front_abscissa'];
+                  var frl = member.data['hwPhoto']['front_length'];
+                  var frw = member.data['hwPhoto']['front_width'];
+                   var fao = member.data['hwPhoto']['face_ordinate'];
+                  var faa = member.data['hwPhoto']['face_abscissa'];
+                  var fal = member.data['hwPhoto']['face_length'];
+                  var faw = member.data['hwPhoto']['face_width'];
+                var canvas = document.getElementById("MyCanvas"); 
+                var ctx = canvas.getContext("2d"); 
+                var canvas1 = document.getElementById("behid_hair"); 
+                var ctx1 = canvas1.getContext("2d");
+                var canvas2 = document.getElementById("hair"); 
+                var ctx2 = canvas2.getContext("2d");
+                //后面的头发
+                // var img = new Image(); 
+                //    img.crossOrigin =" anonymous" ; 
+                //    img.src =behidestyle; 
+                //    ctx1.clearRect(0,0,1000,1000); 
+                //    img.onload = function(){
+                //        ctx1.drawImage(img,parseInt(beo)+3,parseInt(bea)+70,bel,bew);  
+                //     }
+                //脸  
+                var img3 = new Image(); 
+                    img3.crossOrigin =" anonymous"; 
+                    img3.src ="/static/images/yuandanlian.png"; 
+                   ctx.clearRect(0,0,1000,1000); 
+                img3.onload = function () //确保图片已经加载完毕  
+                {  
+                  ctx.drawImage(img3,114,faa,65,75);  
+                     //脖子
+                    var img1 = new Image(); 
+                        img1.crossOrigin =" anonymous" ; 
+                        img1.src= "/static/images/bozi1.png"; 
+                    img1.onload = function () //确保图片已经加载完毕  
+                    {  
+                      ctx.drawImage(img1,104,neck,90,42);  
+                    } 
+                      ctx.globalCompositeOperation="destination-over";
+                    //身子
+                    var img2 = new Image();
+                        img2.crossOrigin =" anonymous" ; 
+                        img2.src=body; 
+                    img2.onload = function () //确保图片已经加载完毕  
+                    {  
+                          ctx.drawImage(img2,71,bodyabscissa,161,bodylength);    
+                          // ctx.drawImage(img2,71,127,161,251);
+                          // console.log(body)  
+                     }
+                     //腿
+                    var img6 = new Image();
+                        img6.crossOrigin =" anonymous" ; 
+                        img6.src=leg; 
+                         // ctx.clearRect(0,0,1000,1000); 
+                    img6.onload = function () //确保图片已经加载完毕  
+                    {  
+                          ctx.drawImage(img6,104,leg_abscissa,leg_width,leg_length); 
+                          // ctx.drawImage(img6,104,375,89,125); 
 
+                     }
+           
+                 }
+                 //前面的头发  
+                 var img4 = new Image(); 
+                     img4.crossOrigin =" anonymous" ; 
+                     img4.src =frontstyle; 
+                   ctx2.clearRect(0,0,1000,1000); 
+                img4.onload = function () //确保图片已经加载完毕  
+                {  
+                  ctx2.drawImage(img4,112,fra,67,59); 
+                 }
+                //胸罩  
+                 var img7 = new Image(); 
+                     img7.crossOrigin =" anonymous" ; 
+                     img7.src ="/static/images/xiongzhao.png"; 
+                   // ctx.clearRect(0,0,1000,1000); 
+                img7.onload = function () //确保图片已经加载完毕  
+                {  
+                  ctx.drawImage(img7,cup_ordinate,cup_abscissa,cup_width,cup_length); 
+                 } 
+
+			     }
+			}
+	 })
+	 
+});
 		
 </script> 
 {/literal}
