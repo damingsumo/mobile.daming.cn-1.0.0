@@ -17,6 +17,20 @@ class Controller_User extends Controller_Base {
     }
     
     public function actionGoAdd() {
+        $hwPhoto = WebApi_Hw::instance()->getHwphotosByParams(array());
+        if(empty($hwPhoto)) {
+            return $this->error('未找到图片数据');
+        }
+        $hairstyle = WebApi_Image_Hairstyle::instance()->row('*',1);
+        $complexion = WebApi_Image_Complexion::instance()->row('*',1);
+        $haircolor = WebApi_Image_HairColor::instance()->row('*',1);
+        $face = WebApi_Image_Face::instance()->row('*',1);
+        $params = array();
+        $params['hairstyle'] = $hairstyle;
+        $params['complexion'] = $complexion;
+        $params['haircolor'] = $haircolor;
+        $params['face'] = $face;
+        $params['hwPhoto'] = $hwPhoto;
         return $this->display('add');
     }
     
