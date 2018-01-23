@@ -69,6 +69,11 @@ class Controller_Brand_Goods extends Controller_Base {
             $userFace = WebApi_Image_Face::instance()->getFacesByParams(array());
             $userFace = current($userFace);
         }
+        $userHaircolor = array();
+        $userHaircolor= WebApi_Image_HairColor::instance()->row('*', $image['hair_color_id']);
+        if(empty($userHaircolor)) {
+            return $this->error('未找到用户身高体重');
+        }
         
         $userHw = WebApi_User_Hw::instance()->getHwsByParams(array('uid'=>$uid));
         if(empty($userHw)) {
@@ -79,6 +84,7 @@ class Controller_Brand_Goods extends Controller_Base {
         $params['hwPhoto'] = $hwPhoto;
         $params['userHairStyle'] = $userHairStyle;
         $params['userFace'] = $userFace;
+        $params['userHaircolor'] = $userHaircolor;
         $params['brandId'] = $brandId;
         $params['goods'] = $goods;
         $params['total'] = $total;
