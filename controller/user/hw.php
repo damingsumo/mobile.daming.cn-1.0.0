@@ -46,6 +46,7 @@ class Controller_User_Hw extends Controller_Base {
     }
     
     public function ajaxGetHwPhoto() {
+        $uid = account::getUid();
         $height= isset($_POST['height']) ? $_POST['height'] : 0;
         $weight = isset($_POST['weight']) ? $_POST['weight'] : 0;
         if(empty($height)) {
@@ -55,7 +56,16 @@ class Controller_User_Hw extends Controller_Base {
             return $this->error('体重错误');
         }
         $hwPhoto = WebApi_Hw::instance()->getHwphotosByParams(array('height'=>$height,'weight'=>$weight));
+        $image = WebApi_Image::instance()->row('*',$uid);
+        $hairstyle = WebApi_Image_Hairstyle::instance()->row('*',$image['hair_style_id']);
+        $complexion = WebApi_Image_Complexion::instance()->row('*',$image['complexion_id']);
+        $haircolor = WebApi_Image_HairColor::instance()->row('*',$image['hair_color_id']);
+        $face = WebApi_Image_Face::instance()->row('*',$image['face_id']);
         $params = array();
+        $params['hairstyle'] = $hairstyle;
+        $params['complexion'] = $complexion;
+        $params['haircolor'] = $haircolor;
+        $params['face'] = $face;
         $params['hwPhoto'] = $hwPhoto;
         return $this->ajaxSuccess($params);
         
