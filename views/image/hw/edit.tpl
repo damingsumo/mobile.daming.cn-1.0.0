@@ -477,7 +477,7 @@ $('select').change(function(){
                    // ctx.clearRect(0,0,1000,1000); 
                 img7.onload = function () //确保图片已经加载完毕  
                 {  
-                  ctx.drawImage(img7,cup_ordinate,cup_abscissa,cup_width,cup_length); 
+                  ctx2.drawImage(img7,cup_ordinate,cup_abscissa,cup_width,cup_length); 
                  } 
 
 			     }

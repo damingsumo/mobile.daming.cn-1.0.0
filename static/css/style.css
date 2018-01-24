@@ -10,6 +10,10 @@ body{
 	margin: 0;
 	background-color: #f6f6f6;
 }
+input[type="button"], input[type="submit"], input[type="reset"] {
+-webkit-appearance: none;
+}
+textarea { -webkit-appearance: none;}
 a{
 	text-decoration: none;
 	color: #000;
