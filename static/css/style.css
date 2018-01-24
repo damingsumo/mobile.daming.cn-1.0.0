@@ -2996,7 +2996,7 @@ align-items: center;
     margin-right: 1.7rem;
     margin-top: 0.4rem;
 }
-.top71 li canvas,.content5_top canvas{ 
+.top71 li canvas,.content5_top canvas,.content6_top canvas{ 
 	position: absolute;
 	left:17%; 
 }
@@ -3010,12 +3010,12 @@ align-items: center;
     z-index: 55;
 }	
 @media screen and (width: 320px){
-    .top71 li canvas,.content5_top canvas{
+    .top71 li canvas,.content5_top canvas,.content6_top canvas{
 		left: 7%;
 	} 
 }
 @media screen and (width: 375px){
-    .top71 li canvas,.content5_top canvas{
+    .top71 li canvas,.content5_top canvas,.content6_top canvas{
 		left: 12%;
 	}
 }
