@@ -86,13 +86,13 @@ $(document).ready(function(){
       var number3 =document.getElementsByName("shoes_abscissa");
       var number4 =document.getElementsByName("shoes_length");
       var number5 =document.getElementsByName("shoes_width"); 
-      var body = $("#boday_url").val();
-      var leg = $("#leg_url").val();
       for(var i = 0;i<number.length;i++){
             var ss = number[i].getAttribute("value");
             var facestyle = $("#face_synthesis_url").val();
             var behidestyle = $("#behide_synthesis_url").val();
             var frontstyle= $("#front_synthesis_url").val(); 
+            var body=$("#boday_url").val();
+            var leg=$("#leg_url").val();
             var list_bodylength=$("#list_bodylength").val();
             var clothes= numbera[i]["defaultValue"];
             var shoes= number1[i]["defaultValue"];
