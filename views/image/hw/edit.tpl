@@ -314,6 +314,7 @@ $(document).ready(function(){
                 img3.onload = function () //确保图片已经加载完毕  
                 {  
                   ctx.drawImage(img3,114,faa,65,75);  
+                  ctx.globalCompositeOperation="destination-over";
                      //脖子
                     var img1 = new Image(); 
                         img1.crossOrigin =" anonymous" ; 
@@ -429,7 +430,8 @@ $('select').change(function(){
                    ctx.clearRect(0,0,1000,1000); 
                 img3.onload = function () //确保图片已经加载完毕  
                 {  
-                  ctx.drawImage(img3,114,faa,65,75);  
+                  ctx.drawImage(img3,114,faa,65,75); 
+                  ctx.globalCompositeOperation="destination-over"; 
                      //脖子
                     var img1 = new Image(); 
                         img1.crossOrigin =" anonymous" ; 
@@ -437,7 +439,7 @@ $('select').change(function(){
                     img1.onload = function () //确保图片已经加载完毕  
                     {  
                       ctx.drawImage(img1,104,neck,90,42);  
-                   
+                     
                       ctx.globalCompositeOperation="destination-over";
                     //身子
                     var img2 = new Image();
@@ -449,7 +451,7 @@ $('select').change(function(){
                           // ctx.drawImage(img2,71,127,161,251);
                           // console.log(body)  
                      }
-                      } 
+                     }
                      //腿
                     var img6 = new Image();
                         img6.crossOrigin =" anonymous" ; 

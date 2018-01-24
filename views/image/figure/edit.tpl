@@ -497,7 +497,8 @@
                    ctx.clearRect(0,0,1000,1000); 
                 img3.onload = function () //确保图片已经加载完毕  
                 {  
-                  ctx.drawImage(img3,114,faa,65,75);  
+                  ctx.drawImage(img3,114,faa,65,75);
+                     ctx.globalCompositeOperation="destination-over";  
                      //脖子
                     var img1 = new Image(); 
                         img1.crossOrigin =" anonymous" ; 
@@ -610,7 +611,8 @@
                    ctx.clearRect(0,0,1000,1000); 
                 img3.onload = function () //确保图片已经加载完毕  
                 {  
-                  ctx.drawImage(img3,114,faa,65,75);  
+                  ctx.drawImage(img3,114,faa,65,75);
+                     ctx.globalCompositeOperation="destination-over";  
                      //脖子
                     var img1 = new Image(); 
                         img1.crossOrigin =" anonymous" ; 
