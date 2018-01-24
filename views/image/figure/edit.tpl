@@ -513,7 +513,7 @@
                         img2.src="/static/images/101357.png"; 
                     img2.onload = function () //确保图片已经加载完毕  
                     {  
-                          ctx.drawImage(img2,71,bodyabscissa,bodywidth,280);   
+                          ctx.drawImage(img2,71,bodyabscissa,bodywidth,410);   
                           // ctx.drawImage(img2,71,147,161,241);  
                           // console.log(body)
                      } 
