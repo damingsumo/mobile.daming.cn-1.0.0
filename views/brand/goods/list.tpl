@@ -143,7 +143,7 @@ $(document).ready(function(){
                         img3.onload = function () //确保图片已经加载完毕  
                         {  
                           ctx.drawImage(img3,115,28,52,49); 
-                         }
+                         
                         ctx.globalCompositeOperation="destination-over";
                         //后面的头发
                        var img = new Image(); 
@@ -151,7 +151,8 @@ $(document).ready(function(){
                        img.src =behidestyle; 
                        img.onload = function(){
                            ctx.drawImage(img,beo,bea,bel,bew); 
-                         }  
+                         } 
+                        } 
                       } 
                       ctx.globalCompositeOperation="destination-over";
                       //身子
