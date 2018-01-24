@@ -1183,7 +1183,7 @@ align-items: center;
 	width: 100%;
 	position: fixed;	
 	bottom: 0;
-	z-index: 100;
+	z-index: 100!important;
 }
 .footer4 input{
 	width: 100%;
@@ -1192,6 +1192,7 @@ align-items: center;
 	color: #fff;
 	border: 1px solid #7361f0;
 	font-size:2rem;
+	z-index: 100;
 }
 .bottom3_1 a.bg3,.bottom3_2 a.bg3{
 	background: url(../images/306.png) no-repeat;
