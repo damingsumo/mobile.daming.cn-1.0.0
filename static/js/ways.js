@@ -498,25 +498,25 @@ $(function(){
 		$(".forth77 li").on("touchstart",function(e){
 			$(this).addClass("bg7").siblings().removeClass("bg7");
 		});
-		$(".top71").on("touchstart", function(e) {
-			 // e.preventDefault();
-			 startX = e.originalEvent.changedTouches[0].pageX;
-		});
+		// $(".top71").on("touchstart", function(e) {
+		// 	 // e.preventDefault();
+		// 	 startX = e.originalEvent.changedTouches[0].pageX;
+		// });
 
-		$(".top71").on("touchend", function(e) {
-			 //e.preventDefault();
-			 moveEndX = e.originalEvent.changedTouches[0].pageX;
-			 X = moveEndX - startX;
+		// $(".top71").on("touchend", function(e) {
+		// 	 //e.preventDefault();
+		// 	 moveEndX = e.originalEvent.changedTouches[0].pageX;
+		// 	 X = moveEndX - startX;
 			 
-			 if ( X > 0 ) {
-			 	$(".top71 ul").animate({"margin-left":'0'}, "slow");
-			 	$(".right7 ul").animate({"margin-left":'0'}, "slow");
-			 }
-			 else if ( X < 0 ) {
-				$(".top71 ul").animate({"margin-left":'-100%'}, "slow");
-				$(".right7 ul").animate({"margin-left":'-100%'}, "slow");
-			 }
-		});
+		// 	 if ( X > 0 ) {
+		// 	 	$(".top71 ul").animate({"margin-left":'0'}, "slow");
+		// 	 	$(".right7 ul").animate({"margin-left":'0'}, "slow");
+		// 	 }
+		// 	 else if ( X < 0 ) {
+		// 		$(".top71 ul").animate({"margin-left":'-100%'}, "slow");
+		// 		$(".right7 ul").animate({"margin-left":'-100%'}, "slow");
+		// 	 }
+		// });
 	$(".form_detil ul li").on("touchstart", function(e) {
 		var index8 = $(this).index();
 		$(this).addClass("size_color").siblings().removeClass("size_color"); 
