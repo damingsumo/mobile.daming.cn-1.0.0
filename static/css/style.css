@@ -1183,7 +1183,7 @@ align-items: center;
 	width: 100%;
 	position: fixed;	
 	bottom: 0;
-	z-index: 20;
+	z-index: 100;
 }
 .footer4 input{
 	width: 100%;
@@ -3009,12 +3009,12 @@ align-items: center;
     z-index: 55;
 }	
 @media screen and (width: 320px){
-    .top71 li canvas{
+    .top71 li canvas,.content5_top canvas{
 		left: 7%;
-	}
+	} 
 }
 @media screen and (width: 375px){
-    .top71 li canvas{
+    .top71 li canvas,.content5_top canvas{
 		left: 12%;
 	}
 }
