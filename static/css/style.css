@@ -1387,7 +1387,7 @@ align-items: center;
 	z-index: 60;
 }
 .change5.kuang5{
-	height: 18rem;
+	height: 25rem;
 	overflow: auto;
 }
 .kuang51{
@@ -3015,12 +3015,17 @@ align-items: center;
     .top71 li canvas,.content5_top canvas,.content6_top canvas{
 		left: 7%;
 	} 
+	.change5.kuang5{
+	height: 18rem;
+	overflow: auto;
+	}
 }
 @media screen and (width: 375px){
     .top71 li canvas,.content5_top canvas,.content6_top canvas{
 		left: 12%;
 	}
 }
+
 @media screen and (min-width: 320px) and (max-width: 413px){
 	.last_style div:nth-child(2),.last_style div:nth-child(4),
     .last_style div:nth-child(6),.last_style div:nth-child(8){

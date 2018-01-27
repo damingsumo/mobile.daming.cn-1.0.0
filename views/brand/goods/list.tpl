@@ -161,7 +161,7 @@ $(document).ready(function(){
                           img2.src=body; 
                       img2.onload = function () //确保图片已经加载完毕  
                       {  
-                            ctx.drawImage(img2,70,80,150,parseInt(list_bodylength)+10);   
+                            ctx.drawImage(img2,70,83,150,parseInt(list_bodylength)+10);   
                        } 
                        //腿
                       var img9 = new Image();
