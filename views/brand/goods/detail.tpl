@@ -28,6 +28,8 @@
   
   <input type="hidden" value="{$hwPhoto['boday_url']}" id="boday_url">
   <input type="hidden" value="{if isset($hwPhoto['leg_url'])}{$hwPhoto['leg_url']}{/if}" id="leg_url">
+  
+  <input type="hidden" value="$good.gid}" id="gid">
    <div class="content7">
 	<div class="content7_top">
 		<div class="top71">
@@ -253,10 +255,10 @@
 <!--         	</ul> -->
 <!--         </div> -->
 <!-- 	</div> -->
-<!-- 	<div class="skin_button"> -->
-<!-- 			<button class="skin_color">查看详情</button> -->
-<!-- 			<button class="skin_color button_color">加入购物车</button> -->
-<!-- 		</div> -->
+	<div class="skin_button">
+			<button class="skin_color">加入购物车</button>
+			<button class="skin_color button_color" onclick="order()">购买</button>
+		</div>
 {literal}
 <script type="text/javascript">
 $(".third71 a").click(function(){
@@ -405,6 +407,11 @@ function choose(hair_style_id) {
 			    }
 			}
 		});
+	}
+	function order() {
+		var gid = $('#gid').val();
+		window.location.href='/order/add?gid='+gid;
+
 	}
 </script>
 {/literal}
