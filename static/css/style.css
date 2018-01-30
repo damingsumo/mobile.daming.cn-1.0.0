@@ -2029,6 +2029,129 @@ align-items: center;
 .skin_button button:last-child{
 	float: right;
 }
+.gray{
+	position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    z-index: 100;
+    opacity: .4;
+    background-color: #000;
+}
+.goodorder{
+	display: none;
+	position: absolute; 
+	z-index: 102;
+	width: 100%;
+	background-color: #fff;
+	top:443px;
+}
+.goodorder_infor{ 
+	width: 100%;
+	float: left;
+	padding: 1rem 2rem; 
+	border-bottom: 1px solid gray;
+}
+.goodorder_infor img{ 
+    width: 8rem;
+    height: 8rem;
+    float: left;
+}
+.goodorder_infor div{
+	float: left;
+	margin-left:1.5rem;
+	margin-top: 2rem;
+}
+.goodorder_infor div span{
+    display: block;
+    font-size: 1.2rem;
+    line-height:2rem;
+}
+.goodorder_infor div span:first-child{
+	color: #FF0000;
+}
+.order_size,.order_color{
+	float: left;
+	width: 100%; 
+	padding: 1rem 2rem;
+	border-bottom: 1px solid gray;
+}
+.order_size span,.order_color span{
+	display: block;
+	font-size: 1.6rem;
+	margin: 0rem 0 1rem 0;
+}
+.order_size ul li,.order_color ul li{
+	float: left;
+	text-align: center;
+	font-size: 12px;
+	padding: 5px 0;
+	width: 20%;
+	margin-right: 5%;
+	border: 1px solid #C0C0C0;
+	background-color: #C0C0C0;
+	border-radius: 20px;
+}
+.num_style{
+	width: 100%;
+	float: left;
+	padding: 2rem;
+}
+.num2{
+	font-size: 14px; 
+	float: left; 
+	margin-top: 0.5rem;
+}
+.botton_style{
+	float: right;
+}
+.button{
+	float: left;
+	border: 1px solid #d2d2d2;
+	width: 31px;
+	height: 28px;
+	text-align: center;
+	line-height: 20px; 
+	font-size: 25px; 
+}
+.text1{
+	float: left; 
+	width: 45px;
+	height: 28px;
+	border:  1px solid #d2d2d2;
+	border-left: 0;
+	text-align: center;
+	font-size: 13px; 
+}
+.button1{
+	float:left;
+	border: 1px solid #d2d2d2;
+	width: 31px;
+	height: 28px;
+	text-align: center;
+	line-height: 25px; 
+	border-left: 0px;
+	font-size: 25px; 
+}
+.botton_font{
+	font-size: 14px; 
+	float: left; 
+	margin-left: 15px;
+}
+.order_submit input{
+	border: none;
+	color:#fff;
+	float: left;
+	height: 5rem;
+	width: 100%;
+	background-color: #FF0036;
+	margin-top: 7rem;
+}
+.order_color ul li.bgred,.order_size ul li.bgred{
+	background-color: #FF0036;
+	color: #fff;
+}
 .content7{
 	margin: 6rem 0 0rem 0;
 	width: 100%;
@@ -3118,6 +3241,9 @@ align-items: center;
 		width: 100%;
 		height: 64rem;
 	}
+	.goodorder{  
+		top:571px;
+	}
     .top71 li canvas{
 		left: 32%;
 	}
@@ -3159,6 +3285,9 @@ align-items: center;
     .last_style div:nth-child(6),.last_style div:nth-child(8){
    		 left:80%;
     }
+    .goodorder{  
+		top:914px;
+	}
     .last_style span{
 		padding:0.5rem 0.5rem; 
 		width: 12rem;

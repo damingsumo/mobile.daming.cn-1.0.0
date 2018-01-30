@@ -254,11 +254,53 @@
 <!--         		</li> -->
 <!--         	</ul> -->
 <!--         </div> -->
-<!-- 	</div> -->
+	</div>
 	<div class="skin_button">
 			<button class="skin_color">加入购物车</button>
 			<button class="skin_color button_color" onclick="order()">购买</button>
+	</div>
+	<!--购买页-->
+	<div class="gray" style="display:none ">
+	</div>
+	<div class="goodorder">
+		<div class="goodorder_infor">
+			<img src="/static/images/10.png">
+			<div>
+				<span>￥888.00</span>
+				<span>库存800件</span>
+				<span>请选择 尺码 颜色</span>
+			</div>
 		</div>
+		<div class="order_size">
+			<span>尺码</span>
+			<ul>
+				<li>S</li>
+				<li>M</li>
+				<li>L</li>
+				<li>XL</li>
+			</ul>
+		</div>
+		<div class="order_color">
+			<span>颜色</span>
+			<ul>
+				<li>紫红</li>
+				<li>卡其色</li>
+				<li>绿色</li>
+				<li>淡黄</li>
+			</ul>
+		</div>
+		<div class="num_style">
+	       <span class="num2">购买数量</span>
+	       <div class="botton_style">
+	         <a href="javascript:;" class="button" id="minus">-</a>
+	         <input class="text1" value="1" id="a">
+	         <a href="javascript:;" class="button1" id="plus">+</a>
+	       </div> 
+	    </div>
+	    <div class="order_submit">
+	    	<input type="submit" value="确认">
+	    </div>
+	</div>
 {literal}
 <script type="text/javascript">
 $(".third71 a").click(function(){
@@ -408,11 +450,37 @@ function choose(hair_style_id) {
 			}
 		});
 	}
-	function order() {
+ var $botton_style=$(".botton_style")
+    var $plus=$("#plus")
+    var $minus=$("#minus")
+    $(plus).click(function(){
+    	var ccc = $("#a").val();
+    	ccc=parseInt(ccc)+1;
+    	$("#a").val(ccc);
+    })
+    $(minus).click(function(){
+    	var ccc = $("#a").val();
+    	ccc=parseInt(ccc)-1;
+    	if (ccc<=0) {}
+		else{
+			$("#a").val(ccc);
+		}
+  })
+   $(".order_color ul li").click(function(){
+   	var index1 = $(this).index(); 
+     $(".order_color ul li").eq(index1).addClass("bgred").siblings().removeClass("bgred");
+   })
+   $(".order_size ul li").click(function(){
+   	var index2 = $(this).index(); 
+     $(".order_size ul li").eq(index2).addClass("bgred").siblings().removeClass("bgred");
+   }) 
+   	function order() {
 		var gid = $('#gid').val();
-		window.location.href='/order/add?gid='+gid;
-
+		// window.location.href='/order/add?gid='+gid;
+        $(".gray").css("display","block");
+        $(".goodorder").css("display","block");
 	}
+
 </script>
 {/literal}
 </body>
