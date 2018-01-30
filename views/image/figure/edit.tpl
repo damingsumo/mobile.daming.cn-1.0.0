@@ -438,6 +438,8 @@
   <input type="hidden" value="{$hwPhoto.face_abscissa}" id="face_abscissa">
   <input type="hidden" value="{$hwPhoto.face_length}" id="face_length">
   <input type="hidden" value="{$hwPhoto.face_width}" id="face_width">
+  <input type="hidden" value="{$hwPhoto.neck_width}" id="neck_width"> 
+  <input type="hidden" value="{$hwPhoto.leg_ordinate}" id="leg_ordinate">
  <div class="footer4">
     <input type="submit" value="完成">
   </div>
@@ -470,11 +472,13 @@
          var bodyabscissa=$("#bodyabscissa").val();
          var cup_ordinate=$("#cup_ordinate").val(); 
          var cup_abscissa=$("#cup_abscissa").val();
+           var leg_ordinate=$("#leg_ordinate").val(); 
          var cup_width=$("#cup_width").val();          
          var leg_width=$("#leg_width").val(); 
          var leg_length=$("#leg_length").val(); 
           var leg_abscissa=$("#leg_abscissa").val(); 
             var neck=$("#neck").val();
+             var neck_width=$("#neck_width").val();
          var canvas = document.getElementById("MyCanvas"); 
                 var ctx = canvas.getContext("2d"); 
                 var canvas1 = document.getElementById("behid_hair"); 
@@ -497,15 +501,16 @@
                    ctx.clearRect(0,0,1000,1000); 
                 img3.onload = function () //确保图片已经加载完毕  
                 {  
-                  ctx.drawImage(img3,114,faa,65,75);  
+                 ctx.drawImage(img3,fao,faa,faw,70);  
+                     ctx.globalCompositeOperation="destination-over";  
                      //脖子
                     var img1 = new Image(); 
                         img1.crossOrigin =" anonymous" ; 
                         img1.src= "/static/images/bozi1.png"; 
                     img1.onload = function () //确保图片已经加载完毕  
                     {  
-                      ctx.drawImage(img1,104,neck,90,42);  
-                    } 
+                      ctx.drawImage(img1,102,neck,neck_width,30);   
+                    
                       ctx.globalCompositeOperation="destination-over";
                     //身子
                     var img2 = new Image();
@@ -513,10 +518,11 @@
                         img2.src=body; 
                     img2.onload = function () //确保图片已经加载完毕  
                     {  
-                          ctx.drawImage(img2,71,bodyabscissa,bodywidth,bodylength);   
+                          ctx.drawImage(img2,bodyordinate,bodyabscissa,bodywidth,bodylength);   
                           // ctx.drawImage(img2,71,147,161,241);  
                           // console.log(body)
-                     } 
+                     }
+                     }  
                      //腿
                     var img6 = new Image();
                         img6.crossOrigin =" anonymous" ; 
@@ -524,7 +530,7 @@
                          // ctx.clearRect(0,0,1000,1000); 
                     img6.onload = function () //确保图片已经加载完毕  
                     {  
-                          ctx.drawImage(img6,103,leg_abscissa,leg_width,leg_length);   
+                          ctx.drawImage(img6,leg_ordinate,leg_abscissa,leg_width,leg_length);   
                           // ctx.drawImage(img6,104,385,89,115); 
                           // console.log(leg_width) 
                      } 
@@ -536,7 +542,7 @@
                    // ctx.clearRect(0,0,1000,1000); 
                 img4.onload = function () //确保图片已经加载完毕  
                 {  
-                  ctx2.drawImage(img4,112,fra,67,59); 
+                   ctx2.drawImage(img4,fro,fra,frw,62); 
                  }
                 //胸罩  
                  var img7 = new Image(); 
@@ -567,6 +573,7 @@
                 var bodyordinate= member.data['hwPhoto']['bodyordinate']; 
                 var bodyabscissa= member.data['hwPhoto']['bodyabscissa']; 
                 var leg_length= member.data['hwPhoto']['leg_length']; 
+                var leg_ordinate= member.data['hwPhoto']['leg_ordinate']; 
                 var leg_width= member.data['hwPhoto']['leg_width']; 
                 var leg_abscissa= member.data['hwPhoto']['leg_abscissa']; 
                 var cup_ordinate= member.data['hwPhoto']['cup_ordinate']; 
@@ -574,6 +581,7 @@
                 var cup_width= member.data['hwPhoto']['cup_width']; 
                 var cup_length= member.data['hwPhoto']['cup_length']; 
                 var neck= member.data['hwPhoto']['neck']; 
+                 var neck_width= member.data['hwPhoto']['neck_width'];
                 var facestyle =member.data['face']['synthesis_url'];
                 var frontstyle=member.data['hairstyle']['front_synthesis_url'];
                 var beo =member.data['hwPhoto']['behide_ordinate'];
@@ -609,15 +617,16 @@
                    ctx.clearRect(0,0,1000,1000); 
                 img3.onload = function () //确保图片已经加载完毕  
                 {  
-                  ctx.drawImage(img3,114,faa,65,75);  
+                  ctx.drawImage(img3,fao,faa,faw,70); 
+                     ctx.globalCompositeOperation="destination-over";  
                      //脖子
                     var img1 = new Image(); 
                         img1.crossOrigin =" anonymous" ; 
                         img1.src= "/static/images/bozi1.png"; 
                     img1.onload = function () //确保图片已经加载完毕  
                     {  
-                      ctx.drawImage(img1,104,neck,90,42);  
-                    } 
+                       ctx.drawImage(img1,102,neck,neck_width,30);  
+                    
                       ctx.globalCompositeOperation="destination-over";
                     //身子
                     var img2 = new Image();
@@ -625,10 +634,11 @@
                         img2.src=body; 
                     img2.onload = function () //确保图片已经加载完毕  
                     {  
-                          ctx.drawImage(img2,71,bodyabscissa,161,bodylength);    
+                          ctx.drawImage(img2,bodyordinate,bodyabscissa,bodywidth,bodylength);    
                           // ctx.drawImage(img2,71,127,161,251);
                           // console.log(body)  
                      }
+                     } 
                      //腿
                     var img6 = new Image();
                         img6.crossOrigin =" anonymous" ; 
@@ -636,7 +646,7 @@
                          // ctx.clearRect(0,0,1000,1000); 
                     img6.onload = function () //确保图片已经加载完毕  
                     {  
-                          ctx.drawImage(img6,104,leg_abscissa,leg_width,leg_length); 
+                          ctx.drawImage(img6,leg_ordinate,leg_abscissa,leg_width,leg_length); 
                           // ctx.drawImage(img6,104,375,89,125); 
 
                      }
@@ -649,7 +659,7 @@
                    ctx2.clearRect(0,0,1000,1000); 
                 img4.onload = function () //确保图片已经加载完毕  
                 {  
-                  ctx2.drawImage(img4,112,fra,67,59); 
+                  ctx2.drawImage(img4,fro,fra,frw,62);
                  }
                 //胸罩  
                  var img7 = new Image(); 

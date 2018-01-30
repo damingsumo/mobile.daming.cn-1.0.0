@@ -86,13 +86,13 @@ $(document).ready(function(){
       var number3 =document.getElementsByName("shoes_abscissa");
       var number4 =document.getElementsByName("shoes_length");
       var number5 =document.getElementsByName("shoes_width"); 
-      var body = $("#boday_url").val();
-      var leg = $("#leg_url").val();
       for(var i = 0;i<number.length;i++){
             var ss = number[i].getAttribute("value");
             var facestyle = $("#face_synthesis_url").val();
             var behidestyle = $("#behide_synthesis_url").val();
             var frontstyle= $("#front_synthesis_url").val(); 
+            var body=$("#boday_url").val();
+            var leg=$("#leg_url").val();
             var list_bodylength=$("#list_bodylength").val();
             var clothes= numbera[i]["defaultValue"];
             var shoes= number1[i]["defaultValue"];
@@ -121,13 +121,13 @@ $(document).ready(function(){
                        img4.src =frontstyle; 
                     img4.onload = function () //确保图片已经加载完毕  
                     {  
-                      ctx.drawImage(img4,fro,fra,frl,frw);  
+                      ctx.drawImage(img4,parseInt(fro)+3,parseInt(fra)+5,parseInt(frl)-5,frw);  
                      }
                   var img6=new Image();  
                   img6.src=clothes;   
                   img6.onload = function () //确保图、片已经加载完毕  
                   {  
-                      ctx.drawImage(img6,clo,cla,cll,clw);  
+                      ctx.drawImage(img6,parseInt(clo)+4,cla,parseInt(cll)-5,clw);  
                       ctx.globalCompositeOperation="destination-over";
                      //脖子
                       var img1 = new Image(); 
@@ -142,16 +142,17 @@ $(document).ready(function(){
                            img3.src =facestyle; 
                         img3.onload = function () //确保图片已经加载完毕  
                         {  
-                          ctx.drawImage(img3,115,28,52,49); 
-                         }
+                          ctx.drawImage(img3,118,28,47,49); 
+                         
                         ctx.globalCompositeOperation="destination-over";
                         //后面的头发
                        var img = new Image(); 
                        img.crossOrigin =" anonymous" ; 
                        img.src =behidestyle; 
                        img.onload = function(){
-                           ctx.drawImage(img,beo,bea,bel,bew); 
-                         }  
+                           ctx.drawImage(img,parseInt(beo)+3,bea,parseInt(bel)-5,bew); 
+                         } 
+                        } 
                       } 
                       ctx.globalCompositeOperation="destination-over";
                       //身子
@@ -160,7 +161,7 @@ $(document).ready(function(){
                           img2.src=body; 
                       img2.onload = function () //确保图片已经加载完毕  
                       {  
-                            ctx.drawImage(img2,70,80,150,parseInt(list_bodylength)+10);   
+                            ctx.drawImage(img2,78,83,138,parseInt(list_bodylength)+15);   
                        } 
                        //腿
                       var img9 = new Image();
@@ -168,7 +169,7 @@ $(document).ready(function(){
                           img9.src=leg; 
                       img9.onload = function () //确保图片已经加载完毕  
                       {  
-                            ctx.drawImage(img9,100,245,82,103);   
+                            ctx.drawImage(img9,107,250,74,103);   
                        } 
                   } 
                  var img7 = new Image(); 
@@ -176,7 +177,7 @@ $(document).ready(function(){
                      img7.src =shoes; 
                 img7.onload = function () //确保图片已经加载完毕  
                 {  
-                  ctx.drawImage(img7,parseInt(sho)-1,sha,parseInt(shl)+3,shw); 
+                  ctx.drawImage(img7,parseInt(sho)+2,parseInt(sha)+5,parseInt(shl)+3,shw); 
                 }
              }
             func(ss); 
