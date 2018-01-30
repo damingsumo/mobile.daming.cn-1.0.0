@@ -501,7 +501,7 @@
                    ctx.clearRect(0,0,1000,1000); 
                 img3.onload = function () //确保图片已经加载完毕  
                 {  
-                 ctx.drawImage(img3,114,faa,faw,70);  
+                 ctx.drawImage(img3,fao,faa,faw,70);  
                      ctx.globalCompositeOperation="destination-over";  
                      //脖子
                     var img1 = new Image(); 
@@ -509,7 +509,7 @@
                         img1.src= "/static/images/bozi1.png"; 
                     img1.onload = function () //确保图片已经加载完毕  
                     {  
-                      ctx.drawImage(img1,102,neck,neck_width,33);   
+                      ctx.drawImage(img1,102,neck,neck_width,30);   
                     
                       ctx.globalCompositeOperation="destination-over";
                     //身子
@@ -542,7 +542,7 @@
                    // ctx.clearRect(0,0,1000,1000); 
                 img4.onload = function () //确保图片已经加载完毕  
                 {  
-                   ctx2.drawImage(img4,112,fra,frw,62); 
+                   ctx2.drawImage(img4,fro,fra,frw,62); 
                  }
                 //胸罩  
                  var img7 = new Image(); 
@@ -617,7 +617,7 @@
                    ctx.clearRect(0,0,1000,1000); 
                 img3.onload = function () //确保图片已经加载完毕  
                 {  
-                  ctx.drawImage(img3,114,faa,faw,70); 
+                  ctx.drawImage(img3,fao,faa,faw,70); 
                      ctx.globalCompositeOperation="destination-over";  
                      //脖子
                     var img1 = new Image(); 
@@ -625,7 +625,7 @@
                         img1.src= "/static/images/bozi1.png"; 
                     img1.onload = function () //确保图片已经加载完毕  
                     {  
-                       ctx.drawImage(img1,102,neck,neck_width,33);  
+                       ctx.drawImage(img1,102,neck,neck_width,30);  
                     
                       ctx.globalCompositeOperation="destination-over";
                     //身子
@@ -659,7 +659,7 @@
                    ctx2.clearRect(0,0,1000,1000); 
                 img4.onload = function () //确保图片已经加载完毕  
                 {  
-                  ctx2.drawImage(img4,112,fra,frw,62);
+                  ctx2.drawImage(img4,fro,fra,frw,62);
                  }
                 //胸罩  
                  var img7 = new Image(); 

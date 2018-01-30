@@ -33,9 +33,9 @@
 		<div class="top71">
 		  <ul>
 			<li> 
-				<canvas id="behid_hair" width="220" height="430"></canvas>
-		         <canvas id="MyCanvas"  width="220" height="430;"></canvas>
-		         <canvas id="hair" width="220" height="430;"></canvas>
+				<canvas id="behid_hair" width="220" height="500"></canvas>
+		         <canvas id="MyCanvas"  width="220" height="500;"></canvas>
+		         <canvas id="hair" width="220" height="500;"></canvas>
 			</li>
 		  </ul>
 		</div>
@@ -296,7 +296,7 @@ $(".third71 a").click(function(){
        img.src =behidestyle; 
        ctx1.clearRect(0,0,1000,1000); 
        img.onload = function(){
-           ctx1.drawImage(img,beo,bea,bel,bew);  
+           ctx1.drawImage(img,parseInt(beo)+2,parseInt(bea)-5,bel,bew);  
         }
     //脸  
     var img3 = new Image(); 
@@ -305,14 +305,14 @@ $(".third71 a").click(function(){
        // ctx.clearRect(0,0,1000,1000); 
     img3.onload = function () //确保图片已经加载完毕  
     {  
-      ctx.drawImage(img3,115,28,52,49);  
+      ctx.drawImage(img3,115,0,55,69);  
          //脖子
         var img1 = new Image(); 
             img1.crossOrigin =" anonymous" ; 
             img1.src= "/static/images/bozi.png"; 
         img1.onload = function () //确保图片已经加载完毕  
         {  
-          ctx.drawImage(img1,100,70,89,20);  
+          ctx.drawImage(img1,101.5,59,89,25);  
         } 
         //身子
         var img2 = new Image();
@@ -320,14 +320,14 @@ $(".third71 a").click(function(){
             img2.src="/static/images/16634.png"; 
         img2.onload = function () //确保图片已经加载完毕  
         {  
-              ctx.drawImage(img2,70,90,150,300);  
+              ctx.drawImage(img2,72,84,150,395);  
               //衣服
               var img6= new Image();
                 img6.crossOrigin =" anonymous" ; 
                 img6.src=clothes; 
               img6.onload = function () //确保图片已经加载完毕  
               {  
-                  ctx.drawImage(img6,parseInt(clo)-6,cla,parseInt(cll)+10,parseInt(clw)+25);  
+                  ctx.drawImage(img6,parseInt(clo)+1,parseInt(cla)-9,parseInt(cll),parseInt(clw)+100);  
               }
               var img7 = new Image(); 
 	               img7.crossOrigin =" anonymous" ; 
@@ -335,7 +335,7 @@ $(".third71 a").click(function(){
 	               // ctx.clearRect(0,0,1000,1000); 
 	            img7.onload = function () //确保图片已经加载完毕  
 	            {  
-	              ctx.drawImage(img7,sho,parseInt(sha)+40,shl,shw); 
+	              ctx.drawImage(img7,sho,parseInt(sha)+130,parseInt(shl)+3,parseInt(shw)); 
 	            }
          }
      }
@@ -346,7 +346,7 @@ $(".third71 a").click(function(){
        // ctx.clearRect(0,0,1000,1000); 
     img4.onload = function () //确保图片已经加载完毕  
     {  
-      ctx2.drawImage(img4,fro,fra,frl,frw); 
+      ctx2.drawImage(img4,parseInt(fro)+2,parseInt(fra)-18,frl,parseInt(frw)+2); 
      }
 		     
 });
@@ -400,7 +400,7 @@ function choose(hair_style_id) {
 		                   ctx2.clearRect(0,0,1000,1000); 
 		                img4.onload = function () //确保图片已经加载完毕  
 		                {  
-		                  ctx2.drawImage(img4,fro,fra,frl,frw); 
+		                  ctx2.drawImage(img4,parseInt(fro)+1,fra,frl,frw); 
 		                } 
 			    }
 			}
