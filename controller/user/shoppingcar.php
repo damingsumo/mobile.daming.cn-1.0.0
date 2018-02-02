@@ -5,8 +5,16 @@ class Controller_User_Shoppingcar extends Controller_Base {
         $uid = account::getUid();
         $shoppingcars = array();
         $shoppingcars = WebApi_User_Shoppingcar::instance()->getShopingcarByParams(array('uid'=>$uid));
+        $data = array();
+        foreach ($shoppingcars as &$shoppingcar) {
+            $goods = WebApi_Brand_Goods::instance()->row('*',$shoppingcar['gid']);
+            $brand = WebApi_Brand::instance()->row('*',$goods['brand_id']);
+            $shoppingcar['goods'] = $goods;
+            $shoppingcar['brand'] = $brand;
+            $data[$goods['brand_name']][] = $shoppingcar;
+        }
         $params = array();
-        $params['shoppingcars'] = $shoppingcars;
+        $params['shoppingcars'] = $data;
         return $this->display('user/shoppingcar',$params);
     }
     

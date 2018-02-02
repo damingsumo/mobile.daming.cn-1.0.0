@@ -9,18 +9,21 @@
 		<div class="header_fr">
 		</div>
 	</div> 
+	
+	{foreach $shoppingcars as $key=>$val}
 	<div class="good_name" style="margin-top:6rem;">
 		<input type="checkbox">
-		<img src="{staticurl action='uni.jpg' type='img'}"  style="margin-left:1rem">
-		<span>优衣库品牌专卖</span>
+		<img src="{$val[0]['brand']['picture_url']}"  style="margin-left:1rem">
+		<span>{$key}</span>
 		<img src="{staticurl action='删除.png' type='img'}"></img>
 	</div>
+	{foreach $val as $v}
 	<div class="good_detial" style="padding-left:0;">
 		<input type="checkbox">
-		<img src="images/u96.jpg">
-		<span>优衣库2018春装新款碎花拼搭女长袖</br>卫衣228135</span>
-		<span style="color:#949494;">颜色：粉色组；尺码165/90A</span>
-		<span>￥58.00</span> 
+		<img src="{$v['goods']['show_url']}">
+		<span>{$v['goods']['goods_name']}</br>{$v['goods']['style_number']}</span>
+		<span style="color:#949494;">颜色：{$v.color}；尺码{if $v.size==1}S{else if $v.size==2}M{else if $v.size==3}L{else if $v.size==4}XL{/if}</span>
+		<span>￥{$v['goods']['price']/100}</span> 
         <div class="num_style num_style1"> 
 	       <div class="botton_style">
 	         <a href="javascript:;" class="button" id="minus" style="width:18px;height:18px;line-height:15px;font-size:15px;">-</a>
@@ -29,46 +32,8 @@
 	       </div> 
 	    </div>
 	</div>
-	<div class="good_name" style="margin-top:0;">
-		<input type="checkbox">
-		<img src="images/sanyecao.jpg"  style="margin-left:1rem">
-		<span>三叶草品牌专卖</span>
-		<img src="images/删除.png"></img> 
-	</div>
-	<div class="good_detial" style="padding-left:0;">
-		<input type="checkbox">
-		<img src="images/u96.jpg">
-		<span>三叶草2018夏装新款纯色女短袖</br>T恤330521</span>
-		<span style="color:#949494;">颜色：粉色组；尺码165/90A</span> 
-		<span>￥58.00</span>
-		<div class="num_style num_style1"> 
-	       <div class="botton_style">
-	         <a href="javascript:;" class="button" id="minus1" style="width:18px;height:18px;line-height:15px;font-size:15px;">-</a>
-	         <input class="text1" value="1" id="a1" style="width:21px;height:18px;font-size:10px;">
-	         <a href="javascript:;" class="button1" id="plus1" style="width:18px;height:18px;line-height:15px;font-size:15px;">+</a>
-	       </div> 
-	    </div>
-	</div>
-	<div class="good_name" style="margin-top:0;">
-		<input type="checkbox">
-		<img src="images/taipingniao.jpg" style="margin-left:1rem">
-		<span>太平鸟品牌专卖</span>
-		<img src="images/删除.png"></img>
-	</div>
-	<div class="good_detial" style="padding-left:0;">
-		<input type="checkbox">
-		<img src="images/u96.jpg">
-		<span>太平鸟女装2017秋装新款卡其色双排扣</br>风衣女中长款过膝风衣外套女</span>
-		<span style="color:#949494;">颜色：驼色；尺码165/90A</span>
-		<span>￥58.00</span>
-		<div class="num_style num_style1"> 
-	       <div class="botton_style">
-	         <a href="javascript:;" class="button" id="minus2" style="width:18px;height:18px;line-height:15px;font-size:15px;">-</a>
-	         <input class="text1" value="1" id="a2" style="width:21px;height:18px;font-size:10px;">
-	         <a href="javascript:;" class="button1" id="plus2" style="width:18px;height:18px;line-height:15px;font-size:15px;">+</a>
-	       </div> 
-	    </div>
-	</div> 
+	{/foreach}
+	{/foreach}
 	<div class="balance">
 		<input type="checkbox">
 		<span>全选</span>
