@@ -82,7 +82,7 @@
 	<div class="bottom">
 		<ul>
 			<li>
-				<a href="#">
+				<a href="/user/shoppingcar/list">
 				<img src="{staticurl action='12.png' type='img'}">
 				<em>我喜欢的</em>
 				<div>

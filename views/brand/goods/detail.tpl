@@ -260,6 +260,7 @@
 			<button class="skin_color button_color" onclick="order()">购买</button>
 	</div>
 	<!--购买页-->
+	<form>
 	<div class="gray" style="display:none ">
 	</div>
 	<div class="goodorder">
@@ -301,6 +302,7 @@
 	    	<input type="submit" value="确认">
 	    </div>
 	</div>
+	</form>
 {literal}
 <script type="text/javascript">
 $(".third71 a").click(function(){

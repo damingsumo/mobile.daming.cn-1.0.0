@@ -1,5 +1,5 @@
 <?php
-class CoreApi_Image extends CoreApi {
+class CoreApi_Order extends CoreApi {
 
     protected static $instance__; //必要,
     protected $_module = 'yd_res';
@@ -14,11 +14,12 @@ class CoreApi_Image extends CoreApi {
         'pay_money' => 'string',
         'pay_method' => 'string',
         'pay_time' => 'string',
-        'reduce_money' => 'string',
-        'refund_money' => 'string',
-        'pay_method' => 'string',
-        'pay_time' => 'string',
-        'pay_method' => 'string',
-        'pay_time' => 'string');
+        'reduce_money' => 'int',
+        'refund_money' => 'int',
+        'refund_method' => 'int',
+        'refund_time' => 'string',
+        'create_time' => 'string',
+        'update_time' => 'string',
+    );
     
 }
