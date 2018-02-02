@@ -123,6 +123,7 @@ $(document).ready(function(){
                     {  
                       ctx.drawImage(img4,parseInt(fro)+3,parseInt(fra)+5,parseInt(frl)-5,frw);  
                      }
+                      ctx.globalCompositeOperation="destination-over";
                   var img6=new Image();  
                   img6.src=clothes;   
                   img6.onload = function () //确保图、片已经加载完毕  

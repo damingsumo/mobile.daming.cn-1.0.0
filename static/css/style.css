@@ -443,6 +443,49 @@ li{
 	vertical-align: middle;
 	
 }
+.order_form{
+	width: 100%; 
+	float: left;
+	margin: 5rem 0 0 0;  
+	background-color: #fff;
+	border-bottom: 2px solid #F8F8F8;
+}
+.order_form ul{
+	display: flex;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.order_form ul li{
+	flex:1;
+	text-align: center; 
+}
+.order_form ul li a{
+	display: inline-block;
+	line-height: 3.3rem;
+	font-size:1.6rem;
+} 
+.order_form ul li img{ 
+	 height:2rem;
+	width: 2rem;
+	margin-bottom: 0.5rem;
+}
+.order_form ul li:nth-child(3) img{
+	 height:3rem;
+	width: 3rem; 
+	margin-top: -5px;
+	margin-bottom: 0;
+}
+.order_form ul li:nth-child(1) img{
+	 height:2.5rem;
+	width: 2.5rem; 
+	margin-top: -2px;
+	margin-bottom: 2px;
+}
+.selected{
+	color: #FF0000;
+	border-bottom: 2px solid #FF0000;
+}
 .footer{
 	width: 100%;
 	position: fixed;
@@ -2097,7 +2140,14 @@ align-items: center;
 	width: 100%;
 	float: left;
 	padding: 2rem;
-}
+} 
+.num_style1{
+	width: 20%;
+	float: right; 
+	padding: 0;
+	margin-right: 1.7rem;
+	margin-top: 0.1rem;
+} 
 .num2{
 	font-size: 14px; 
 	float: left; 
@@ -3052,7 +3102,7 @@ align-items: center;
 }
 .good_name{
 	float: left;
-	margin-top: 7rem;
+	/*margin-top: 1rem;*/
 	background-color: #fff;
 	width: 100%;
 	height: 2.8rem;
@@ -3067,6 +3117,10 @@ align-items: center;
 	height: 1.8rem; 
 	margin:0.5rem 0.7rem 0.5rem 2rem;
 }
+.good_name img:last-child{
+    float: right;
+    margin-right: 1.7rem;
+}
 .good_name  span{ 
 	float: left;
 	display: inline-block;
@@ -3077,6 +3131,13 @@ align-items: center;
 	float: right;
 	margin-right: 1.7rem;
 }
+.good_name input{ 
+	float: left; 
+	width: 1.4rem;
+	height: 1.4rem;
+	margin: 0.7rem 0 0.7rem 1rem;
+}
+
 .good_detial{
 	float: left;
 	width: 100%;
@@ -3088,11 +3149,64 @@ align-items: center;
 	height: 6rem;
 	float: left;
 }
-.good_detial span:nth-child(2),.good_detial span:nth-child(3){
+.good_detial span:nth-child(3),.good_detial span:nth-child(4){
 	display: inline-block;
 	margin-left: 1rem;
 	float: left;
 	width: 60%;
+}
+.balance{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 5rem;
+}
+.balance span,.balance input{
+	float: left;
+	font-size: 12px;
+}
+.balance input{
+	margin-left: 2rem;
+	margin-top: 1.7rem;
+	width: 1.5rem;
+	height: 1.5rem;
+}
+.balance span:nth-child(2){
+	 line-height: 5rem;
+	 font-size: 1.4rem;
+	 margin-left: 1.5rem;
+}
+.balance span:nth-child(3){
+	 margin-left: 28%;
+}
+.balance span:nth-child(4){
+	color: #ff0000;
+}
+.balance span:last-child{
+	width: 30%;
+	background-color: #ff0000;
+	display: inline-block;
+	color: #fff;
+	line-height: 5rem;
+	text-align: center;
+	float: right;
+	font-size: 1.6rem;
+}
+.good_detial input{
+	float: left;
+}
+.good_detial input:first-child{
+	width: 1.4rem;
+	height: 1.4rem;
+	margin: 2.3rem 1rem 2.3rem 1rem;
+}
+.good_detial span:nth-child(5){
+	display: inline-block;
+	margin-left: 0.9rem;
+	float: left;
+	width: 20%;
+	color: #FF0000;
+	margin-top: 0.5rem;
 }
 .good_price{
 	float: right;
@@ -3105,7 +3219,7 @@ align-items: center;
 	float: right;
 	display: block;
 }
-.good_detial a{
+/*.good_detial a{
 	display: inline-block;
 	width: 4.5rem;
 	height: 1.4rem;
@@ -3120,7 +3234,7 @@ align-items: center;
     flex-direction: column;
     margin-right: 1.7rem;
     margin-top: 0.4rem;
-}
+}*/
 .top71 li canvas,.content5_top canvas,.content6_top canvas{ 
 	position: absolute;
 	left:17%; 
@@ -3141,6 +3255,9 @@ align-items: center;
     .top71 li canvas,.content5_top canvas,.content6_top canvas{
 		left: 7%;
 	} 
+	.balance span:nth-child(3){
+	 margin-left: 17%;
+	}
 	.change5.kuang5{
 	height: 18rem;
 	overflow: auto;
@@ -3149,6 +3266,9 @@ align-items: center;
 @media screen and (width: 375px){
     .top71 li canvas,.content5_top canvas,.content6_top canvas{
 		left: 12%;
+	}
+	.balance span:nth-child(3){
+	 margin-left: 23%;
 	}
 }
 

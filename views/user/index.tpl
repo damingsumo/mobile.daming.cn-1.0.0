@@ -90,15 +90,15 @@
 				</div>
 				</a>
 			</li>
-			<!-- <li>
-				<a href="#">
+			<li>
+				<a href="#javascript">
 				<img src="{staticurl action='13.png' type='img'}">
-				<em>联系我们</em>
+				<em>我的订单</em>
 					<div>
 					<img src="{staticurl action='19.png' type='img'}">
 				</div>
 				</a>
-			</li> -->
+			</li>
 			<li>
 				<a href="/user/goFeedback">
 				<img src="{staticurl action='14.png' type='img'}">
