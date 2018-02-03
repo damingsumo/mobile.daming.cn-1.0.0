@@ -3109,8 +3109,8 @@ align-items: center;
 	line-height: 2.8rem;
 	/*justify-content: center; 
 	flex-direction: column;
-	display: flex;*/
-} 
+	display: flex;*/  
+}  
 .good_name img{
 	float: left;
 	width: 1.8rem;
@@ -3177,7 +3177,7 @@ align-items: center;
 	 margin-left: 1.5rem;
 }
 .balance span:nth-child(3){
-	 margin-left: 28%;
+	 margin-left: 20%;
 }
 .balance span:nth-child(4){
 	color: #ff0000;
@@ -3256,7 +3256,7 @@ align-items: center;
 		left: 7%;
 	} 
 	.balance span:nth-child(3){
-	 margin-left: 17%;
+	 margin-left: 9%;
 	}
 	.change5.kuang5{
 	height: 18rem;
@@ -3268,7 +3268,7 @@ align-items: center;
 		left: 12%;
 	}
 	.balance span:nth-child(3){
-	 margin-left: 23%;
+	 margin-left:16%;
 	}
 }
 
