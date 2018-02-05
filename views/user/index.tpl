@@ -91,7 +91,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="#javascript">
+				<a href="/order/list">
 				<img src="{staticurl action='13.png' type='img'}">
 				<em>我的订单</em>
 					<div>

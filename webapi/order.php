@@ -27,4 +27,19 @@ class WebApi_Order extends WebApi{
         $params['update_time'] = date('Y-m-d H:i:s');
         return CoreApi_Order::instance()->insert($params);
     }
+    
+    public function getOrdersByParams($params, $page = 1, $pageSize = -1) {
+        if(!is_array($params)) {
+            return array();
+        }
+        return CoreApi_Order::instance()->getOrdersByParams($params, $page, $pageSize);
+    }
+    
+    
+    public function getOrdersCountByParams($params) {
+        if(!is_array($params)) {
+            return false;
+        }
+        return CoreApi_Order::instance()->getOrdersCountByParams($params);
+    }
 }

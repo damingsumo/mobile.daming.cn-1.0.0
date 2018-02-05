@@ -1,29 +1,31 @@
 <?php
-class CoreApi_Order extends CoreApi {
+class CoreApi_Order_Item extends CoreApi {
 
     protected static $instance__; //必要,
     protected $_module = 'yd_res';
-    protected $_tableName = 'orders';
-    protected $_primaryKey = 'oid';
+    protected $_tableName = 'orders_item';
+    protected $_primaryKey = 'order_item_id';
     protected $_fields = array(
+        'order_item_id' => 'int',
         'oid' => 'int',
-        'uid' => 'int',
-        'brand_id' => 'string',
-        'status' => 'string',
-        'money' => 'string',
-        'pay_money' => 'string',
-        'logistics_id'=>'int',
-        'pay_method' => 'string',
-        'pay_time' => 'string',
+        'gid' => 'int',
+        'price' => 'int',
+        'old_price' => 'int',
+        'status' => 'int',
         'reduce_money' => 'int',
+        'pay_money' => 'int',
+        'pay_method' => 'int',
+        'pay_time' => 'string',
         'refund_money' => 'int',
         'refund_method' => 'int',
         'refund_time' => 'string',
+        'size' => 'int',
+        'color' => 'string',
         'create_time' => 'string',
-        'update_time' => 'string',
-    );
+        'update_time' => 'string',);
     
-    public function getOrdersByParams($params, $page, $pagesize, $returnFormat = 'Array', $order = "create_time", $desc = "desc") {
+    
+    public function getOrderItemsByParams($params, $page, $pagesize, $returnFormat = 'Array', $order = "create_time", $desc = "desc") {
         $sql = 'select * from ' . $this->_tableName . ' where 1 ';
         $binds = array();
         if(!empty($params)) {
@@ -37,7 +39,7 @@ class CoreApi_Order extends CoreApi {
         return $this->db->page($sql, $binds, $page, $pagesize, $returnFormat);
     }
     
-    public function getOrdersCountByParams($params) {
+    public function getOrderItemsCountByParams($params) {
         $sql = 'select count(*) as total from ' . $this->_tableName . ' where 1 ';
         $binds = array();
         foreach($params as $k => $v) {
@@ -47,5 +49,4 @@ class CoreApi_Order extends CoreApi {
         $result = $this->db->select_one($sql, $binds);
         return isset($result['total']) ? $result['total'] : 0;
     }
-    
 }

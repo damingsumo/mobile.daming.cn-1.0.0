@@ -5,12 +5,22 @@
 class Controller_Order extends Controller_Base {
 
     
-    public function aList () {
+    public function actionList () {
         $uid = account::getUid();
         $orders = array();
         $orders = WebApi_Order::instance()->getOrdersByParams(array('uid'=>$uid));
-        $params['order'] = $orders;
-        return $this->display('list',$params);
+        $data = array();
+        foreach ($orders as &$order) {
+            $orderItems = WebApi_Order_Item::instance()->getOrderItemsByParams(array('oid'=>$order['oid']));
+            foreach ($orderItems as &$orderItem) {
+                $orderItem['goods'] = WebApi_Brand_Goods::instance()->row('*',$orderItem['gid']);
+            }
+            $order['orderItems'] = $orderItems;
+            $order['brand'] = WebApi_Brand::instance()->row('*',$order['brand_id']);
+            
+        }
+        $params['orders'] = $orders;
+        return $this->display('order/list',$params);
     }
         
     public function getOrder() {

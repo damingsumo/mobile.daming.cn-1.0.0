@@ -260,14 +260,17 @@
 			<button class="skin_color button_color" onclick="order()">购买</button>
 	</div>
 	<!--购买页-->
-	<form>
+	<form action="/order/add" id="myform" method="post" onsubmit="return check()">
+	<input type="hidden" name="gid" value="{$good.gid}">
+	<input type="hidden" name="size" value="">
+	<input type="hidden" name="color" value="">
 	<div class="gray" style="display:none ">
 	</div>
 	<div class="goodorder">
 		<div class="goodorder_infor">
-			<img src="/static/images/10.png">
+			<img src="{$good.show_url}">
 			<div>
-				<span>￥888.00</span>
+				<span>￥{$good.price/100}</span>
 				<span>库存800件</span>
 				<span>请选择 尺码 颜色</span>
 			</div>
@@ -275,10 +278,9 @@
 		<div class="order_size">
 			<span>尺码</span>
 			<ul>
-				<li>S</li>
-				<li>M</li>
-				<li>L</li>
-				<li>XL</li>
+			{foreach $sizes as $size}
+				<li>{if $size.size == 1}S{else if $size.size == 2}M{else if $size.size == 3}L{else if $size.size == 4}XL{/if}</li>
+				{/foreach}
 			</ul>
 		</div>
 		<div class="order_color">
