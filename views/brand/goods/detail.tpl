@@ -261,9 +261,9 @@
 	</div>
 	<!--购买页-->
 	<form action="/order/add" id="myform" method="post" onsubmit="return check()">
-	<input type="hidden" name="gid" value="{$good.gid}">
-	<input type="hidden" name="size" value="">
-	<input type="hidden" name="color" value="">
+	<input type="hidden" name="gid" value="{$good.gid}" id="gid">
+	<input type="hidden" name="size" value="" id="size">
+	<input type="hidden" name="color" value="" id="color">
 	<div class="gray" style="display:none ">
 	</div>
 	<div class="goodorder">
@@ -279,14 +279,14 @@
 			<span>尺码</span>
 			<ul>
 			{foreach $sizes as $size}
-				<li>{if $size.size == 1}S{else if $size.size == 2}M{else if $size.size == 3}L{else if $size.size == 4}XL{/if}</li>
+				<li onclick="checksize({$size.size})">{if $size.size == 1}S{else if $size.size == 2}M{else if $size.size == 3}L{else if $size.size == 4}XL{/if}</li>
 				{/foreach}
 			</ul>
 		</div>
 		<div class="order_color">
 			<span>颜色</span>
 			<ul>
-				<li>紫红</li>
+				<li onclick="checkcolor()">紫红</li>
 				<li>卡其色</li>
 				<li>绿色</li>
 				<li>淡黄</li>
@@ -485,6 +485,17 @@ function choose(hair_style_id) {
         $(".goodorder").css("display","block");
 	}
 
+
+ function checksize(size) {
+	$('#size').val(size);
+	 }
+ function checkcolor(color) {
+		$('#color').val(color);
+	}
+
+function check() {
+	
+}
 </script>
 {/literal}
 </body>
