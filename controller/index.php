@@ -84,6 +84,7 @@ class Controller_Index extends Controller_Base {
 	public function index() {
 	    $appid=WEIXIN_APPID;
 	    $redirect_uri = urlencode ('http://test.mobile.bestdaming.cn/getUserInfo');
+	    print_r($redirect_uri);exit;
         $url ="https://open.weixin.qq.com/connect/oauth2/authorize?appid=$appid&redirect_uri=$redirect_uri&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect";
 	    header("location:".$url);
 	    
