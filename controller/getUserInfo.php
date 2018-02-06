@@ -1,6 +1,6 @@
 <?php
 
-class Controller_GetUserInfo extends Controller_Base {
+class Controller_Getuserinfo extends Controller_Base {
     public function aacc() {
         $appid = WEIXIN_APPID;
         $secret = "你的AppSecret";
