@@ -33,9 +33,9 @@ class WeiXin_Base{
     public function __construct($token, $debug = FALSE) {
         //$xml = (array) simplexml_load_string($GLOBALS['HTTP_RAW_POST_DATA'], 'SimpleXMLElement', LIBXML_NOCDATA);
 
-        if (!$this->validateSignature($token)) {
+        /*if (!$this->validateSignature($token)) {
             exit ('验证失败！');
-        }
+        }*/
         if ($this->isValid()) {
             // 网址接入验证
             exit($_GET['echostr']);
