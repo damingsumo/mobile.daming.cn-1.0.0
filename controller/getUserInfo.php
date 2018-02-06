@@ -1,7 +1,7 @@
 <?php
 
 class Controller_GetUserInfo extends Controller_Base {
-    public function __construct() {
+    public function aacc() {
         $appid = WEIXIN_APPID;
         $secret = "你的AppSecret";
         $code = $_GET["code"];
