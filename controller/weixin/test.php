@@ -1,6 +1,6 @@
 <?php
 $nonce     = $_GET['nonce'];
-$token     = 'imooc';
+$token     = 'daming1211';
 $timestamp = $_GET['timestamp'];
 $echostr   = $_GET['echostr'];
 $signature = $_GET['signature'];
