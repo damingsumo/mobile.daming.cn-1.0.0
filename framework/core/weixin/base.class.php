@@ -73,7 +73,7 @@ class WeiXin_Base{
         if ( ! (isset($_GET['signature']) && isset($_GET['timestamp']) && isset($_GET['nonce']))) {
             return FALSE;
         }
-
+        $token = WEIXIN_TOKEN;
         $signature = $_GET['signature'];
         $timestamp = $_GET['timestamp'];
         $nonce = $_GET['nonce'];
