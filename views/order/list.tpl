@@ -43,8 +43,8 @@
 	<div class="good_name">
 		<img src="{$val.brand['picture_url']}">
 		<span>{$val.brand_name}</span>
-		<span>{if $val.status == 1}已付款{/if}</span>
-	</div>
+		<span>{if $val.status == 1}未支付{else if $val.status == 2}待发货{else if $val.status == 3}已取消{else if $val.status == 4}已完成{else if $val.status == 5}已退款 {else if $val.status == 6}已发货 {/if}</span>
+	</div> 
 	{foreach $val.orderItems as $item}
 	<div class="good_detial">
 		<img src="{$item.goods['show_url']}">
@@ -55,6 +55,7 @@
 			<label style="color:#949494;text-decoration:line-through">￥{$item.old_price/100}</label>
 			<label style="color:#949494;">×{$item.number}</label>
 		</div>
+		<button>支付</button>
 	</div>
 	{/foreach}
 	

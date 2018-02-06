@@ -8,7 +8,9 @@ class CoreApi_Order extends CoreApi {
     protected $_fields = array(
         'oid' => 'int',
         'uid' => 'int',
-        'brand_id' => 'string',
+        'logistics_id' => 'int',
+        'brand_id' => 'int',
+        'brand_name' => 'string',
         'status' => 'string',
         'money' => 'string',
         'pay_money' => 'string',

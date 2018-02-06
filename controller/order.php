@@ -52,12 +52,26 @@ class Controller_Order extends Controller_Base {
         
         $params = array();
         $params['uid']  = $uid;
-        $params['price']  = $price;
-        $params['brand_id']  = $brandId;
+        $params['brand_id'] = $good['brand_id'];
+        $params['brand_name'] = $good['brand_name'];
+        $params['size'] = $size;
+        $params['price']  = $good['price']*$number;
         $res = WebApi_Order::instance()->add($params);
         if(!$res) {
             return $this->error('订单添加失败');
         }
+        $data = array();
+        $data['oid'] = $res;
+        $data['size'] = $size;
+        $data['gid'] = $gid;
+        $data['number'] = $number;
+        $data['price'] = $good['price'];
+        $data['old_price'] = $good['old_price'];
+        $res = WebApi_Order_Item::instance()->add($data);
+        if(!$res) {
+            return $this->error('添加明细失败');
+        }
+        return http::go('/order/list');
     }
     
     public function actionDetail() {

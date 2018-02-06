@@ -296,7 +296,7 @@
 	       <span class="num2">购买数量</span>
 	       <div class="botton_style">
 	         <a href="javascript:;" class="button" id="minus">-</a>
-	         <input class="text1" value="1" id="a">
+	         <input class="text1" value="1" id="a" name="number">
 	         <a href="javascript:;" class="button1" id="plus">+</a>
 	       </div> 
 	    </div>

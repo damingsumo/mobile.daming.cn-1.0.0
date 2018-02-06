@@ -19,7 +19,8 @@ class Controller_User_Shoppingcar extends Controller_Base {
     }
     
     
-    public function ajaxAdd() {
+    public function add() {
+        print_r($_POST);exit;
         $uid = account::getUid();
         $gid = isset($_['gid']) ? $_POST['gid'] : 0;
         $params = array();
