@@ -4,8 +4,7 @@ class Controller_User extends Controller_Base {
      * 首页
      */
     public function index() {
-        $wechatId = isset($_GET['wechat_id']) ? $_GET['wechat_id'] : 0;
-        print_r($wechatId);exit;
+        $uid = account::getUid();
         $userHw = WebApi_User_Hw::instance()->getHwsByParams(array('uid'=>$uid));
         if(empty($userHw)) {
             return $this->error('未找到用户身高体重');

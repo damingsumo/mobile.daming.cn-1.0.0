@@ -82,6 +82,7 @@ class Controller_Index extends Controller_Base {
 	 * @note 首页index
 	 */
 	public function index() {
+	    print_r($_REQUEST);exit;
 	    $uid = Account::getUid();
 	    $total = WebApi_Image::instance()->getImagesCountByParams(array('uid'=>$uid));
 	    if($total == 0) {
