@@ -39,7 +39,7 @@ define ( 'COOKIE_EXPIRE_TIME', 1 * 3600 ); //1小时不用登录
 //微信token
 define('WEIXIN_TOKEN', 'daming1211');
 //微信APPID
-define('WEIXIN_APPID', 'wx712d1835af23f82f');
+define('WEIXIN_APPID', 'wxc0d2ac8ba7d7c5a4');
 //微信AppSecret
 define('WEIXIN_APPSECRET', '4fc5dd1666d670b5e6d337b746792d6b');
 //微信加密随机串
