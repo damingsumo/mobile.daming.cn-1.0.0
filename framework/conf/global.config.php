@@ -42,8 +42,8 @@ define('WEIXIN_TOKEN', 'daming1211');
 define('WEIXIN_APPID', 'wx712d1835af23f82f');
 //微信AppSecret
 define('WEIXIN_APPSECRET', '4fc5dd1666d670b5e6d337b746792d6b');
-// //微信加密随机串
-// define('WEIXIN_SIGN_STR', 'wtSGPZETyA6WgKjCYt3cxiMbJrMFHvXCkKq5L5xrs8v');
+//微信加密随机串
+define('WEIXIN_SIGN_STR', 'wtSGPZETyA6WgKjCYt3cxiMbJrMFHvXCkKq5L5xrs8v');
 
 /********************常量end****************************/
 /********************变量start*************************/
