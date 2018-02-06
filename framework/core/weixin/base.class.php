@@ -31,6 +31,7 @@ class WeiXin_Base{
      * @param boolean $debug 调试模式，默认为关闭
      */
     public function __construct($token, $debug = FALSE) {
+        $this->validateSignature($token);
         //$xml = (array) simplexml_load_string($GLOBALS['HTTP_RAW_POST_DATA'], 'SimpleXMLElement', LIBXML_NOCDATA);
 
         /*if (!$this->validateSignature($token)) {
