@@ -1,7 +1,5 @@
 <?php
 
-class Controller_Getuserinfo extends Controller_Base {
-    public function aacc() {
         $appid = WEIXIN_APPID;
         $secret = "你的AppSecret";
         $code = $_GET["code"];
@@ -18,7 +16,6 @@ class Controller_Getuserinfo extends Controller_Base {
         
         //打印用户信息
         print_r($userinfo);
-    }
     function getJson($url){
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
@@ -29,4 +26,3 @@ class Controller_Getuserinfo extends Controller_Base {
         curl_close($ch);
         return json_decode($output, true);
     }
-}
