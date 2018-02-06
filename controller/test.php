@@ -1,5 +1,5 @@
 <?php
-class Controller_User extends Controller_Base {
+class Controller_Test extends Controller_Base {
     public function __construct() {
         $nonce     = $_GET['nonce'];
         $token     = 'daming1211';
