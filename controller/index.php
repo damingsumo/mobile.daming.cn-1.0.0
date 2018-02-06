@@ -86,7 +86,6 @@ class Controller_Index extends Controller_Base {
 	    $redirect_uri=urlencode("https://test.mobile.bestdaming.cn/index/index");
 	    $url="https://open.weixin.qq.com/connect/oauth2/authorize?appid=".$appid."&redirect_uri=".$redirect_uri."&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect";
 	    header("location:".$url);
-	    
 	    print_r($_REQUEST);exit;
 	    $uid = Account::getUid();
 	    $total = WebApi_Image::instance()->getImagesCountByParams(array('uid'=>$uid));
