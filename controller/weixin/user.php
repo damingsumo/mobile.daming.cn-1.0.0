@@ -7,6 +7,7 @@ class Controller_Weixin_User extends Controller_Base {
      */
     public function checkCode() {
         //第一步：获取code
+        print_r($_REQUEST);exit;
         $code = isset($_REQUEST['code']) ? $_REQUEST['code'] : '';
         $state = isset($_REQUEST['state']) ? urldecode($_REQUEST['state']) : '';
         if($code == '') {
