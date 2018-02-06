@@ -24,6 +24,7 @@ class Controller_Weixin_User extends Controller_Base {
         $http = new WeiXin_Http('https://api.weixin.qq.com/sns/oauth2/');
         $userAccessToken = $http->get('access_token', $params);
         $userAccessTokenArr = json_decode($userAccessToken, true);
+        print_r($userAccessTokenArr);exit;
         $access_token = isset($userAccessTokenArr['access_token']) ? $userAccessTokenArr['access_token'] : '';//网页授权接口调用凭证,注意：此access_token与基础支持的access_token不同
         $expires_in = isset($userAccessTokenArr['expires_in']) ? $userAccessTokenArr['expires_in'] : '';//access_token接口调用凭证超时时间，单位（秒）
         $refresh_token = isset($userAccessTokenArr['refresh_token']) ? $userAccessTokenArr['refresh_token'] : '';//用户刷新access_token
