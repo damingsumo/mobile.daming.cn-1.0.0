@@ -4,17 +4,13 @@ class Controller_Brand extends Controller_Base {
     
     public function gobrandlist() {
 
-        $appid=WEIXIN_APPID;
-        $redirect_uri = urlEncode ('http://test.mobile.bestdaming.cn/weixin/user/checkCode');
-        // 	    print_r($redirect_uri);exit;
-        $url ="https://open.weixin.qq.com/connect/oauth2/authorize?appid=$appid&redirect_uri=$redirect_uri&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect";
-        
-        $data = curl::curl_request($url);
-        
-        print_r($data);exit;
-        
-        
-        
+        $token = Weixin::getAccessToken();
+        $refreshParams['appid'] = WEIXIN_APPID;
+        $refreshParams['grant_type'] = 'refresh_token ';
+        $refreshParams['refresh_token'] = $token;
+        $http = new WeiXin_Http('https://api.weixin.qq.com/sns/oauth2/');
+        $userAccessToken = $http->get('refresh_token', $refreshParams);
+        print_r($userAccessToken);exit;
     }
     
     
