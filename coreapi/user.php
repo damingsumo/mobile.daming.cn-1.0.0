@@ -4,13 +4,12 @@ class CoreApi_User extends CoreApi {
     protected static $instance__; //必要,
     protected $_module = 'yd_res';
     protected $_tableName = 'user';
-    protected $_primaryKey = 'user_id';
+    protected $_primaryKey = 'uid';
     protected $_fields = array(
         'uid' => 'int',
         'username' => 'string',
         'password'=>'string',
         'status'=>'int',
-        'name' => 'string',
         'mobile' => 'int',
         'open_id' => 'string',
         'nick' => 'string',
