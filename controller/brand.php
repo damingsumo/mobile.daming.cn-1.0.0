@@ -9,8 +9,12 @@ class Controller_Brand extends Controller_Base {
         $params['secret'] = WEIXIN_APPSECRET;
         $params['grant_type'] = 'client_credential';
         $http = new WeiXin_Http('https://api.weixin.qq.com/cgi-bin/');
-        $userAccessToken = $http->get('token', $params);        
-        print_r($userAccessToken);exit;
+        $token = $http->get('token', $params);  
+//         https://api.weixin.qq.com/cgi-bin/menu/create?access_token=ACCESS_TOKEN
+        $data['access_token'] = $token;
+        $http = new WeiXin_Http(' https://api.weixin.qq.com/cgi-bin/menu/');
+        $res = $http->get('create', $params);
+        print_r($res);exit;
         
         
         
