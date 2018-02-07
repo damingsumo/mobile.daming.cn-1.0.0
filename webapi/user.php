@@ -69,4 +69,11 @@ class WebApi_User extends WebApi{
     }
     
     
+    public function edit($data, $uid) {
+        if(!is_array($data) || $uid== 0) {
+            return false;
+        }
+        return CoreApi_User::instance()->update($data);
+    }
+    
 }
