@@ -2,7 +2,7 @@
 class Controller_Brand extends Controller_Base {
     
     
-    public function actionList() {
+    public function aList() {
         print_r($_REQUEST);exit;
         $params = array();
         $total = WebApi_Brand::instance()->getBrandsCountByParams($params);
