@@ -5,16 +5,16 @@ class Controller_Brand extends Controller_Base {
     public function aList() {
         
         
-        $params['appid'] = WEIXIN_APPID;
-        $params['secret'] = WEIXIN_APPSECRET;
-        $params['grant_type'] = 'client_credential';
-        $http = new WeiXin_Http('https://api.weixin.qq.com/cgi-bin/');
-        $token = $http->get('token', $params);  
-//         https://api.weixin.qq.com/cgi-bin/menu/create?access_token=ACCESS_TOKEN
-        $data['access_token'] = $token;
-        $http = new WeiXin_Http(' https://api.weixin.qq.com/cgi-bin/menu/');
-        $res = $http->post('create', $params);
-        print_r($res);exit;
+//         $params['appid'] = WEIXIN_APPID;
+//         $params['secret'] = WEIXIN_APPSECRET;
+//         $params['grant_type'] = 'client_credential';
+//         $http = new WeiXin_Http('https://api.weixin.qq.com/cgi-bin/');
+//         $token = $http->get('token', $params);  
+// //         https://api.weixin.qq.com/cgi-bin/menu/create?access_token=ACCESS_TOKEN
+//         $data['access_token'] = $token;
+//         $http = new WeiXin_Http(' https://api.weixin.qq.com/cgi-bin/menu/');
+//         $res = $http->post('create', $params);
+//         print_r($res);exit;
         
         
         
