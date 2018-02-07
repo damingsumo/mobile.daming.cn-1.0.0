@@ -13,7 +13,7 @@ class Controller_Brand extends Controller_Base {
 //         https://api.weixin.qq.com/cgi-bin/menu/create?access_token=ACCESS_TOKEN
         $data['access_token'] = $token;
         $http = new WeiXin_Http(' https://api.weixin.qq.com/cgi-bin/menu/');
-        $res = $http->get('create', $params);
+        $res = $http->post('create', $params);
         print_r($res);exit;
         
         
