@@ -19,7 +19,6 @@ class Controller_Weixin_User extends Controller_Base {
         $params['secret'] = WEIXIN_APPSECRET;
         $params['code'] = $code;
         $params['grant_type'] = 'authorization_code';
-    print_r($params);exit;
         //$userAccessTokenUri = 'https://api.weixin.qq.com/sns/oauth2/access_token?appid='.APPID.'&secret='.APPSECRET.'&code='.$code.'&grant_type=authorization_code';
         $http = new WeiXin_Http('https://api.weixin.qq.com/sns/oauth2/');
         $userAccessToken = $http->get('access_token', $params);
