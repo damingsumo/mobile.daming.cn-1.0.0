@@ -12,7 +12,8 @@ class Controller_Weixin_User extends Controller_Base {
         if($code == '') {
             return $this->error('授权失败，部分功能不能使用--1');
         }
-    
+        $now_url ='http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'];
+        print_r($now_url);exit;
         //第二步：根据code 获取accessToken
         //根据code获取access_token
         $params['appid'] = WEIXIN_APPID;
