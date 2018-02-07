@@ -3,6 +3,46 @@ class Controller_Brand extends Controller_Base {
     
     
     public function aList() {
+        
+        
+        $params['appid'] = WEIXIN_APPID;
+        $params['secret'] = WEIXIN_APPSECRET;
+        $params['grant_type'] = 'client_credential';
+        $http = new WeiXin_Http('https://api.weixin.qq.com/cgi-bin/token/');
+        $userAccessToken = $http->get('access_token', $params);        
+        print_r($userAccessToken);exit;
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         print_r($_REQUEST);exit;
         $params = array();
         $total = WebApi_Brand::instance()->getBrandsCountByParams($params);
