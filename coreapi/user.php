@@ -12,7 +12,7 @@ class CoreApi_User extends CoreApi {
         'status'=>'int',
         'name' => 'string',
         'mobile' => 'int',
-        'openid' => 'string',
+        'open_id' => 'string',
         'nick' => 'string',
         'language' => 'string',
         'sex' => 'int',
@@ -69,7 +69,7 @@ class CoreApi_User extends CoreApi {
 	
 	public function getUserByOpenId($openid) {
 	    $sql = 'select * from ' . $this->_tableName . ' where 1 ';
-	    $sql .= 'openid = '.$openid;
+	    $sql .= 'open_id = '.$openid;
 	    return $this->db->select_one($sql);
 	}
 	
