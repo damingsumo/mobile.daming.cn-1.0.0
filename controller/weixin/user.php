@@ -108,7 +108,7 @@ class Controller_Weixin_User extends Controller_Base {
             $userData['update_time'] = date('Y-m-d H:i:s');
             $res = WebApi_User::instance()->edit($userData, $weixinUser['uid']);
             $uid = $weixinUser['uid'];
-//         }
+        }
         Http::setSession('uid', $uid);
         Http::setSession('openid', $openid);
         //在把用户的原始信息放进session中
@@ -119,5 +119,6 @@ class Controller_Weixin_User extends Controller_Base {
         //第六步：根据$state 去跳转到相应的页面
         header("Location:"."https://test.mobile.bestdaming.cn/brand/aList");//到微信网页授权页面
     }
+    
     
 }
