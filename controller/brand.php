@@ -11,7 +11,7 @@ class Controller_Brand extends Controller_Base {
         
         $data = curl::curl_request($url);
         
-        print_r($_SESSION);exit;
+        print_r($data);exit;
         
         
         
