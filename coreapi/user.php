@@ -55,7 +55,7 @@ class CoreApi_User extends CoreApi {
 	 * @return number
 	 */
 	public function getUsersCountByParams($params) {
-	    $sql = 'select count(*) as total from ' . $this->_tableName . ' where 1 and ';
+	    $sql = 'select count(*) as total from ' . $this->_tableName . ' where 1 ';
 	    $binds = array();
 	    foreach($params as $k => $v) {
 	        $binds[':' . $k] = $v;
@@ -67,7 +67,7 @@ class CoreApi_User extends CoreApi {
 	
 	
 	public function getUserByOpenId($openid) {
-	    $sql = 'select * from ' . $this->_tableName . ' where 1 ';
+	    $sql = 'select * from ' . $this->_tableName . ' where 1 and';
 	    $sql .= 'open_id = '."'".$openid."'";
 	    print_r($sql);exit;
 	    return $this->db->select_one($sql);
