@@ -11,7 +11,7 @@ class Controller_Brand extends Controller_Base {
         
         $data = WeiXin_Http::get($url);
         
-        print_r($data);exit;
+        print_r($_SESSION);exit;
         
         
         
