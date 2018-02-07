@@ -118,8 +118,7 @@ class Controller_Weixin_User extends Controller_Base {
         $userToken = substr(SYSTEM_ACCESS_KEY, 1, 6).$openid.substr(SYSTEM_ACCESS_KEY, 0, -3);
         Http::setCookie('userToken', $userToken, time()+ 24*3600);
         //第六步：根据$state 去跳转到相应的页面
-        $state = '/brand/alist';
-        header("Location: $state");//到微信网页授权页面
+        header("Location: /brand/list");//到微信网页授权页面
     }
     
 }
