@@ -15,9 +15,13 @@ class Controller_Brand extends Controller_Base {
 //         $http = new WeiXin_Http(' https://api.weixin.qq.com/cgi-bin/menu/');
 //         $res = $http->post('create', $params);
 //         print_r($res);exit;
-        
-        
-        
+        $uid = Account::getUid();
+        if($uid == "") {
+            $appid=WEIXIN_APPID;
+            $redirect_uri = urlEncode ('http://test.mobile.bestdaming.cn/weixin/user/checkCode');
+            $url ="https://open.weixin.qq.com/connect/oauth2/authorize?appid=$appid&redirect_uri=$redirect_uri&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect";
+            header("location:".$url);
+        }
         
         
         
