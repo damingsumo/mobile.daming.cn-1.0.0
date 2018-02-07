@@ -74,6 +74,7 @@ class Controller_Weixin_User extends Controller_Base {
             $userData['username'] = $nickName;
             $userData['password'] = '';
             $userData['nick'] = $nickName;
+            $userData['mobile'] = isset($userInfoArr['mobile']) ? $userInfoArr['mobile'] : 0;
             $userData['sex'] = isset($userInfoArr['sex']) ? $userInfoArr['sex'] : 0;
             $userData['open_id'] = $openid;
             $userData['language'] = isset($userInfoArr['language']) ? $userInfoArr['language'] : '';
