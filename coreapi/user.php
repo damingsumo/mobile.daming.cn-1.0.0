@@ -68,7 +68,7 @@ class CoreApi_User extends CoreApi {
 	
 	public function getUserByOpenId($openid) {
 	    $sql = 'select * from ' . $this->_tableName . ' where 1 ';
-	    $sql .= 'open_id = '.$openid;
+	    $sql .= 'open_id = '."'".$openid."'";
 	    print_r($this->db->select_one($sql));exit;
 	    return $this->db->select_one($sql);
 	}
