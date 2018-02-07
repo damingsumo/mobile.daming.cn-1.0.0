@@ -20,6 +20,7 @@ class curl {
         curl_setopt($curl, CURLOPT_TIMEOUT, 10);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
         $data = curl_exec($curl);
+        print_r($data);exit;
         if (curl_errno($curl)) {
             return curl_error($curl);
         }
