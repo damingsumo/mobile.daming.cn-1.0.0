@@ -11,10 +11,16 @@ class CoreApi_User extends CoreApi {
         'password'=>'string',
         'status'=>'int',
         'name' => 'string',
-        'mobile' => 'string',
-        'email' => 'string',
+        'mobile' => 'int',
+        'openid' => 'string',
+        'nick' => 'string',
+        'language' => 'string',
         'sex' => 'int',
-        'address' => 'string',
+        'city' => 'string',
+        'province' => 'int',
+        'country' => 'string',
+        'thumb' => 'string',
+        'language' => 'string',
         'create_time' => 'string',
         'update_time' => 'string');
     
@@ -60,5 +66,11 @@ class CoreApi_User extends CoreApi {
 	    return isset($result['total']) ? $result['total'] : 0;
 	}
 	
+	
+	public function getUserByOpenId($openid) {
+	    $sql = 'select * from ' . $this->_tableName . ' where 1 ';
+	    $sql .= 'openid = '.$openid;
+	    return $this->db->select_one($sql);
+	}
 	
 }

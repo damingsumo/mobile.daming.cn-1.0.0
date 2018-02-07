@@ -28,19 +28,10 @@ class WebApi_User extends WebApi{
     }
     
     public function add($data) {
-        $params = array();
-        $params['username'] = isset($data['username']) ? $data['username'] : '';
-        $params['name'] = isset($data['name']) ? $data['name'] : '';
-        $params['status'] = isset($data['status']) ? $data['status'] : 1;
-        $params['mobile'] = isset($data['mobile']) ? $data['mobile'] : '';
-        $params['email'] = isset($data['email']) ? $data['email'] : '';
-        $params['sex'] = isset($data['sex']) ? $data['sex'] : 2;
-        $params['address'] = isset($data['address']) ? $data['address'] : '';
-        $params['create_time'] = date('Y-m-d H:i:s');
-        $params['update_time'] = date('Y-m-d H:i:s');
-        $password = isset($data['password']) ? $data['password'] : '';
-        $params['password'] = $this->encrypt($password);
-        return CoreApi_User::instance()->insert($params);
+        if(!is_array($data)) {
+            return false;
+        }
+        return CoreApi_User::instance()->insert($data);
     }
     
     public function login($username, $password, $remember = true) {
@@ -68,5 +59,14 @@ class WebApi_User extends WebApi{
     private function encrypt($string) {
         return md5($string);
     }
+    
+    
+    public function getUserByOpenId($openid) {
+        if($openid == '') {
+            return array();
+        }
+        return CoreApi_User::instance()->getUserByOpenId($openid);
+    }
+    
     
 }

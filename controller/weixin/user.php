@@ -67,12 +67,11 @@ class Controller_Weixin_User extends Controller_Base {
         if(strpos($tmpNick, 'emoji') !== false ){
             $nickName = '';
         }
-    print_r($userInfoArr);exit;
         //第五步 用户信息写入session
-        $weixinUser = WebApi_User_Weixin::instance()->getUserByOpenId($openid);
+        $weixinUser = WebApi_User::instance()->getUserByOpenId($openid);
         if(empty($weixinUser)) {
             //插入微信表和user表
-            $userData['user_name'] = $nickName;
+            $userData['username'] = $nickName;
             $userData['password'] = '';
             $userData['nick'] = $nickName;
             $userData['sex'] = isset($userInfoArr['sex']) ? $userInfoArr['sex'] : 0;
@@ -82,14 +81,10 @@ class Controller_Weixin_User extends Controller_Base {
             $userData['province'] = isset($userInfoArr['province']) ? $userInfoArr['province'] : '';
             $userData['country'] = isset($userInfoArr['country']) ? $userInfoArr['country'] : '';
             $userData['thumb'] = isset($userInfoArr['headimgurl']) ? $userInfoArr['headimgurl'] : '';
-            $userData['unionid'] = isset($userInfoArr['unionid']) ? $userInfoArr['unionid'] : '';
-            $userData['remark'] = isset($userInfoArr['remark']) ? $userInfoArr['remark'] : '';
-            $userData['groupid'] = isset($userInfoArr['groupid']) ? $userInfoArr['groupid'] : '';
             $userData['subscribe_time'] = $userData['create_time'] = date('Y-m-d H:i:s');
             $userData['status'] = 1;
-            $userData['type'] = 1;
             $userData['update_time'] = '0000-00-00 00:00:00';
-            $res = WebApi_User_Weixin::instance()->add($userData);
+            $res = WebApi_User::instance()->add($userData);
             if($res === false) {
                 return $this->error('授权失败，部分功能不能使用--4');
             }      
