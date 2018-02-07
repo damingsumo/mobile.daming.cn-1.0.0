@@ -90,20 +90,21 @@ class Controller_Weixin_User extends Controller_Base {
                 return $this->error('授权失败，部分功能不能使用--4');
             }      
             $uid = $res;
-        } else {
-            //更新微信信息
-            $userData['nick'] = $nickName;
-            $userData['sex'] = isset($userInfoArr['sex']) ? $userInfoArr['sex'] : 0;
-            $userData['open_id'] = $openid;
-            $userData['language'] = isset($userInfoArr['language']) ? $userInfoArr['language'] : '';
-            $userData['city'] = isset($userInfoArr['city']) ? $userInfoArr['city'] : '';
-            $userData['province'] = isset($userInfoArr['province']) ? $userInfoArr['province'] : '';
-            $userData['country'] = isset($userInfoArr['country']) ? $userInfoArr['country'] : '';
-            $userData['thumb'] = isset($userInfoArr['headimgurl']) ? $userInfoArr['headimgurl'] : '';
-            $userData['update_time'] = date('Y-m-d H:i:s');
-            $res = WebApi_User_Weixin::instance()->edit($userData, $weixinUser['uid']);
-            $uid = $weixinUser['uid'];
-        }
+        } 
+//         else {
+//             //更新微信信息
+//             $userData['nick'] = $nickName;
+//             $userData['sex'] = isset($userInfoArr['sex']) ? $userInfoArr['sex'] : 0;
+//             $userData['open_id'] = $openid;
+//             $userData['language'] = isset($userInfoArr['language']) ? $userInfoArr['language'] : '';
+//             $userData['city'] = isset($userInfoArr['city']) ? $userInfoArr['city'] : '';
+//             $userData['province'] = isset($userInfoArr['province']) ? $userInfoArr['province'] : '';
+//             $userData['country'] = isset($userInfoArr['country']) ? $userInfoArr['country'] : '';
+//             $userData['thumb'] = isset($userInfoArr['headimgurl']) ? $userInfoArr['headimgurl'] : '';
+//             $userData['update_time'] = date('Y-m-d H:i:s');
+//             $res = WebApi_User_Weixin::instance()->edit($userData, $weixinUser['uid']);
+//             $uid = $weixinUser['uid'];
+//         }
         Http::setSession('uid', $uid);
         Http::setSession('openid', $openid);
         //在把用户的原始信息放进session中
