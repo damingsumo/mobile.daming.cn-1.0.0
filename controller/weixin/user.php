@@ -81,7 +81,7 @@ class Controller_Weixin_User extends Controller_Base {
             $userData['province'] = isset($userInfoArr['province']) ? $userInfoArr['province'] : '';
             $userData['country'] = isset($userInfoArr['country']) ? $userInfoArr['country'] : '';
             $userData['thumb'] = isset($userInfoArr['headimgurl']) ? $userInfoArr['headimgurl'] : '';
-            $userData['subscribe_time'] = $userData['create_time'] = date('Y-m-d H:i:s');
+            $userData['create_time'] = date('Y-m-d H:i:s');
             $userData['status'] = 1;
             $userData['update_time'] = '0000-00-00 00:00:00';
             $res = WebApi_User::instance()->add($userData);
