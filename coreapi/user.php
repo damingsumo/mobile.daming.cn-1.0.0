@@ -20,8 +20,15 @@ class CoreApi_User extends CoreApi {
         'country' => 'string',
         'thumb' => 'string',
         'language' => 'string',
+        'unionid' => 'int',
+        'remark' => 'string',
+        'groupid' => 'string',
+        'subscribe_time' => 'string',
         'create_time' => 'string',
         'update_time' => 'string');
+    
+    
+    
     
    /***
     * 
@@ -69,7 +76,6 @@ class CoreApi_User extends CoreApi {
 	public function getUserByOpenId($openid) {
 	    $sql = 'select * from ' . $this->_tableName . ' where 1 and ';
 	    $sql .= 'open_id = '."'".$openid."'";
-	    print_r($this->db->select_one($sql));exit;
 	    return $this->db->select_one($sql);
 	}
 	

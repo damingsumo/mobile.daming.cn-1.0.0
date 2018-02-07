@@ -69,6 +69,7 @@ class Controller_Weixin_User extends Controller_Base {
         }
         //第五步 用户信息写入session
         $weixinUser = WebApi_User::instance()->getUserByOpenId($openid);
+        
         if(empty($weixinUser)) {
             //插入微信表和user表
             $userData['username'] = $nickName;
@@ -82,9 +83,13 @@ class Controller_Weixin_User extends Controller_Base {
             $userData['province'] = isset($userInfoArr['province']) ? $userInfoArr['province'] : '';
             $userData['country'] = isset($userInfoArr['country']) ? $userInfoArr['country'] : '';
             $userData['thumb'] = isset($userInfoArr['headimgurl']) ? $userInfoArr['headimgurl'] : '';
-            $userData['create_time'] = date('Y-m-d H:i:s');
+            $userData['unionid'] = isset($userInfoArr['unionid']) ? $userInfoArr['unionid'] : '';
+            $userData['remark'] = isset($userInfoArr['remark']) ? $userInfoArr['remark'] : '';
+            $userData['groupid'] = isset($userInfoArr['groupid']) ? $userInfoArr['groupid'] : '';
+            $userData['subscribe_time'] = $userData['create_time'] = date('Y-m-d H:i:s');
             $userData['status'] = 1;
-            $userData['update_time'] = '0000-00-00 00:00:00';
+            $userData['create_time'] = date('Y-m-d H:i:s');
+            $userData['update_time'] = date('Y-m-d H:i:s');
             $res = WebApi_User::instance()->add($userData);
             if($res === false) {
                 return $this->error('授权失败，部分功能不能使用--4');
