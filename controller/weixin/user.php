@@ -67,7 +67,7 @@ class Controller_Weixin_User extends Controller_Base {
         if(strpos($tmpNick, 'emoji') !== false ){
             $nickName = '';
         }
-    print_r($openid);exit;
+    print_r($userInfoArr);exit;
         //第五步 用户信息写入session
         $weixinUser = WebApi_User_Weixin::instance()->getUserByOpenId($openid);
         if(empty($weixinUser)) {
