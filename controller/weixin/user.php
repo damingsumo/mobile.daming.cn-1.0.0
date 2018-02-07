@@ -9,7 +9,6 @@ class Controller_Weixin_User extends Controller_Base {
         //第一步：获取code
         $code = isset($_REQUEST['code']) ? $_REQUEST['code'] : '';
         $state = isset($_REQUEST['state']) ? urldecode($_REQUEST['state']) : '';
-        print_r($_REQUEST);exit;
         if($code == '') {
             return $this->error('授权失败，部分功能不能使用--1');
         }
