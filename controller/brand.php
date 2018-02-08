@@ -11,10 +11,8 @@ class Controller_Brand extends Controller_Base {
             $url ="https://open.weixin.qq.com/connect/oauth2/authorize?appid=$appid&redirect_uri=$redirect_uri&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect";
     	    header("location:".$url);
         }
-        $a = WeiXin_Http::checkCode($code,$state);
-        
-        
-        $res = WebApi_User::instance()->addUser($a, $a['openid']);
+        $userInfoArr = WeiXin_Http::checkCode($code,$state);
+        $res = WebApi_User::instance()->addUser($userInfoArr, $userInfoArr['openid']);
         
         $params = array();
         $total = WebApi_Brand::instance()->getBrandsCountByParams($params);
@@ -27,6 +25,7 @@ class Controller_Brand extends Controller_Base {
             $brand['picture_url'] = $brand['picture_url'];
         }
         $params['total'] = $total;
+        print_r($_SESSION);exit;
         return $this->display('index/index', $params);
     }
     
