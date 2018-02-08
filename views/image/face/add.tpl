@@ -167,7 +167,7 @@ $(".bottom3_2 a").click(function(){
                      //脸  
                    var img3 = new Image(); 
                        img3.crossOrigin =" anonymous" ; 
-                       img3.src =facestyle; 
+                       img3.src =frontstyle; 
                        // ctx1.clearRect(0,0,1000,1000); 
                     img3.onload = function () //确保图片已经加载完毕  
                     {  
