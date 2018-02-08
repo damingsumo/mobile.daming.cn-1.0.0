@@ -14,7 +14,7 @@ class Controller_Brand extends Controller_Base {
         $userInfoArr = WeiXin_Http::checkCode($code,$state);
         $res = WebApi_User::instance()->addUser($userInfoArr, $userInfoArr['openid']);
         
-        $total = WebApi_Image::instance()->getImagesCountByParams(array('uid'=>$uid));
+        $total = WebApi_Image::instance()->getImagesCountByParams(array('uid'=>$_SESSION['uid']));
         if($total == 0) {
             http::go('/user/goadd');
         }
