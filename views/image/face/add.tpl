@@ -162,7 +162,7 @@ $(".bottom3_2 a").click(function(){
                          var frw = member.data['hairstyle']['front_width'];
                    var qw=document.getElementById("face").value;
                    if( qw == 1){ 
-                   var canvas1 = document.getElementById("behid_hair"); 
+                   var canvas1 = document.getElementById("face1"); 
                    var ctx1 = canvas1.getContext("2d");
                    var canvas2 = document.getElementById("hair"); 
                    var ctx2 = canvas2.getContext("2d");
