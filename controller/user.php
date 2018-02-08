@@ -90,14 +90,14 @@ class Controller_User extends Controller_Base {
             return $this->error('未找到脸型信息');
         }
         foreach ($faces as &$face) {
-            $face['show_url'] = 'http://'.MGR_DOMIAN.$face['show_url'];
+            $face['show_url'] = $face['show_url'];
         }
         $complexions = WebApi_Image_Complexion::instance()->getComplexionsByParams(array(), $page=1, $pageSzie=-1);
         if(empty($complexions)) {
             return $this->error('未找到肤色信息');
         }
         foreach ($complexions as &$complexion) {
-            $complexion['picture_url'] = 'http://'.MGR_DOMIAN.$complexion['picture_url'];
+            $complexion['picture_url'] = $complexion['picture_url'];
         }
         
         $userHairStyle = array();
