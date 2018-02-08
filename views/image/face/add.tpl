@@ -160,9 +160,8 @@ $(".bottom3_2 a").click(function(){
                  var fra = member.data['hairstyle']['front_abscissa'];
                  var frl = member.data['hairstyle']['front_length'];
                  var frw = member.data['hairstyle']['front_width'];
-                 var qw=document.getElementById("face").value;
-           console.log(qw)
-           if( qw == 2){
+                 var qw=document.getElementById("complexion").value;
+           // if( qw == 5){
                var canvas1 = document.getElementById("face1"); 
                var ctx1 = canvas1.getContext("2d"); 
                      //脸  
@@ -183,28 +182,28 @@ $(".bottom3_2 a").click(function(){
                        ctx1.putImageData(imgData,95,206); 
                      }
                      
-            }//if的判断符号
-            else if( qw==1 ) {
-                 var canvas1 = document.getElementById("face1"); 
-                 var ctx1 = canvas1.getContext("2d"); 
-                   //脸  
-                   var img3 = new Image(); 
-                       img3.crossOrigin =" anonymous" ; 
-                       img3.src =facestyle; 
-                       ctx1.clearRect(0,0,1000,1000); 
-                    img3.onload = function () //确保图片已经加载完毕  
-                    {  
-                      ctx1.drawImage(img3,95,208,130,120);   
-                      var imgData = ctx1.getImageData(95,206,130,120); 
-                       var data = imgData.data; 
-                       for(var i = 0 ; i<data.length; i+=4){ 
-                           data [i] -= r; 
-                           data [i + 1] -= g; 
-                           data [i + 2] -= b; 
-                       }  
-                       ctx1.putImageData(imgData,95,206); 
-                     }
-            } 
+            // }//if的判断符号
+            // else if( qw==6) {
+            //      var canvas1 = document.getElementById("face1"); 
+            //      var ctx1 = canvas1.getContext("2d"); 
+            //        //脸  
+            //        var img3 = new Image(); 
+            //            img3.crossOrigin =" anonymous" ; 
+            //            img3.src =facestyle; 
+            //            ctx1.clearRect(0,0,1000,1000); 
+            //         img3.onload = function () //确保图片已经加载完毕  
+            //         {  
+            //           ctx1.drawImage(img3,95,208,130,120);   
+            //           var imgData = ctx1.getImageData(95,206,130,120); 
+            //            var data = imgData.data; 
+            //            for(var i = 0 ; i<data.length; i+=4){ 
+            //                data [i] -= r; 
+            //                data [i + 1] -= g; 
+            //                data [i + 2] -= b; 
+            //            }  
+            //            ctx1.putImageData(imgData,95,206); 
+            //          }
+            // } 
           }
         }
       });
