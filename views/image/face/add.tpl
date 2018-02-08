@@ -18,7 +18,7 @@
   <form action="/user/face/add" id="myform" method="post">
   <input type="hidden" name="face_id" value="{$userFace.face_id}" id="face_id">
   <input type="hidden" value="{$imageId}" name="imageId">
-  <input type="hidden" name="complexion_id" value="{if isset($userFace.complexion_id)}{$userFace.complexion_id}{/if}" id="complexion">
+  <input type="hidden" name="complexion_id" value="{if isset($userFace.complexion_id)}{$userFace.complexion_id}{/if}" id="complexion_id">
   <div class="bottom3">
     <ul class="bottom3_1">
     {foreach $faces as $face}
@@ -135,7 +135,7 @@ $(".bottom3_2 a").click(function(){
     });
     function face(face_id) {
       $("#face").attr("value",face_id);
-     var complexion_id = $("#complexion").val();
+     var complexion_id = $("#complexion_id").val();
         $.ajax({
             type: "POST",
             url: 'face/ajaxGetFace',
@@ -332,7 +332,7 @@ $(".bottom3_2 a").click(function(){
   }
 
     function complexion(complexion_id) {
-      $("#complexion").attr("value",complexion_id); 
+      $("#complexion_id").attr("value",complexion_id); 
       var face_id = $('#face').val();
         $.ajax({
             type: "POST",
