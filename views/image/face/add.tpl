@@ -133,9 +133,13 @@
 $(".bottom3_2 a").click(function(){
         $(this).addClass("bg3").siblings().removeClass("bg3"); 
     });
+ $(".bottom3_1 li").click(function(){
+      var str=$(this).val();
+      $("#face").val(str); 
+    }); 
     function face(face_id) {
       console.log(face_id)
-      $("#face").attr("value",face_id);
+      // $("#face").attr("value",face_id);
      // var complexion_id = $("#complexion").val();
         $.ajax({
             type: "POST",
