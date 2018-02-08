@@ -254,4 +254,27 @@ class Controller_Brand_Goods extends Controller_Base {
         return $this->display('detail',$params);
     }
     
+    public function addshopcarAjax() {
+        $gid = isset($_POST['gid']) ? $_POST['gid']: 0;
+        $size = isset($_POST['size']) ? $_POST['size']: 0;
+        $number = isset($_POST['number']) ? $_POST['number']: 0;
+        $uid = account::getUid();
+        $params = array();
+        
+        $res = WebApi_User_Shoppingcar::instance()->add();
+        
+    }
+    
+    
+    public function goaddshopcarAjax() {
+        $gid = isset($_POST['gid']) ? $_POST['gid']: 0;
+        $good = WebApi_Brand_Goods::instance()->row('*',$gid);
+        
+        $params['good'] = $good;
+        return $this->display('addshopcarajax',$params);
+        
+        
+    }
+    
+    
 }
