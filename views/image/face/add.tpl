@@ -22,7 +22,7 @@
   <div class="bottom3">
     <ul class="bottom3_1">
     {foreach $faces as $face}
-      <a onclick="face({$face.face_id})"><li value="{$face.face_id}"><img src="{$face.show_url}"><span>{$face.name}</span></li></a>
+      <a ><li value="{$face.face_id}"><img src="{$face.show_url}"><span>{$face.name}</span></li></a>
      {/foreach}
     </ul>
     <ul class="none bottom3_2 ">
@@ -133,8 +133,9 @@
 $(".bottom3_2 a").click(function(){
         $(this).addClass("bg3").siblings().removeClass("bg3"); 
     });
-    function face(face_id) {
-      $("#face").attr("value",face_id);
+
+    $(".bottom3_1 a:first-child").click(function(){
+      // $("#face").attr("value",face_id);
       var facestyle = $("#face_synthesis_url").val();
        var canvas1 = document.getElementById("face1"); 
            var ctx1 = canvas1.getContext("2d"); 
@@ -212,7 +213,7 @@ $(".bottom3_2 a").click(function(){
     //     }
     //   }
     // });
-  }
+  });
 
   //   function complexion(complexion_id) {
   //     $("#complexion").attr("value",complexion_id); 
