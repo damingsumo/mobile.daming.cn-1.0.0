@@ -2,7 +2,7 @@
 class Controller_Brand extends Controller_Base {
     
     
-    public function actionGobrandlist() {
+    public function gobrandlist() {
         $code = isset($_REQUEST['code']) ? $_REQUEST['code'] : '';
         $state = isset($_REQUEST['state']) ? urldecode($_REQUEST['state']) : '';
         if($code == "") {
