@@ -123,8 +123,8 @@
         $(".center3>div ul").eq(index_3).removeClass("none").siblings().addClass("none");
         $(".bottom3 ul").eq(index_3).removeClass("none").siblings().addClass("none");
     }); 
-  var str=$(".bottom3_1 li:first-child").val();
-  $("#face").val(str);
+  // var str=$(".bottom3_1 li:first-child").val();
+  // $("#face").val(str);
   var str1=$(".bottom3_2 li:first-child").val();
   $("#complexion").val(str1);
  $(".bottom3_1 a").click(function(){
