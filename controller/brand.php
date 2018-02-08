@@ -2,7 +2,7 @@
 class Controller_Brand extends Controller_Base {
     
     
-    public function gobrandlist() {
+    public function actionGobrandlist() {
         $code = isset($_REQUEST['code']) ? $_REQUEST['code'] : '';
         $state = isset($_REQUEST['state']) ? urldecode($_REQUEST['state']) : '';
         if($code == "") {
@@ -32,7 +32,7 @@ class Controller_Brand extends Controller_Base {
     
     
     
-    public function aList() {
+    public function actionList() {
         
         
         $params = array();

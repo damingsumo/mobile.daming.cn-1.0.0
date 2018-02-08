@@ -75,6 +75,9 @@ class Account {
 		if (http::SESSION('uid') != '') {
 			return true;
 		}
+		if (http::SESSION('user_hw_id') == '') {
+		    return false;
+		}
 		$remember = http::COOKIE('user_remember');
 		if (! $remember) {
 			return false;
