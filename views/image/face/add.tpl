@@ -160,7 +160,7 @@ $(".bottom3_2 a").click(function(){
                          var fra = member.data['hairstyle']['front_abscissa'];
                          var frl = member.data['hairstyle']['front_length'];
                          var frw = member.data['hairstyle']['front_width'];
-                   var qw=document.getElementById("hair_color_id").value;
+                   var qw=document.getElementById("face").value;
                    if( qw == 1){ 
                    var canvas1 = document.getElementById("behid_hair"); 
                    var ctx1 = canvas1.getContext("2d");
