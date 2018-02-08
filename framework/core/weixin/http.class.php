@@ -120,7 +120,7 @@ class WeiXin_Http {
         return $response;
     }
     
-    public function checkCode($code,$state) {
+    public static function checkCode($code,$state) {
     
         $code = isset($_REQUEST['code']) ? $_REQUEST['code'] : '';
         $state = isset($_REQUEST['state']) ? urldecode($_REQUEST['state']) : '';
