@@ -134,7 +134,7 @@ class Controller_Brand extends Controller_Base {
             $brand['picture_url'] = $brand['picture_url'];
         }
         $params['total'] = $total;
-        return $this->display('brand/good/list', $params);
+        return $this->display('index/index', $params);
     }
     
     
