@@ -112,7 +112,6 @@ class Controller_Weixin_User extends Controller_Base {
         Http::setSession('uid', $uid);
         Http::setSession('openid', $openid);
         //在把用户的原始信息放进session中
-    print_r($_SESSION);exit;
         //为了延长授权时间把openid存储到cookie中
         $userToken = substr(SYSTEM_ACCESS_KEY, 1, 6).$openid.substr(SYSTEM_ACCESS_KEY, 0, -3);
         Http::setCookie('userToken', $userToken, time()+ 24*3600);
