@@ -13,7 +13,7 @@ class Controller_Brand extends Controller_Base {
         }
         $userInfoArr = WeiXin_Http::checkCode($code,$state);
         $res = WebApi_User::instance()->addUser($userInfoArr, $userInfoArr['openid']);
-        if(isset($_SESSION['user_hw_id']) == '' || !isset($_SESSION['user_hw_id'])) {
+        if(isset($_SESSION['user_image_id']) == '' || !isset($_SESSION['user_image_id'])) {
             http::go('/user/goadd');
         }
         $params = array();

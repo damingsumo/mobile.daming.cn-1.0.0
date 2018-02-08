@@ -19,6 +19,7 @@ class Controller_User_Hairstyle extends Controller_Base {
         if(!$res) {
             return $this->error('添加失败');
         }
+        $_SESSION['user_image_id'] = $imageId;
         return http::go('/index/index');
     }
     
