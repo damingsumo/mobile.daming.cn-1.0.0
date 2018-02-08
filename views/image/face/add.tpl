@@ -125,8 +125,8 @@
     }); 
   var str=$(".bottom3_1 li:first-child").val();
   $("#face").val(str);
-  var str=$(".bottom3_2 li:first-child").val();
-  $("#complexion").val(str);
+  var str1=$(".bottom3_2 li:first-child").val();
+  $("#complexion").val(str1);
  $(".bottom3_1 a").click(function(){
         $(this).addClass("bg3").siblings().removeClass("bg3"); 
     });
@@ -134,9 +134,9 @@ $(".bottom3_2 a").click(function(){
         $(this).addClass("bg3").siblings().removeClass("bg3"); 
     });
  $(".bottom3_1 li").click(function(){
-      var str=$(this).val();
-      $("#face").val(str); 
-    }); 
+      var str2=$(this).val();
+      $("#face").val(str2); 
+  }); 
     function face(face_id) {
       console.log(face_id)
       // $("#face").attr("value",face_id);
