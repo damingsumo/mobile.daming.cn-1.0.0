@@ -17,15 +17,13 @@
 		<div class="order_size order_size_car">
 			<span>尺码</span>
 			<ul>
-			{foreach $sizes as $size}
-				<li onclick="checksize({$size.size})">{if $size.size == 1}S{else if $size.size == 2}M{else if $size.size == 3}L{else if $size.size == 4}XL{/if}</li>
-				{/foreach}
+			
 			</ul>
 		</div>
 		<div class="order_color order_color_car">
 			<span>颜色</span>
 			<ul>
-				<li onclick="checkcolor()">紫红</li>
+				<li>紫红</li>
 				<li>卡其色</li>
 				<li>绿色</li>
 				<li>淡黄</li>
