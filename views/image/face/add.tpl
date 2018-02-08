@@ -124,9 +124,9 @@
         $(".bottom3 ul").eq(index_3).removeClass("none").siblings().addClass("none");
     }); 
   var str=$(".bottom3_1 li:first-child").val();
-  $("#face").val(str);
+  $("#face_id").val(str);
   var str=$(".bottom3_2 li:first-child").val();
-  $("#complexion").val(str);
+  $("#complexion_id").val(str);
  $(".bottom3_1 a").click(function(){
         $(this).addClass("bg3").siblings().removeClass("bg3"); 
     });
@@ -134,7 +134,7 @@ $(".bottom3_2 a").click(function(){
         $(this).addClass("bg3").siblings().removeClass("bg3"); 
     });
     function face(face_id) {
-      $("#face").attr("value",face_id);
+      $("#face_id").attr("value",face_id);
      var complexion_id = $("#complexion_id").val();
         $.ajax({
             type: "POST",
@@ -160,7 +160,7 @@ $(".bottom3_2 a").click(function(){
                  var fra = member.data['hairstyle']['front_abscissa'];
                  var frl = member.data['hairstyle']['front_length'];
                  var frw = member.data['hairstyle']['front_width'];
-                 var qw=document.getElementById("complexion").value;
+                 var qw=document.getElementById("complexion_id").value;
            if( qw == 6){
                var canvas = document.getElementById("MyCanvas"); 
                var ctx = canvas.getContext("2d"); 
@@ -333,7 +333,7 @@ $(".bottom3_2 a").click(function(){
 
     function complexion(complexion_id) {
       $("#complexion_id").attr("value",complexion_id); 
-      var face_id = $('#face').val();
+      var face_id = $('#face_id').val();
         $.ajax({
             type: "POST",
             url: 'face/ajaxGetComplexion',
@@ -361,7 +361,7 @@ $(".bottom3_2 a").click(function(){
                  var fra = member.data['hairstyle']['front_abscissa'];
                  var frl = member.data['hairstyle']['front_length'];
                  var frw = member.data['hairstyle']['front_width'];
-           var qw=document.getElementById("complexion").value;
+           var qw=document.getElementById("complexion_id").value;
            // console.log(qw)
            if( qw == 6){
                var canvas = document.getElementById("MyCanvas"); 
