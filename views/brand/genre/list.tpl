@@ -1,7 +1,7 @@
 {include file="common/header.tpl" pageTitle="商品列表"}
 {include file="common/menu.tpl"}
 
-<div style="margin-top:6rem;">
+<div>
     {foreach $genres as $k=>$v}  
         <div class="jacket">
             <span>{if $k == 1}上装 {elseif $k == 2}裤子 {elseif $k == 3}套裙 {elseif $k == 4}套装{/if}</span>

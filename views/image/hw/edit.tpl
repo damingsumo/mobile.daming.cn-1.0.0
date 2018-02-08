@@ -32,9 +32,9 @@
   <input type="hidden" value="{$hwPhoto.face_abscissa}" id="face_abscissa">
   <input type="hidden" value="{$hwPhoto.face_length}" id="face_length">
   <input type="hidden" value="{$hwPhoto.face_width}" id="face_width">
-	<div class="content6">
+	<div class="content6" style="margin-top:4rem;">
 		<div class="content6_top">
-			<ul>
+			<ul style="margin-bottom:3rem;">
 				<li >
 					 <canvas id="behid_hair" width="300" height="500"></canvas>
 		             <canvas id="MyCanvas"  width="300" height="500"></canvas>

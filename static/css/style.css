@@ -975,8 +975,7 @@ li{
 	line-height: 5rem;
 }
 .revise{
-	padding: 0 4%;
-	margin-top: 60px;
+	padding: 0 4%; 
 	float: left;
 	width: 100%;
 }
@@ -986,7 +985,7 @@ li{
 }
 .revise_content span{
 	width: 75%;
-	padding: 20% 0;
+	padding: 27% 0;
 	font-size: 1.6rem;
 	display: inline-block;
 	line-height:2.5rem;
@@ -1050,6 +1049,7 @@ li{
 	line-height: 6.01rem;
 	width: 100%;
 	position: relative;
+	margin-bottom: 4.5rem;
 }
 .reset span{
 	font-size: 1.4rem;
@@ -1078,7 +1078,7 @@ li{
 }
 .content3{
 	width: 100%;
-	margin-top: 5.5rem;
+	margin-top: 5rem;
 	padding-top: 4rem;
 	background: #f8f8f8;
 }
@@ -1245,8 +1245,7 @@ align-items: center;
 	border: 1px solid #7361f0;
 }
 .topnav{
-	width: 100%;
-	margin-top: 60px;
+	width: 100%; 
 }
 .topnav ul{
     display: flex;
@@ -1368,7 +1367,7 @@ align-items: center;
 .content5{
 	display: table;
 	width: 100%;
-	margin: 10rem 0 4rem 0;
+	margin: 3rem 0 4rem 0;
 }
 .content5_top{
 	width: 100%;
@@ -2212,7 +2211,7 @@ align-items: center;
 	color: #fff;
 }
 .content7{
-	margin: 6rem 0 0rem 0;
+	margin: 0rem 0 0rem 0;
 	width: 100%;
 	background: #f3f3f3;
 }
@@ -3264,6 +3263,14 @@ align-items: center;
     .top71 li canvas,.content5_top canvas,.content6_top canvas{
 		left: 7%;
 	} 
+	.revise_content span{
+		width: 75%;
+		padding: 12% 0;
+		font-size: 1.6rem;
+		display: inline-block;
+		line-height:2.5rem;
+
+	}
 	.balance span:nth-child(3){
 	 margin-left: 9%;
 	}
@@ -3279,6 +3286,14 @@ align-items: center;
 	.balance span:nth-child(3){
 	 margin-left:16%;
 	}
+	.revise_content span{
+		width: 75%;
+		padding: 17% 0;
+		font-size: 1.6rem;
+		display: inline-block;
+		line-height:2.5rem;
+
+	}
 }
 
 @media screen and (min-width: 320px) and (max-width: 413px){
@@ -3286,10 +3301,24 @@ align-items: center;
     .last_style div:nth-child(6),.last_style div:nth-child(8){
    		 left:80%;
     } 
+    .revise_content span{
+		width: 75%;
+		padding: 17% 0;
+		font-size: 1.6rem;
+		display: inline-block;
+		line-height:2.5rem;
+
+	}
     .last_style span{
 	padding:0.5rem 0.5rem; 
 	width: 5rem;
 	font-size: 1.2rem;
+	}
+	.content3{
+		width: 100%;
+		margin-top: 2rem;
+		padding-top: 0rem;
+		background: #f8f8f8;
 	}
 	/*.top71 li canvas{
 		left: 2.5rem;
