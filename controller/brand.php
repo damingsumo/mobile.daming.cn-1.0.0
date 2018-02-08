@@ -25,7 +25,6 @@ class Controller_Brand extends Controller_Base {
             $brand['picture_url'] = $brand['picture_url'];
         }
         $params['total'] = $total;
-        print_r($_SESSION);exit;
         return $this->display('index/index', $params);
     }
     
