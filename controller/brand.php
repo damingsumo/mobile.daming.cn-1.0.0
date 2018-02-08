@@ -15,7 +15,6 @@ class Controller_Brand extends Controller_Base {
         
         
         $res = WebApi_User::instance()->addUser($a, $a['openid']);
-        print_r($_SESSION);exit;
         
         $params = array();
         $total = WebApi_Brand::instance()->getBrandsCountByParams($params);
