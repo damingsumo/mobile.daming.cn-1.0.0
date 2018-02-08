@@ -135,10 +135,11 @@ $(".bottom3_2 a").click(function(){
     });
  $(".bottom3_1 li").click(function(){
       var str2=$(this).val();
-      $("#face").val(str2); 
+      $("#face").val(str2);
+      alert(str2) 
   }); 
     function face(face_id) {
-      console.log(face_id)
+      
       // $("#face").attr("value",face_id);
      // var complexion_id = $("#complexion").val();
         $.ajax({
