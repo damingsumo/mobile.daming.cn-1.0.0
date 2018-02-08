@@ -123,9 +123,9 @@ $(".center3>ul li").click(function(){
     $(".bottom3 ul").eq(index_3).removeClass("none").siblings().addClass("none");
 }); 
 var str=$(".bottom3_1 li:first-child").val();
-$("#face").val(str);
+$("#face_id").val(str);
 var str=$(".bottom3_2 li:first-child").val();
-$("#complexion").val(str); 
+$("#complexion_id").val(str); 
 $(".bottom3_1 a").click(function(){
     $(this).addClass("bg3").siblings().removeClass("bg3"); 
 });
