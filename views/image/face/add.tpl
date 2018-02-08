@@ -149,7 +149,7 @@ $(".bottom3_2 a").click(function(){
                    // var r = m[0];
                    // var g = m[1];
                    // var b = m[2];  
-                 // var behidestyle =member.data['hairstyle']['behide_synthesis_url'];
+                 var behidestyle =member.data['hairstyle']['behide_synthesis_url'];
                  var facestyle =member.data['face']['synthesis_url'];
                  // var frontstyle=member.data['hairstyle']['front_synthesis_url'];
                  // var beo = member.data['hairstyle']['behide_ordinate'];
@@ -161,26 +161,17 @@ $(".bottom3_2 a").click(function(){
                  // var frl = member.data['hairstyle']['front_length'];
                  // var frw = member.data['hairstyle']['front_width'];
                  // var qw=document.getElementById("complexion").value;
-           // if( qw == 5){
-               var canvas1 = document.getElementById("face1"); 
-               var ctx1 = canvas1.getContext("2d"); 
-                     //脸  
-                   var img3 = new Image(); 
-                       img3.crossOrigin =" anonymous" ; 
-                       img3.src =facestyle; 
-                       ctx1.clearRect(0,0,1000,1000); 
-                    img3.onload = function () //确保图片已经加载完毕  
-                    {  
-                      ctx1.drawImage(img3,95,208,130,120);   
-                      // var imgData = ctx1.getImageData(95,206,130,120); 
-                      //  var data = imgData.data; 
-                      //  for(var i = 0 ; i<data.length; i+=4){ 
-                      //      data [i] -= r; 
-                      //      data [i + 1] -= g; 
-                      //      data [i + 2] -= b; 
-                      //  }  
-                      //  ctx1.putImageData(imgData,95,206); 
-                     }
+           // if( qw == 5){ 
+           var canvas2 = document.getElementById("face1"); 
+           var ctx2 = canvas2.getContext("2d");
+           //后面的头发
+           var img = new Image(); 
+               img.crossOrigin =" anonymous" ; 
+               img.src =behidestyle; 
+               ctx2.clearRect(0,0,1000,1000); 
+               img.onload = function(){
+                   ctx2.drawImage(img,50,50,80,100-30);  
+                }
                      
             // }//if的判断符号
             // else if( qw==6) {
