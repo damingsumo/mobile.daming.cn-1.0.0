@@ -12,7 +12,10 @@ class Controller_Brand extends Controller_Base {
     	    header("location:".$url);
         }
         $a = WeiXin_Http::checkCode($code,$state);
-        print_r($a);exit;
+        
+        
+        $res = WebApi_User::instance()->addUser($a, $a['openid']);
+        print_r($_SESSION);exit;
         
         $params = array();
         $total = WebApi_Brand::instance()->getBrandsCountByParams($params);
