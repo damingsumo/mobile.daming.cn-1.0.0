@@ -28,15 +28,6 @@ class Controller_Brand extends Controller_Base {
     public function aList() {
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
         $params = array();
         $total = WebApi_Brand::instance()->getBrandsCountByParams($params);
         $brands = array();
@@ -48,6 +39,6 @@ class Controller_Brand extends Controller_Base {
             $brand['picture_url'] = $brand['picture_url'];
         }
         $params['total'] = $total;
-        return $this->display('list', $params);
+        return $this->display('index/index', $params);
     }
 }
