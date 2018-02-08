@@ -201,7 +201,7 @@ $(".bottom3_2 a").click(function(){
                          }
                     }//if的判断符号
                     else if( qw==2 ) {  
-                         var canvas1 = document.getElementById("behid_hair"); 
+                         var canvas1 = document.getElementById("face1"); 
                          var ctx1 = canvas1.getContext("2d");
                          var canvas2 = document.getElementById("hair"); 
                          var ctx2 = canvas2.getContext("2d");
