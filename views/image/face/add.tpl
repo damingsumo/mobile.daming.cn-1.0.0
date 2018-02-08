@@ -142,106 +142,194 @@ $(".bottom3_2 a").click(function(){
             data: {face_id:face_id,complexion_id:complexion_id},
             datatype:'json',
             success: function(data) {
-            	var member = eval('('+data+')');
+                var member = eval('('+data+')');
                 if(member.status == 200) {
-                  var rgb = member.data['haircolor']['rgb'];
-                           var m = rgb.split(",");
-                           var r = m[0];
-                           var g = m[1];
-                           var b = m[2]; 
-                      var behidestyle =member.data['hairstyle']['behide_synthesis_url'];
-                         var facestyle =member.data['face']['synthesis_url'];
-                         var frontstyle=member.data['hairstyle']['front_synthesis_url'];
-                         var beo =member.data['hairstyle']['behide_ordinate'];
-                         var bea = member.data['hairstyle']['behide_abscissa'];
-                         var bel = member.data['hairstyle']['behide_length'];
-                        var bew = member.data['hairstyle']['behide_width'];
-                         var fro = member.data['hairstyle']['front_ordinate'];
-                         var fra = member.data['hairstyle']['front_abscissa'];
-                         var frl = member.data['hairstyle']['front_length'];
-                         var frw = member.data['hairstyle']['front_width'];
-                   var qw=document.getElementById("face").value;
-                   if( qw == 1){ 
-                   var canvas1 = document.getElementById("face1"); 
-                   var ctx1 = canvas1.getContext("2d");
-                   var canvas2 = document.getElementById("hair"); 
-                   var ctx2 = canvas2.getContext("2d");
-                   //后面的头发
-                   var img = new Image(); 
-                       img.crossOrigin =" anonymous" ; 
-                       img.src =behidestyle; 
-                       ctx1.clearRect(0,0,1000,1000); 
-                       img.onload = function(){
-                           ctx1.drawImage(img,beo,bea,bel,bew-30); 
-                           var imgData = ctx1.getImageData(beo,bea,bel,bew-30); 
-                               var data = imgData.data; 
-                               for(var i = 0 ; i<data.length; i+=4){ 
-                                   data [i] -= r; 
-                                   data [i + 1] -= g; 
-                                   data [i + 2] -= b; 
-                               }  
-                           ctx1.putImageData(imgData,beo,bea); 
-                        }
-                         //前面的头发  
-                       var img4 = new Image(); 
-                           img4.crossOrigin =" anonymous" ; 
-                           img4.src =frontstyle; 
-                           ctx2.clearRect(0,0,1000,1000); 
-                        img4.onload = function () //确保图片已经加载完毕  
+                   var rgb = member.data['complexion']['rgb'];
+                   var m = rgb.split(",");
+                   var r = m[0];
+                   var g = m[1];
+                   var b = m[2];  
+                 var behidestyle =member.data['hairstyle']['behide_synthesis_url'];
+                 var facestyle =member.data['face']['synthesis_url'];
+                 var frontstyle=member.data['hairstyle']['front_synthesis_url'];
+                 var beo = member.data['hairstyle']['behide_ordinate'];
+                 var bea = member.data['hairstyle']['behide_abscissa'];
+                 var bel = member.data['hairstyle']['behide_length'];
+                 var bew = member.data['hairstyle']['behide_width'];
+                 var fro = member.data['hairstyle']['front_ordinate'];
+                 var fra = member.data['hairstyle']['front_abscissa'];
+                 var frl = member.data['hairstyle']['front_length'];
+                 var frw = member.data['hairstyle']['front_width'];
+                 var qw=document.getElementById("face").value;
+           console.log(qw)
+           if( qw == 2){
+               var canvas = document.getElementById("MyCanvas"); 
+               var ctx = canvas.getContext("2d"); 
+               var canvas1 = document.getElementById("face1"); 
+               var ctx1 = canvas1.getContext("2d"); 
+               var canvas2 = document.getElementById("hair"); 
+               var ctx2 = canvas2.getContext("2d"); 
+                 //后面的头发
+               var img = new Image(); 
+                   img.crossOrigin =" anonymous" ; 
+                   img.src =behidestyle; 
+                   ctx.clearRect(0,0,1000,1000); 
+                   img.onload = function(){
+                       ctx.drawImage(img,beo,bea,bel,bew-30);
+                       //脖子
+                        var img1 = new Image(); 
+                            img1.crossOrigin =" anonymous" ; 
+                            img1.src= "/static/images/bozi.png"; 
+                        img1.onload = function () //确保图片已经加载完毕  
                         {  
-                          ctx2.drawImage(img4,fro,fra,frl,frw);
-                          var imgData = ctx2.getImageData(fro,fra,frl,frw); 
+                          ctx.drawImage(img1,70,315,195,30);  
+                          var imgData = ctx.getImageData(70,315,195,30); 
                            var data = imgData.data; 
                            for(var i = 0 ; i<data.length; i+=4){ 
                                data [i] -= r; 
                                data [i + 1] -= g; 
                                data [i + 2] -= b; 
                            }  
-                           ctx2.putImageData(imgData,fro,fra);  
-                         }
-                    }//if的判断符号
-                    else if( qw==2 ) {  
-                         var canvas1 = document.getElementById("face1"); 
-                         var ctx1 = canvas1.getContext("2d");
-                         var canvas2 = document.getElementById("hair"); 
-                         var ctx2 = canvas2.getContext("2d");
-                         //后面的头发
-                         var img = new Image(); 
-                             img.crossOrigin =" anonymous" ; 
-                             img.src =behidestyle; 
-                             ctx1.clearRect(0,0,1000,2000); 
-                             img.onload = function(){
-                                 ctx1.drawImage(img,beo,bea,bel,bew-30); 
-                                 var imgData = ctx1.getImageData(beo,bea,bel,bew-30); 
-                                     var data = imgData.data; 
-                                     for(var i = 0 ; i<data.length; i+=4){ 
-                                         data [i] -= r; 
-                                         data [i + 1] -= g; 
-                                         data [i + 2] -= b;  
-                                     }  
-                                 ctx1.putImageData(imgData,beo,bea); 
+                           ctx.putImageData(imgData,70,315); 
+                        } 
+                        //身子
+                        var img2 = new Image();
+                            img2.crossOrigin =" anonymous" ; 
+                            img2.src="/static/images/shenzi.png"; 
+                        img2.onload = function () //确保图片已经加载完毕  
+                        {  
+                              ctx.drawImage(img2,0,345,340,450);     
+                          var imgData = ctx.getImageData(0,345,340,450); 
+                           var data = imgData.data; 
+                           for(var i = 0 ; i<data.length; i+=4){ 
+                               data [i] -= r; 
+                               data [i + 1] -= g; 
+                               data [i + 2] -= b; 
+                           }  
+                           ctx.putImageData(imgData,0,345); 
+                              //胸罩
+                              var img5 = new Image();
+                                  img5.crossOrigin =" anonymous" ;
+                                  img5.src= "/static/images/xiongzhao.png"; 
+                              img5.onload = function () //确保图片已经加载完毕  
+                              {  
+                                ctx.drawImage(img5,70,340,205,170); 
                               }
-                             //前面的头发  
-                           var img4 = new Image(); 
-                               img4.crossOrigin =" anonymous" ; 
-                               img4.src =frontstyle; 
-                               ctx2.clearRect(0,0,1000,1000); 
-                            img4.onload = function () //确保图片已经加载完毕  
-                            {  
-                              ctx2.drawImage(img4,fro,fra,frl,frw);
-                              var imgData = ctx2.getImageData(fro,fra,frl,frw); 
-                               var data = imgData.data; 
-                               for(var i = 0 ; i<data.length; i+=4){ 
-                                   data [i] -= r; 
-                                   data [i + 1] -= g; 
-                                   data [i + 2] -= b; 
-                               }  
-                               ctx2.putImageData(imgData,fro,fra);  
-                             }
-                    } //else的括号
-                }
-              }
-            });
+                         }  
+                    }
+                     //脸  
+                   var img3 = new Image(); 
+                       img3.crossOrigin =" anonymous" ; 
+                       img3.src =facestyle; 
+                       ctx1.clearRect(0,0,1000,1000); 
+                    img3.onload = function () //确保图片已经加载完毕  
+                    {  
+                      ctx1.drawImage(img3,95,208,130,120);   
+                      var imgData = ctx1.getImageData(95,206,130,120); 
+                       var data = imgData.data; 
+                       for(var i = 0 ; i<data.length; i+=4){ 
+                           data [i] -= r; 
+                           data [i + 1] -= g; 
+                           data [i + 2] -= b; 
+                       }  
+                       ctx1.putImageData(imgData,95,206); 
+                     }
+                     //前面的头发  
+                   var img4 = new Image(); 
+                       img4.crossOrigin =" anonymous" ; 
+                       img4.src =frontstyle; 
+                       ctx2.clearRect(0,0,1000,1000); 
+                    img4.onload = function () //确保图片已经加载完毕  
+                    {  
+                      ctx2.drawImage(img4,fro,fra,frl,frw); 
+                     }
+                     
+            }//if的判断符号
+            else if( qw==1 ) {
+                 var canvas = document.getElementById("MyCanvas"); 
+                 var ctx = canvas.getContext("2d"); 
+                 var canvas1 = document.getElementById("face1"); 
+                 var ctx1 = canvas1.getContext("2d"); 
+                 var canvas2 = document.getElementById("hair"); 
+                 var ctx2 = canvas2.getContext("2d"); 
+                   //后面的头发
+                 var img = new Image(); 
+                     img.crossOrigin =" anonymous" ; 
+                     img.src =behidestyle; 
+                     ctx.clearRect(0,0,1000,1000); 
+                     img.onload = function(){
+                         ctx.drawImage(img,beo,bea,bel,bew-30);  
+                      }
+                   //脸  
+                   var img3 = new Image(); 
+                       img3.crossOrigin =" anonymous" ; 
+                       img3.src =facestyle; 
+                       ctx1.clearRect(0,0,1000,1000); 
+                    img3.onload = function () //确保图片已经加载完毕  
+                    {  
+                      ctx1.drawImage(img3,95,208,130,120);   
+                      var imgData = ctx1.getImageData(95,206,130,120); 
+                       var data = imgData.data; 
+                       for(var i = 0 ; i<data.length; i+=4){ 
+                           data [i] -= r; 
+                           data [i + 1] -= g; 
+                           data [i + 2] -= b; 
+                       }  
+                       ctx1.putImageData(imgData,95,206); 
+                     }
+                     //前面的头发  
+                   var img4 = new Image(); 
+                       img4.crossOrigin =" anonymous" ; 
+                       img4.src =frontstyle; 
+                       ctx2.clearRect(0,0,1000,1000); 
+                    img4.onload = function () //确保图片已经加载完毕  
+                    {  
+                      ctx2.drawImage(img4,fro,fra,frl,frw); 
+                     }
+                     //脖子
+                    var img1 = new Image(); 
+                        img1.crossOrigin =" anonymous" ; 
+                        img1.src= "/static/images/bozi.png"; 
+                    img1.onload = function () //确保图片已经加载完毕  
+                    {  
+                      ctx.drawImage(img1,70,315,195,30);  
+                      var imgData = ctx.getImageData(70,315,195,30); 
+                       var data = imgData.data; 
+                       for(var i = 0 ; i<data.length; i+=4){ 
+                           data [i] -= r; 
+                           data [i + 1] -= g; 
+                           data [i + 2] -= b; 
+                       }  
+                       ctx.putImageData(imgData,70,315); 
+                    } 
+                    //身子
+                    var img2 = new Image();
+                        img2.crossOrigin =" anonymous" ; 
+                        img2.src="/static/images/shenzi.png"; 
+                    img2.onload = function () //确保图片已经加载完毕  
+                    {  
+                          ctx.drawImage(img2,0,345,340,450);     
+                      var imgData = ctx.getImageData(0,345,340,450); 
+                       var data = imgData.data; 
+                       for(var i = 0 ; i<data.length; i+=4){ 
+                           data [i] -= r; 
+                           data [i + 1] -= g; 
+                           data [i + 2] -= b; 
+                       }  
+                       ctx.putImageData(imgData,0,345); 
+                          //胸罩
+                          var img5 = new Image();
+                              img5.crossOrigin =" anonymous" ;
+                              img5.src= "/static/images/xiongzhao.png"; 
+                          img5.onload = function () //确保图片已经加载完毕  
+                          {  
+                            ctx.drawImage(img5,70,340,205,170); 
+                          }
+                     }
+            } 
+          }
+        }
+      });
   }
 
     function complexion(complexion_id) {
