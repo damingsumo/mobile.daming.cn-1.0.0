@@ -22,7 +22,7 @@
   <div class="bottom3">
     <ul class="bottom3_1">
     {foreach $faces as $face}
-      <a ><li value="{$face.face_id}"><img src="{$face.show_url}"><span>{$face.name}</span></li></a>
+      <a onclick="face({$face.face_id})"><li value="{$face.face_id}"><img src="{$face.show_url}"><span>{$face.name}</span></li></a>
      {/foreach}
     </ul>
     <ul class="none bottom3_2 ">
@@ -133,65 +133,49 @@
 $(".bottom3_2 a").click(function(){
         $(this).addClass("bg3").siblings().removeClass("bg3"); 
     });
-$(".bottom3_1 a:first-child").click(function(){
-  var facestyle = $("#face_synthesis_url").val();
-          var behidestyle = $("#behide_synthesis_url").val();
-          var frontstyle= $("#front_synthesis_url").val(); 
-     var canvas1 = document.getElementById("face1"); 
-     var ctx1 = canvas1.getContext("2d"); 
-           //脸  
-         var img3 = new Image(); 
-             img3.crossOrigin =" anonymous" ; 
-             img3.src =frontstyle; 
-             ctx1.clearRect(0,0,1000,1000); 
-          img3.onload = function () //确保图片已经加载完毕  
-          {  
-            ctx1.drawImage(img3,95,208,130,120);   
-           }
-})
-  //   function face(face_id) {
-  //     $("#face").attr("value",face_id);
-  //    // var complexion_id = $("#complexion").val();
-  //       $.ajax({
-  //           type: "POST",
-  //           url: 'face/ajaxGetFace',
-  //           data: {face_id:face_id},
-  //           datatype:'json',
-  //           success: function(data) {
-  //               var member = eval('('+data+')');
-  //               if(member.status == 200) {
-  //                  var rgb = member.data['complexion']['rgb'];
-  //                  // var m = rgb.split(",");
-  //                  // var r = m[0];
-  //                  // var g = m[1];
-  //                  // var b = m[2];  
-  //                var behidestyle =member.data['hairstyle']['behide_synthesis_url'];
-  //                var facestyle =member.data['face']['synthesis_url'];
-  //                var frontstyle=member.data['hairstyle']['front_synthesis_url'];
-  //                var beo = member.data['hairstyle']['behide_ordinate'];
-  //                var bea = member.data['hairstyle']['behide_abscissa'];
-  //                var bel = member.data['hairstyle']['behide_length'];
-  //                var bew = member.data['hairstyle']['behide_width'];
-  //                var fro = member.data['hairstyle']['front_ordinate'];
-  //                var fra = member.data['hairstyle']['front_abscissa'];
-  //                var frl = member.data['hairstyle']['front_length'];
-  //                var frw = member.data['hairstyle']['front_width'];
-  //              var canvas1 = document.getElementById("face1"); 
-  //              var ctx1 = canvas1.getContext("2d"); 
-  //                    //脸  
-  //                  var img3 = new Image(); 
-  //                      img3.crossOrigin =" anonymous" ; 
-  //                      img3.src =frontstyle; 
-  //                      // ctx1.clearRect(0,0,1000,1000); 
-  //                   img3.onload = function () //确保图片已经加载完毕  
-  //                   {  
-  //                     ctx1.drawImage(img3,95,208,130,120);   
-  //                    }
+    function face(face_id) {
+      $("#face").attr("value",face_id);
+     // var complexion_id = $("#complexion").val();
+        $.ajax({
+            type: "POST",
+            url: 'face/ajaxGetFace',
+            data: {face_id:face_id},
+            datatype:'json',
+            success: function(data) {
+                var member = eval('('+data+')');
+                if(member.status == 200) {
+                   // var rgb = member.data['complexion']['rgb'];
+                   // var m = rgb.split(",");
+                   // var r = m[0];
+                   // var g = m[1];
+                   // var b = m[2];  
+                 var behidestyle =member.data['hairstyle']['behide_synthesis_url'];
+                 var facestyle =member.data['face']['synthesis_url'];
+                 var frontstyle=member.data['hairstyle']['front_synthesis_url'];
+                 var beo = member.data['hairstyle']['behide_ordinate'];
+                 var bea = member.data['hairstyle']['behide_abscissa'];
+                 var bel = member.data['hairstyle']['behide_length'];
+                 var bew = member.data['hairstyle']['behide_width'];
+                 var fro = member.data['hairstyle']['front_ordinate'];
+                 var fra = member.data['hairstyle']['front_abscissa'];
+                 var frl = member.data['hairstyle']['front_length'];
+                 var frw = member.data['hairstyle']['front_width'];
+               var canvas1 = document.getElementById("face1"); 
+               var ctx1 = canvas1.getContext("2d"); 
+                     //脸  
+                   var img3 = new Image(); 
+                       img3.crossOrigin =" anonymous" ; 
+                       img3.src =frontstyle; 
+                       // ctx1.clearRect(0,0,1000,1000); 
+                    img3.onload = function () //确保图片已经加载完毕  
+                    {  
+                      ctx1.drawImage(img3,95,208,130,120);   
+                     }
 
-  //         }
-  //       }
-  //     });
-  // }
+          }
+        }
+      });
+  }
 
   //   function complexion(complexion_id) {
   //     $("#complexion").attr("value",complexion_id); 
