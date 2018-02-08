@@ -5,8 +5,8 @@
         <ul id="center3_1" style="position: relative;"> 
           <li id="head">  </li> 
           <canvas id="face1" style="position: absolute; left:0;z-index:50;" width="300px" height="380px;"></canvas>
-          <canvas id="MyCanvas" style="position: absolute; left:0;z-index:1;" width="300px" height="380px;"></canvas>
-           <canvas id="hair" style="position: absolute; left:0;z-index:55;" width="300px" height="380px;"></canvas>
+          <!-- <canvas id="MyCanvas" style="position: absolute; left:0;z-index:1;" width="300px" height="380px;"></canvas>
+           <canvas id="hair" style="position: absolute; left:0;z-index:55;" width="300px" height="380px;"></canvas> -->
         </ul>
       </div>
       <ul>
