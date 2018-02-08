@@ -16,8 +16,8 @@
     </div>
   </div>
   <form action="edit" id="myform" method="post">
-  <input type="hidden" value="" id="face" name="face_id">
-  <input type="hidden" value="" id="complexion" name="complexion_id">
+  <input type="hidden" value="" id="face_id" name="face_id">
+  <input type="hidden" value="" id="complexion_id" name="complexion_id">
   <div class="bottom3">
     <ul class="bottom3_1">
     {foreach $faces as $face}
@@ -133,8 +133,8 @@ $(".bottom3_2 a").click(function(){
       $(this).addClass("bg3").siblings().removeClass("bg3"); 
 });
 function face(face_id) {
-    $("#face").attr("value",face_id);
-    var complexion_id = $("#complexion").val();
+    $("#face_id").attr("value",face_id);
+    var complexion_id = $("#complexion_id").val();
     $.ajax({
       type: "POST",
       url: 'ajaxGetFace',
@@ -159,7 +159,7 @@ function face(face_id) {
           var fra = member.data['hairstyle']['front_abscissa'];
           var frl = member.data['hairstyle']['front_length'];
           var frw = member.data['hairstyle']['front_width'];
-          var qw=document.getElementById("complexion").value;
+          var qw=document.getElementById("complexion_id").value;
           if( qw == 6){
                var canvas = document.getElementById("MyCanvas"); 
                var ctx = canvas.getContext("2d"); 
@@ -329,8 +329,8 @@ function face(face_id) {
      });
 }
 function complexion(complexion_id) {
-     $("#complexion").attr("value",complexion_id); 
-     var face_id = $('#face').val();
+     $("#complexion_id").attr("value",complexion_id); 
+     var face_id = $('#face_id').val();
      $.ajax({
             type: "POST",
             url: 'ajaxGetComplexion',
@@ -355,7 +355,7 @@ function complexion(complexion_id) {
                  var fra = member.data['hairstyle']['front_abscissa'];
                  var frl = member.data['hairstyle']['front_length'];
                  var frw = member.data['hairstyle']['front_width'];
-           var qw=document.getElementById("complexion").value;
+           var qw=document.getElementById("complexion_id").value;
            if( qw == 6){
                var canvas = document.getElementById("MyCanvas"); 
                var ctx = canvas.getContext("2d"); 
