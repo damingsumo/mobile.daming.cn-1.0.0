@@ -13,7 +13,9 @@ class Controller_Brand extends Controller_Base {
         }
         $userInfoArr = WeiXin_Http::checkCode($code,$state);
         $res = WebApi_User::instance()->addUser($userInfoArr, $userInfoArr['openid']);
-        
+        if($_SESSION['user_hw_id']) {
+            http::go('/user/add');
+        }
         $params = array();
         $total = WebApi_Brand::instance()->getBrandsCountByParams($params);
         $brands = array();
