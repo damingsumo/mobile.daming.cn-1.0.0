@@ -8,7 +8,7 @@
 		<div class="goodorder_infor">
 			<img src="{$good.show_url}">
 			<div>
-				<span>￥{$good.price/100}</span>
+				<span>￥</span>
 				<span>库存800件</span>
 				<span>请选择 尺码 颜色</span>
 			</div>
