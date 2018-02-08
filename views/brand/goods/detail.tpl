@@ -307,6 +307,8 @@
 	</div>
 	</form>
 	<!--加入购物车-->
+	
+	<div id="123"></div>
 {literal}
 <script type="text/javascript">
 $(".third71 a").click(function(){
@@ -534,6 +536,7 @@ function shopcar() {
 		datatype:'json',
 		success: function(data) {
 			var member = eval('('+data+')');
+			$('#123').append(member.data);
 		}
 	});
 
