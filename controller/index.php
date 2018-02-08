@@ -21,15 +21,6 @@ class Controller_Index extends Controller_Base {
 	 * @note 首页index
 	 */
 	public function index() {
-	    $appid=WEIXIN_APPID;
-	    $redirect_uri = urlEncode ('http://test.mobile.bestdaming.cn/weixin/user/checkCode');
-// 	    print_r($redirect_uri);exit;
-        $url ="https://open.weixin.qq.com/connect/oauth2/authorize?appid=$appid&redirect_uri=$redirect_uri&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect";
-	    header("location:".$url);
-	    
-	    
-	    
-	    
 	    print_r($_REQUEST);exit;
 	    $uid = Account::getUid();
 	    $total = WebApi_Image::instance()->getImagesCountByParams(array('uid'=>$uid));

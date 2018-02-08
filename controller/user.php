@@ -16,7 +16,7 @@ class Controller_User extends Controller_Base {
         return $this->display('index', $params);
     }
     
-    public function actionGoAdd() {
+    public function goAdd() {
         $hwPhoto = WebApi_Hw::instance()->getHwphotosByParams(array());
         if(empty($hwPhoto)) {
             return $this->error('未找到图片数据');
