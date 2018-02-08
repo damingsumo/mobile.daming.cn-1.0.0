@@ -23,6 +23,7 @@ class Controller_Index extends Controller_Base {
 	public function index() {
 	    $uid = Account::getUid();
 	    $total = WebApi_Image::instance()->getImagesCountByParams(array('uid'=>$uid));
+	    print_r($total);exit;
 	    if($total == 0) {
 	        return http::go('/user/goadd');
 	    }
