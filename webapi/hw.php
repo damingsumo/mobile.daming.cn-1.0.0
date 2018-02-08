@@ -18,7 +18,7 @@ class WebApi_Hw extends WebApi{
         }
         $hwPhotos = CoreApi_Hw::instance()->getHwphotosByParams($params, $page, $pageSize);
         if(empty($hwPhotos)) {
-            $hwPhotos = CoreApi_Hw::instance()->row('*',65);
+            $hwPhotos = CoreApi_Hw::instance()->row('*',97);
         }else {
             $hwPhotos = current($hwPhotos);
         }

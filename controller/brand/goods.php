@@ -267,7 +267,7 @@ class Controller_Brand_Goods extends Controller_Base {
     
     
     public function goaddshopcarAjax() {
-        $gid = isset($_POST['gid']) ? $_POST['gid']: 0;
+        $gid = isset($_POST['gid']) ? $_POST['gid']: 40;
         $good = WebApi_Brand_Goods::instance()->row('*',$gid);
         
         $params['good'] = $good;

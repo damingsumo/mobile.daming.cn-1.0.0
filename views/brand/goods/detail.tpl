@@ -535,8 +535,7 @@ function shopcar() {
 		data: {gid:gid},
 		datatype:'json',
 		success: function(data) {
-			var member = eval('('+data+')');
-			$('#123').append(member.data);
+			$('#123').append(member);
 		}
 	});
 
