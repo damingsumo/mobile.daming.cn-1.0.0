@@ -16,13 +16,13 @@
     </div>
   </div>
   <form action="/user/face/add" id="myform" method="post">
-  <input type="hidden" name="face_id" value="" id="face">
+  <input type="hidden" name="face_id" value="" id="face_id">
   <input type="hidden" value="{$imageId}" name="imageId">
   <input type="hidden" name="complexion_id" value="{if isset($userFace.complexion_id)}{$userFace.complexion_id}{/if}" id="complexion">
   <div class="bottom3">
     <ul class="bottom3_1">
     {foreach $faces as $face}
-      <a ><li value="{$face.face_id}"><img src="{$face.show_url}"><span>{$face.name}</span></li></a>
+      <a onclick="face({$face.face_id})"><li value="{$face.face_id}"><img src="{$face.show_url}"><span>{$face.name}</span></li></a>
      {/foreach}
     </ul>
     <ul class="none bottom3_2 ">
@@ -133,11 +133,10 @@
 $(".bottom3_2 a").click(function(){
         $(this).addClass("bg3").siblings().removeClass("bg3"); 
     });
-
-    $(".bottom3_1 a:first-child").click(function(){
-      // $("#face").attr("value",face_id);
+    function face(face_id) {
+      $("#face_id").attr("value",face_id);
       var facestyle = $("#face_synthesis_url").val();
-       var canvas1 = document.getElementById("face1"); 
+      var canvas1 = document.getElementById("face1"); 
            var ctx1 = canvas1.getContext("2d"); 
       //脸  
                    var img3 = new Image(); 
@@ -213,7 +212,7 @@ $(".bottom3_2 a").click(function(){
     //     }
     //   }
     // });
-  });
+  }
 
   //   function complexion(complexion_id) {
   //     $("#complexion").attr("value",complexion_id); 
