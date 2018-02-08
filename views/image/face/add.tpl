@@ -145,10 +145,10 @@ $(".bottom3_2 a").click(function(){
                 var member = eval('('+data+')');
                 if(member.status == 200) {
                    var rgb = member.data['complexion']['rgb'];
-                   var m = rgb.split(",");
-                   var r = m[0];
-                   var g = m[1];
-                   var b = m[2];  
+                   // var m = rgb.split(",");
+                   // var r = m[0];
+                   // var g = m[1];
+                   // var b = m[2];  
                  var behidestyle =member.data['hairstyle']['behide_synthesis_url'];
                  var facestyle =member.data['face']['synthesis_url'];
                  var frontstyle=member.data['hairstyle']['front_synthesis_url'];
@@ -160,6 +160,8 @@ $(".bottom3_2 a").click(function(){
                  var fra = member.data['hairstyle']['front_abscissa'];
                  var frl = member.data['hairstyle']['front_length'];
                  var frw = member.data['hairstyle']['front_width'];
+                 
+                       console.log(facestyle)
                  // var qw=document.getElementById("complexion").value;
            // if( qw == 5){
                var canvas1 = document.getElementById("face1"); 
