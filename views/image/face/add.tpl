@@ -134,6 +134,7 @@ $(".bottom3_2 a").click(function(){
         $(this).addClass("bg3").siblings().removeClass("bg3"); 
     });
     function face(face_id) {
+      console.log(face_id)
       $("#face").attr("value",face_id);
      // var complexion_id = $("#complexion").val();
         $.ajax({
@@ -149,18 +150,18 @@ $(".bottom3_2 a").click(function(){
                    // var r = m[0];
                    // var g = m[1];
                    // var b = m[2];  
-                 var behidestyle =member.data['hairstyle']['behide_synthesis_url'];
-                 var facestyle =member.data['face']['synthesis_url'];
+                 // var behidestyle =member.data['hairstyle']['behide_synthesis_url'];
+                 // var facestyle =member.data['face']['synthesis_url'];
                  var frontstyle=member.data['hairstyle']['front_synthesis_url'];
-                 var beo = member.data['hairstyle']['behide_ordinate'];
-                 var bea = member.data['hairstyle']['behide_abscissa'];
-                 var bel = member.data['hairstyle']['behide_length'];
-                 var bew = member.data['hairstyle']['behide_width'];
-                 var fro = member.data['hairstyle']['front_ordinate'];
-                 var fra = member.data['hairstyle']['front_abscissa'];
-                 var frl = member.data['hairstyle']['front_length'];
-                 var frw = member.data['hairstyle']['front_width'];
-               var canvas1 = document.getElementById("face1"); 
+                 // var beo = member.data['hairstyle']['behide_ordinate'];
+                 // var bea = member.data['hairstyle']['behide_abscissa'];
+                 // var bel = member.data['hairstyle']['behide_length'];
+                 // var bew = member.data['hairstyle']['behide_width'];
+                 // var fro = member.data['hairstyle']['front_ordinate'];
+                 // var fra = member.data['hairstyle']['front_abscissa'];
+                 // var frl = member.data['hairstyle']['front_length'];
+                 // var frw = member.data['hairstyle']['front_width'];
+               var canvas1 = document.getElementById("MyCanvas"); 
                var ctx1 = canvas1.getContext("2d"); 
                      //脸  
                    var img3 = new Image(); 
