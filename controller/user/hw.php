@@ -4,6 +4,7 @@ class Controller_User_Hw extends Controller_Base {
     
     public function actionEdit() {
         if(empty($_POST)) {
+
             $uid = account::getUid();
             $hw = WebApi_User_Hw::instance()->getHwsByParams(array('uid'=>$uid));
             if(!empty($hw)) {
@@ -20,7 +21,11 @@ class Controller_User_Hw extends Controller_Base {
             if(empty($hwPhoto)) {
                 return $this->error('未找到图片数据');
             }
-            $image = WebApi_Image::instance()->row('*',$uid);
+            $image = WebApi_Image::instance()->getImagesByParams(array('uid'=>$uid));
+            if(empty($image)) {
+                return $this->error('未找到用户图片数据');
+            }
+            $image = current($image);
             $hairstyle = WebApi_Image_Hairstyle::instance()->row('*',$image['hair_style_id']);
             $complexion = WebApi_Image_Complexion::instance()->row('*',$image['complexion_id']);
             $haircolor = WebApi_Image_HairColor::instance()->row('*',$image['hair_color_id']);
@@ -56,7 +61,11 @@ class Controller_User_Hw extends Controller_Base {
             return $this->error('体重错误');
         }
         $hwPhoto = WebApi_Hw::instance()->getHwphotosByParams(array('height'=>$height,'weight'=>$weight));
-        $image = WebApi_Image::instance()->row('*',$uid);
+        $image = WebApi_Image::instance()->getImagesByParams(array('uid'=>$uid));
+        if(empty($image)) {
+            return $this->error('未找到用户图片数据');
+        }
+        $image = current($image);
         $hairstyle = WebApi_Image_Hairstyle::instance()->row('*',$image['hair_style_id']);
         $complexion = WebApi_Image_Complexion::instance()->row('*',$image['complexion_id']);
         $haircolor = WebApi_Image_HairColor::instance()->row('*',$image['hair_color_id']);

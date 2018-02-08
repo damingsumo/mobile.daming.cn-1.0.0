@@ -310,15 +310,15 @@ $(document).ready(function(){
                 //    img.onload = function(){
                 //        ctx1.drawImage(img,parseInt(beo)+3,parseInt(bea)+70,bel,bew);  
                 //     }
-                //脸  
-                var img3 = new Image(); 
+               // 脸  
+               var img3 = new Image(); 
                     img3.crossOrigin =" anonymous"; 
                     img3.src ="/static/images/yuandanlian.png"; 
                    ctx.clearRect(0,0,1000,1000); 
                 img3.onload = function () //确保图片已经加载完毕  
                 {  
-                  ctx.drawImage(img3,fao,faa,faw,70);  
-                  ctx.globalCompositeOperation="destination-over";
+                  ctx.drawImage(img3,fao,faa,faw,70);   
+                  ctx.globalCompositeOperation="destination-over"; 
                      //脖子
                     var img1 = new Image(); 
                         img1.crossOrigin =" anonymous" ; 
@@ -326,7 +326,7 @@ $(document).ready(function(){
                     img1.onload = function () //确保图片已经加载完毕  
                     {  
                       ctx.drawImage(img1,102,neck,neck_width,30);  
-                   
+                     
                       ctx.globalCompositeOperation="destination-over";
                     //身子
                     var img2 = new Image();
@@ -334,11 +334,11 @@ $(document).ready(function(){
                         img2.src=body; 
                     img2.onload = function () //确保图片已经加载完毕  
                     {  
-                          ctx.drawImage(img2,bodyordinate,bodyabscissa,bodywidth,bodylength);   
-                          // ctx.drawImage(img2,71,147,161,241);  
-                          // console.log(body)
-                     } 
-                     } 
+                          ctx.drawImage(img2,bodyordinate,bodyabscissa,bodywidth,bodylength);    
+                          // ctx.drawImage(img2,71,127,161,251);
+                          // console.log(body)  
+                     }
+                     }
                      //腿
                     var img6 = new Image();
                         img6.crossOrigin =" anonymous" ; 
@@ -346,16 +346,17 @@ $(document).ready(function(){
                          // ctx.clearRect(0,0,1000,1000); 
                     img6.onload = function () //确保图片已经加载完毕  
                     {  
-                          ctx.drawImage(img6,leg_ordinate,leg_abscissa,leg_width,leg_length);   
-                          // ctx.drawImage(img6,104,385,89,115); 
-                          // console.log(leg_width) 
-                     } 
+                          ctx.drawImage(img6,leg_ordinate,leg_abscissa,leg_width,leg_length); 
+                          // ctx.drawImage(img6,104,375,89,125); 
+
+                     }
+           
                  }
                  //前面的头发  
                  var img4 = new Image(); 
                      img4.crossOrigin =" anonymous" ; 
                      img4.src =frontstyle; 
-                   // ctx.clearRect(0,0,1000,1000); 
+                   ctx2.clearRect(0,0,1000,1000); 
                 img4.onload = function () //确保图片已经加载完毕  
                 {  
                   ctx2.drawImage(img4,fro,fra,frw,62); 
@@ -368,9 +369,7 @@ $(document).ready(function(){
                 img7.onload = function () //确保图片已经加载完毕  
                 {  
                   ctx2.drawImage(img7,cup_ordinate,cup_abscissa,cup_width,cup_length); 
-                   // ctx.drawImage(img7,97,120,110,175);
-                 }
-
+                 } 
 		     
 });
 $('select').change(function(){

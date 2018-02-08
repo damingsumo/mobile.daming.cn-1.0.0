@@ -9,6 +9,7 @@ body{
 	padding: 0;
 	margin: 0;
 	background-color: #f6f6f6;
+	font-size:10px;
 }
 input[type="button"], input[type="submit"], input[type="reset"] {
 -webkit-appearance: none;
@@ -462,7 +463,7 @@ li{
 }
 .order_form ul li a{
 	display: inline-block;
-	line-height: 3.3rem;
+	line-height: 3.7rem;
 	font-size:1.6rem;
 } 
 .order_form ul li img{ 
@@ -1126,7 +1127,7 @@ li{
 .center3>ul li{
 	flex:1;
 	width: 50%;
-	height: 8rem;
+	height: 8.5rem;
 	display: inline-block; 
 	border-right: 2px solid #dadada;
 }
@@ -1194,7 +1195,7 @@ align-items: center;
 	flex-direction:column;
 	padding-top: 1rem;
 	border: 1px solid #fff;
-	width: 10rem;
+	width: 8rem;
 	height: 11rem;
 	margin-left: 0.5rem;
 
@@ -2072,7 +2073,7 @@ align-items: center;
 .skin_button button:last-child{
 	float: right;
 }
-.gray{
+.gray,.gray1{
 	position: fixed;
     width: 100%;
     height: 100%;
@@ -2082,24 +2083,32 @@ align-items: center;
     opacity: .4;
     background-color: #000;
 }
-.goodorder{
+.goodorder,.goodorder1{
 	display: none;
-	position: absolute; 
-	z-index: 102;
+	position: fixed; 
+	z-index: 109;
 	width: 100%;
 	background-color: #fff;
-	top:443px;
+	/*top:443px;*/
+	bottom: 0;
 }
 .goodorder_infor{ 
 	width: 100%;
 	float: left;
-	padding: 1rem 2rem; 
+	padding: 1rem  2rem; 
 	border-bottom: 1px solid gray;
 }
-.goodorder_infor img{ 
+.goodorder_infor img:first-child{ 
     width: 8rem;
     height: 8rem;
     float: left;
+}
+.goodorder_infor img:last-child{ 
+	position: absolute;
+    width: 2rem;
+    height:2rem; 
+    right:1rem;
+    top: 1rem;
 }
 .goodorder_infor div{
 	float: left;
@@ -3364,7 +3373,7 @@ align-items: center;
 	.goodorder{  
 		top:571px;
 	}
-    .top71 li canvas{
+    .top71 li canvas,.content5_top canvas,.content6_top canvas{
 		left: 32%;
 	}
 	.clothes_list li canvas{ 
@@ -3427,7 +3436,7 @@ align-items: center;
 		font-size: 1.2rem;
 		padding: 0.5rem 0.5rem;
 	} 
-	.top71 li canvas{
+	.top71 li canvas,.content5_top canvas,.content6_top canvas{
 		left: 36%;
 	}
 	.last_style div img:first-child{

@@ -373,7 +373,7 @@ $(document).ready(function(){
                 var canvas2 = document.getElementById("hair"); 
                 var ctx2 = canvas2.getContext("2d");
                 // console.log(bodywidth)
-                //后面的头发
+                // 后面的头发
                 // var img = new Image(); 
                 //    img.crossOrigin =" anonymous" ; 
                 //    img.src =behidestyle; 
@@ -381,7 +381,7 @@ $(document).ready(function(){
                 //    img.onload = function(){
                 //        ctx1.drawImage(img,parseInt(beo)+3,parseInt(bea)+70,bel,bew);  
                 //     }
-                //脸  
+                // 脸  
                 var img3 = new Image(); 
                     img3.crossOrigin =" anonymous"; 
                     img3.src ="/static/images/yuandanlian.png"; 

@@ -256,7 +256,7 @@
 <!--         </div> -->
 	</div>
 	<div class="skin_button">
-			<button class="skin_color">加入购物车</button>
+			<button class="skin_color  good_car">加入购物车</button>
 			<button class="skin_color button_color" onclick="order()">购买</button>
 	</div>
 	<!--购买页-->
@@ -274,8 +274,9 @@
 				<span>库存800件</span>
 				<span>请选择 尺码 颜色</span>
 			</div>
+			<img src="{staticurl action='guanbi.png' type='img'}" class="good_close">
 		</div>
-		<div class="order_size">
+		<div class="order_size order_size_buy">
 			<span>尺码</span>
 			<ul>
 			{foreach $sizes as $size}
@@ -283,7 +284,7 @@
 				{/foreach}
 			</ul>
 		</div>
-		<div class="order_color">
+		<div class="order_color order_color_buy">
 			<span>颜色</span>
 			<ul>
 				<li onclick="checkcolor()">紫红</li>
@@ -295,9 +296,56 @@
 		<div class="num_style">
 	       <span class="num2">购买数量</span>
 	       <div class="botton_style">
-	         <a href="javascript:;" class="button" id="minus">-</a>
-	         <input class="text1" value="1" id="a" name="number">
-	         <a href="javascript:;" class="button1" id="plus">+</a>
+	         <a href="javascript:;" class="button minus">-</a>
+	         <input class="text1 a" value="1" name="number">
+	         <a href="javascript:;" class="button1 plus">+</a>
+	       </div> 
+	    </div>
+	    <div class="order_submit">
+	    	<input type="submit" value="确认">
+	    </div>
+	</div>
+	</form>
+	<!--加入购物车-->
+	<form action="/order/add" id="myform" method="post" onsubmit="return check()">
+	<input type="hidden" name="gid" value="{$good.gid}" id="gid">
+	<input type="hidden" name="size" value="" id="size">
+	<input type="hidden" name="color" value="" id="color">
+	<div class="gray1" style="display:none ">
+	</div>
+	<div class="goodorder1">
+		<div class="goodorder_infor">
+			<img src="{$good.show_url}">
+			<div>
+				<span>￥{$good.price/100}</span>
+				<span>库存800件</span>
+				<span>请选择 尺码 颜色</span>
+			</div>
+			<img src="{staticurl action='guanbi.png' type='img'}" class="good_close">
+		</div>
+		<div class="order_size order_size_car">
+			<span>尺码</span>
+			<ul>
+			{foreach $sizes as $size}
+				<li onclick="checksize({$size.size})">{if $size.size == 1}S{else if $size.size == 2}M{else if $size.size == 3}L{else if $size.size == 4}XL{/if}</li>
+				{/foreach}
+			</ul>
+		</div>
+		<div class="order_color order_color_car">
+			<span>颜色</span>
+			<ul>
+				<li onclick="checkcolor()">紫红</li>
+				<li>卡其色</li>
+				<li>绿色</li>
+				<li>淡黄</li>
+			</ul>
+		</div>
+		<div class="num_style">
+	       <span class="num2">购买数量</span>
+	       <div class="botton_style">
+	         <a href="javascript:;" class="button minus">-</a>
+	         <input class="text1 a" value="1 " name="number">
+	         <a href="javascript:;" class="button1 plus">+</a>
 	       </div> 
 	    </div>
 	    <div class="order_submit">
@@ -439,7 +487,7 @@ function choose(hair_style_id) {
 		                img.src =behidestyle; 
 		                ctx1.clearRect(0,0,1000,1000); 
 		                img.onload = function(){
-		                   ctx1.drawImage(img,beo,bea,bel,bew );  
+		                   ctx1.drawImage(img,parseInt(beo)+2,parseInt(bea)-5,bel,bew);  
 		                }
 		                 //前面的头发  
 		                var img4 = new Image(); 
@@ -448,43 +496,73 @@ function choose(hair_style_id) {
 		                   ctx2.clearRect(0,0,1000,1000); 
 		                img4.onload = function () //确保图片已经加载完毕  
 		                {  
-		                  ctx2.drawImage(img4,parseInt(fro)+1,fra,frl,frw); 
+		                  ctx2.drawImage(img4,parseInt(fro)+2,parseInt(fra)-18,frl,parseInt(frw)+2); 
 		                } 
 			    }
 			}
 		});
 	}
- var $botton_style=$(".botton_style")
-    var $plus=$("#plus")
-    var $minus=$("#minus")
-    $(plus).click(function(){
-    	var ccc = $("#a").val();
+ var $botton_style=$(".botton_style") 
+    $(".plus").click(function(){
+    	var ccc = $(".a").val();
     	ccc=parseInt(ccc)+1;
-    	$("#a").val(ccc);
+    	$(".a").val(ccc);
     })
-    $(minus).click(function(){
-    	var ccc = $("#a").val();
+    $(".minus").click(function(){
+    	var ccc = $(".a").val();
     	ccc=parseInt(ccc)-1;
     	if (ccc<=0) {}
 		else{
-			$("#a").val(ccc);
+			$(".a").val(ccc);
 		}
   })
-   $(".order_color ul li").click(function(){
+   $(".order_color_buy ul li").click(function(){
    	var index1 = $(this).index(); 
-     $(".order_color ul li").eq(index1).addClass("bgred").siblings().removeClass("bgred");
-   })
-   $(".order_size ul li").click(function(){
+     $(".order_color_buy ul li").eq(index1).addClass("bgred").siblings().removeClass("bgred");
+   });
+   $(".order_size_buy ul li").click(function(){
    	var index2 = $(this).index(); 
-     $(".order_size ul li").eq(index2).addClass("bgred").siblings().removeClass("bgred");
-   }) 
+     $(".order_size_buy ul li").eq(index2).addClass("bgred").siblings().removeClass("bgred");
+   });
+    $(".order_color_car ul li").click(function(){
+   	var index1 = $(this).index(); 
+   	if($(".order_color_car ul li").hasClass('bgred')){
+		$(".order_color_car ul li").removeClass('bgred');
+		}else{
+		$(".order_color_car ul li").addClass('bgred');
+	}
+     $(".order_color_car ul li").eq(index1).addClass("bgred").siblings().removeClass("bgred");
+   });
+   $(".order_size_car ul li").click(function(){
+   	var index2 = $(this).index(); 
+     $(".order_size_car ul li").eq(index2).addClass("bgred").siblings().removeClass("bgred");
+   });
    	function order() {
 		var gid = $('#gid').val();
 		// window.location.href='/order/add?gid='+gid;
         $(".gray").css("display","block");
         $(".goodorder").css("display","block");
 	}
-
+	$(".good_car").click(function(){ 
+   		$(".gray1").css("display","block");
+        $(".goodorder1").css("display","block");
+   }) 
+   $(".gray").click(function(){ 
+   		$(".gray").css("display","none");
+        $(".goodorder").css("display","none");
+   }) 
+	$(".good_close").click(function(){ 
+   		$(".gray").css("display","none");
+        $(".goodorder").css("display","none");
+   }) 
+	$(".gray1").click(function(){ 
+   		$(".gray1").css("display","none");
+        $(".goodorder1").css("display","none");
+   }) 
+	$(".good_close").click(function(){ 
+   		$(".gray1").css("display","none");
+        $(".goodorder1").css("display","none");
+   }) 
 
  function checksize(size) {
 	$('#size').val(size);
