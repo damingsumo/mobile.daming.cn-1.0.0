@@ -71,7 +71,7 @@ $(document).ready(function(){
         img.src =behidestyle; 
         ctx.clearRect(0,0,1000,1000); 
         img.onload = function(){
-             ctx.drawImage(img,beo,parseInt(bea)-10,bel,bew-30); 
+             ctx.drawImage(img,beo,parseInt(bea)-30,bel,bew-30); 
              //脖子
               var img1 = new Image(); 
                   img1.crossOrigin =" anonymous" ; 
@@ -113,7 +113,7 @@ $(document).ready(function(){
              ctx2.clearRect(0,0,1000,1000); 
           img4.onload = function () //确保图片已经加载完毕  
           {  
-            ctx2.drawImage(img4,fro,parseInt(fra)-35,frl,frw); 
+            ctx2.drawImage(img4,fro,parseInt(fra)-35,parseInt(frl)+3,frw); 
           }
 });
 $(".center3>ul li").click(function(){
@@ -173,7 +173,7 @@ function face(face_id) {
                    img.src =behidestyle; 
                    ctx.clearRect(0,0,1000,1000); 
                    img.onload = function(){
-                   ctx.drawImage(img,beo,parseInt(bea)-10,bel,bew-30);  
+                   ctx.drawImage(img,beo,parseInt(bea)-30,bel,bew-30);  
                        //脖子
                    var  img1 = new Image(); 
                         img1.crossOrigin =" anonymous" ; 
@@ -239,7 +239,7 @@ function face(face_id) {
                        ctx2.clearRect(0,0,1000,1000); 
                     img4.onload = function () //确保图片已经加载完毕  
                     {  
-                      ctx2.drawImage(img4,fro,parseInt(fra)-35,frl,frw); 
+                      ctx2.drawImage(img4,fro,parseInt(fra)-35,parseInt(frl)+3,frw); 
                      }
             }//if的判断符号
             else if( qw==5 ) {
@@ -255,7 +255,7 @@ function face(face_id) {
                      img.src =behidestyle; 
                      ctx.clearRect(0,0,1000,1000); 
                      img.onload = function(){
-                         ctx.drawImage(img,beo,parseInt(bea)-10,bel,bew-30);  
+                         ctx.drawImage(img,beo,parseInt(bea)-30,bel,bew-30);  
                       }
                    //脸  
                    var img3 = new Image(); 
@@ -281,7 +281,7 @@ function face(face_id) {
                        ctx2.clearRect(0,0,1000,1000); 
                     img4.onload = function () //确保图片已经加载完毕  
                     {  
-                      ctx2.drawImage(img4,fro,parseInt(fra)-35,frl,frw); 
+                      ctx2.drawImage(img4,fro,parseInt(fra)-35,parseInt(frl)+3,frw); 
                      }
                      //脖子
                     var img1 = new Image(); 
@@ -369,7 +369,7 @@ function complexion(complexion_id) {
                    img.src =behidestyle; 
                    ctx.clearRect(0,0,1000,1000); 
                    img.onload = function(){
-                       ctx.drawImage(img,beo,parseInt(bea)-10,bel,bew-30);  
+                       ctx.drawImage(img,beo,parseInt(bea)-30,bel,bew-30);  
                         //脖子
                         var img1 = new Image(); 
                             img1.crossOrigin =" anonymous" ; 
@@ -435,7 +435,7 @@ function complexion(complexion_id) {
                        ctx2.clearRect(0,0,1000,1000); 
                     img4.onload = function () //确保图片已经加载完毕  
                     {  
-                      ctx2.drawImage(img4,fro,parseInt(fra)-35,frl,frw); 
+                      ctx2.drawImage(img4,fro,parseInt(fra)-35,parseInt(frl)+3,frw); 
                      }
                     
             }//if的判断符号
@@ -452,7 +452,7 @@ function complexion(complexion_id) {
                      img.src =behidestyle; 
                      ctx.clearRect(0,0,1000,1000); 
                      img.onload = function(){
-                         ctx.drawImage(img,beo,parseInt(bea)-10,bel,bew-30);  
+                         ctx.drawImage(img,beo,parseInt(bea)-30,bel,bew-30);  
                           //脖子
                           var img1 = new Image(); 
                               img1.crossOrigin =" anonymous" ; 
@@ -518,7 +518,7 @@ function complexion(complexion_id) {
                        ctx2.clearRect(0,0,1000,1000); 
                     img4.onload = function () //确保图片已经加载完毕  
                     {  
-                      ctx2.drawImage(img4,fro,parseInt(fra)-35,frl,frw); 
+                      ctx2.drawImage(img4,fro,parseInt(fra)-35,parseInt(frl)+3,frw); 
                      }
              } 
            }

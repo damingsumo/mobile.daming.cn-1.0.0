@@ -71,7 +71,7 @@ $(document).ready(function(){
                img.src =behidestyle; 
                ctx1.clearRect(0,0,1000,1000); 
                img.onload = function(){
-                   ctx1.drawImage(img,beo,parseInt(bea)-10,bel,bew-30);  
+                   ctx1.drawImage(img,beo,parseInt(bea)-30,bel,bew-30);  
                 }
                    //脸  
                    var img3 = new Image(); 
@@ -99,7 +99,7 @@ $(document).ready(function(){
                        // ctx.clearRect(0,0,1000,1000); 
                     img4.onload = function () //确保图片已经加载完毕  
                     {  
-                      ctx2.drawImage(img4,fro,parseInt(fra)-35,frl,frw); 
+                      ctx2.drawImage(img4,fro,parseInt(fra)-35,parseInt(frl)+3,frw); 
                      }
                     //胸罩
                           var img5 = new Image();
@@ -193,8 +193,8 @@ $(document).ready(function(){
                    ctx2.clearRect(0,0,1000,1000); 
                 img4.onload = function () //确保图片已经加载完毕  
                 {  
-                  ctx2.drawImage(img4,fro,parseInt(fra)-35,frl,frw);
-                  var imgData = ctx2.getImageData(fro,parseInt(fra)-35,frl,frw); 
+                  ctx2.drawImage(img4,fro,parseInt(fra)-35,parseInt(frl)+3,frw);
+                  var imgData = ctx2.getImageData(fro,parseInt(fra)-35,parseInt(frl)+3,frw); 
                    var data = imgData.data; 
                    for(var i = 0 ; i<data.length; i+=4){ 
                        data [i] -= r; 
@@ -232,8 +232,8 @@ $(document).ready(function(){
                        ctx2.clearRect(0,0,1000,1000); 
                     img4.onload = function () //确保图片已经加载完毕  
                     {  
-                      ctx2.drawImage(img4,fro,parseInt(fra)-35,frl,frw);
-                      var imgData = ctx2.getImageData(fro,parseInt(fra)-35,frl,frw); 
+                      ctx2.drawImage(img4,fro,parseInt(fra)-35,parseInt(frl)+3,frw);
+                      var imgData = ctx2.getImageData(fro,parseInt(fra)-35,parseInt(frl)+3,frw); 
                        var data = imgData.data; 
                        for(var i = 0 ; i<data.length; i+=4){ 
                            data [i] -= r; 
@@ -302,8 +302,8 @@ $(document).ready(function(){
                    ctx2.clearRect(0,0,1000,1000); 
                 img4.onload = function () //确保图片已经加载完毕  
                 {  
-                  ctx2.drawImage(img4,fro,parseInt(fra)-35,frl,frw);
-                  var imgData = ctx2.getImageData(fro,parseInt(fra)-35,frl,frw); 
+                  ctx2.drawImage(img4,fro,parseInt(fra)-35,parseInt(frl)+3,frw);
+                  var imgData = ctx2.getImageData(fro,parseInt(fra)-35,parseInt(frl)+3,frw); 
                    var data = imgData.data; 
                    for(var i = 0 ; i<data.length; i+=4){ 
                        data [i] -= r; 
