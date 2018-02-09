@@ -309,10 +309,10 @@
 	<!--加入购物车-->
 	
 	
-	<form action="/order/add" id="myform" method="post" onsubmit="return check()">
+	<!-- <form action="/order/add" id="myform" method="post" onsubmit="return check()">
 	<input type="hidden" name="gid" value="{$good.gid}" id="gid">
 	<input type="hidden" name="size" value="" id="size">
-	<input type="hidden" name="color" value="" id="color">
+	<input type="hidden" name="color" value="" id="color"> -->
 	<div class="gray1" style="display:none ">
 	</div>
 	<div class="goodorder1">
@@ -576,7 +576,7 @@ function choose(hair_style_id) {
 function shopcar() {
 	var gid = $('#gid').val();
 	$(".shopcar").css("display","block");
-    $(".goodorder").css("display","block");
+    $(".goodorder1").css("display","block");
 
 	
 }
