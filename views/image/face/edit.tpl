@@ -4,7 +4,7 @@
       <div style="margin:0;">
         <ul id="center3_1" style="position: relative;"> 
           <li id="head">  </li> 
-          <canvas id="face" style="position: absolute; left:0;z-index:50;" width="300px" height="380px;"></canvas>
+          <canvas id="face1" style="position: absolute; left:0;z-index:50;" width="300px" height="380px;"></canvas>
           <canvas id="MyCanvas" style="position: absolute; left:0;z-index:1;" width="300px" height="380px;"></canvas>
            <canvas id="hair" style="position: absolute; left:0;z-index:55;" width="300px" height="380px;"></canvas>
         </ul>
@@ -16,8 +16,8 @@
     </div>
   </div>
   <form action="edit" id="myform" method="post">
-  <input type="hidden" value="" id="face" name="face_id">
-  <input type="hidden" value="" id="complexion" name="complexion_id">
+  <input type="hidden" value="" id="face_id" name="face_id">
+  <input type="hidden" value="" id="complexion_id" name="complexion_id">
   <div class="bottom3">
     <ul class="bottom3_1">
     {foreach $faces as $face}
@@ -61,7 +61,7 @@ $(document).ready(function(){
     var frw = $("#front_width").val();  
     var canvas = document.getElementById("MyCanvas"); 
     var ctx = canvas.getContext("2d"); 
-    var canvas1 = document.getElementById("face"); 
+    var canvas1 = document.getElementById("face1"); 
     var ctx1 = canvas1.getContext("2d"); 
     var canvas2 = document.getElementById("hair"); 
     var ctx2 = canvas2.getContext("2d"); 
@@ -123,9 +123,9 @@ $(".center3>ul li").click(function(){
     $(".bottom3 ul").eq(index_3).removeClass("none").siblings().addClass("none");
 }); 
 var str=$(".bottom3_1 li:first-child").val();
-$("#face").val(str);
+$("#face_id").val(str);
 var str=$(".bottom3_2 li:first-child").val();
-$("#complexion").val(str); 
+$("#complexion_id").val(str); 
 $(".bottom3_1 a").click(function(){
     $(this).addClass("bg3").siblings().removeClass("bg3"); 
 });
@@ -133,8 +133,8 @@ $(".bottom3_2 a").click(function(){
       $(this).addClass("bg3").siblings().removeClass("bg3"); 
 });
 function face(face_id) {
-    $("#face").attr("value",face_id);
-    var complexion_id = $("#complexion").val();
+    $("#face_id").attr("value",face_id);
+    var complexion_id = $("#complexion_id").val();
     $.ajax({
       type: "POST",
       url: 'ajaxGetFace',
@@ -159,11 +159,11 @@ function face(face_id) {
           var fra = member.data['hairstyle']['front_abscissa'];
           var frl = member.data['hairstyle']['front_length'];
           var frw = member.data['hairstyle']['front_width'];
-          var qw=document.getElementById("complexion").value;
+          var qw=document.getElementById("complexion_id").value;
           if( qw == 6){
                var canvas = document.getElementById("MyCanvas"); 
                var ctx = canvas.getContext("2d"); 
-               var canvas1 = document.getElementById("face"); 
+               var canvas1 = document.getElementById("face1"); 
                var ctx1 = canvas1.getContext("2d"); 
                var canvas2 = document.getElementById("hair"); 
                var ctx2 = canvas2.getContext("2d"); 
@@ -245,7 +245,7 @@ function face(face_id) {
             else if( qw==5 ) {
                  var canvas = document.getElementById("MyCanvas"); 
                  var ctx = canvas.getContext("2d"); 
-                 var canvas1 = document.getElementById("face"); 
+                 var canvas1 = document.getElementById("face1"); 
                  var ctx1 = canvas1.getContext("2d"); 
                  var canvas2 = document.getElementById("hair"); 
                  var ctx2 = canvas2.getContext("2d"); 
@@ -329,8 +329,8 @@ function face(face_id) {
      });
 }
 function complexion(complexion_id) {
-     $("#complexion").attr("value",complexion_id); 
-     var face_id = $('#face').val();
+     $("#complexion_id").attr("value",complexion_id); 
+     var face_id = $('#face_id').val();
      $.ajax({
             type: "POST",
             url: 'ajaxGetComplexion',
@@ -355,11 +355,11 @@ function complexion(complexion_id) {
                  var fra = member.data['hairstyle']['front_abscissa'];
                  var frl = member.data['hairstyle']['front_length'];
                  var frw = member.data['hairstyle']['front_width'];
-           var qw=document.getElementById("complexion").value;
+           var qw=document.getElementById("complexion_id").value;
            if( qw == 6){
                var canvas = document.getElementById("MyCanvas"); 
                var ctx = canvas.getContext("2d"); 
-               var canvas1 = document.getElementById("face"); 
+               var canvas1 = document.getElementById("face1"); 
                var ctx1 = canvas1.getContext("2d"); 
                var canvas2 = document.getElementById("hair"); 
                var ctx2 = canvas2.getContext("2d"); 
@@ -442,7 +442,7 @@ function complexion(complexion_id) {
             else if( qw==5 ) {
                  var canvas = document.getElementById("MyCanvas"); 
                  var ctx = canvas.getContext("2d"); 
-                 var canvas1 = document.getElementById("face"); 
+                 var canvas1 = document.getElementById("face1"); 
                  var ctx1 = canvas1.getContext("2d"); 
                  var canvas2 = document.getElementById("hair"); 
                  var ctx2 = canvas2.getContext("2d"); 

@@ -65,9 +65,9 @@
 	
    </div>
    <form action="add" id="myform" method="post" onsubmit="return check()">
-	<div class="content6">
+	<div class="content6" style="margin-top:4rem;">
 		<div class="content6_top">
-			<ul>
+			<ul style="margin-bottom:3rem;">
 				<li> 
                     <canvas id="behid_hair" width="300" height="500"></canvas>
 		             <canvas id="MyCanvas"  width="300" height="500"></canvas>

@@ -1,6 +1,6 @@
 {include file="common/header.tpl" pageTitle="我的"}
 {include file="common/menu.tpl"}
-	<div class="content"> 
+	<div class="content" style="margin-top:3rem;background:#f7f7f8;"> 
 		<div class="content_top">
 			<div class="left">
 				<div>
