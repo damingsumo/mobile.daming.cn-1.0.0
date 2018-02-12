@@ -317,7 +317,7 @@ $(document).ready(function(){
                    ctx.clearRect(0,0,1000,1000); 
                 img3.onload = function () //确保图片已经加载完毕  
                 {  
-                  ctx.drawImage(img3,fao,parseInt(faa)+2,faw,70);   
+                  ctx.drawImage(img3,parseInt(fao),faa,faw,70);   
                   ctx.globalCompositeOperation="destination-over"; 
                      //脖子
                     var img1 = new Image(); 
@@ -359,7 +359,7 @@ $(document).ready(function(){
                    ctx2.clearRect(0,0,1000,1000); 
                 img4.onload = function () //确保图片已经加载完毕  
                 {  
-                  ctx2.drawImage(img4,fro,parseInt(fra),parseInt(frw)+3,frl); 
+                  ctx2.drawImage(img4,fro,parseInt(fra),parseInt(frw)+1,frl); 
                   console.log(parseIntfrl)
                  }
                 //胸罩  
@@ -440,7 +440,7 @@ $('select').change(function(){
                    ctx.clearRect(0,0,1000,1000); 
                 img3.onload = function () //确保图片已经加载完毕  
                 {  
-                  ctx.drawImage(img3,parseInt(fao)+2,faa,faw,70);   
+                  ctx.drawImage(img3,parseInt(fao),faa,faw,70);   
                   ctx.globalCompositeOperation="destination-over"; 
                      //脖子
                     var img1 = new Image(); 
@@ -482,7 +482,7 @@ $('select').change(function(){
                    ctx2.clearRect(0,0,1000,1000); 
                 img4.onload = function () //确保图片已经加载完毕  
                 {  
-                  ctx2.drawImage(img4,fro,fra,parseInt(frw)+3,frl); 
+                  ctx2.drawImage(img4,fro,fra,parseInt(frw)+1,frl); 
                  }
                 //胸罩  
                  var img7 = new Image(); 

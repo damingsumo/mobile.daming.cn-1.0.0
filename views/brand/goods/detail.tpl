@@ -389,13 +389,13 @@ $(".third71 a").click(function(){
     var canvas2 = document.getElementById("hair"); 
     var ctx2 = canvas2.getContext("2d");
     //后面的头发
-    var img = new Image(); 
-       img.crossOrigin =" anonymous" ; 
-       img.src =behidestyle; 
-       ctx1.clearRect(0,0,1000,1000); 
-       img.onload = function(){
-           ctx1.drawImage(img,parseInt(beo)+2,parseInt(bea)-5,bel,bew);  
-        }
+    // var img = new Image(); 
+    //    img.crossOrigin =" anonymous" ; 
+    //    img.src =behidestyle; 
+    //    ctx1.clearRect(0,0,1000,1000); 
+    //    img.onload = function(){
+    //        ctx1.drawImage(img,parseInt(beo)+2,parseInt(bea)-5,bel,bew);  
+    //     }
     //脸  
     var img3 = new Image(); 
         img3.crossOrigin =" anonymous"; 
@@ -403,7 +403,8 @@ $(".third71 a").click(function(){
        // ctx.clearRect(0,0,1000,1000); 
     img3.onload = function () //确保图片已经加载完毕  
     {  
-      ctx.drawImage(img3,115,2,55,69);  
+      ctx.drawImage(img3,115,2,55,69);
+      ctx.globalCompositeOperation="destination-over";   
          //脖子
         var img1 = new Image(); 
             img1.crossOrigin =" anonymous" ; 
@@ -484,13 +485,13 @@ function choose(hair_style_id) {
 			        var canvas2 = document.getElementById("hair"); 
 			        var ctx2 = canvas2.getContext("2d");
 			        //后面的头发
-			        var img = new Image(); 
-		                img.crossOrigin =" anonymous" ; 
-		                img.src =behidestyle; 
-		                ctx1.clearRect(0,0,1000,1000); 
-		                img.onload = function(){
-		                   ctx1.drawImage(img,parseInt(beo)+2,parseInt(bea)-5,bel,bew);  
-		                }
+			        // var img = new Image(); 
+		         //        img.crossOrigin =" anonymous" ; 
+		         //        img.src =behidestyle; 
+		         //        ctx1.clearRect(0,0,1000,1000); 
+		         //        img.onload = function(){
+		         //           ctx1.drawImage(img,parseInt(beo)+2,parseInt(bea)-5,bel,bew);  
+		         //        }
 		                 //前面的头发  
 		                var img4 = new Image(); 
 		                   img4.crossOrigin =" anonymous" ; 
