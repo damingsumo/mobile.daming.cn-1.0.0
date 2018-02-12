@@ -71,7 +71,7 @@ $(document).ready(function(){
     //     img.src =behidestyle; 
     //     ctx.clearRect(0,0,1000,1000); 
     //     img.onload = function(){
-             ctx.drawImage(img,beo,parseInt(bea)-30,bel,bew-30); 
+             // ctx.drawImage(img,beo,parseInt(bea)-30,bel,bew-30); 
              //脖子
               var img1 = new Image(); 
                   img1.crossOrigin =" anonymous" ; 
