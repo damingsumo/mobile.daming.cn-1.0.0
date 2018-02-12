@@ -65,7 +65,7 @@
                 <span>¥{$good.old_price/100}</span>
               	</div>
                 <div class="logo_size">
-                  <img src="http://dev.mgr.daming.com.cn{$good['genre']['picture_url']}" class="logo_clothes">
+                  <img src="http://test.mgr.daming.com.cn{$good['genre']['picture_url']}" class="logo_clothes">
                 </div>
             </a>
           </li>
@@ -171,7 +171,7 @@ $(document).ready(function(){
                 {  
                   ctx.drawImage(img7,parseInt(sho)+2,parseInt(sha)+5,parseInt(shl)+3,shw); 
                 }
-                
+
                  //前面的头发  
                var img4 = new Image(); 
                    img4.crossOrigin =" anonymous" ; 
