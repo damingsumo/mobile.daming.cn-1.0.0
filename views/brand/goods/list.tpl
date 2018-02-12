@@ -115,16 +115,7 @@ $(document).ready(function(){
                    var clw = numbere[i]["defaultValue"];
                    var c=document.getElementById(wer);  
                    var ctx=c.getContext("2d");   
-                     //前面的头发  
-                   var img4 = new Image(); 
-                       img4.crossOrigin =" anonymous" ; 
-                       img4.src =frontstyle; 
-                    img4.onload = function () //确保图片已经加载完毕  
-                    {  
-                      ctx.drawImage(img4,parseInt(fro)+3,parseInt(fra)+5,parseInt(frl)-5,frw);  
-                      console.log(frw)
-                     }
-                      ctx.globalCompositeOperation="destination-over";
+                      // ctx.globalCompositeOperation="destination-over";
                   var img6=new Image();  
                   img6.src=clothes;   
                   img6.onload = function () //确保图、片已经加载完毕  
@@ -180,6 +171,16 @@ $(document).ready(function(){
                 {  
                   ctx.drawImage(img7,parseInt(sho)+2,parseInt(sha)+5,parseInt(shl)+3,shw); 
                 }
+                
+                 //前面的头发  
+               var img4 = new Image(); 
+                   img4.crossOrigin =" anonymous" ; 
+                   img4.src =frontstyle; 
+                img4.onload = function () //确保图片已经加载完毕  
+                {  
+                  ctx.drawImage(img4,parseInt(fro)+3,parseInt(fra)+5,parseInt(frl)-5,frw);  
+                  // console.log(frw)
+                 }
              }
             func(ss); 
       }     
