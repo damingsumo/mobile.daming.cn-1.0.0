@@ -77,6 +77,7 @@
                     var img1 = new Image(); 
                         img1.crossOrigin =" anonymous" ; 
                         img1.src= "/static/images/bozi.png"; 
+                        ctx.clearRect(0,0,1000,1000); 
                     img1.onload = function () //确保图片已经加载完毕  
                     {  
                       ctx.drawImage(img1,70,275,195,60);  
@@ -179,6 +180,7 @@ $(".bottom3_2 a").click(function(){
                         var img1 = new Image(); 
                             img1.crossOrigin =" anonymous" ; 
                             img1.src= "/static/images/bozi.png"; 
+                            ctx.clearRect(0,0,1000,1000); 
                         img1.onload = function () //确保图片已经加载完毕  
                         {  
                           ctx.drawImage(img1,70,275,195,60);  
@@ -195,6 +197,7 @@ $(".bottom3_2 a").click(function(){
                         var img2 = new Image();
                             img2.crossOrigin =" anonymous" ; 
                             img2.src="/static/images/shenzi.png"; 
+                            ctx.clearRect(0,0,1000,1000); 
                         img2.onload = function () //确保图片已经加载完毕  
                         {  
                               ctx.drawImage(img2,0,335,340,600);     
@@ -289,6 +292,7 @@ $(".bottom3_2 a").click(function(){
                     var img1 = new Image(); 
                         img1.crossOrigin =" anonymous" ; 
                         img1.src= "/static/images/bozi.png"; 
+                        ctx.clearRect(0,0,1000,1000); 
                     img1.onload = function () //确保图片已经加载完毕  
                     {  
                       ctx.drawImage(img1,70,275,195,60);  
@@ -305,6 +309,7 @@ $(".bottom3_2 a").click(function(){
                     var img2 = new Image();
                         img2.crossOrigin =" anonymous" ; 
                         img2.src="/static/images/shenzi.png"; 
+                        ctx.clearRect(0,0,1000,1000); 
                     img2.onload = function () //确保图片已经加载完毕  
                     {  
                           ctx.drawImage(img2,0,335,340,600);     
@@ -408,6 +413,7 @@ $(".bottom3_2 a").click(function(){
                     var img1 = new Image(); 
                         img1.crossOrigin =" anonymous" ; 
                         img1.src= "/static/images/bozi.png"; 
+                        ctx.clearRect(0,0,1000,1000); 
                     img1.onload = function () //确保图片已经加载完毕  
                     {  
                       ctx.drawImage(img1,70,275,195,60);  
@@ -424,6 +430,7 @@ $(".bottom3_2 a").click(function(){
                     var img2 = new Image();
                         img2.crossOrigin =" anonymous" ; 
                         img2.src="/static/images/shenzi.png"; 
+                        ctx.clearRect(0,0,1000,1000); 
                     img2.onload = function () //确保图片已经加载完毕  
                     {  
                           ctx.drawImage(img2,0,335,340,600);     
@@ -490,6 +497,7 @@ $(".bottom3_2 a").click(function(){
                     var img1 = new Image(); 
                         img1.crossOrigin =" anonymous" ; 
                         img1.src= "/static/images/bozi.png"; 
+                        ctx.clearRect(0,0,1000,1000); 
                     img1.onload = function () //确保图片已经加载完毕  
                     {  
                       ctx.drawImage(img1,70,275,195,60);  
@@ -506,6 +514,7 @@ $(".bottom3_2 a").click(function(){
                     var img2 = new Image();
                         img2.crossOrigin =" anonymous" ; 
                         img2.src="/static/images/shenzi.png"; 
+                        ctx.clearRect(0,0,1000,1000); 
                     img2.onload = function () //确保图片已经加载完毕  
                     {  
                           ctx.drawImage(img2,0,335,340,600);     
