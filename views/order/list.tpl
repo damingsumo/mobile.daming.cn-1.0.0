@@ -55,10 +55,9 @@
 			<label style="color:#949494;text-decoration:line-through">￥{$item.old_price/100}</label>
 			<label style="color:#949494;">×{$item.number}</label>
 		</div>
-		<button onclick="pay({$val.oid})">支付</button>
 	</div>
 	{/foreach}
-	
+	<button onclick="pay({$val.oid})">支付</button>
 	{/foreach}
 {literal}
 <script type="text/javascript">
