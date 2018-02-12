@@ -9,7 +9,7 @@
   <input type="hidden" value="{$hwPhoto.behide_length}" id="behide_length">
   <input type="hidden" value="{$hwPhoto.behide_width}" id="behide_width">  
   <input type="hidden" value="{$hairstyle.detail_front_ordinate}" id="front_ordinate">
-  <input type="hidden" value="{$hairstyle.detail_front_abscissa}" id="front_abscissa">
+  <input type="hidden" value="{$hwPhoto.front_abscissa}" id="front_abscissa">
   <input type="hidden" value="{$hairstyle.detail_front_length}" id="front_length">
   <input type="hidden" value="{$hairstyle.detail_front_width}" id="front_width">
   <input type="hidden" value="{$hwPhoto.boday_url}" id="boday_url">
@@ -412,7 +412,7 @@ $('select').change(function(){
                   // var frl = member.data['hwPhoto']['front_length'];
                   // var frw = member.data['hwPhoto']['front_width'];
                   var fro = member.data['hairstyle']['detail_front_ordinate'];
-	                var fra = member.data['hairstyle']['detail_front_abscissa'];
+	                var fra = member.data['hwPhoto']['front_abscissa'];
 	                var frl = member.data['hairstyle']['detail_front_length'];
 	                var frw = member.data['hairstyle']['detail_front_width'];
                    var fao = member.data['hwPhoto']['face_ordinate'];
