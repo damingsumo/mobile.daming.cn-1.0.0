@@ -28,7 +28,7 @@ define ( 'LONG_PRICE_ID', 10072 );
 //编码
 define('CHARSET', 'utf-8');
 //赛事接口
-define('MGR_DOMIAN', 'dev.mgr.daming.com.cn');
+define('MGR_DOMIAN', 'test.mgr.bestdaming.cn');
 define('PAY_DOMIAN', 'pay.bestdaming.cn');
 //日志目录
 define('LOGS_DIR', '/home/logs/');
