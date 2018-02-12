@@ -418,7 +418,8 @@
   <input type="hidden" value="{$hwPhoto.behide_width}" id="behide_width">
   <input type="hidden" value="{$hwPhoto.front_ordinate}" id="front_ordinate">
   <input type="hidden" value="{$hwPhoto.front_abscissa}" id="front_abscissa">
-  <input type="hidden" value="{$hwPhoto.front_length}" id="front_length">
+  <input type="hidden" value="{$hairstyle.detail_behide_length}" id="front_length">
+  <!-- <input type="hidden" value="{$hwPhoto.front_length}" id="front_length"> -->
   <input type="hidden" value="{$hwPhoto.front_width}" id="front_width">
   <input type="hidden" value="{$hwPhoto.boday_url}" id="boday_url">
   <input type="hidden" value="{$hwPhoto.bodylength}" id="bodylength">
@@ -542,7 +543,7 @@
                    // ctx.clearRect(0,0,1000,1000); 
                 img4.onload = function () //确保图片已经加载完毕  
                 {  
-                   ctx2.drawImage(img4,fro,fra,frw,62); 
+                   ctx2.drawImage(img4,fro,parseInt(fra)-2,parseInt(frw)+2,frl); 
                  }
                 //胸罩  
                  var img7 = new Image(); 
@@ -590,7 +591,7 @@
                   var bew = member.data['hwPhoto']['behide_width'];
                   var fro = member.data['hwPhoto']['front_ordinate'];
                   var fra = member.data['hwPhoto']['front_abscissa'];
-                  var frl = member.data['hwPhoto']['front_length'];
+                  var frl = member.data['hairstyle']['detail_behide_length'];
                   var frw = member.data['hwPhoto']['front_width'];
                    var fao = member.data['hwPhoto']['face_ordinate'];
                   var faa = member.data['hwPhoto']['face_abscissa'];
@@ -659,7 +660,7 @@
                    ctx2.clearRect(0,0,1000,1000); 
                 img4.onload = function () //确保图片已经加载完毕  
                 {  
-                  ctx2.drawImage(img4,fro,fra,frw,62);
+                  ctx2.drawImage(img4,fro,parseInt(fra)-2,parseInt(frw)+2,frl);
                  }
                 //胸罩  
                  var img7 = new Image(); 

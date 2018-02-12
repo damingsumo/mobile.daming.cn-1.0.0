@@ -115,16 +115,7 @@ $(document).ready(function(){
                    var clw = numbere[i]["defaultValue"];
                    var c=document.getElementById(wer);  
                    var ctx=c.getContext("2d");   
-                     //前面的头发  
-                   var img4 = new Image(); 
-                       img4.crossOrigin =" anonymous" ; 
-                       img4.src =frontstyle; 
-                    img4.onload = function () //确保图片已经加载完毕  
-                    {  
-                      ctx.drawImage(img4,parseInt(fro)+3,parseInt(fra)+5,parseInt(frl)-5,frw);  
-                      console.log(frw)
-                     }
-                      ctx.globalCompositeOperation="destination-over";
+                      // ctx.globalCompositeOperation="destination-over";
                   var img6=new Image();  
                   img6.src=clothes;   
                   img6.onload = function () //确保图、片已经加载完毕  
@@ -145,14 +136,14 @@ $(document).ready(function(){
                         img3.onload = function () //确保图片已经加载完毕  
                         {  
                           ctx.drawImage(img3,118,28,47,49); 
-                        ctx.globalCompositeOperation="destination-over";
-                        //后面的头发
-                       var img = new Image(); 
-                       img.crossOrigin =" anonymous" ; 
-                       img.src =behidestyle; 
-                       img.onload = function(){
-                           ctx.drawImage(img,parseInt(beo)+3,bea,parseInt(bel)-5,bew); 
-                         } 
+                       //  ctx.globalCompositeOperation="destination-over";
+                       //  //后面的头发
+                       // var img = new Image(); 
+                       // img.crossOrigin =" anonymous" ; 
+                       // img.src =behidestyle; 
+                       // img.onload = function(){
+                       //     ctx.drawImage(img,parseInt(beo)+3,bea,parseInt(bel)-5,bew); 
+                       //   } 
                         } 
                       } 
                       ctx.globalCompositeOperation="destination-over";
@@ -180,6 +171,16 @@ $(document).ready(function(){
                 {  
                   ctx.drawImage(img7,parseInt(sho)+2,parseInt(sha)+5,parseInt(shl)+3,shw); 
                 }
+                
+                 //前面的头发  
+               var img4 = new Image(); 
+                   img4.crossOrigin =" anonymous" ; 
+                   img4.src =frontstyle; 
+                img4.onload = function () //确保图片已经加载完毕  
+                {  
+                  ctx.drawImage(img4,parseInt(fro)+3,parseInt(fra)+5,parseInt(frl)-5,frw);  
+                  // console.log(frw)
+                 }
              }
             func(ss); 
       }     

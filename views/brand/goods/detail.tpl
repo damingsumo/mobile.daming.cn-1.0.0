@@ -396,7 +396,26 @@ $(".third71 a").click(function(){
     //    img.onload = function(){
     //        ctx1.drawImage(img,parseInt(beo)+2,parseInt(bea)-5,bel,bew);  
     //     }
-    //脸  
+    
+     //前面的头发  
+     var img4 = new Image(); 
+         img4.crossOrigin =" anonymous" ; 
+         img4.src =frontstyle; 
+       // ctx.clearRect(0,0,1000,1000); 
+    img4.onload = function () //确保图片已经加载完毕  
+    {  
+      ctx2.drawImage(img4,parseInt(fro)+2,parseInt(fra)-18,frl,parseInt(bew)+2); 
+     }
+
+  //衣服
+  var img6= new Image();
+    img6.crossOrigin =" anonymous" ; 
+    img6.src=clothes; 
+  img6.onload = function () //确保图片已经加载完毕  
+  {  
+      ctx.drawImage(img6,parseInt(clo)+1,parseInt(cla)-9,parseInt(cll),parseInt(clw)+100); 
+      ctx.globalCompositeOperation="destination-over";
+      //脸  
     var img3 = new Image(); 
         img3.crossOrigin =" anonymous"; 
         img3.src =facestyle; 
@@ -429,24 +448,7 @@ $(".third71 a").click(function(){
 	              ctx.drawImage(img7,sho,parseInt(sha)+130,parseInt(shl)+3,parseInt(shw)); 
 	            }
          }
-     }
-     //前面的头发  
-     var img4 = new Image(); 
-         img4.crossOrigin =" anonymous" ; 
-         img4.src =frontstyle; 
-       // ctx.clearRect(0,0,1000,1000); 
-    img4.onload = function () //确保图片已经加载完毕  
-    {  
-      ctx2.drawImage(img4,parseInt(fro)+2,parseInt(fra)-18,frl,parseInt(bew)+2); 
-     }
-     
-  //衣服
-  var img6= new Image();
-    img6.crossOrigin =" anonymous" ; 
-    img6.src=clothes; 
-  img6.onload = function () //确保图片已经加载完毕  
-  {  
-      ctx.drawImage(img6,parseInt(clo)+1,parseInt(cla)-9,parseInt(cll),parseInt(clw)+100);  
+     } 
   }
  
 });
