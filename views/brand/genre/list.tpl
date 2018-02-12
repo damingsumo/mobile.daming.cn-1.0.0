@@ -9,7 +9,7 @@
             {foreach $v as $genre}
                 <li>
                 <a href="../goods/list?genre_id={$genre.genre_id}&brand_id={$brandId}">
-                    <img src="http://dev.mgr.daming.com.cn{$genre.genre['picture_url']}">
+                    <img src="http://test.mgr.bestdaming.cn{$genre.genre['picture_url']}">
                     <span>{$genre.genre['name']}</span>
                 </a>
                 </li> 
