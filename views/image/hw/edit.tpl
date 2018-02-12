@@ -409,7 +409,7 @@ $('select').change(function(){
                   var bew = member.data['hwPhoto']['behide_width'];
                   var fro = member.data['hwPhoto']['front_ordinate'];
                   var fra = member.data['hwPhoto']['front_abscissa'];
-                  var frl = member.data['hwPhoto']['front_length'];
+                  // var frl = member.data['hwPhoto']['front_length'];
                   var frw = member.data['hwPhoto']['front_width'];
                  //  var fro = member.data['hairstyle']['detail_front_ordinate'];
 	                // var fra = member.data['hwPhoto']['front_abscissa'];
@@ -417,7 +417,7 @@ $('select').change(function(){
 	                // var frw = member.data['hairstyle']['detail_front_width'];
                    var fao = member.data['hwPhoto']['face_ordinate'];
                   var faa = member.data['hwPhoto']['face_abscissa'];
-                  // var fal = member.data['hwPhoto']['face_length'];
+                  var fal = member.data['hwPhoto']['face_length'];
                   var faw = member.data['hwPhoto']['face_width'];
                 var canvas = document.getElementById("MyCanvas"); 
                 var ctx = canvas.getContext("2d"); 
