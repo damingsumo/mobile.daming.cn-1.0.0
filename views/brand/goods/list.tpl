@@ -164,14 +164,6 @@ $(document).ready(function(){
                             ctx.drawImage(img9,107,250,74,103);   
                        } 
                   } 
-                 var img7 = new Image(); 
-                     img7.crossOrigin =" anonymous" ; 
-                     img7.src =shoes; 
-                img7.onload = function () //确保图片已经加载完毕  
-                {  
-                  ctx.drawImage(img7,parseInt(sho)+2,parseInt(sha)+5,parseInt(shl)+3,shw); 
-                }
-
                  //前面的头发  
                var img4 = new Image(); 
                    img4.crossOrigin =" anonymous" ; 
@@ -181,6 +173,13 @@ $(document).ready(function(){
                   ctx.drawImage(img4,parseInt(fro)+3,parseInt(fra)+5,parseInt(frl)-5,frw);  
                   // console.log(frw)
                  }
+                 var img7 = new Image(); 
+                     img7.crossOrigin =" anonymous" ; 
+                     img7.src =shoes; 
+                img7.onload = function () //确保图片已经加载完毕  
+                {  
+                  ctx.drawImage(img7,parseInt(sho)+2,parseInt(sha)+7,parseInt(shl)+3,shw); 
+                }
              }
             func(ss); 
       }     
