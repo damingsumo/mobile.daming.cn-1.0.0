@@ -27,7 +27,7 @@
     </ul>
     <ul class="none bottom3_2 ">
     {foreach $complexions as $complexion}
-      <a onclick="complexion({$complexion.complexion_id})"><li value="{$complexion.complexion_id}"><img src="{$complexion.picture_url}"><span>{$complexion.name}</span></li></a>
+      <a onclick="complexion({$complexion.complexion_id})"><li value="{$complexion.complexion_id}"><img src="http://test.mgr.bestdaming.cn{$complexion.picture_url}"><span>{$complexion.name}</span></li></a>
       {/foreach}
     </ul>
   </div>
