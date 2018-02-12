@@ -403,7 +403,7 @@ $(".third71 a").click(function(){
        // ctx.clearRect(0,0,1000,1000); 
     img3.onload = function () //确保图片已经加载完毕  
     {  
-      ctx.drawImage(img3,115,0,55,69);  
+      ctx.drawImage(img3,115,2,55,69);  
          //脖子
         var img1 = new Image(); 
             img1.crossOrigin =" anonymous" ; 
@@ -444,7 +444,7 @@ $(".third71 a").click(function(){
        // ctx.clearRect(0,0,1000,1000); 
     img4.onload = function () //确保图片已经加载完毕  
     {  
-      ctx2.drawImage(img4,parseInt(fro)+2,parseInt(fra)-18,frl,parseInt(frw)+2); 
+      ctx2.drawImage(img4,parseInt(fro)+2,parseInt(fra)-18,frl,parseInt(bew)+2); 
      }
 		     
 });
@@ -498,7 +498,7 @@ function choose(hair_style_id) {
 		                   ctx2.clearRect(0,0,1000,1000); 
 		                img4.onload = function () //确保图片已经加载完毕  
 		                {  
-		                  ctx2.drawImage(img4,parseInt(fro)+2,parseInt(fra)-18,frl,parseInt(frw)+2); 
+		                  ctx2.drawImage(img4,parseInt(fro)+2,parseInt(fra)-18,frl,parseInt(bew)+2); 
 		                } 
 			    }
 			}
@@ -577,8 +577,6 @@ function shopcar() {
 	var gid = $('#gid').val();
 	$(".shopcar").css("display","block");
     $(".goodorder1").css("display","block");
-
-	
 }
 </script>
 {/literal}

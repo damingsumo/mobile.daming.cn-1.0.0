@@ -447,7 +447,7 @@ li{
 .order_form{
 	width: 100%; 
 	float: left;
-	margin: 5rem 0 0 0;  
+	margin: 0rem 0 0 0;  
 	background-color: #fff;
 	border-bottom: 2px solid #F8F8F8;
 }
@@ -3108,7 +3108,7 @@ align-items: center;
 .register ul li input{
     flex:2;
 }
-.good_name{
+.good_name,.evaluate_detil{
 	float: left;
 	/*margin-top: 1rem;*/
 	background-color: #fff;
@@ -3119,6 +3119,9 @@ align-items: center;
 	flex-direction: column;
 	display: flex;*/  
 }  
+.evaluate_detil{
+	padding-right: 1.7rem;
+}
 .good_name img{
 	float: left;
 	width: 1.8rem;
@@ -3133,11 +3136,28 @@ align-items: center;
 	float: left;
 	display: inline-block;
 }
+.evaluate_detil span{
+	float: right;
+}
 .good_name  span:last-child{
 	color: #FF0000;
 	font-size: 1.1rem;
 	float: right;
 	margin-right: 1.7rem;
+}
+.evaluate_detil  span:last-child{  
+	margin-right: 1.7rem;
+}
+.evaluate_button{
+	float: right;
+	margin: 0.5rem 1.7rem 0.5rem 0; 
+}
+.evaluate_button a{
+	float: right;
+	padding: 0.2rem 1.5rem;
+	border-radius: 15px;
+	border: 1px solid #FF0000;
+	color: #FF0000;
 }
 .good_name input{ 
 	float: left; 
@@ -3157,12 +3177,14 @@ align-items: center;
 	height: 6rem;
 	float: left;
 }
-.good_detial span:nth-child(3),.good_detial span:nth-child(4){
+.good_detial span:nth-child(3),.good_detial span:nth-child(4),
+.evaluate span:nth-child(2),.evaluate span:nth-child(3){
 	display: inline-block;
 	margin-left: 1rem;
 	float: left;
 	width: 60%;
 }
+
 .balance{
 	position: fixed;
 	bottom: 5rem;
@@ -3259,6 +3281,88 @@ align-items: center;
 .top71 li canvas:nth-child(3),.content5_top canvas:nth-child(3){
     z-index: 55;
 }	
+.comment_top,.comment_name{
+	float: left;
+	width: 100%;
+	line-height: 5rem;
+	background-color: #fff;
+	border-bottom: 1px solid #f6f6f6;
+}
+.comment_img{
+	float: left;
+	width: 4rem;
+	height: 4rem; 
+	margin: 0.5rem 0.5rem 0.5rem 1.5rem;
+}
+.comment_list img,.comment_name img{
+    float: left;
+	width: 2rem;
+	height: 2rem; 
+	margin: 1.5rem  1.2rem;
+}
+.comment_top span,.comment_name span{
+	float: left;
+	margin-left: 1rem;
+	font-size: 1.5rem;
+}
+.comment_top span:last-child,.comment_name span:last-child{
+	float: right;
+    margin-right: 1.7rem;
+    margin-left: 0;
+}
+.comment_content{
+	float: left;
+	width: 100%;
+}
+.comment_content textarea{
+	float: left;
+	width: 100%;
+	height: 11rem;
+	padding: 1rem;
+	border-left: none;
+	border-right: none;
+	outline: none;
+}
+.comment_shop{
+	width: 100%;
+	float: left;
+	margin-top: 2rem;
+	background-color: #fff;
+}
+.comment_shop span{
+	float: left;
+	font-size: 1.5rem;
+}
+.comment_shop img{
+	float: left;
+	width: 2rem;
+	height: 2rem; 
+	margin: 1.5rem  1.2rem;
+}
+.shop_score{
+	float: left;
+	width: 100%;
+	line-height: 5rem;
+}
+.logistics_score,.attitude_score{
+	float: left;
+	width: 100%;
+	line-height: 5rem;
+	padding-left: 1.5rem;
+}
+.comment_button{
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+}
+.comment_button input{
+	width: 100%;
+	border: none;
+	background: rgb(255, 83, 2);
+	color: #fff;
+	height: 5.2rem;
+	font-size: 1.5rem;
+}
 @media screen and (width: 320px){
     .top71 li canvas,.content5_top canvas,.content6_top canvas{
 		left: 7%;
