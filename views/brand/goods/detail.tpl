@@ -577,8 +577,6 @@ function shopcar() {
 	var gid = $('#gid').val();
 	$(".shopcar").css("display","block");
     $(".goodorder1").css("display","block");
-
-	
 }
 </script>
 {/literal}

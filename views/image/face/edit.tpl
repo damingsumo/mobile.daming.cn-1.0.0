@@ -66,11 +66,11 @@ $(document).ready(function(){
     var canvas2 = document.getElementById("hair"); 
     var ctx2 = canvas2.getContext("2d"); 
     //后面的头发
-    var img = new Image(); 
-        img.crossOrigin =" anonymous" ; 
-        img.src =behidestyle; 
-        ctx.clearRect(0,0,1000,1000); 
-        img.onload = function(){
+    // var img = new Image(); 
+    //     img.crossOrigin =" anonymous" ; 
+    //     img.src =behidestyle; 
+    //     ctx.clearRect(0,0,1000,1000); 
+    //     img.onload = function(){
              ctx.drawImage(img,beo,parseInt(bea)-30,bel,bew-30); 
              //脖子
               var img1 = new Image(); 
@@ -105,7 +105,7 @@ $(document).ready(function(){
                 {  
                   ctx1.drawImage(img3,95,178,130,120);   
                  }
-          }
+          // }
            //前面的头发  
          var img4 = new Image(); 
              img4.crossOrigin =" anonymous" ; 

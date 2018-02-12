@@ -7,11 +7,11 @@
   <input type="hidden" value="{$hwPhoto.behide_ordinate}" id="behide_ordinate">
   <input type="hidden" value="{$hwPhoto.behide_abscissa}" id="behide_abscissa">
   <input type="hidden" value="{$hwPhoto.behide_length}" id="behide_length">
-  <input type="hidden" value="{$hwPhoto.behide_width}" id="behide_width">
-  <input type="hidden" value="{$hwPhoto.front_ordinate}" id="front_ordinate">
-  <input type="hidden" value="{$hwPhoto.front_abscissa}" id="front_abscissa">
-  <input type="hidden" value="{$hwPhoto.front_length}" id="front_length">
-  <input type="hidden" value="{$hwPhoto.front_width}" id="front_width">
+  <input type="hidden" value="{$hwPhoto.behide_width}" id="behide_width">  
+  <input type="hidden" value="{$hairstyle.detail_front_ordinate}" id="front_ordinate">
+  <input type="hidden" value="{$hairstyle.detail_front_abscissa}" id="front_abscissa">
+  <input type="hidden" value="{$hairstyle.detail_front_length}" id="front_length">
+  <input type="hidden" value="{$hairstyle.detail_front_width}" id="front_width">
   <input type="hidden" value="{$hwPhoto.boday_url}" id="boday_url">
   <input type="hidden" value="{$hwPhoto.bodylength}" id="bodylength">
    <input type="hidden" value="{$hwPhoto.bodywidth}" id="bodywidth">   
@@ -359,7 +359,8 @@ $(document).ready(function(){
                    ctx2.clearRect(0,0,1000,1000); 
                 img4.onload = function () //确保图片已经加载完毕  
                 {  
-                  ctx2.drawImage(img4,fro,fra,frw,62); 
+                  ctx2.drawImage(img4,fro,parseInt(fra)-2,frw,62); 
+                  console.log(parseInt(fra)-2)
                  }
                 //胸罩  
                  var img7 = new Image(); 
@@ -406,10 +407,14 @@ $('select').change(function(){
 	                var bea = member.data['hwPhoto']['behide_abscissa'];
                   var bel = member.data['hwPhoto']['behide_length'];
                   var bew = member.data['hwPhoto']['behide_width'];
-                  var fro = member.data['hwPhoto']['front_ordinate'];
-                  var fra = member.data['hwPhoto']['front_abscissa'];
-                  var frl = member.data['hwPhoto']['front_length'];
-                  var frw = member.data['hwPhoto']['front_width'];
+                  // var fro = member.data['hwPhoto']['front_ordinate'];
+                  // var fra = member.data['hwPhoto']['front_abscissa'];
+                  // var frl = member.data['hwPhoto']['front_length'];
+                  // var frw = member.data['hwPhoto']['front_width'];
+                  var fro = member.data['hairstyle']['detail_front_ordinate'];
+	                var fra = member.data['hairstyle']['detail_front_abscissa'];
+	                var frl = member.data['hairstyle']['detail_front_length'];
+	                var frw = member.data['hairstyle']['detail_front_width'];
                    var fao = member.data['hwPhoto']['face_ordinate'];
                   var faa = member.data['hwPhoto']['face_abscissa'];
                   var fal = member.data['hwPhoto']['face_length'];

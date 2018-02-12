@@ -43,7 +43,7 @@
             <input type="hidden" value="{$good.length}" name="clothes_length">
             <input type="hidden" value="{$good.width}" name="clothes_width">
             <input type="hidden" value="$good['goodsCollocation'].synthesis_url}" name="front_width">
-            <input type="hidden" value="$good['goodsCollocation'].ordinate}" namename="front_width">
+            <input type="hidden" value="$good['goodsCollocation'].ordinate}" name="front_width">
             <input type="hidden" value="$good['goodsCollocation'].abscissa}" name="front_width">
             <input type="hidden" value="$good['goodsCollocation'].length}" name="front_width">
             <input type="hidden" value="$good['goodsCollocation'].width}" name="front_width">
@@ -122,6 +122,7 @@ $(document).ready(function(){
                     img4.onload = function () //确保图片已经加载完毕  
                     {  
                       ctx.drawImage(img4,parseInt(fro)+3,parseInt(fra)+5,parseInt(frl)-5,frw);  
+                      console.log(frw)
                      }
                       ctx.globalCompositeOperation="destination-over";
                   var img6=new Image();  
