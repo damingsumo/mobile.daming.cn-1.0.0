@@ -439,17 +439,17 @@ $(".third71 a").click(function(){
         img2.onload = function () //确保图片已经加载完毕  
         {  
               ctx.drawImage(img2,72,84,150,395);  
-              var img7 = new Image(); 
-	               img7.crossOrigin =" anonymous" ; 
-	               img7.src =shoes; 
-	               // ctx.clearRect(0,0,1000,1000); 
-	            img7.onload = function () //确保图片已经加载完毕  
-	            {  
-	              ctx.drawImage(img7,sho,parseInt(sha)+130,parseInt(shl)+3,parseInt(shw)); 
-	            }
          }
      } 
   }
+  var img7 = new Image(); 
+       img7.crossOrigin =" anonymous" ; 
+       img7.src =shoes; 
+       // ctx.clearRect(0,0,1000,1000); 
+    img7.onload = function () //确保图片已经加载完毕  
+    {  
+      ctx.drawImage(img7,sho,parseInt(sha)+130,parseInt(shl)+3,parseInt(shw)); 
+    }
  
 });
 
