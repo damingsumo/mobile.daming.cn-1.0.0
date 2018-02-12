@@ -65,7 +65,7 @@
                 <span>¥{$good.old_price/100}</span>
               	</div>
                 <div class="logo_size">
-                  <img src="http://test.mgr.daming.com.cn{$good['genre']['picture_url']}" class="logo_clothes">
+                  <img src="http://test.mgr.bestdaming.cn{$good['genre']['picture_url']}" class="logo_clothes">
                 </div>
             </a>
           </li>
