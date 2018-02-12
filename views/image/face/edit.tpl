@@ -168,12 +168,12 @@ function face(face_id) {
                var canvas2 = document.getElementById("hair"); 
                var ctx2 = canvas2.getContext("2d"); 
                  //后面的头发
-               var img = new Image(); 
-                   img.crossOrigin =" anonymous" ; 
-                   img.src =behidestyle; 
-                   ctx.clearRect(0,0,1000,1000); 
-                   img.onload = function(){
-                   ctx.drawImage(img,beo,parseInt(bea)-30,bel,bew-30);  
+               // var img = new Image(); 
+               //     img.crossOrigin =" anonymous" ; 
+               //     img.src =behidestyle; 
+               //     ctx.clearRect(0,0,1000,1000); 
+               //     img.onload = function(){
+               //     ctx.drawImage(img,beo,parseInt(bea)-30,bel,bew-30);  
                        //脖子
                    var  img1 = new Image(); 
                         img1.crossOrigin =" anonymous" ; 
@@ -214,7 +214,7 @@ function face(face_id) {
                                 }
                             }
                          } 
-                    }
+                    // }
                      //脸  
                    var img3 = new Image(); 
                        img3.crossOrigin =" anonymous" ; 
