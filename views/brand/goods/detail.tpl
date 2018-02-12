@@ -444,7 +444,7 @@ $(".third71 a").click(function(){
        // ctx.clearRect(0,0,1000,1000); 
     img4.onload = function () //确保图片已经加载完毕  
     {  
-      ctx2.drawImage(img4,parseInt(fro)+2,parseInt(fra)-18,frl,parseInt(frw)+2); 
+      ctx2.drawImage(img4,parseInt(fro)+2,parseInt(fra)-18,frl,parseInt(bew)+2); 
      }
 		     
 });
@@ -498,7 +498,7 @@ function choose(hair_style_id) {
 		                   ctx2.clearRect(0,0,1000,1000); 
 		                img4.onload = function () //确保图片已经加载完毕  
 		                {  
-		                  ctx2.drawImage(img4,parseInt(fro)+2,parseInt(fra)-18,frl,parseInt(frw)+2); 
+		                  ctx2.drawImage(img4,parseInt(fro)+2,parseInt(fra)-18,frl,parseInt(bew)+2); 
 		                } 
 			    }
 			}
