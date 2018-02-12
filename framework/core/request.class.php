@@ -32,9 +32,9 @@ class Request {
 	//action 操作服务(带action前缀的操作)
 	public function actionService() {
 		$result = Account::checkLogin ();
-		if (! $result) {
-			http::go ( '/index/login' );
-		}
+// 		if (! $result) {
+// 			http::go ( '/index/login' );
+// 		}
 		/* $data = array ();
 		unset ( $_REQUEST ['PHPSESSID'] );
 		foreach ( $_REQUEST as $key => $val ) {
