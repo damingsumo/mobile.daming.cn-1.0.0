@@ -145,14 +145,14 @@ $(document).ready(function(){
                         img3.onload = function () //确保图片已经加载完毕  
                         {  
                           ctx.drawImage(img3,118,28,47,49); 
-                        ctx.globalCompositeOperation="destination-over";
-                        //后面的头发
-                       var img = new Image(); 
-                       img.crossOrigin =" anonymous" ; 
-                       img.src =behidestyle; 
-                       img.onload = function(){
-                           ctx.drawImage(img,parseInt(beo)+3,bea,parseInt(bel)-5,bew); 
-                         } 
+                       //  ctx.globalCompositeOperation="destination-over";
+                       //  //后面的头发
+                       // var img = new Image(); 
+                       // img.crossOrigin =" anonymous" ; 
+                       // img.src =behidestyle; 
+                       // img.onload = function(){
+                       //     ctx.drawImage(img,parseInt(beo)+3,bea,parseInt(bel)-5,bew); 
+                       //   } 
                         } 
                       } 
                       ctx.globalCompositeOperation="destination-over";
