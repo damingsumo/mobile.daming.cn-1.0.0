@@ -420,14 +420,6 @@ $(".third71 a").click(function(){
         img2.onload = function () //确保图片已经加载完毕  
         {  
               ctx.drawImage(img2,72,84,150,395);  
-              //衣服
-              var img6= new Image();
-                img6.crossOrigin =" anonymous" ; 
-                img6.src=clothes; 
-              img6.onload = function () //确保图片已经加载完毕  
-              {  
-                  ctx.drawImage(img6,parseInt(clo)+1,parseInt(cla)-9,parseInt(cll),parseInt(clw)+100);  
-              }
               var img7 = new Image(); 
 	               img7.crossOrigin =" anonymous" ; 
 	               img7.src =shoes; 
@@ -447,7 +439,16 @@ $(".third71 a").click(function(){
     {  
       ctx2.drawImage(img4,parseInt(fro)+2,parseInt(fra)-18,frl,parseInt(bew)+2); 
      }
-		     
+     
+  //衣服
+  var img6= new Image();
+    img6.crossOrigin =" anonymous" ; 
+    img6.src=clothes; 
+  img6.onload = function () //确保图片已经加载完毕  
+  {  
+      ctx.drawImage(img6,parseInt(clo)+1,parseInt(cla)-9,parseInt(cll),parseInt(clw)+100);  
+  }
+ 
 });
 
 function choose(hair_style_id) {
