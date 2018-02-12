@@ -177,7 +177,8 @@ function face(face_id) {
                        //脖子
                    var  img1 = new Image(); 
                         img1.crossOrigin =" anonymous" ; 
-                        img1.src= "/static/images/bozi.png"; 
+                        img1.src= "/static/images/bozi.png";
+                        ctx.clearRect(0,0,1000,1000);  
                       img1.onload = function () //确保图片已经加载完毕  
                       {  
                         ctx.drawImage(img1,70,275,195,60);  
@@ -250,13 +251,13 @@ function face(face_id) {
                  var canvas2 = document.getElementById("hair"); 
                  var ctx2 = canvas2.getContext("2d"); 
                    //后面的头发
-                 var img = new Image(); 
-                     img.crossOrigin =" anonymous" ; 
-                     img.src =behidestyle; 
-                     ctx.clearRect(0,0,1000,1000); 
-                     img.onload = function(){
-                         ctx.drawImage(img,beo,parseInt(bea)-30,bel,bew-30);  
-                      }
+                 // var img = new Image(); 
+                 //     img.crossOrigin =" anonymous" ; 
+                 //     img.src =behidestyle; 
+                 //     ctx.clearRect(0,0,1000,1000); 
+                 //     img.onload = function(){
+                 //         ctx.drawImage(img,beo,parseInt(bea)-30,bel,bew-30);  
+                 //      }
                    //脸  
                    var img3 = new Image(); 
                        img3.crossOrigin =" anonymous" ; 
@@ -364,16 +365,17 @@ function complexion(complexion_id) {
                var canvas2 = document.getElementById("hair"); 
                var ctx2 = canvas2.getContext("2d"); 
                  //后面的头发
-               var img = new Image(); 
-                   img.crossOrigin =" anonymous" ; 
-                   img.src =behidestyle; 
-                   ctx.clearRect(0,0,1000,1000); 
-                   img.onload = function(){
-                       ctx.drawImage(img,beo,parseInt(bea)-30,bel,bew-30);  
+               // var img = new Image(); 
+               //     img.crossOrigin =" anonymous" ; 
+               //     img.src =behidestyle; 
+               //     ctx.clearRect(0,0,1000,1000); 
+               //     img.onload = function(){
+               //         ctx.drawImage(img,beo,parseInt(bea)-30,bel,bew-30);  
                         //脖子
                         var img1 = new Image(); 
                             img1.crossOrigin =" anonymous" ; 
-                            img1.src= "/static/images/bozi.png"; 
+                            img1.src= "/static/images/bozi.png";
+                            ctx.clearRect(0,0,1000,1000); 
                             img1.onload = function () //确保图片已经加载完毕  
                             {  
                               ctx.drawImage(img1,70,275,195,60);  
@@ -410,7 +412,7 @@ function complexion(complexion_id) {
                                     ctx.drawImage(img5,66,322,210,255); 
                                   }
                              } 
-                    }
+                    // }
                      //脸  
                    var img3 = new Image(); 
                        img3.crossOrigin =" anonymous" ; 
@@ -447,16 +449,17 @@ function complexion(complexion_id) {
                  var canvas2 = document.getElementById("hair"); 
                  var ctx2 = canvas2.getContext("2d"); 
                    //后面的头发
-                 var img = new Image(); 
-                     img.crossOrigin =" anonymous" ; 
-                     img.src =behidestyle; 
-                     ctx.clearRect(0,0,1000,1000); 
-                     img.onload = function(){
-                         ctx.drawImage(img,beo,parseInt(bea)-30,bel,bew-30);  
+                 // var img = new Image(); 
+                 //     img.crossOrigin =" anonymous" ; 
+                 //     img.src =behidestyle; 
+                 //     ctx.clearRect(0,0,1000,1000); 
+                 //     img.onload = function(){
+                 //         ctx.drawImage(img,beo,parseInt(bea)-30,bel,bew-30);  
                           //脖子
                           var img1 = new Image(); 
                               img1.crossOrigin =" anonymous" ; 
                               img1.src= "/static/images/bozi.png"; 
+                              ctx.clearRect(0,0,1000,1000);
                               img1.onload = function () //确保图片已经加载完毕  
                               {  
                                 ctx.drawImage(img1,70,275,195,60);  
@@ -493,7 +496,7 @@ function complexion(complexion_id) {
                                     ctx.drawImage(img5,66,322,210,255); 
                                   }
                               }
-                      }
+                      // }
                    //脸  
                    var img3 = new Image(); 
                        img3.crossOrigin =" anonymous" ; 
