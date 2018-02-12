@@ -10,12 +10,12 @@ class Controller_Index extends Controller_Base {
 	 * @note 登录
 	 * @author
 	 */
-	public function login() {
-		if(Account::checkLogin()) {
-			http::go('/user/add');
-		}
-		return $this->display('login');
-	}
+// 	public function login() {
+// 		if(Account::checkLogin()) {
+// 			http::go('/user/add');
+// 		}
+// 		return $this->display('login');
+// 	}
 	
 	/**
 	 * @note 首页index
