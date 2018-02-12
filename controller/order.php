@@ -79,4 +79,15 @@ class Controller_Order extends Controller_Base {
         $order = WebApi_Order::instance()->row('*',$oid);
         $orderitem = WebApi_Orderitem::instance()->getOrderitemByParams(array('oid'=>$oid));
     }
+    
+    
+    
+    public function ajaxPay() {
+        $oid = isset($_GET['oid']) ? $_GET['oid'] : http::SESSION('oid');
+        $uid = account::getUid();
+        $user = WebApi_User::instance()->row('*',$uid);
+        $params = Remote::instance()->post(PAY_DOMIAN, 'wxpayment/orderPay', array('oid'=>$oid,'open_id'=>$user['open_id']));
+        print_r($params);exit;
+        
+    }
 }

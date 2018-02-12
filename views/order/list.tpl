@@ -55,11 +55,29 @@
 			<label style="color:#949494;text-decoration:line-through">￥{$item.old_price/100}</label>
 			<label style="color:#949494;">×{$item.number}</label>
 		</div>
-		<button>支付</button>
+		<button onclick="pay({$val.oid})">支付</button>
 	</div>
 	{/foreach}
 	
 	{/foreach}
- 
+{literal}
+<script type="text/javascript">
+function pay(oid){
+	$.ajax({
+		type: "POST",
+		url: '/order/ajaxPay',
+		data: {oid:oid},
+		datatype:'json',
+		success: function(data) {
+			var member = eval('('+data+')');
+			if(member.status == 200) {
+				
+			}
+		}
+	});
+}
+
+</script>
+{/literal}
 </body>
 </html>
