@@ -403,7 +403,7 @@ $(".third71 a").click(function(){
        // ctx.clearRect(0,0,1000,1000); 
     img3.onload = function () //确保图片已经加载完毕  
     {  
-      ctx.drawImage(img3,115,0,55,69);  
+      ctx.drawImage(img3,115,2,55,69);  
          //脖子
         var img1 = new Image(); 
             img1.crossOrigin =" anonymous" ; 
