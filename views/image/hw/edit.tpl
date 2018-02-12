@@ -317,7 +317,7 @@ $(document).ready(function(){
                    ctx.clearRect(0,0,1000,1000); 
                 img3.onload = function () //确保图片已经加载完毕  
                 {  
-                  ctx.drawImage(img3,fao,parseInt(faa)+2,faw,70);   
+                  ctx.drawImage(img3,fao,parseInt(faa),faw,70);   
                   ctx.globalCompositeOperation="destination-over"; 
                      //脖子
                     var img1 = new Image(); 
@@ -440,7 +440,7 @@ $('select').change(function(){
                    ctx.clearRect(0,0,1000,1000); 
                 img3.onload = function () //确保图片已经加载完毕  
                 {  
-                  ctx.drawImage(img3,fao,parseInt(faa)+2,faw,70);   
+                  ctx.drawImage(img3,fao,parseInt(faa),faw,70);   
                   ctx.globalCompositeOperation="destination-over"; 
                      //脖子
                     var img1 = new Image(); 
