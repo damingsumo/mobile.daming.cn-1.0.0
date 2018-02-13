@@ -57,7 +57,7 @@
 		</div>
 	</div>
 	{/foreach}
-	<button onclick="order/ajaxPay?oid={$val.oid}">支付</button>
+	<button onclick="order/ajaxPay?oid={$val.oid}" class="payoff">支付</button>
 	{/foreach}
 {literal}
 <script type="text/javascript">
