@@ -309,7 +309,6 @@
 	<!--加入购物车-->
 	
 	
-	<form action="/order/add" id="myform" method="post" onsubmit="return check()">
 	<input type="hidden" name="gid" value="{$good.gid}" id="gid">
 	<input type="hidden" name="size" value="" id="size">
 	<input type="hidden" name="color" value="" id="color">
@@ -317,7 +316,7 @@
 	</div>
 	<div class="goodorder1">
 		<div class="goodorder_infor">
-			<img src="http://test.mgr.bestdaming.cn{$good.show_url}">
+			<img src="{$good.show_url}">
 			<div>
 				<span>￥{$good.price/100}</span>
 				<span>库存800件</span>
@@ -354,7 +353,6 @@
 	    	<input type="submit" value="确认">
 	    </div>
 	</div>
-	</form>
 {literal}
 <script type="text/javascript">
 $(".third71 a").click(function(){
@@ -548,6 +546,14 @@ function choose(hair_style_id) {
 		// window.location.href='/order/add?gid='+gid;
         $(".gray").css("display","block");
         $(".goodorder").css("display","block");
+        $.ajax({
+			type: "POST",
+			url: '/user/hairstyle/ajaxGetHairstyle',
+			data: {hair_style_id:hair_style_id},
+			datatype:'json',
+			success: function(data) {
+			}
+        })
 	}
 	function gray() {  
    		$(".gray").css("display","none");
