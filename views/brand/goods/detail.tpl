@@ -323,7 +323,7 @@
 				<span>库存800件</span>
 				<span>请选择 尺码 颜色</span>
 			</div>
-			<img src="{staticurl action='guanbi.png' type='img'}" class="good_close">
+			<img src="http://test.mobile.bestdaming.cn{staticurl action='guanbi.png' type='img'}" class="good_close">
 		</div>
 		<div class="order_size order_size_car">
 			<span>尺码</span>
