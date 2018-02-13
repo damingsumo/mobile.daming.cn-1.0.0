@@ -268,7 +268,7 @@
 	</div>
 	<div class="goodorder">
 		<div class="goodorder_infor">
-			<img src="http://test.mgr.bestdaming.cn{$good.show_url}">
+			<img src="{$good.show_url}">
 			<div>
 				<span>￥{$good.price/100}</span>
 				<span>库存800件</span>
@@ -317,7 +317,7 @@
 	</div>
 	<div class="goodorder1">
 		<div class="goodorder_infor">
-			<img src="http://test.mgr.bestdaming.cn{$good.show_url}">
+			<img src="{$good.show_url}">
 			<div>
 				<span>￥{$good.price/100}</span>
 				<span>库存800件</span>
