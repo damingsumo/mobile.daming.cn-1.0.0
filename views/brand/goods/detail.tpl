@@ -264,7 +264,7 @@
 	<input type="hidden" name="gid" value="{$good.gid}" id="gid">
 	<input type="hidden" name="size" value="" id="size">
 	<input type="hidden" name="color" value="" id="color">
-	<div class="gray" style="display:none ">
+	<div class="gray" style="display:none " onclick="gray()">
 	</div>
 	<div class="goodorder">
 		<div class="goodorder_infor">
@@ -309,11 +309,11 @@
 	<!--加入购物车-->
 	
 	
-	<!-- <form action="/order/add" id="myform" method="post" onsubmit="return check()">
+	<form action="/order/add" id="myform" method="post" onsubmit="return check()">
 	<input type="hidden" name="gid" value="{$good.gid}" id="gid">
 	<input type="hidden" name="size" value="" id="size">
-	<input type="hidden" name="color" value="" id="color"> -->
-	<div class="gray1" style="display:none ">
+	<input type="hidden" name="color" value="" id="color">
+	<div class="gray1" style="display:none " onclick="gray1()">
 	</div>
 	<div class="goodorder1">
 		<div class="goodorder_infor">
@@ -549,27 +549,20 @@ function choose(hair_style_id) {
         $(".gray").css("display","block");
         $(".goodorder").css("display","block");
 	}
-	$(".good_car").click(function(){ 
-   		$(".gray1").css("display","block");
-        $(".goodorder1").css("display","block");
-   }) 
-   $(".gray").click(function(){ 
+	function gray() {  
    		$(".gray").css("display","none");
         $(".goodorder").css("display","none");
-   }) 
+   }
 	$(".good_close").click(function(){ 
    		$(".gray").css("display","none");
         $(".goodorder").css("display","none");
-   }) 
-	$(".gray1").click(function(){ 
    		$(".gray1").css("display","none");
         $(".goodorder1").css("display","none");
    }) 
-	$(".good_close").click(function(){ 
+	function gray1() {  
    		$(".gray1").css("display","none");
         $(".goodorder1").css("display","none");
-   }) 
-
+   }
  function checksize(size) {
 	$('#size').val(size);
 	 }
@@ -579,7 +572,7 @@ function choose(hair_style_id) {
 
 function shopcar() {
 	var gid = $('#gid').val();
-	$(".shopcar").css("display","block");
+	$(".gray1").css("display","block");
     $(".goodorder1").css("display","block");
 }
 </script>
