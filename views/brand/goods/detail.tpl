@@ -317,13 +317,13 @@
 	</div>
 	<div class="goodorder1">
 		<div class="goodorder_infor">
-			<img src="{$good.show_url}">
+			<img src="http://test.mobile.bestdaming.cn{$good.show_url}">
 			<div>
 				<span>￥{$good.price/100}</span>
 				<span>库存800件</span>
 				<span>请选择 尺码 颜色</span>
 			</div>
-			<img src="http://test.mobile.bestdaming.cn{staticurl action='guanbi.png' type='img'}" class="good_close">
+			<img src="{staticurl action='guanbi.png' type='img'}" class="good_close">
 		</div>
 		<div class="order_size order_size_car">
 			<span>尺码</span>
