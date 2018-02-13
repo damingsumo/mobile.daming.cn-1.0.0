@@ -25,9 +25,6 @@ class Controller_Brand extends Controller_Base {
             $brands = WebApi_Brand::instance()->getBrandsByParams($params);
         }
         $params['brands'] = $brands;
-        foreach ($brands as &$brand) {
-            $brand['picture_url'] = $brand['picture_url'];
-        }
         $params['total'] = $total;
         return $this->display('index/index', $params);
     }
@@ -49,6 +46,7 @@ class Controller_Brand extends Controller_Base {
             $brand['picture_url'] = $brand['picture_url'];
         }
         $params['total'] = $total;
+        print_r($params);exit;
         return $this->display('index/index', $params);
     }
 }
