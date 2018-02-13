@@ -77,7 +77,7 @@ class Controller_Order extends Controller_Base {
     public function actionDetail() {
         $oid = isset($_POST['oid']) ? $_POST['oid'] : 0;
         $order = WebApi_Order::instance()->row('*',$oid);
-        $orderitem = WebApi_Orderitem::instance()->getOrderitemByParams(array('oid'=>$oid));
+        $orderitem = WebApi_Order_item::instance()->getOrderitemByParams(array('oid'=>$oid));
     }
     
     
