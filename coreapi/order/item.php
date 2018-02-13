@@ -9,7 +9,7 @@ class CoreApi_Order_Item extends CoreApi {
         'order_item_id' => 'int',
         'oid' => 'int',
         'gid' => 'int',
-        'num'=>'int',
+        'number'=>'int',
         'price' => 'int',
         'old_price' => 'int',
         'status' => 'int',
