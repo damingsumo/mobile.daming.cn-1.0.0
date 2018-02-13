@@ -9,6 +9,7 @@
 		<div class="header_fr">
 		</div>
 	</div>
+	<div style="float:left;margin-bottom:5rem;">
 	<div class="order_form" style="margin-top:6rem;">
 		<ul>
 			<li>
@@ -61,6 +62,7 @@
 	</div>
 		<a href="#javascript;" onclick="order/ajaxPay?oid={$val.oid}" class="payoff">支付</a>
 	{/foreach}
+</div>
 {literal}
 <script type="text/javascript">
 function pay(oid){
