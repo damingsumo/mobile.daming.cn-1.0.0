@@ -1,13 +1,5 @@
 {include file="common/header.tpl" pageTitle="我的订单"}
 <body style="background:#F8F8F8;">
-	<div class="header hearder1">
-		<a href="" class="header_fl">
-			<img src="{staticurl action='1.png' type='img'}">
-		</a>
-		<span>我的订单</span>
-		<div class="header_fr">
-		</div>
-	</div>
 	<div style="float:left;margin-bottom:5rem;">
 	<div class="order_form" style="margin-top:6rem;">
 		<ul>
