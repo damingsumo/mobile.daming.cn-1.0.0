@@ -309,7 +309,6 @@
 	<!--加入购物车-->
 	
 	
-	<input type="hidden" name="gid" value="{$good.gid}" id="gid">
 	<input type="hidden" name="size" value="" id="size">
 	<input type="hidden" name="color" value="" id="color">
 	<div class="gray1" style="display:none " onclick="gray1()">
@@ -591,7 +590,7 @@ function choose(hair_style_id) {
    		$(".gray1").css("display","none");
         $(".goodorder1").css("display","none");
    }
- function checksize(size) {
+ function checksize(size) { 
 	$('#size').val(size);
 	 }
  function checkcolor(color) {
