@@ -560,6 +560,13 @@ function choose(hair_style_id) {
 			data: {size:size,color:color,gid:gid},
 			datatype:'json',
 			success: function(data) {
+				var member = eval('('+data+')');
+				if(member.status == 200) {
+					$(".gray1").css("display","none");
+			        $(".goodorder1").css("display","none");
+					alert('添加购物城成功');
+					
+				}
 			}
         })
 }
