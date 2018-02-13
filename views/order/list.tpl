@@ -9,7 +9,7 @@
 		<div class="header_fr">
 		</div>
 	</div>
-	<div class="order_form">
+	<div class="order_form" style="margin-top:6rem;">
 		<ul>
 			<li>
 				<a href="#" class="selected"> 
