@@ -46,6 +46,7 @@ class WebApi_Order_Item extends WebApi{
         $params['refund_time'] = isset($data['refund_time']) ? $data['refund_time'] : '';
         $params['create_time'] = date('Y-m-d H:i:s');
         $params['update_time'] = date('Y-m-d H:i:s');
+        print_r($params);exit;
         return CoreApi_Order_Item::instance()->insert($params);
     }
 }
