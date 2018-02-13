@@ -350,7 +350,7 @@
 	       </div> 
 	    </div>
 	    <div class="order_submit">
-	    	<input type="submit" value="确认">
+	    	<input type="button" value="确认" onclick="shoppingadd()">
 	    </div>
 	</div>
 {literal}
@@ -451,6 +451,7 @@ $(".third71 a").click(function(){
  
 });
 
+ 
 function choose(hair_style_id) {
 		$.ajax({
 			type: "POST",
@@ -546,15 +547,29 @@ function choose(hair_style_id) {
 		// window.location.href='/order/add?gid='+gid;
         $(".gray").css("display","block");
         $(".goodorder").css("display","block");
+	}
+
+
+   	function shoppingadd() {
+   		size = $('#size').val();
+        color = $('#color').val();
+        gid = $('#gid').val();
         $.ajax({
 			type: "POST",
-			url: '/user/hairstyle/ajaxGetHairstyle',
-			data: {hair_style_id:hair_style_id},
+			url: '/user/shoppingcar/ajaxAdd',
+			data: {size:size,color:color,gid:gid},
 			datatype:'json',
 			success: function(data) {
 			}
         })
-	}
+}
+
+
+
+
+
+
+	
 	function gray() {  
    		$(".gray").css("display","none");
         $(".goodorder").css("display","none");

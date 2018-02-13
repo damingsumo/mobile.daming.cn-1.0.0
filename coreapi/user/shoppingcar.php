@@ -12,6 +12,7 @@ class CoreApi_User_Shoppingcar extends CoreApi {
         'gid' => 'int',
         'size' => 'int',
         'color' => 'string',
+        'number'=>'int',
         'create_time' => 'string',
         'update_time' => 'string',);
     
