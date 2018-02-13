@@ -3558,7 +3558,7 @@ align-items: center;
 		left: 303px;
 	}
 }
-@media screen and (width: 375px){
+@media screen and (width: 414px){
 	.content5{
 		display: table;
 		width: 100%;
