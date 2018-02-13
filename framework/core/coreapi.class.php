@@ -172,6 +172,7 @@ class CoreApi {//implements idata {
 			$sql = 'replace ';
 		} 
  		$sql .= " into ".$this->_tableName."(".implode(",",$fields).") values(:".implode(",:",$fields).")";
+ 		print_r($sql);exit;
  		return $this->db->insert($sql, $binds);
 	}
 	

@@ -40,10 +40,10 @@ class WebApi_Order_Item extends WebApi{
         $params['reduce_money'] = isset($data['reduce_money']) ? $data['reduce_money'] : 0;
         $params['pay_money'] = isset($data['pay_money']) ? $data['pay_money'] : 0;
         $params['pay_method'] = isset($data['pay_method']) ? $data['pay_method'] : 0;
-        $params['pay_time'] = isset($data['pay_time']) ? $data['pay_time'] : date('Y-m-d H:i:s');;
+        $params['pay_time'] = isset($data['pay_time']) ? $data['pay_time'] : date('Y-m-d H:i:s');
         $params['refund_money'] = isset($data['refund_money']) ? $data['refund_money'] : 0;
         $params['refund_method'] = isset($data['refund_method']) ? $data['refund_method'] : 0;
-        $params['refund_time'] = isset($data['refund_time']) ? $data['refund_time'] : date('Y-m-d H:i:s');;
+        $params['refund_time'] = isset($data['refund_time']) ? $data['refund_time'] : date('Y-m-d H:i:s');
         $params['create_time'] = date('Y-m-d H:i:s');
         $params['update_time'] = date('Y-m-d H:i:s');
         return CoreApi_Order_Item::instance()->insert($params);
