@@ -29,7 +29,6 @@
   <input type="hidden" value="{$hwPhoto['boday_url']}" id="boday_url">
   <input type="hidden" value="{if isset($hwPhoto['leg_url'])}{$hwPhoto['leg_url']}{/if}" id="leg_url">
   
-  <input type="hidden" value="$good.gid}" id="gid">
    <div class="content7">
 	<div class="content7_top">
 		<div class="top71">
@@ -564,8 +563,9 @@ function choose(hair_style_id) {
 					$(".gray1").css("display","none");
 			        $(".goodorder1").css("display","none");
 					alert('添加购物城成功');
-					
 				}
+
+				
 			}
         })
 }
