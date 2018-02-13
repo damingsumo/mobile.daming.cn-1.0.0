@@ -1,5 +1,4 @@
-{include file="common/header.tpl" pageTitle="我的"}
-{include file="common/menu.tpl"}
+{include file="common/header.tpl" pageTitle="我的订单"}
 <body style="background:#F8F8F8;">
 	<div class="header hearder1">
 		<a href="" class="header_fl">
