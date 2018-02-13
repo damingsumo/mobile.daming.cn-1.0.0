@@ -8,8 +8,8 @@ class Controller_Wxpayment extends Controller_Base {
 	public $WX_NOTIFY_URL = 'wx/notify/receiptNotification';
 	
 	
-	public function testpay() {
-	    return $this->display('wxpayment/orderpay', $data);
+	public function topay() {
+	    return $this->display('wxpayment/topay');
 	}
 	
 	
