@@ -3152,7 +3152,7 @@ align-items: center;
 	float: right;
 	margin: 0.5rem 1.7rem 0.5rem 0; 
 }
-.evaluate_button a,.payoff{
+.evaluate_button a{
 	float: right;
 	padding: 0.2rem 1.5rem;
 	border-radius: 15px;
@@ -3161,6 +3161,10 @@ align-items: center;
 }
 .payoff{
 	float: right;
+	padding: 0.5rem 1.5rem;
+	border: 1px solid #0000FF;
+	border-radius: 15px;
+	color:#0000FF; 
 	margin: 0.5rem 1.7rem 0.5rem 0;
 }
 .good_name input{ 
