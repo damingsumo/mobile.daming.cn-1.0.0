@@ -68,6 +68,7 @@ class Controller_Order extends Controller_Base {
         $data['price'] = $good['price'];
         $data['old_price'] = $good['old_price'];
         $res = WebApi_Order_Item::instance()->add($data);
+        print_r($res);exit;
         if(!$res) {
             return $this->error('添加明细失败');
         }
