@@ -1,7 +1,7 @@
 {include file="common/header.tpl" pageTitle="我的订单"}
 <body style="background:#F8F8F8;">
 	<div style="float:left;margin-bottom:5rem;">
-	<div class="order_form" style="margin-top:6rem;">
+	<div class="order_form">
 		<ul>
 			<li>
 				<a href="#" class="selected"> 
