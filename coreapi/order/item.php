@@ -23,7 +23,8 @@ class CoreApi_Order_Item extends CoreApi {
         'size' => 'int',
         'color' => 'string',
         'create_time' => 'string',
-        'update_time' => 'string',);
+        'update_time' => 'string',
+    );
     
     
     public function getOrderItemsByParams($params, $page, $pagesize, $returnFormat = 'Array', $order = "create_time", $desc = "desc") {
