@@ -309,8 +309,8 @@
 	<!--加入购物车-->
 	
 	
-	<input type="hidden" name="size" value="" id="size">
-	<input type="hidden" name="color" value="" id="color">
+	<input type="hidden" name="size" value="" id="size_car">
+	<input type="hidden" name="color" value="" id="color_car">
 	<div class="gray1" style="display:none " onclick="gray1()">
 	</div>
 	<div class="goodorder1">
@@ -591,7 +591,7 @@ function choose(hair_style_id) {
         $(".goodorder1").css("display","none");
    }
  function checksize(size) { 
-	$('#size').val(size);
+	$("#size").val(size);
 	 }
  function checkcolor(color) {
 		$('#color').val(color);
