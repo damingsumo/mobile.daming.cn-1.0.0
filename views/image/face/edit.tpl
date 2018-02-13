@@ -21,7 +21,7 @@
   <div class="bottom3">
     <ul class="bottom3_1">
     {foreach $faces as $face}
-      <a onclick="face({$face.face_id})" class="bg3"><li value="{$face.face_id}" {if $face.face_id == $image.face_id}  {/if}><img src="http://dev.mgr.daming.com.cn{$face.show_url}"><span>{$face.name}</span></li></a>
+      <a onclick="face({$face.face_id})"><li value="{$face.face_id}" {if $face.face_id == $image.face_id}  {/if}><img src="{$face.show_url}"><span>{$face.name}</span></li></a>
       {/foreach}
     </ul>
     <ul class="none bottom3_2">

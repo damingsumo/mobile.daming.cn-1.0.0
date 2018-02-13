@@ -58,7 +58,7 @@
 		{foreach $brands as $brand}
 			<li>
 				<a href="/brand/goods/list?brand_id={$brand.brand_id}">
-					<img src="{$brand.picture_url}">
+					<img src="http://test.mgr.bestdaming.cn{$brand.picture_url}">
 					<span>{$brand.name}</span>
 					<em>高端休闲成衣时尚品牌</em>
 				</a>

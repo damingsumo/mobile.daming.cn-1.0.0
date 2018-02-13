@@ -27,7 +27,7 @@
     </ul>
     <ul class="none bottom3_2 ">
     {foreach $complexions as $complexion}
-      <a onclick="complexion({$complexion.complexion_id})"><li value="{$complexion.complexion_id}"><img src="{$complexion.picture_url}"><span>{$complexion.name}</span></li></a>
+      <a onclick="complexion({$complexion.complexion_id})"><li value="{$complexion.complexion_id}"><img src="http://test.mgr.bestdaming.cn{$complexion.picture_url}"><span>{$complexion.name}</span></li></a>
       {/foreach}
     </ul>
   </div>
@@ -66,17 +66,18 @@
            var ctx1 = canvas1.getContext("2d"); 
            var canvas2 = document.getElementById("hair"); 
            var ctx2 = canvas2.getContext("2d"); 
-             //后面的头发
-           var img = new Image(); 
-               img.crossOrigin =" anonymous" ; 
-               img.src =behidestyle; 
-               ctx.clearRect(0,0,1000,1000); 
-               img.onload = function(){
-                   ctx.drawImage(img,beo,parseInt(bea)-30,bel,bew-30); 
+           //   //后面的头发
+           // var img = new Image(); 
+           //     img.crossOrigin =" anonymous" ; 
+           //     img.src =behidestyle; 
+           //     ctx.clearRect(0,0,1000,1000); 
+           //     img.onload = function(){
+           //         ctx.drawImage(img,beo,parseInt(bea)-30,bel,bew-30); 
                     //脖子
                     var img1 = new Image(); 
                         img1.crossOrigin =" anonymous" ; 
                         img1.src= "/static/images/bozi.png"; 
+                        ctx.clearRect(0,0,1000,1000); 
                     img1.onload = function () //确保图片已经加载完毕  
                     {  
                       ctx.drawImage(img1,70,275,195,60);  
@@ -97,7 +98,7 @@
                             ctx.drawImage(img5,66,322,210,255); 
                           }
                      } 
-                }
+                // }
                    //脸  
                    var img3 = new Image(); 
                        img3.crossOrigin =" anonymous" ; 
@@ -169,16 +170,17 @@ $(".bottom3_2 a").click(function(){
                var canvas2 = document.getElementById("hair"); 
                var ctx2 = canvas2.getContext("2d"); 
                  //后面的头发
-               var img = new Image(); 
-                   img.crossOrigin =" anonymous" ; 
-                   img.src =behidestyle; 
-                   ctx.clearRect(0,0,1000,1000); 
-                   img.onload = function(){
-                       ctx.drawImage(img,beo,parseInt(bea)-30,bel,bew-30);
+               // var img = new Image(); 
+               //     img.crossOrigin =" anonymous" ; 
+               //     img.src =behidestyle; 
+               //     ctx.clearRect(0,0,1000,1000); 
+               //     img.onload = function(){
+               //         ctx.drawImage(img,beo,parseInt(bea)-30,bel,bew-30);
                        //脖子
                         var img1 = new Image(); 
                             img1.crossOrigin =" anonymous" ; 
                             img1.src= "/static/images/bozi.png"; 
+                            ctx.clearRect(0,0,1000,1000); 
                         img1.onload = function () //确保图片已经加载完毕  
                         {  
                           ctx.drawImage(img1,70,275,195,60);  
@@ -195,6 +197,7 @@ $(".bottom3_2 a").click(function(){
                         var img2 = new Image();
                             img2.crossOrigin =" anonymous" ; 
                             img2.src="/static/images/shenzi.png"; 
+                            ctx.clearRect(0,0,1000,1000); 
                         img2.onload = function () //确保图片已经加载完毕  
                         {  
                               ctx.drawImage(img2,0,335,340,600);     
@@ -215,7 +218,7 @@ $(".bottom3_2 a").click(function(){
                                 ctx.drawImage(img5,66,322,210,255); 
                               }
                          }  
-                    }
+                    // }
                      //脸  
                    var img3 = new Image(); 
                        img3.crossOrigin =" anonymous" ; 
@@ -252,13 +255,13 @@ $(".bottom3_2 a").click(function(){
                  var canvas2 = document.getElementById("hair"); 
                  var ctx2 = canvas2.getContext("2d"); 
                    //后面的头发
-                 var img = new Image(); 
-                     img.crossOrigin =" anonymous" ; 
-                     img.src =behidestyle; 
-                     ctx.clearRect(0,0,1000,1000); 
-                     img.onload = function(){
-                         ctx.drawImage(img,beo,parseInt(bea)-30,bel,bew-30);  
-                      }
+                 // var img = new Image(); 
+                 //     img.crossOrigin =" anonymous" ; 
+                 //     img.src =behidestyle; 
+                 //     ctx.clearRect(0,0,1000,1000); 
+                 //     img.onload = function(){
+                 //         ctx.drawImage(img,beo,parseInt(bea)-30,bel,bew-30);  
+                 //      }
                    //脸  
                    var img3 = new Image(); 
                        img3.crossOrigin =" anonymous" ; 
@@ -289,6 +292,7 @@ $(".bottom3_2 a").click(function(){
                     var img1 = new Image(); 
                         img1.crossOrigin =" anonymous" ; 
                         img1.src= "/static/images/bozi.png"; 
+                        ctx.clearRect(0,0,1000,1000); 
                     img1.onload = function () //确保图片已经加载完毕  
                     {  
                       ctx.drawImage(img1,70,275,195,60);  
@@ -305,6 +309,7 @@ $(".bottom3_2 a").click(function(){
                     var img2 = new Image();
                         img2.crossOrigin =" anonymous" ; 
                         img2.src="/static/images/shenzi.png"; 
+                        ctx.clearRect(0,0,1000,1000); 
                     img2.onload = function () //确保图片已经加载完毕  
                     {  
                           ctx.drawImage(img2,0,335,340,600);     
@@ -371,13 +376,13 @@ $(".bottom3_2 a").click(function(){
                var canvas2 = document.getElementById("hair"); 
                var ctx2 = canvas2.getContext("2d"); 
                  //后面的头发
-               var img = new Image(); 
-                   img.crossOrigin =" anonymous" ; 
-                   img.src =behidestyle; 
-                   ctx.clearRect(0,0,1000,1000); 
-                   img.onload = function(){
-                       ctx.drawImage(img,beo,parseInt(bea)-30,bel,bew-30);  
-                    }
+               // var img = new Image(); 
+               //     img.crossOrigin =" anonymous" ; 
+               //     img.src =behidestyle; 
+               //     ctx.clearRect(0,0,1000,1000); 
+               //     img.onload = function(){
+               //         ctx.drawImage(img,beo,parseInt(bea)-30,bel,bew-30);  
+               //      }
                      //脸  
                    var img3 = new Image(); 
                        img3.crossOrigin =" anonymous" ; 
@@ -408,6 +413,7 @@ $(".bottom3_2 a").click(function(){
                     var img1 = new Image(); 
                         img1.crossOrigin =" anonymous" ; 
                         img1.src= "/static/images/bozi.png"; 
+                        ctx.clearRect(0,0,1000,1000); 
                     img1.onload = function () //确保图片已经加载完毕  
                     {  
                       ctx.drawImage(img1,70,275,195,60);  
@@ -424,6 +430,7 @@ $(".bottom3_2 a").click(function(){
                     var img2 = new Image();
                         img2.crossOrigin =" anonymous" ; 
                         img2.src="/static/images/shenzi.png"; 
+                        ctx.clearRect(0,0,1000,1000); 
                     img2.onload = function () //确保图片已经加载完毕  
                     {  
                           ctx.drawImage(img2,0,335,340,600);     
@@ -453,13 +460,13 @@ $(".bottom3_2 a").click(function(){
                  var canvas2 = document.getElementById("hair"); 
                  var ctx2 = canvas2.getContext("2d"); 
                    //后面的头发
-                 var img = new Image(); 
-                     img.crossOrigin =" anonymous" ; 
-                     img.src =behidestyle; 
-                     ctx.clearRect(0,0,1000,1000); 
-                     img.onload = function(){
-                         ctx.drawImage(img,beo,parseInt(bea)-30,bel,bew-30);  
-                      }
+                 // var img = new Image(); 
+                 //     img.crossOrigin =" anonymous" ; 
+                 //     img.src =behidestyle; 
+                 //     ctx.clearRect(0,0,1000,1000); 
+                 //     img.onload = function(){
+                 //         ctx.drawImage(img,beo,parseInt(bea)-30,bel,bew-30);  
+                 //      }
                    //脸  
                    var img3 = new Image(); 
                        img3.crossOrigin =" anonymous" ; 
@@ -490,6 +497,7 @@ $(".bottom3_2 a").click(function(){
                     var img1 = new Image(); 
                         img1.crossOrigin =" anonymous" ; 
                         img1.src= "/static/images/bozi.png"; 
+                        ctx.clearRect(0,0,1000,1000); 
                     img1.onload = function () //确保图片已经加载完毕  
                     {  
                       ctx.drawImage(img1,70,275,195,60);  
@@ -506,6 +514,7 @@ $(".bottom3_2 a").click(function(){
                     var img2 = new Image();
                         img2.crossOrigin =" anonymous" ; 
                         img2.src="/static/images/shenzi.png"; 
+                        ctx.clearRect(0,0,1000,1000); 
                     img2.onload = function () //确保图片已经加载完毕  
                     {  
                           ctx.drawImage(img2,0,335,340,600);     
