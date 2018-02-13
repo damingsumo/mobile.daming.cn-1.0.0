@@ -9,7 +9,7 @@ class Controller_Wxpayment extends Controller_Base {
 	
 	
 	public function topay() {
-	    return $this->display('wxpayment/topay');
+	    return $this->display('topay');
 	}
 	
 	
