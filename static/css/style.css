@@ -3154,13 +3154,17 @@ align-items: center;
 }
 .evaluate_button a{
 	float: right;
-	padding: 0.2rem 1.5rem;
+	padding: 0.3rem 1.5rem;
 	border-radius: 15px;
 	border: 1px solid #FF0000;
 	color: #FF0000;
 }
 .payoff{
 	float: right;
+	padding: 0.2rem 2rem;
+	border: 1px solid #0000FF;
+	border-radius: 15px;
+	color:#0000FF; 
 	margin: 0.5rem 1.7rem 0.5rem 0;
 }
 .good_name input{ 
