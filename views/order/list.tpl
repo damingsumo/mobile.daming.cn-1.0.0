@@ -40,7 +40,7 @@
 	</div>
 	
 	{foreach $orders as $key=>$val}
-	<div style="float:left;width:100%;height:9.8rem;">
+	<div style="float:left;width:100%;height:10rem;">
 		<div class="good_name">
 			<img src="{$val.brand['picture_url']}">
 			<span>{$val.brand_name}</span>
@@ -59,7 +59,7 @@
 		</div>
 		{/foreach}
 	</div>
-		<a onclick="order/ajaxPay?oid={$val.oid}" class="payoff">支付</a>
+		<a href="#javascript;" onclick="order/ajaxPay?oid={$val.oid}" class="payoff">支付</a>
 	{/foreach}
 {literal}
 <script type="text/javascript">
